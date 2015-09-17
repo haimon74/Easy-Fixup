@@ -1,0 +1,16 @@
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\obj\Debug\ezFixUp.Model.csprojResolveAssemblyReference.cache
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\ezFixUp.Model.dll.config
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\ezFixUp.Model.dll
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\ezFixUp.Model.pdb
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\EntityFramework.dll
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\EntityFramework.xml
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\obj\Debug\ezFixUp.Model.dll
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Model\obj\Debug\ezFixUp.Model.pdb
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\ezFixUp.Model.dll.config
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\ezFixUp.Model.dll
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\ezFixUp.Model.pdb
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\EntityFramework.dll
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\bin\Debug\EntityFramework.xml
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\obj\Debug\ezFixUp.Model.csprojResolveAssemblyReference.cache
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\obj\Debug\ezFixUp.Model.dll
+C:\Users\haim\Documents\Visual Studio 2013\Projects\ezFixUpWebAPI\ezFixUp.Model\obj\Debug\ezFixUp.Model.pdb

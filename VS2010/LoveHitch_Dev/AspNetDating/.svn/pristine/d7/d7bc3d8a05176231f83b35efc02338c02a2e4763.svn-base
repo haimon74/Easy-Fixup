@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Codebehind="Admin.master.cs" Inherits="Estream.AjaxChat.Admin.AdminMaster" %>
+<%@ Register Src="MessageBox.ascx" TagName="MessageBox" TagPrefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <link rel="stylesheet" type="text/css" href="Images/style.css" media="all" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="divMain" runat="server">
+            <div id="headerwrap">
+                <div id="logo">
+                    <div id="headerlogin">
+                        <asp:Label ID="lblWelcome" runat="server"></asp:Label>
+                        <asp:LinkButton ID="lnkLogout" runat="server" CssClass="exitlink" OnClick="lnkLogout_Click"></asp:LinkButton>
+                    </div>
+                </div>
+                <div id="glance">
+                    <asp:Panel ID="pnlLogout" runat="server">
+                        <table cellspacing="0" cellpadding="0" class="header-table">
+                            <tr>
+                                <td align="left" class="header-links">
+                                    <asp:Literal ID="ltrAtAGlance" runat="server"></asp:Literal>
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:Panel>
+                </div>
+            </div>
+            <div id="layout">
+                <div id="crupms">
+                    <asp:ContentPlaceHolder ID="cphIcon" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <div id="crumpstxt">
+                        <asp:Literal ID="ltrCrumpsText" runat="server"></asp:Literal></div>
+                </div>
+                <div id="sidebar">
+                    <div id="leftnav">
+                        <div class="navlabel">
+                        </div>
+                        <div class="navblock">
+                            <ul>
+                                <li><a href="BrowseUsers.aspx">Browse Users</a></li>
+                                <li><a href="Settings.aspx">Settings</a></li>
+                                <li><a href="ManageChatRooms.aspx">Manage Chat Rooms</a></li>
+                                <li><a href="ManageBadWords.aspx">Manage Bad Words</a></li>
+                                <li><a href="EditStrings.aspx">Edit Strings</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="main">
+                    <div id="content-head">
+                        <div class="ch-head">
+                            <asp:Literal ID="ltrHeaderText" runat="server"></asp:Literal></div>
+                        <div class="ch-description">
+                            <asp:Literal ID="ltrHeaderDescription" runat="server"></asp:Literal></div>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td>
+                                <uc1:MessageBox ID="MessageBox" runat="server" />
+                                <asp:ContentPlaceHolder ID="cphContent" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

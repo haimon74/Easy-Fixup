@@ -1,0 +1,493 @@
+<%@ Page Language="c#" CodeBehind="SendMessagePopup.aspx.cs"
+    AutoEventWireup="True" Inherits="AspNetDating.SendMessagePopup" %>
+
+<%@ Import Namespace="AspNetDating" %>
+<%@ Import Namespace="AspNetDating.Classes" %>
+<%@ Register TagPrefix="uc1" TagName="GiftsGallery" Src="Components/Messages/GiftsGallery.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="FlexButton" Src="Components/FlexButton.ascx" %>
+<%@ Register TagPrefix="components" Namespace="AspNetDating.Components" Assembly="AspNetDating" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="Images/common.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/hot-sneaks/jquery-ui-1.8.7.custom.css" media="screen" />
+    <link rel="stylesheet/less" type="text/less" href="Images/styles.less" />
+    <script type="text/javascript" src="./scripts/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript" src="./scripts/jquery-ui.min.js"></script> 
+    <script type="text/javascript">
+        
+        var asyncScripts = [];
+        function loadScriptNonBlockingWay(url) {
+            setTimeout(function () {
+                var elmScript = document.createElement('script');
+                elmScript.async = true;
+                elmScript.src = url;
+                elmScript.type = 'text/javascript';
+                document.getElementsByTagName('head')[0].appendChild(elmScript);
+            }, 0);
+        }
+        waitToLoadJQueryDependentScripts();
+        var lovehitchJqueryLoaded = false;
+        var popeyeLoaded = false;
+        function waitToLoadJQueryDependentScripts() {
+            // Script that does something and depends on jQuery being there.
+            if (window.$ && jQuery) {
+                $(window).load(function () {
+                    loadScriptNonBlockingWay('./scripts/jquery.lovehitch.min.js');
+                    loadScriptNonBlockingWay('./scripts/async_facebook_loader.js');
+                    loadDependentScripts();
+                });
+            } else {
+                // wait 50 milliseconds and try again.
+                window.setTimeout(waitToLoadJQueryDependentScripts, 50);
+            }
+        }
+        function loadDependentScripts() {
+            if (lovehitchJqueryLoaded) {
+                loadScriptNonBlockingWay('./scripts/pages/master.page.js');
+                loadScriptNonBlockingWay('./scripts/rtlLayout.js');
+                for (var i = 0; i < asyncScripts.length; i++) {
+                    loadScriptNonBlockingWay(asyncScripts[i]);
+                }
+            } else {
+                window.setTimeout(loadDependentScripts, 50);
+            }
+        }
+    </script>
+</head>
+<body onload='iframeResize();' style='background:white;text-align:left;'>
+<% if (Session["Direction"] == "rtl")
+    {%>
+    <link href="Images/direction-rtl.css" rel="stylesheet" type="text/css" />
+ <%} %>
+
+<form id="form1" runat="server">
+<ajaxToolkit:ToolkitScriptManager ID="ScriptManagerMaster" CombineScripts="true" ScriptMode="Release" CompositeScript-ScriptMode="Release" LoadScriptsBeforeUI="false"  
+        runat="server" EnablePartialRendering="true" EnableHistory="true" >
+        <CompositeScript ScriptMode="Release">
+            <Scripts>
+                <asp:ScriptReference name="MicrosoftAjax.js"/>
+                <asp:ScriptReference name="MicrosoftAjaxWebForms.js"/>
+        	    <%--<asp:ScriptReference name="Estream.AjaxChat.Components.MessengerPresence_c.js" assembly="AjaxChat"/>--%>
+	            <asp:ScriptReference name="Common.Common.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="ExtenderBase.BaseScripts.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="DynamicPopulate.DynamicPopulateBehavior.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="Compat.Timer.Timer.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="Compat.DragDrop.DragDropScripts.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="DragPanel.FloatingBehavior.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="RoundedCorners.RoundedCornersBehavior.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="DropShadow.DropShadowBehavior.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="ModalPopup.ModalPopupBehavior.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="CascadingDropDown.CascadingDropDownBehavior.js" assembly="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            
+	            <asp:ScriptReference Path="./scripts/masterPageLoad.js"/>
+	            
+            </Scripts>
+        </CompositeScript>
+    </ajaxToolkit:ToolkitScriptManager>
+    <script type="text/javascript">
+        // global variables
+        var loadUserData = false;
+        var fbTriesElapsed = '<%= FacebookHelper.SessionConnectTriesElapsed %>';
+        var pleaseChooseText = '<%= PageBase.PleaseChooseTranslated %>';
+        var lastProfileText = '<%= PageBase.LastProfileTranslated %>';
+        var lastProfileUrl = '<%=((PageBase) Page).GetLastViewedProfileUrl()%>';
+        var matchRequestConfirmationPopupContentTemplate = '<%=PageBase.MatchRequestConfirmationPopupContentTemplateTranslated%>';
+        var redirectToLastViewedUser = '<%=((PageBase) Page).IsToRedirectToLastViewedUsername%>';
+        var statusLinkText = '<%= ((PageBase)Page).StatusPageLinkText %>';
+        var statusLinkUrl = '<%= ((PageBase)Page).StatusPageLinkURL %>';
+        var closeText = '<%= PageBase.CloseTranslated %>';
+        var disableText = '<%= PageBase.DisableTranslated %>';
+        var statusString = "<%= ((PageBase)Page).StatusPageMessage %>";
+        var tipTitleString = "<%= ((PageBase)Page).TipTitle %>";
+        var tipContentString = escape("<%= ((PageBase)Page).TipMessage %>");
+        var pageName = '<%= this.Page.GetType() %>';
+        var facebookAppId = '<%= FacebookHelper.AppID %>';
+        var fbBasicPermissionScope = '<%=ConfigurationManager.AppSettings["FacebookPermissions"] %>';
+        var viewer = "<%= (PageBase.GetCurrentUserSession() != null) ? PageBase.GetCurrentUserSession().Username : null%>";
+
+        var invite_after_action_title = '<%=  "Invite After Action to Facebook Friends TITLE".Translate()%>';
+        var invite_after_action_message = '<%=  "Invite After Action to Facebook Friends MESSAGE".Translate()%>';
+        var invite_title = '<%=  "Invite Facebook Friends TITLE".Translate()%>';
+        var invite_message = '<%=  "Invite Facebook Friends MESSAGE".Translate()%>';
+    
+        
+        function iframeResize() {
+            var iFrameID = document.getElementById('sendMessageFrame');
+            if (iFrameID) {
+                // here you can meke the height, I delete it first, then I make it again
+                iFrameID.height = "";
+                iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + 30 + "px";
+            }
+        }
+        var jqGalleryId = "#" + "<%= GiftsGallery1.ClientID %>";
+        jQuery(function ($) {
+            $('#lbAddGift').bind('click', iframeResize);
+            //debugger;
+            //$(jqGalleryId).css('display', 'none !important');
+            //hideGiftGallery();
+        });
+        function onLoad() {
+            //hideGiftGallery();
+        }
+        function showGiftGallery() {
+            jQuery(function($) { $(jqGalleryId).show(); });
+        }
+        function hideGiftGallery() {
+            jQuery(function($) { $(jqGalleryId).hide(); });
+        }
+    </script>
+
+    <div id="main">
+        <div>
+            <div id="container">
+                <table style="margin: 15px 15px 5px 15px; ">
+                <tr>
+                    <td style="width:47%;" >
+                    <table id="tblFrom"  class="fl">
+                        <tr>
+                            <td valign="top">
+                                <asp:Literal ID="ltrPhotoTo" runat="server"></asp:Literal>
+                            </td>
+                            <td valign="top" style="width:60%;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span class="label c026683">
+                                                <%= Lang.Trans("To(sendee)") %>:</span>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblToUsername" runat="server" ForeColor="#5DA1B3"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label c026683">
+                                                <%= Lang.Trans("Age") %>:</span>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblToAge" runat="server" ForeColor="#5DA1B3"></asp:Label><br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="valign_top">
+                                            <span class="label c026683">
+                                                <%= Lang.Trans("Location") %>:</span>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblToLocation" runat="server" ForeColor="#5DA1B3"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="bottom" colspan="2" >
+                                            <table>
+                                            <tr>
+                                                <td style="width:25px;">
+                                                    <uc1:FlexButton ID="fbAddGift" CssClass="GiftBtnSmall fl" RenderAs="LinkButton" runat="server" OnClick="lbAddGift_Click" class="fl"/>
+                                                </td>
+                                                <td valign="bottom">
+                                                    <asp:LinkButton ID="lbAddGift" runat="server" Font-Bold="true" ForeColor="#026683"
+                                                        Style="cursor: pointer;" OnClick="lbAddGift_Click"></asp:LinkButton>
+                                                </td>
+                                            </tr>
+                                            </table>
+                                            
+                                            <%--<a class="c026683"><b>
+                                            <%= Lang.Trans("Add gift")%></b></a>--%>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:CheckBox ID="cbSendee1" runat="server" Visible="false" Checked="true" />
+                    </td>
+                    <td style="width:47%;" >
+                    <table id="tblAbout" runat="server" class="fr" visible="true" style="visibility:hidden;" >
+                        <tr>
+                            <td valign="top">
+                                <asp:Literal ID="ltrAboutPhoto" runat="server" Visible="true"></asp:Literal>
+                            </td>
+                            <td valign="top" style="width:60%;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span class="label c026683">
+                                                <%= this.MessageType == Message.eMessageType.Matchmaking ?
+                                                    Lang.Trans("To(sendee)") : Lang.Trans("About")%>:</span>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblAboutUsername" runat="server" ForeColor="#5DA1B3"></asp:Label><br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label c026683">
+                                                <%= Lang.Trans("Age") %>:</span>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblAboutAge" runat="server" ForeColor="#5DA1B3"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="valign_top">
+                                            <span class="label c026683">
+                                                <%= Lang.Trans("Location") %>:</span>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblAboutLocation" runat="server" ForeColor="#5DA1B3"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:CheckBox ID="cbSendee2" runat="server" Visible="false" Checked="true" />
+                    </td>
+                    </tr>
+                </table>
+                <br />
+                <div class="separator">
+                </div>
+                <asp:UpdatePanel ID="UpdatePanelGiftsGallery" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="lbAddGift" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="fbAddGift" EventName="Click" />
+                    </Triggers>
+                    <ContentTemplate>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                
+                <uc1:GiftsGallery ID="GiftsGallery1" runat="server" PaginatorEnabled="true"></uc1:GiftsGallery>
+                
+                <div class="wrap-sized" style="margin: 0px 15px;">
+                    <div class="separator">
+                    </div>
+                    <components:BannerView ID="bvSendMessageRight" runat="server" Key="SendMessageRight">
+                    </components:BannerView>
+                    <div id="pnlWinkSelector" runat="server" class="fl w100">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td>
+                                    <span class="label c026683">
+                                        <%= Lang.Trans("Wink Phrase") %>:</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:DropDownList ID="ddlWinkPhrase" runat="server" Width="100%">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="pnlMutualFriendMessage" runat="server" class="fl w100">
+                        <table class="w100">
+                            <tr>
+                                <td>
+                                    <span class="label c026683">
+                                        <asp:Label ID="lblMutualFriendMsgTitle" runat="server"></asp:Label>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="mfQuestions" runat="server">
+                                <td>
+                                    <asp:CheckBox ID="cbMfQuestion1" runat="server" Visible="true" /><br />
+                                    <asp:CheckBox ID="cbMfQuestion2" runat="server" Visible="true" /><br />
+                                    <asp:CheckBox ID="cbMfQuestion3" runat="server" Visible="true" /><br />
+                                    <asp:CheckBox ID="cbMfQuestion4" runat="server" Visible="true" /><br />
+                                    <asp:CheckBox ID="cbMfQuestion5" runat="server" Visible="true"/><br />
+                                </td>
+                            </tr>
+                            <tr id="mfAnswers" runat="server">
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lblMfAnswer1" runat="server" />
+                                            </td>
+                                            <td>
+                                                <asp:RadioButtonList ID="rblMfAnswer1" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:ListItem Value="0">No</asp:ListItem>
+                                                    <asp:ListItem Value="1">Yes</asp:ListItem>
+                                                </asp:RadioButtonList>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lblMfAnswer2" runat="server" />
+                                            </td>
+                                            <td>
+                                                <asp:RadioButtonList ID="rblMfAnswer2" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:ListItem Value="0">No</asp:ListItem>
+                                                    <asp:ListItem Value="1">Yes</asp:ListItem>
+                                                </asp:RadioButtonList>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lblMfAnswer3" runat="server" />
+                                            </td>
+                                            <td>
+                                                <asp:RadioButtonList ID="rblMfAnswer3" runat="server" RepeatDirection="Horizontal">
+                                                    <asp:ListItem Value="0">No</asp:ListItem>
+                                                    <asp:ListItem Value="1">Yes</asp:ListItem>
+                                                </asp:RadioButtonList>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lblMfAnswer4" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox ID="txtMfAnswer4" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:Label ID="lblMfAnswer5" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox ID="txtMfAnswer5" runat="server" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="label c026683">
+                                        <%= Lang.Trans("More Information") %>:</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:TextBox ID="txtMutualFriendMsgContent" CssClass="multilinetextbox" Rows="10" runat="server" style="width:100%;"
+                                        TextMode="MultiLine"></asp:TextBox><br />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="pnlMessageEdit" runat="server" class="w100 fl">
+                        <table width="100%" >
+                            <tr id="trLabelSubject"  runat="server" visible="false">
+                                <td>
+                                    <span class="label c026683">
+                                        <%= Lang.Trans("Subject") %>:</span>
+                                </td>
+                            </tr>
+                            <tr id="trSubjectText"  runat="server" visible="false">
+                                <td>
+                                    <asp:TextBox ID="txtSubject" runat="server" Width="100%" CssClass="l_form_txt"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr id="trSmilies" runat="server" visible="false">
+                                <td>
+                                    <div id="pnlSmilies" runat="server" visible="false">
+
+                                        <script language="JavaScript" type="text/javascript">
+							    <!--
+							    function insertSmiley(text) {
+								    var area = document.forms[0].<%= MessageBodyClientId %>;
+								    area.focus();
+								    if (document.selection)
+									    document.selection.createRange().text = text;
+								    else
+									    area.value += text;
+								    return false;
+							    }
+							    //-->
+                                        </script>
+
+                                        <table width="100%">
+                                            <tr>
+                                                <td>
+                                                    <asp:ImageButton ID="ibtnPrevSmilies" ImageUrl="~/images/iconprev.gif" OnClick="ibtnPrevSmilies_Click"
+                                                        runat="server" />
+                                                </td>
+                                                <td>
+                                                    <asp:UpdatePanel ID="updatePanelSmilies" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:DataList ID="dlSmilies" SkinID="Smilies" RepeatLayout="Flow" RepeatDirection="Horizontal"
+                                                                runat="server">
+                                                                <ItemTemplate>
+                                                                    <a href="#" onclick="return insertSmiley('<%# Eval("Key") %>')">
+                                                                        <img alt='smiley image' src="<%# Eval("Image") %>" title="<%# Eval("Description") %>"
+                                                                            border="0" /></a>
+                                                                </ItemTemplate>
+                                                            </asp:DataList>
+                                                        </ContentTemplate>
+                                                        <Triggers>
+                                                            <asp:AsyncPostBackTrigger ControlID="ibtnPrevSmilies" EventName="Click" />
+                                                            <asp:AsyncPostBackTrigger ControlID="ibtnNextSmilies" EventName="Click" />
+                                                        </Triggers>
+                                                    </asp:UpdatePanel>
+                                                </td>
+                                                <td>
+                                                    <asp:ImageButton ID="ibtnNextSmilies" ImageUrl="~/images/iconnext.gif" OnClick="ibtnNextSmilies_Click"
+                                                        runat="server" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="label c026683">
+                                        <%= Lang.Trans("Content") %>:</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:TextBox ID="txtMessageBody" CssClass="multilinetextbox"  Rows="10" runat="server" TextMode="MultiLine" Width="100%"></asp:TextBox><br />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="buttons w95">
+                    <div class="separator6"></div>
+                    <asp:Button ID="btnSend" runat="server" CssClass="medium zurbtn blue fr" style='margin-right:45px;'></asp:Button>
+                </div>
+                <div id="pnlPreviousMessages" class="text" visible="false" runat="server">
+                    <asp:Repeater ID="rptPreviousMessages" runat="server">
+                        <ItemTemplate>
+                            <div class="separator">
+                            </div>
+                            <div class="line">
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div class="separator">
+                            </div>
+                            <b>
+                                <%# Eval("Username") %>:</b>
+                            <%# Eval("Message") %>
+                        </ItemTemplate>
+                        <SeparatorTemplate>
+                            <br />
+                            <div class="separator">
+                            </div>
+                        </SeparatorTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+        </div>
+        <div style="height: 100px; position: static; background: transparent;">
+            <components:BannerView ID="bvSendMessageRightBottom" runat="server" Key="SendMessageRightBottom">
+            </components:BannerView>
+        </div>
+    </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+/* ASPnetDating 
+ * Copyright (C) 2003-2010 eStream 
+ * lovehitch.com
+
+ *  
+ * IMPORTANT: This is a commercial software product. By using this product  
+ * you agree to be bound by the terms of the ASPnetDating license agreement.  
+ * It can be found at lovehitch.com/agreement.htm
+
+ *  
+ * This notice may not be removed from the source code. 
+ */
+using System;
+using System.Data;
+using System.Linq;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using AspNetDating.Classes;
+
+namespace AspNetDating.Admin
+{
+    public partial class EditStrings : AdminPageBase
+    {
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                if (!HasWriteAccess)
+                {
+                    btnSave.Enabled = false;
+                }
+
+                loadStrings();
+                loadLanguages();
+            }
+        }
+
+        #region Web Form Designer generated code
+
+        protected override void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            if (CurrentAdminSession != null)
+                Privileges = CurrentAdminSession.Privileges.editTexts;
+            base.OnInit(e);
+        }
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+        }
+
+        #endregion
+
+        private void loadStrings()
+        {
+            btnSave.Text = Lang.TransA("Save >>");
+
+            ddTranslationType.Items.Add(new ListItem(Lang.TransA("User Area"), false.ToString()));
+            ddTranslationType.Items.Add(new ListItem(Lang.TransA("Admin Area"), true.ToString()));
+        }
+
+        private void loadLanguages()
+        {
+            foreach (Language language in Language.FetchAll())
+            {
+                ddLanguage.Items.Add(
+                    new ListItem(language.Name, language.Id.ToString()));
+            }
+
+            if (ddLanguage.Items.Count <= 2)
+            {
+                if (ddLanguage.Items.Count == 2)
+                    ddLanguage.SelectedIndex = 1;
+                pnlLanguage.Visible = false;
+                ddLanguage_SelectedIndexChanged(this, null);
+            }
+            else
+            {
+                pnlLanguage.Visible = true;
+            }
+        }
+
+        private void loadTranslations(int languageId, bool adminPanel, int pageId)
+        {
+            DataTable dtTranslations = new DataTable();
+            dtTranslations.Columns.Add("Key");
+            dtTranslations.Columns.Add("Value");
+            dtTranslations.DefaultView.Sort = "Value";
+            var keys = Translation.FetchTranslationKeys(adminPanel).Skip(pageId * 300).Take(300);
+            foreach (string key in keys)
+            {
+                dtTranslations.Rows.Add(new object[] { key, Translation.FetchTranslation(languageId, key, adminPanel) });
+            }
+
+            dgTranslations.Visible = true;
+            btnSave.Visible = true;
+
+            dgTranslations.DataSource = dtTranslations.DefaultView;
+            dgTranslations.DataBind();
+        }
+
+        protected void ddLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddLanguage.SelectedIndex == 0)
+            {
+                dgTranslations.Visible = false;
+                btnSave.Visible = false;
+                return;
+            }
+            ddPage.Items.Clear();
+            bool adminPanel = Convert.ToBoolean(ddTranslationType.SelectedValue);
+            int count = Translation.FetchTranslationKeys(adminPanel).Count();
+            var pagesCount = count / 300 + (count % 300 == 0 ? 0 : 1);
+            for (int i = 1; i <= pagesCount; i++)
+            {
+                ddPage.Items.Add(new ListItem(i.ToString(), (i - 1).ToString()));
+            }
+
+            int languageId = Convert.ToInt32(ddLanguage.SelectedValue);
+            loadTranslations(languageId, adminPanel, 0);
+        }
+
+        protected void ddPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int pageId = Convert.ToInt32(ddPage.SelectedValue);
+            int languageId = Convert.ToInt32(ddLanguage.SelectedValue);
+            bool adminPanel = Convert.ToBoolean(ddTranslationType.SelectedValue);
+            loadTranslations(languageId, adminPanel, pageId);
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!HasWriteAccess)
+                return;
+
+            if (ddLanguage.SelectedIndex == 0) return;
+            int languageId = Convert.ToInt32(ddLanguage.SelectedValue);
+            bool adminPanel = Convert.ToBoolean(ddTranslationType.SelectedValue);
+
+            foreach (DataGridItem item in dgTranslations.Items)
+            {
+                string key = ((HtmlInputHidden)item.Cells[1].FindControl("hidKey")).Value;
+                string originalValue = ((HtmlInputHidden)item.Cells[1].FindControl("hidOriginalValue")).Value;
+                string newValue = ((TextBox)item.Cells[1].FindControl("txtValue")).Text;
+
+                if (newValue != originalValue)
+                {
+                    Translation.SaveTranslation(languageId, key, newValue, adminPanel);
+                }
+            }
+        }
+
+        protected void ddTranslationType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddLanguage.SelectedValue.Length == 0)
+                return;
+
+            int pageId = Convert.ToInt32(ddPage.SelectedValue);
+            int languageId = Convert.ToInt32(ddLanguage.SelectedValue);
+            bool adminPanel = Convert.ToBoolean(ddTranslationType.SelectedValue);
+            loadTranslations(languageId, adminPanel, pageId);
+        }
+    }
+}

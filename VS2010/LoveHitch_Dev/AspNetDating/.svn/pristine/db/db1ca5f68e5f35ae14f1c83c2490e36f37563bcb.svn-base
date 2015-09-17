@@ -1,0 +1,786 @@
+using System;
+using System.Collections;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
+using System.Web;
+using System.Web.Caching;
+using AspNetDating.Classes;
+using AspNetDating.Handlers;
+
+namespace AspNetDating
+{
+    public class ImageHandler : LoveHitchBaseAsyncHandler
+    {
+        public override IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+        {
+            ItsAsynchOperation = new AsynchOperation(cb, context, extraData);
+            return base.BeginProcessRequest(context, cb, extraData);
+        }
+        private HttpContext _context;
+        public override void EndProcessRequest(IAsyncResult result)
+        {
+            var context = ItsAsynchOperation.Context;
+            base.EndProcessRequest(result);
+            string Id = context.Request.Params["id"];
+            string prmWidth = context.Request.Params["width"];
+            string prmHeight = context.Request.Params["height"];
+            string prmFindFace = context.Request.Params["findFace"];
+            string prmCache = context.Request.Params["cache"];
+            string prmDiskCache = context.Request.Params["diskCache"];
+            string prmExactCrop = context.Request.Params["exactCrop"];
+            string prmDebug = context.Request.Params["debug"];
+
+            CommonProcessRequest(context, Id, prmWidth, prmHeight, prmFindFace, prmCache, prmDiskCache, prmExactCrop, prmDebug);
+            context.Response.Flush();
+        }
+        public static void CommonProcessRequest(HttpContext context,
+            string Id, string prmWidth, string prmHeight, string prmFindFace,
+            string prmCache, string prmDiskCache, string prmExactCrop, string prmDebug)
+        {
+            int MaxWidth = 0, MaxHeight = 0;
+            bool findFace = false;
+            FaceFinderPlugin.FaceRegion faceRegion = null;
+            try
+            {
+                if (prmWidth != null && prmHeight != null)
+                {
+                    MaxWidth = Convert.ToInt32(prmWidth);
+                    MaxHeight = Convert.ToInt32(prmHeight);
+                }
+
+                if (!string.IsNullOrEmpty(prmFindFace))
+                {
+                    findFace = true;
+                    if (context.Request.Params["faceX"] != null)
+                    {
+                        try
+                        {
+                            faceRegion = new FaceFinderPlugin.FaceRegion
+                            {
+                                X = int.Parse(context.Request.Params["faceX"]),
+                                Y = int.Parse(context.Request.Params["faceY"]),
+                                Width = int.Parse(context.Request.Params["faceW"]),
+                                Height = int.Parse(context.Request.Params["faceH"])
+                            };
+                        }
+                        catch (ArgumentException)
+                        {
+                            faceRegion = null;
+                        }
+                    }
+                }
+            }
+            catch (ArgumentException)
+            {
+                // Invalid paramerers; no need to log the error
+            }
+
+            #region Show image stack
+
+            var username = context.Request.Params["username"];
+            if (username != null && context.Request.Params["stack"] == "1")
+            {
+                string cacheUrl = Config.Urls.ImagesCacheHome + String.Format("/stacks/photostack_{0}_{1}_{2}.png",
+                                                username, MaxWidth, MaxHeight);
+                string cacheFile = Config.Directories.ImagesCacheDirectory + String.Format(@"\stacks\photostack_{0}_{1}_{2}.png",
+                                                username, MaxWidth, MaxHeight);
+                string cacheKey = String.Format("Photos_Exists_{0}", cacheUrl);
+                if (context.Cache[cacheKey] != null)
+                {
+                    context.Response.Redirect(cacheUrl, false);
+                    return;
+                }
+                if (File.Exists(cacheFile))
+                {
+                    context.Cache.Add(cacheKey, true, new CacheDependency(cacheFile),
+                                      Cache.NoAbsoluteExpiration, TimeSpan.FromHours(1), CacheItemPriority.NotRemovable,
+                                      null);
+
+                    context.Response.Redirect(cacheUrl, false);
+                    return;
+                }
+
+                try
+                {
+                    ShowUserImageStack(context, username, MaxWidth, MaxHeight);
+                }
+                catch (NotFoundException)
+                {
+                    ShowAvatarImage(context, User.Load(username).Gender, MaxWidth, MaxHeight);
+                }
+                catch (Exception err)
+                {
+                    Global.Logger.LogError(err);
+                    ShowAvatarImage(context, User.Load(username).Gender, MaxWidth, MaxHeight);
+                }
+                return;
+            }
+
+            #endregion
+
+            //if (Id == null || Id == "0") ShowNoImage(context, MaxWidth, MaxHeight);
+            if (Id == null || Id == "0")
+            {
+                UserSession us = PageBase.GetCurrentUserSession();
+
+                if (us != null)
+                {
+                    ShowAvatarImage(context, us.Gender, MaxWidth, MaxHeight);
+                    return;
+                }
+                else
+                {
+                    Id = "-1";
+                }
+            }
+
+            switch (Id)
+            {
+                case "-1":
+                    ShowAvatarImage(context, User.eGender.Male, MaxWidth, MaxHeight);
+                    return;
+                case "-2":
+                    ShowAvatarImage(context, User.eGender.Female, MaxWidth, MaxHeight);
+                    return;
+                case "-3":
+                    ShowAvatarImage(context, User.eGender.Couple, MaxWidth, MaxHeight);
+                    return;
+            }
+
+            int photoId;
+            Int32.TryParse(Id, out photoId);
+
+            if (prmCache != null && prmCache == "1")
+            {
+                string cacheKey = String.Format("Photos_ProcessRequest_{0}_{1}_{2}_{3}", Id, MaxWidth, MaxHeight, findFace);
+                if (context.Cache[cacheKey] != null)
+                {
+                    context.Response.Clear();
+                    context.Response.ContentType = "image/jpeg";
+                    context.Response.BinaryWrite((byte[])context.Cache[cacheKey]);
+                    return;
+                }
+            }
+
+            if (prmDiskCache != null && prmDiskCache == "1")
+            {
+                string cacheUrl = Config.Urls.ImagesCacheHome + String.Format("/{3}/photo{4}_{0}_{1}_{2}.jpg",
+                                                photoId, MaxWidth, MaxHeight, Math.Abs(photoId % 10), findFace ? "face" : "");
+                string cacheFile = Config.Directories.ImagesCacheDirectory + String.Format(@"\{3}\photo{4}_{0}_{1}_{2}.jpg",
+                                                photoId, MaxWidth, MaxHeight, Math.Abs(photoId % 10), findFace ? "face" : "");
+                string cacheKey = String.Format("Photos_Exists_{0}", cacheUrl);
+
+                if (File.Exists(cacheFile))
+                {
+                    context.Cache.Add(cacheKey, true, new CacheDependency(cacheFile),
+                                      Cache.NoAbsoluteExpiration, TimeSpan.FromHours(1), CacheItemPriority.NotRemovable,
+                                      null);
+
+                    //context.Response.Redirect(cacheUrl, false);
+                    context.Response.ContentType = "image/jpeg";
+                    context.Response.WriteFile(cacheFile);
+                    //context.Server.Transfer(cacheUrl.Replace(Config.ServerSettings.DomainURL, "~"));
+                    return;
+                }
+                if (context.Cache[cacheKey] != null)
+                {
+                    //context.Response.Redirect(cacheUrl, false);
+                    context.Response.ContentType = "image/jpeg";
+                    context.Response.WriteFile(cacheFile);
+                    return;
+                }
+            }
+
+            try
+            {
+                Image image;
+                bool skipCaching;
+                bool dispose = true;
+
+                if (Id == "session")
+                {
+                    //image = ((Photo) context.Session["temp_photo"]).Image;
+                    image = Image.FromFile((string)context.Session["temp_photo_fileName"]);
+                    skipCaching = true;
+                    dispose = false;
+                }
+                else
+                {
+                    if (context.Session["temp_photos"] != null)
+                    {
+                        skipCaching = true;
+                        var collection = (SortedList)context.Session["temp_photos"];
+                        if (collection[Id] != null)
+                        {
+                            image = ((Photo)collection[Id]).Image;
+                            dispose = false;
+                        }
+                        else
+                            image = Photo.Fetch(photoId).Image;
+                    }
+                    else
+                    {
+                        Photo photo = Photo.Fetch(photoId);
+                        skipCaching = photo.ExplicitPhoto;
+
+                        if (Config.Photos.EnableExplicitPhotos &&
+                            photo.ExplicitPhoto &&
+                            (PageBase.GetCurrentUserSession() == null
+                                || PageBase.GetCurrentUserSession().Age < Config.Users.MinAgeForExplicitPhotos
+                                || PageBase.GetCurrentUserSession().CanViewExplicitPhotos() == PermissionCheckResult.YesButPlanUpgradeNeeded
+                                || PageBase.GetCurrentUserSession().CanViewExplicitPhotos() == PermissionCheckResult.No) &&
+                            context.Session["AdminSession"] == null)
+                        {
+                            ShowCensoredImage(context, MaxWidth, MaxHeight);
+                            return;
+                        }
+                        if (findFace && faceRegion == null && photo.FaceCrop != null)
+                        {
+                            if (photo.FaceCrop.Trim().Length > 0)
+                            {
+                                try
+                                {
+                                    string[] coords = photo.FaceCrop.Split('|');
+                                    faceRegion = new FaceFinderPlugin.FaceRegion
+                                    {
+                                        X = int.Parse(coords[0]),
+                                        Y = int.Parse(coords[1]),
+                                        Width = int.Parse(coords[2]),
+                                        Height = int.Parse(coords[3])
+                                    };
+                                }
+                                catch (Exception err)
+                                {
+                                    Global.Logger.LogWarning("FaceCrop " + photo.FaceCrop, err);
+                                    findFace = false;
+                                }
+                            }
+                            else
+                            {
+                                findFace = false;
+                            }
+                        }
+                        image = photo.Image;
+                    }
+                }
+
+                var expandCrop = prmExactCrop != "1";
+
+                lock (image)
+                {
+                    ShowUserImage(image, context, MaxWidth, MaxHeight, photoId, skipCaching, findFace, expandCrop, faceRegion, dispose);
+                }
+            }
+            catch (Exception err)
+            {
+                if (prmDebug != null)
+                    Global.Logger.LogError(err);
+                ShowNoImage(context, MaxWidth, MaxHeight);
+            }
+        }
+        private static void ShowFacebookImage(HttpContext context, long fbId, int width, int height)
+        {
+            Image image = null;
+            try
+            {
+                // The BuildURLString method is simply a helper method that will compile the URL  
+                //  in the way we need it  
+                Uri uri = new Uri(CreateFacebookImageUrl(fbId, eFacebookImageType.Source));
+                WebRequest request = WebRequest.Create(uri);
+                request.Timeout = 1000;
+
+                // Grab the response so we can start reading the image data  
+                WebResponse response = request.GetResponse();
+                image = Image.FromStream(response.GetResponseStream());
+            }
+            catch (IOException)
+            {
+                context.Response.End();
+            }
+            catch (WebException)
+            {
+                context.Response.End();
+            }
+            context.Response.Clear();
+            context.Response.ContentType = "image/png";
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                image.Save(stream, ImageFormat.Png);
+                stream.WriteTo(context.Response.OutputStream);
+            }
+        }
+
+        private static void ShowUserImageStack(HttpContext context, string username, int width, int height)
+        {
+            using (var image = Photo.CreatePhotoStack(username, width, height))
+            {
+                string cacheUrl = Config.Urls.ImagesCacheHome + String.Format("/stacks/photostack_{0}_{1}_{2}.png",
+                    username, width, height);
+                string cacheFile = Config.Directories.ImagesCacheDirectory + String.Format(@"\stacks\photostack_{0}_{1}_{2}.png",
+                    username, width, height);
+                try
+                {
+                    if (File.Exists(cacheFile))
+                    {
+                        try
+                        {
+                            File.Delete(cacheFile);
+                        }
+                        catch (Exception err)
+                        {
+                            Global.Logger.LogError(err);
+                        }
+                    }
+                    if (!File.Exists(cacheFile))
+                    {
+                        image.Save(cacheFile, ImageFormat.Png);
+                    }
+                    context.Response.Redirect(cacheUrl, false);
+                    return;
+                }
+                catch (Exception err)
+                {
+                    Global.Logger.LogError(err, cacheFile);
+                }
+
+                context.Response.Clear();
+                context.Response.ContentType = "image/png";
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    image.Save(stream, ImageFormat.Png);
+
+                    stream.WriteTo(context.Response.OutputStream);
+                }
+            }
+        }
+
+        private static void ShowNoImage(HttpContext context, int MaxWidth, int MaxHeight)
+        {
+            ShowUserImage(
+                Image.FromFile(context.Server.MapPath("~/Images") + "/no_photo_large.png"), context,
+                MaxWidth, MaxHeight, 0);
+        }
+
+        private static void ShowAvatarImage(HttpContext context, User.eGender gender, int MaxWidth, int MaxHeight)
+        {
+            switch (gender)
+            {
+                case User.eGender.Male:
+                    ShowUserImage(
+                        //Image.FromFile(context.Server.MapPath("~/Images") + "\\nophoto-m.png"),
+                        Image.FromFile(context.Server.MapPath("~/Images") + "\\default_male.png"),
+                        context, MaxWidth, MaxHeight, -1);
+                    break;
+                case User.eGender.Female:
+                    ShowUserImage(
+                        //Image.FromFile(context.Server.MapPath("~/Images") + "\\nophoto-f.png"),
+                        Image.FromFile(context.Server.MapPath("~/Images") + "\\default_female.png"),
+                        context, MaxWidth, MaxHeight, -2);
+                    break;
+                case User.eGender.Couple:
+                    ShowUserImage(
+                        //Image.FromFile(context.Server.MapPath("~/Images") + "\\nophoto-c.png"),
+                        Image.FromFile(context.Server.MapPath("~/Images") + "\\nophoto-c.png"),
+                        context, MaxWidth, MaxHeight, -3);
+                    break;
+            }
+        }
+
+        private static void ShowCensoredImage(HttpContext context, int MaxWidth, int MaxHeight)
+        {
+            ShowUserImage(
+                Image.FromFile(context.Server.MapPath("~/Images") + "\\censored_large.png"), context,
+                MaxWidth, MaxHeight, -4);
+        }
+
+        private static void ShowUserImage(Image image, HttpContext context, int MaxWidth, int MaxHeight,
+                                   int photoId)
+        {
+            ShowUserImage(image, context, MaxWidth, MaxHeight, photoId, false, false, true, null, true);
+        }
+
+        private static void ShowUserImage(Image image, HttpContext context, int MaxWidth, int MaxHeight,
+                                   int photoId, bool skipCaching, bool findFace, bool expandCrop,
+                                    FaceFinderPlugin.FaceRegion faceRegion, bool disposeImage)
+        {
+            var format = image.RawFormat;
+            if (findFace && faceRegion != null)
+            {
+                image = Photo.CropFace(image, faceRegion, MaxWidth, MaxHeight, expandCrop);
+            }
+
+            try
+            {
+                if (MaxWidth > 0 && MaxHeight > 0)
+                    image = photoId > 0
+                        ? Photo.ResizeRectangleImage(image, MaxWidth, MaxHeight)
+                        : Photo.ResizeImage(image, MaxWidth, MaxHeight);
+            }
+            catch (Exception err)
+            {
+                ExceptionLogger.Log(context.Request, err);
+                throw;
+            }
+            Photo photo = photoId > 0 ? Photo.Fetch(photoId) : null;
+            bool isMatchmaker = (photo != null && photo.User.InterestedIn == User.eGender.Matchmaker);
+            string watermarkCacheKeyName = String.Format("Watermark_Image{0}", isMatchmaker ? "_mm" : "");
+            string watermarkFileName = String.Format("/Watermark{0}.png", isMatchmaker ? "_mm" : "");
+            if (Config.Photos.DoWatermark
+                && image.Width >= Config.Photos.MinWidthToWatermark
+                && image.Height >= Config.Photos.MinHeightToWatermark)
+            {
+                Image watermark;
+                if (context.Cache[watermarkCacheKeyName] == null)
+                {
+                    string filename = context.Server.MapPath("~/Images") + watermarkFileName;
+                    watermark = Image.FromFile(filename);
+                    context.Cache.Add(watermarkCacheKeyName, watermark, new CacheDependency(filename),
+                                      Cache.NoAbsoluteExpiration, TimeSpan.FromHours(24),
+                                      CacheItemPriority.NotRemovable, null);
+                }
+                else
+                {
+                    watermark = (Image)context.Cache[watermarkCacheKeyName];
+                }
+
+                try
+                {
+                    lock (watermark)
+                    {
+                        Photo.ApplyWatermark(image, watermark, Config.Photos.WatermarkTransparency,
+                                             Config.Photos.WatermarkPosition);
+                    }
+                }
+                catch (Exception err)
+                {
+                    Global.Logger.LogWarning("Unable to apply watermark", err);
+                }
+            }
+
+            context.Response.Clear();
+            context.Response.ContentType = format.Guid == ImageFormat.Png.Guid ? "image/png" : "image/jpeg";
+
+            if (context.Request.Params["cache"] != null && context.Request.Params["cache"] == "1")
+            {
+                string cacheKey = String.Format("Photos_ProcessRequest_{0}_{1}_{2}_{3}",
+                    photoId, MaxWidth, MaxHeight, findFace);
+
+                using (var ms = new MemoryStream())
+                {
+                    image.Save(ms, format);
+                    image.Dispose();
+
+                    context.Cache.Insert(cacheKey, ms.ToArray(), null, Cache.NoAbsoluteExpiration,
+                                         TimeSpan.FromMinutes(15));
+                    ms.WriteTo(context.Response.OutputStream);
+                }
+            }
+            else if (context.Request.Params["diskCache"] != null && context.Request.Params["diskCache"] == "1" && !skipCaching)
+            {
+                string cacheUrl = Config.Urls.ImagesCacheHome + String.Format("/{3}/photo{4}_{0}_{1}_{2}.jpg",
+                    photoId, MaxWidth, MaxHeight, Math.Abs(photoId % 10), findFace ? "face" : "");
+                string cacheFile = Config.Directories.ImagesCacheDirectory + String.Format("/{3}/photo{4}_{0}_{1}_{2}.jpg",
+                    photoId, MaxWidth, MaxHeight, Math.Abs(photoId % 10), findFace ? "face" : "");
+                try
+                {
+                    if (!File.Exists(cacheFile))
+                    {
+                        image.Save(cacheFile, format);
+                        image.Dispose();
+                    }
+                    context.Response.ContentType = "image/jpeg";
+                    context.Response.WriteFile(cacheFile);
+                    //context.Response.Redirect(cacheUrl, false);
+                }
+                catch (Exception err)
+                {
+                    Global.Logger.LogError(err, cacheFile);
+                    WriteToOutputStream(context, image, format);
+                    image.Dispose();
+                }
+            }
+            else
+            {
+                WriteToOutputStream(context, image, format);
+
+                if (disposeImage)
+                    image.Dispose();
+            }
+        }
+
+        private static void WriteToOutputStream(HttpContext context, Image image, ImageFormat format)
+        {
+            if (format.Guid == ImageFormat.MemoryBmp.Guid)
+                format = ImageFormat.Jpeg;
+            if (format.Guid == ImageFormat.Png.Guid || image.RawFormat.Guid == ImageFormat.Png.Guid)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    image.Save(stream, ImageFormat.Png);
+
+                    stream.WriteTo(context.Response.OutputStream);
+                }
+            }
+            else
+            {
+                context.Response.BufferOutput = false;
+                image.Save(context.Response.OutputStream, format);
+            }
+        }
+
+        public static string RenderImageTag(User.eGender gender, int width, int height, string cssClass,
+                                            bool useCache, bool diskCache)
+        {
+            int photoId = GetPhotoIdByGender(gender);
+
+            return RenderImageTag(photoId, width, height, cssClass, useCache, diskCache);
+        }
+
+        public static string RenderImageTag(int imageId, int width, int height, string cssClass,
+                                            bool useCache, bool diskCache)
+        {
+            return RenderImageTag(imageId, width, height, cssClass, useCache, diskCache, false);
+        }
+
+        public static string RenderImageTag(int imageId, int width, int height, string cssClass, bool useCache,
+            bool diskCache, bool findFace)
+        {
+            string imageUrl = CreateImageUrl(imageId, width, height, useCache, diskCache, findFace);
+            string imageTag = String.Format("<img src=\"{0}\" class=\"{1}\" border=\"0\" />", imageUrl, cssClass);
+            return imageTag;
+        }
+
+        public static string RenderFacebookImageTag(long fbId, eFacebookImageType imageType, string cssClass)
+        {
+            string imageUrl = CreateFacebookImageUrl(fbId, imageType);
+            string imageTag = String.Format("<img src=\"{0}\" class=\"{1}\" border=\"0\" />", imageUrl, cssClass);
+            return imageTag;
+        }
+
+        public static string RenderImageStackTag(string username, int width, int height, string cssClass)
+        {
+            string imageUrl = CreateImageStackUrl(username, width, height);
+            string imageTag = String.Format("<img src=\"{0}\" class=\"{1}\" border=\"0\" />", imageUrl, cssClass);
+            return imageTag;
+        }
+
+        public static string RenderThemedImageTag(string imageName, int width, int height, string cssClass)
+        {
+            string imageUrl = String.Format("~/App_Themes/{0}/{1}", MatchmakerHelper.SiteTheme, imageName);
+            string imageTag =
+                String.Format("<img src=\"{0}\" class=\"{1}\" width=\"{2}\" height=\"{3}\" border=\"0\" />",
+                                        imageUrl, cssClass, width, height);
+            return imageTag;
+        }
+        public static string CreateMatchToImageUrl(int width, int height)
+        {
+            string url = String.Empty;
+            if (MatchmakerHelper.MatchToUsername.IsNullOrEmpty())
+            {
+                var sessionUser = PageBase.GetCurrentUserSession();
+                if (sessionUser == null)
+                    url = CreateImageUrl(-1, 200, 200, false, true, true);
+                else
+                    url = CreateImageUrl(sessionUser.Gender == User.eGender.Male ? -1 : -2, 200, 200, false, true, true);
+            }
+            else
+            {
+                var user = User.Load(MatchmakerHelper.MatchToUsername);
+
+                if (MatchmakerHelper.MatchToFriendImageId > 0)
+                    url = CreateImageUrl(MatchmakerHelper.MatchToFriendImageId, 200, 200, false, true, true);
+                else if (user.FacebookID.HasValue)
+                    url = CreateFacebookImageUrl(user.FacebookID.Value, eFacebookImageType.Large);
+                else
+                    url = CreateImageUrl(user.Gender == User.eGender.Male ? -1 : -2, 200, 200, false, true, true);
+            }
+            return url;
+        }
+        public static string CreateImageStackUrl(string username, int width, int height)
+        {
+            string imageUrl = null;
+
+            string cacheUrl = Config.Urls.ImagesCacheHome + String.Format("/stacks/photostack_{0}_{1}_{2}.png",
+                username, width, height);
+            string cacheFile = Config.Directories.ImagesCacheDirectory + String.Format("/stacks/photostack_{0}_{1}_{2}.png",
+                username, width, height);
+            string cacheKey = String.Format("Photos_Exists_{0}", cacheUrl);
+
+            if ((HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] != null) || File.Exists(cacheFile))
+            {
+                imageUrl = String.Format("{3}/stacks/photostack_{0}_{1}_{2}.png",
+                    username, width, height, Config.Urls.ImagesCacheHome);
+            }
+
+            if (imageUrl != null && HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] == null)
+            {
+                HttpContext.Current.Cache.Add(cacheKey, true, new CacheDependency(cacheFile),
+                                              Cache.NoAbsoluteExpiration, TimeSpan.FromHours(1),
+                                              CacheItemPriority.NotRemovable, null);
+            }
+
+            if (imageUrl == null)
+            {
+                imageUrl =
+                    String.Format(
+                        "{3}/Image.ashx?username={0}&width={1}&height={2}&stack=1",
+                        username, width, height, Config.Urls.Home);
+            }
+
+            return imageUrl;
+        }
+
+        public enum eFacebookImageType
+        {
+            Default,
+            Small,
+            Square,
+            Normal,
+            Large,
+            Source
+        } ;
+
+        public static string CreateFacebookImageUrl(long facebookID, eFacebookImageType imgType)
+        {
+            string imgTypeStr = String.Format("{0}",
+                (imgType == eFacebookImageType.Default)
+                    ? (Config.FacebookSettings.FacebookDefaultImageIsNormal
+                        ? eFacebookImageType.Normal
+                        : eFacebookImageType.Large)
+                    : imgType);
+            imgTypeStr = imgTypeStr.ToString().ToLower();
+
+            var photoUrl = String.Format("http://graph.facebook.com/{0}/picture?type={1}",
+                                             facebookID, imgTypeStr);
+            if (imgType == eFacebookImageType.Source)
+            {
+                //photoUrl = FacebookHelper.GetProfilePictureSource(FacebookApp facebook, long fbUserId)
+            }
+            return photoUrl;
+        }
+        public static string CreateImageUrl(int imageId, int width, int height, bool useCache, bool diskCache,
+            bool findFace)
+        {
+            string imageUrl = null;
+
+            if (diskCache)
+            {
+                var cacheDir = Math.Abs(imageId % 10).ToString();
+                string cacheUrl = Config.Urls.ImagesCacheHome + String.Format("/{3}/photo{4}_{0}_{1}_{2}.jpg",
+                    imageId, width, height, cacheDir, findFace ? "face" : "");
+                string cacheFile = Config.Directories.ImagesCacheDirectory + String.Format("/{3}/photo{4}_{0}_{1}_{2}.jpg",
+                    imageId, width, height, cacheDir, findFace ? "face" : "");
+                string cacheKey = String.Format("Photos_Exists_{0}", cacheUrl);
+
+                bool isCacheKeyExist = HttpContext.Current.Cache[cacheKey] != null;
+                bool isContextNotNull = HttpContext.Current != null;
+                bool isFileExist = File.Exists(cacheFile);
+
+                if ((isContextNotNull && isCacheKeyExist) || isFileExist)
+                {
+                    imageUrl = String.Format("{5}/{3}/photo{4}_{0}_{1}_{2}.jpg",
+                        imageId, width, height, cacheDir, findFace ? "face" : "", Config.Urls.ImagesCacheHome);
+                }
+
+                if (imageUrl != null && HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] == null)
+                {
+                    HttpContext.Current.Cache.Add(cacheKey, true, new CacheDependency(cacheFile),
+                                                  Cache.NoAbsoluteExpiration, TimeSpan.FromHours(1),
+                                                  CacheItemPriority.NotRemovable, null);
+                }
+            }
+
+            if (imageUrl == null)
+            {
+                string additionalParams = "";
+                if (useCache)
+                    additionalParams += "&cache=1";
+                if (diskCache)
+                    additionalParams += "&diskCache=1";
+                if (findFace)
+                    additionalParams += "&findFace=1";
+                imageUrl =
+                    String.Format(
+                        "{4}/Image.ashx?id={0}&width={1}&height={2}{3}",
+                        imageId, width, height, additionalParams, Config.Urls.Home);
+            }
+
+            return imageUrl;
+        }
+
+        public static int GetPhotoIdByGender(User.eGender gender)
+        {
+            int photoId;
+
+            switch (gender)
+            {
+                case User.eGender.Male:
+                    photoId = -1;
+                    break;
+                case User.eGender.Female:
+                    photoId = -2;
+                    break;
+                case User.eGender.Couple:
+                    photoId = -3;
+                    break;
+                default:
+                    photoId = 0;
+                    break;
+            }
+
+            return photoId;
+        }
+
+        public static void DeleteDiskCache(int imageId)
+        {
+            var cacheDir = Math.Abs(imageId % 10).ToString();
+            var cachePath = String.Format(@"{0}\images\cache\{1}",
+                Config.Directories.Home, cacheDir);
+            var cacheMask = String.Format(@"photo_{0}_*.jpg", imageId);
+            foreach (var file in Directory.GetFiles(cachePath, cacheMask))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception err)
+                {
+                    Global.Logger.LogInfo(err);
+                }
+            }
+            cacheMask = String.Format(@"photoface_{0}_*.jpg", imageId);
+            foreach (var file in Directory.GetFiles(cachePath, cacheMask))
+            {
+                try
+                {
+                    File.Delete(file);
+                }
+                catch (Exception err)
+                {
+                    Global.Logger.LogInfo(err);
+                }
+            }
+        }
+
+        public static void DeleteImageStackCache(string username)
+        {
+            string cacheFolder = Config.Directories.ImagesCacheDirectory + "/stacks";
+
+            foreach (var file in Directory.GetFiles(cacheFolder, @"photostack_" + username + "_*.png"))
+            {
+                File.Delete(file);
+            }
+        }
+        public override bool IsReusable
+        {
+            get
+            {
+                return true;
+            }
+        }
+    }
+}

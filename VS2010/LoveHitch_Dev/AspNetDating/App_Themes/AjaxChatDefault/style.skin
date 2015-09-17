@@ -1,0 +1,1 @@
+﻿<asp:DataList Runat="server" RepeatColumns="6" SkinID="Avatars"/>

@@ -1,0 +1,16 @@
+&siteUrl=localhost:1111&
+&mediaServer=rtmp://fms.aspnetdating.com:1935/vProfile_local/&
+
+&fontColor=#8E9643&
+&fontSize=12&
+&fontType=_sans&
+
+&string_1=DELETE&
+&string_2=Connecting...&
+&string_3=Disconnected.&
+&string_4=Delete....&
+&string_5=Rejected.&
+&string_6=mServer Error.&
+&string_7=Server Error.&
+&string_8=Deleted.&
+&string_9=Error Delete. Please try again later.&

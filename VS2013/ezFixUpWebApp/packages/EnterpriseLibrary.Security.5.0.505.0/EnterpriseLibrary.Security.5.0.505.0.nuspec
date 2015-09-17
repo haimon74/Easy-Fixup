@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>EnterpriseLibrary.Security</id>
+    <version>5.0.505.0</version>
+    <title>Enterprise Library 5.0 - Security Application Block</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.opensource.org/licenses/ms-pl</licenseUrl>
+    <projectUrl>http://msdn.microsoft.com/en-us/library/ff664771(PandP.50).aspx</projectUrl>
+    <iconUrl>http://nuget.org/Media/Default/Packages/Unity/2.0/entlib_new_icon_100x100.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The Enterprise Library Security Application Block provide a common abstraction from specific security providers.</description>
+    <summary>The Enterprise Library Security Application Block provide a common abstraction from specific security providers.</summary>
+    <tags>entlib Enterprise Library security ad active directory authorization authentification user permission LOB</tags>
+    <dependencies>
+      <dependency id="EnterpriseLibrary.Common" version="5.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework3.5, .NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

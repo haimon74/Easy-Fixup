@@ -1,0 +1,43 @@
+form
+{
+	display: inline;
+}
+body
+{
+	width: 130px;
+	height: 162px;
+	padding: 0;
+	margin: 0;
+	font-family: verdana;
+}
+.sitename
+{
+	color: #89b4ef;
+	text-align: center;
+	font-size: 10px;
+	line-height: 20px;
+}
+.photoframe
+{
+	margin: auto;
+	width: 120px;
+	height: 120px;
+}
+.photoframe img
+{
+	border-top: 1px solid #272727;
+	border-left: 1px solid #272727;
+	border-right: 1px solid #929292;
+	border-bottom: 1px solid #929292;
+}
+.userlink
+{
+	text-align: center;
+	font-weight: bold;
+}
+.userlink a
+{
+	color: #fff;
+	font-size: 10px;
+	text-decoration: underline;
+}

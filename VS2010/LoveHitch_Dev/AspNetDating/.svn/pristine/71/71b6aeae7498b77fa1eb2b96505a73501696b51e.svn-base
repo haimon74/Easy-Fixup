@@ -1,0 +1,28 @@
+﻿/* ASPnetDating 
+ * Copyright (C) 2003-2010 eStream 
+ * http://www.aspnetdating.com
+
+ *  
+ * IMPORTANT: This is a commercial software product. By using this product  
+ * you agree to be bound by the terms of the ASPnetDating license agreement.  
+ * It can be found at http://www.aspnetdating.com/agreement.htm
+
+ *  
+ * This notice may not be removed from the source code. 
+ */
+using System;
+using AspNetDating.Classes;
+
+namespace AspNetDating.Components.WebParts
+{
+    [Editable]
+    public partial class SearchBoxWebPart : WebPartUserControl
+    {
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            this.Title = Lang.Translate("Quick Search");
+        }
+
+    }
+}

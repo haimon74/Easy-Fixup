@@ -1,0 +1,136 @@
+<%@ Control Language="c#" AutoEventWireup="True" 
+            Codebehind="SearchBoxContent.ascx.cs" 
+            Inherits="ezFixUp.Components.Search.SearchBoxContent" %>
+<%@ Import Namespace="ezFixUp.Classes" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register TagPrefix="uc1" TagName="FlexButton" Src="~/Components/FlexButton.ascx" %>
+
+<ajaxToolkit:CascadingDropDown ID="CascadingDropDownCountry" runat="server" TargetControlID="dropCountry"
+        Category="Country" ServicePath="~/Services/Service.asmx" PromptText=" " ServiceMethod="GetCountries" />
+    <ajaxToolkit:CascadingDropDown ID="CascadingDropDownState" runat="server" TargetControlID="dropRegion"
+        Category="Region" ServicePath="~/Services/Service.asmx" PromptText=" " ServiceMethod="GetRegionsByCountry"
+        ParentControlID="dropCountry" />
+    <ajaxToolkit:CascadingDropDown ID="CascadingDropDownCity" runat="server" TargetControlID="dropCity"
+        Category="City" ServicePath="~/Services/Service.asmx" 
+        PromptText=" " ServiceMethod="GetCitiesByCountryAndRegion" ParentControlID="dropRegion" />
+
+<asp:Panel id="pnlDefaultButton" runat="server" DefaultButton="fbBasicSearchGo">
+        <div class="SearchFilterWrap">
+            
+            <table class="searchtable w100" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <br /><%= Lang.Trans("Search gender")%><br />
+                        <asp:DropDownList ID="dropGender" runat="server" AutoPostBack="false" EnableViewState="true"
+                            CssClass="m_search_ddl">
+                            <asp:ListItem Value=""></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                    <td>
+                        <br /><%= Lang.Trans("Interested in")%><br />
+                        <asp:DropDownList ID="dropInterestedIn" runat="server" AutoPostBack="false" EnableViewState="true"
+                            CssClass="m_search_ddl">
+                            <asp:ListItem Value=""></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br /><%= Lang.Trans("Country") %><br />
+                        <asp:DropDownList ID="dropCountry" CssClass="m_search_ddl" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                    <td class="w50">
+                        <br /><%= Lang.Trans("Region/State") %><br />
+                        <asp:DropDownList ID="dropRegion" CssClass="m_search_ddl" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br /><%= Lang.Trans("City") %><br />
+                        <asp:DropDownList ID="dropCity" CssClass="m_search_ddl" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                    <td style="white-space: nowrap; text-indent: 0; ">
+                        <br /><%= Lang.Trans("Age Range") %><br />
+                        <span class="fl" style="padding-left: 1px;">
+                            <asp:UpdatePanel ID="up1" runat="server" ChildrenAsTriggers="true">
+                                <ContentTemplate>
+                                    <asp:DropDownList ID="comboAgeFrom" runat="server" AutoPostBack="false" OnSelectedIndexChanged="comboAgeFromSelectIndexChange"
+                                        CssClass="s_search_ddl" EnableViewState="true">
+                                        <asp:ListItem Value=""></asp:ListItem>
+                                    </asp:DropDownList>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </span>
+                        <%--<span style="display:inline;margin:0 4px"><b><%= Lang.Trans("~") %></b></span>--%>
+                        <span class="fr" style="padding: 0 11px;">
+                            <asp:UpdatePanel ID="up2" runat="server" ChildrenAsTriggers="true">
+                                <ContentTemplate>
+                                    <asp:DropDownList ID="comboAgeTo" runat="server" AutoPostBack="false" OnSelectedIndexChanged="comboAgeToSelectIndexChange"
+                                        CssClass="s_search_ddl" EnableViewState="true">
+                                        <asp:ListItem Value=""></asp:ListItem>
+                                    </asp:DropDownList>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </span>
+                    </td>
+                </tr>
+                <tr id="Tr1" valign='top' runat='server' visible="false">
+                    <td>
+                        <asp:CheckBox ID="cbPhotoReq" CssClass="checkbox" runat="server" Checked="False">
+                        </asp:CheckBox>
+                    </td>
+                    <td>
+                        <asp:CheckBox ID="cbOnlineOnly" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w100">
+                        <br /><%= Lang.Trans("Username") %><br />
+                        <asp:TextBox ID="txtUsername" CssClass="m_search_txt" runat="server"></asp:TextBox>
+                    </td>
+                    <td><br /><br />
+                        <uc1:FlexButton ID="fbBasicSearchGo" runat="server" OnClick="fbBasicSearchGo_Click" 
+			                RenderAs="LinkButton" CssClass="medium red zurbtn fl "/>
+                    </td>
+                </tr>                
+            </table>
+        </div><br />
+<%--<table class="searchtable w100" cellpadding="0" cellspacing="0">
+	<tr id="pnlGender" runat="server">
+		<td colspan="2">                        
+            <uc3:SearchGenderPicker ID="SearchGenderPicker1" runat="server" />
+        </td>
+	</tr>
+	<tr id="pnlLocation" runat="server">
+	    <td colspan="2">
+            <uc2:SearchLocationPicker ID="SearchLocationPicker1" runat="server" />
+        </td>
+	</tr>
+	<tr id="pnlAge" runat="server">
+		<td colspan="2">
+            <uc4:AgeRangePicker ID="AgeRangePicker1" runat="server" MinAge="15" MaxAge="69"/>
+        </td>
+	</tr>
+	<tr >
+	    <td>
+	    <table class="w100"><tr>
+	    <td class="w40"><%= Lang.Trans("Username") %></td>
+		<td class="w60" style="text-indent:1px;">
+			<asp:TextBox ID="txtUsername" CssClass="m_search_txt" runat="server"></asp:TextBox>
+		</td>
+		</tr></table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div class="buttons">
+			    <uc1:FlexButton ID="fbBasicSearchGo" runat="server" OnClick="fbBasicSearchGo_Click" 
+			        RenderAs="LinkButton" CssClass="medium blue zurbtn fr"/>
+			</div><br />
+		</td>
+	</tr>
+</table>--%>
+</asp:Panel>

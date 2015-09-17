@@ -1,0 +1,1718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ezFixUpModelStoreContainer" CdmEntityContainer="ezFixUpEntities">
+    <EntitySetMapping Name="AbuseReports">
+      <EntityTypeMapping TypeName="ezFixUpModel.AbuseReports">
+        <MappingFragment StoreEntitySet="AbuseReports">
+          <ScalarProperty Name="ar_id" ColumnName="ar_id" />
+          <ScalarProperty Name="ar_reportedby" ColumnName="ar_reportedby" />
+          <ScalarProperty Name="ar_type" ColumnName="ar_type" />
+          <ScalarProperty Name="ar_report" ColumnName="ar_report" />
+          <ScalarProperty Name="ar_reporteduser" ColumnName="ar_reporteduser" />
+          <ScalarProperty Name="ar_targetid" ColumnName="ar_targetid" />
+          <ScalarProperty Name="ar_reviewed" ColumnName="ar_reviewed" />
+          <ScalarProperty Name="ar_datereported" ColumnName="ar_datereported" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdComments">
+      <EntityTypeMapping TypeName="ezFixUpModel.AdComments">
+        <MappingFragment StoreEntitySet="AdComments">
+          <ScalarProperty Name="ac_id" ColumnName="ac_id" />
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ac_comment" ColumnName="ac_comment" />
+          <ScalarProperty Name="ac_date" ColumnName="ac_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="ezFixUpModel.Admins">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="a_username" ColumnName="a_username" />
+          <ScalarProperty Name="a_password" ColumnName="a_password" />
+          <ScalarProperty Name="a_lastlogin" ColumnName="a_lastlogin" />
+          <ScalarProperty Name="a_privileges" ColumnName="a_privileges" />
+          <ScalarProperty Name="a_lastsessionid" ColumnName="a_lastsessionid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdPhotos">
+      <EntityTypeMapping TypeName="ezFixUpModel.AdPhotos">
+        <MappingFragment StoreEntitySet="AdPhotos">
+          <ScalarProperty Name="ap_id" ColumnName="ap_id" />
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="ap_description" ColumnName="ap_description" />
+          <ScalarProperty Name="ap_image" ColumnName="ap_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ads">
+      <EntityTypeMapping TypeName="ezFixUpModel.Ads">
+        <MappingFragment StoreEntitySet="Ads">
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="ac_id" ColumnName="ac_id" />
+          <ScalarProperty Name="a_postedby" ColumnName="a_postedby" />
+          <ScalarProperty Name="a_date" ColumnName="a_date" />
+          <ScalarProperty Name="a_expirationdate" ColumnName="a_expirationdate" />
+          <ScalarProperty Name="a_location" ColumnName="a_location" />
+          <ScalarProperty Name="a_subject" ColumnName="a_subject" />
+          <ScalarProperty Name="a_description" ColumnName="a_description" />
+          <ScalarProperty Name="a_approved" ColumnName="a_approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdsCategories">
+      <EntityTypeMapping TypeName="ezFixUpModel.AdsCategories">
+        <MappingFragment StoreEntitySet="AdsCategories">
+          <ScalarProperty Name="ac_id" ColumnName="ac_id" />
+          <ScalarProperty Name="ac_parentid" ColumnName="ac_parentid" />
+          <ScalarProperty Name="ac_title" ColumnName="ac_title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AffiliateBanners">
+      <EntityTypeMapping TypeName="ezFixUpModel.AffiliateBanners">
+        <MappingFragment StoreEntitySet="AffiliateBanners">
+          <ScalarProperty Name="ab_id" ColumnName="ab_id" />
+          <ScalarProperty Name="ab_name" ColumnName="ab_name" />
+          <ScalarProperty Name="ab_image" ColumnName="ab_image" />
+          <ScalarProperty Name="ab_deleted" ColumnName="ab_deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AffiliateCommissions">
+      <EntityTypeMapping TypeName="ezFixUpModel.AffiliateCommissions">
+        <MappingFragment StoreEntitySet="AffiliateCommissions">
+          <ScalarProperty Name="ac_id" ColumnName="ac_id" />
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ph_id" ColumnName="ph_id" />
+          <ScalarProperty Name="ac_timestamp" ColumnName="ac_timestamp" />
+          <ScalarProperty Name="ac_notes" ColumnName="ac_notes" />
+          <ScalarProperty Name="ac_amount" ColumnName="ac_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Affiliates">
+      <EntityTypeMapping TypeName="ezFixUpModel.Affiliates">
+        <MappingFragment StoreEntitySet="Affiliates">
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="a_username" ColumnName="a_username" />
+          <ScalarProperty Name="a_password" ColumnName="a_password" />
+          <ScalarProperty Name="a_name" ColumnName="a_name" />
+          <ScalarProperty Name="a_email" ColumnName="a_email" />
+          <ScalarProperty Name="a_siteurl" ColumnName="a_siteurl" />
+          <ScalarProperty Name="a_payment_details" ColumnName="a_payment_details" />
+          <ScalarProperty Name="a_deleted" ColumnName="a_deleted" />
+          <ScalarProperty Name="a_active" ColumnName="a_active" />
+          <ScalarProperty Name="a_percentage" ColumnName="a_percentage" />
+          <ScalarProperty Name="a_fixed_amount" ColumnName="a_fixed_amount" />
+          <ScalarProperty Name="a_recurrent" ColumnName="a_recurrent" />
+          <ScalarProperty Name="a_balance" ColumnName="a_balance" />
+          <ScalarProperty Name="a_request_payment" ColumnName="a_request_payment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AffiliatesHistory">
+      <EntityTypeMapping TypeName="ezFixUpModel.AffiliatesHistory">
+        <MappingFragment StoreEntitySet="AffiliatesHistory">
+          <ScalarProperty Name="ah_id" ColumnName="ah_id" />
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="ah_amount" ColumnName="ah_amount" />
+          <ScalarProperty Name="ah_date_paid" ColumnName="ah_date_paid" />
+          <ScalarProperty Name="ah_notes" ColumnName="ah_notes" />
+          <ScalarProperty Name="ah_private_notes" ColumnName="ah_private_notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="archive_Messages">
+      <EntityTypeMapping TypeName="ezFixUpModel.archive_Messages">
+        <MappingFragment StoreEntitySet="archive_Messages">
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="m_from_username" ColumnName="m_from_username" />
+          <ScalarProperty Name="m_from_folder" ColumnName="m_from_folder" />
+          <ScalarProperty Name="m_to_username" ColumnName="m_to_username" />
+          <ScalarProperty Name="m_to_folder" ColumnName="m_to_folder" />
+          <ScalarProperty Name="m_body" ColumnName="m_body" />
+          <ScalarProperty Name="m_timestamp" ColumnName="m_timestamp" />
+          <ScalarProperty Name="m_replied_to" ColumnName="m_replied_to" />
+          <ScalarProperty Name="m_is_read" ColumnName="m_is_read" />
+          <ScalarProperty Name="m_pending_approval" ColumnName="m_pending_approval" />
+          <ScalarProperty Name="m_new" ColumnName="m_new" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="archive_Photos">
+      <EntityTypeMapping TypeName="ezFixUpModel.archive_Photos">
+        <MappingFragment StoreEntitySet="archive_Photos">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="p_image" ColumnName="p_image" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="p_description" ColumnName="p_description" />
+          <ScalarProperty Name="p_approved" ColumnName="p_approved" />
+          <ScalarProperty Name="p_primary" ColumnName="p_primary" />
+          <ScalarProperty Name="p_explicit" ColumnName="p_explicit" />
+          <ScalarProperty Name="p_private" ColumnName="p_private" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="archive_ProfileAnswers">
+      <EntityTypeMapping TypeName="ezFixUpModel.archive_ProfileAnswers">
+        <MappingFragment StoreEntitySet="archive_ProfileAnswers">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pq_id" ColumnName="pq_id" />
+          <ScalarProperty Name="pa_value" ColumnName="pa_value" />
+          <ScalarProperty Name="pa_approved" ColumnName="pa_approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AskAboutQuestions">
+      <EntityTypeMapping TypeName="ezFixUpModel.AskAboutQuestions">
+        <MappingFragment StoreEntitySet="AskAboutQuestions">
+          <ScalarProperty Name="q_id" ColumnName="q_id" />
+          <ScalarProperty Name="q_name" ColumnName="q_name" />
+          <ScalarProperty Name="q_active" ColumnName="q_active" />
+          <ScalarProperty Name="q_order" ColumnName="q_order" />
+          <ScalarProperty Name="q_display" ColumnName="q_display" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AudioAccess">
+      <EntityTypeMapping TypeName="ezFixUpModel.AudioAccess">
+        <MappingFragment StoreEntitySet="AudioAccess">
+          <ScalarProperty Name="aa_audioowner" ColumnName="aa_audioowner" />
+          <ScalarProperty Name="aa_audioviewer" ColumnName="aa_audioviewer" />
+          <ScalarProperty Name="aa_dateaccessgranted" ColumnName="aa_dateaccessgranted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AudioUploads">
+      <EntityTypeMapping TypeName="ezFixUpModel.AudioUploads">
+        <MappingFragment StoreEntitySet="AudioUploads">
+          <ScalarProperty Name="au_id" ColumnName="au_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="au_title" ColumnName="au_title" />
+          <ScalarProperty Name="au_approved" ColumnName="au_approved" />
+          <ScalarProperty Name="au_private" ColumnName="au_private" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BannerCodes">
+      <EntityTypeMapping TypeName="ezFixUpModel.BannerCodes">
+        <MappingFragment StoreEntitySet="BannerCodes">
+          <ScalarProperty Name="bc_id" ColumnName="bc_id" />
+          <ScalarProperty Name="bc_position" ColumnName="bc_position" />
+          <ScalarProperty Name="bc_priority" ColumnName="bc_priority" />
+          <ScalarProperty Name="bc_target" ColumnName="bc_target" />
+          <ScalarProperty Name="bc_code" ColumnName="bc_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillingPlans">
+      <EntityTypeMapping TypeName="ezFixUpModel.BillingPlans">
+        <MappingFragment StoreEntitySet="BillingPlans">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_title" ColumnName="p_title" />
+          <ScalarProperty Name="p_amount" ColumnName="p_amount" />
+          <ScalarProperty Name="p_billing_cycle" ColumnName="p_billing_cycle" />
+          <ScalarProperty Name="p_billing_cycle_unit" ColumnName="p_billing_cycle_unit" />
+          <ScalarProperty Name="p_deleted" ColumnName="p_deleted" />
+          <ScalarProperty Name="p_options" ColumnName="p_options" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlockedUsers">
+      <EntityTypeMapping TypeName="ezFixUpModel.BlockedUsers">
+        <MappingFragment StoreEntitySet="BlockedUsers">
+          <ScalarProperty Name="bu_userblocker" ColumnName="bu_userblocker" />
+          <ScalarProperty Name="bu_blockeduser" ColumnName="bu_blockeduser" />
+          <ScalarProperty Name="bu_blockdate" ColumnName="bu_blockdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPostComments">
+      <EntityTypeMapping TypeName="ezFixUpModel.BlogPostComments">
+        <MappingFragment StoreEntitySet="BlogPostComments">
+          <ScalarProperty Name="bpc_id" ColumnName="bpc_id" />
+          <ScalarProperty Name="bp_id" ColumnName="bp_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="bpc_text" ColumnName="bpc_text" />
+          <ScalarProperty Name="bpc_dateposted" ColumnName="bpc_dateposted" />
+          <ScalarProperty Name="bpc_approved" ColumnName="bpc_approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPosts">
+      <EntityTypeMapping TypeName="ezFixUpModel.BlogPosts">
+        <MappingFragment StoreEntitySet="BlogPosts">
+          <ScalarProperty Name="bp_id" ColumnName="bp_id" />
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="bp_title" ColumnName="bp_title" />
+          <ScalarProperty Name="bp_content" ColumnName="bp_content" />
+          <ScalarProperty Name="bp_dateposted" ColumnName="bp_dateposted" />
+          <ScalarProperty Name="bp_reads" ColumnName="bp_reads" />
+          <ScalarProperty Name="bp_approved" ColumnName="bp_approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="ezFixUpModel.Blogs">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="b_id" ColumnName="b_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="b_name" ColumnName="b_name" />
+          <ScalarProperty Name="b_description" ColumnName="b_description" />
+          <ScalarProperty Name="b_datecreated" ColumnName="b_datecreated" />
+          <ScalarProperty Name="b_settings" ColumnName="b_settings" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ezFixUpModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_name" ColumnName="c_name" />
+          <ScalarProperty Name="c_order" ColumnName="c_order" />
+          <ScalarProperty Name="c_userscancreategroups" ColumnName="c_userscancreategroups" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatAdmins">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatAdmins">
+        <MappingFragment StoreEntitySet="ChatAdmins">
+          <ScalarProperty Name="ca_username" ColumnName="ca_username" />
+          <ScalarProperty Name="ca_password" ColumnName="ca_password" />
+          <ScalarProperty Name="ca_lastlogin" ColumnName="ca_lastlogin" />
+          <ScalarProperty Name="ca_lastsessionid" ColumnName="ca_lastsessionid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatBans">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatBans">
+        <MappingFragment StoreEntitySet="ChatBans">
+          <ScalarProperty Name="cb_id" ColumnName="cb_id" />
+          <ScalarProperty Name="cr_id" ColumnName="cr_id" />
+          <ScalarProperty Name="cu_id" ColumnName="cu_id" />
+          <ScalarProperty Name="cb_ip" ColumnName="cb_ip" />
+          <ScalarProperty Name="cb_date" ColumnName="cb_date" />
+          <ScalarProperty Name="cb_dateexpires" ColumnName="cb_dateexpires" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatIgnoredUsers">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatIgnoredUsers">
+        <MappingFragment StoreEntitySet="ChatIgnoredUsers">
+          <ScalarProperty Name="cu_id" ColumnName="cu_id" />
+          <ScalarProperty Name="ciu_ignoreduserid" ColumnName="ciu_ignoreduserid" />
+          <ScalarProperty Name="ciu_ignoredate" ColumnName="ciu_ignoredate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatMessages">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatMessages">
+        <MappingFragment StoreEntitySet="ChatMessages">
+          <ScalarProperty Name="cm_id" ColumnName="cm_id" />
+          <ScalarProperty Name="cm_type" ColumnName="cm_type" />
+          <ScalarProperty Name="cm_time" ColumnName="cm_time" />
+          <ScalarProperty Name="cr_id" ColumnName="cr_id" />
+          <ScalarProperty Name="cu_id_sender" ColumnName="cu_id_sender" />
+          <ScalarProperty Name="cm_senderdisplayname" ColumnName="cm_senderdisplayname" />
+          <ScalarProperty Name="cu_id_target" ColumnName="cu_id_target" />
+          <ScalarProperty Name="cm_text" ColumnName="cm_text" />
+          <ScalarProperty Name="cm_texthtml" ColumnName="cm_texthtml" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatPresence">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatPresence">
+        <MappingFragment StoreEntitySet="ChatPresence">
+          <ScalarProperty Name="cp_username" ColumnName="cp_username" />
+          <ScalarProperty Name="cp_lastonline" ColumnName="cp_lastonline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatRoomActivity">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatRoomActivity">
+        <MappingFragment StoreEntitySet="ChatRoomActivity">
+          <ScalarProperty Name="cra_userid" ColumnName="cra_userid" />
+          <ScalarProperty Name="cra_roomid" ColumnName="cra_roomid" />
+          <ScalarProperty Name="cra_username" ColumnName="cra_username" />
+          <ScalarProperty Name="cra_displayname" ColumnName="cra_displayname" />
+          <ScalarProperty Name="cra_lastonline" ColumnName="cra_lastonline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatRoomAdmins">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatRoomAdmins">
+        <MappingFragment StoreEntitySet="ChatRoomAdmins">
+          <ScalarProperty Name="cu_id" ColumnName="cu_id" />
+          <ScalarProperty Name="cr_id" ColumnName="cr_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatRooms">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatRooms">
+        <MappingFragment StoreEntitySet="ChatRooms">
+          <ScalarProperty Name="cr_id" ColumnName="cr_id" />
+          <ScalarProperty Name="cr_name" ColumnName="cr_name" />
+          <ScalarProperty Name="cr_topic" ColumnName="cr_topic" />
+          <ScalarProperty Name="cr_password" ColumnName="cr_password" />
+          <ScalarProperty Name="cr_maxusers" ColumnName="cr_maxusers" />
+          <ScalarProperty Name="cr_visible" ColumnName="cr_visible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatSettings">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatSettings">
+        <MappingFragment StoreEntitySet="ChatSettings">
+          <ScalarProperty Name="cs_key" ColumnName="cs_key" />
+          <ScalarProperty Name="cs_value" ColumnName="cs_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatTranslations">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatTranslations">
+        <MappingFragment StoreEntitySet="ChatTranslations">
+          <ScalarProperty Name="ct_key" ColumnName="ct_key" />
+          <ScalarProperty Name="l_id" ColumnName="l_id" />
+          <ScalarProperty Name="ct_value" ColumnName="ct_value" />
+          <ScalarProperty Name="ct_clientside" ColumnName="ct_clientside" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatUsers">
+      <EntityTypeMapping TypeName="ezFixUpModel.ChatUsers">
+        <MappingFragment StoreEntitySet="ChatUsers">
+          <ScalarProperty Name="cu_id" ColumnName="cu_id" />
+          <ScalarProperty Name="cu_username" ColumnName="cu_username" />
+          <ScalarProperty Name="cu_password" ColumnName="cu_password" />
+          <ScalarProperty Name="cu_displayname" ColumnName="cu_displayname" />
+          <ScalarProperty Name="cu_gender" ColumnName="cu_gender" />
+          <ScalarProperty Name="cu_begintime" ColumnName="cu_begintime" />
+          <ScalarProperty Name="cu_lastactive" ColumnName="cu_lastactive" />
+          <ScalarProperty Name="cu_ip" ColumnName="cu_ip" />
+          <ScalarProperty Name="cu_lastactiveguid" ColumnName="cu_lastactiveguid" />
+          <ScalarProperty Name="cu_thumbimage" ColumnName="cu_thumbimage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="ezFixUpModel.Comments">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_from_username" ColumnName="c_from_username" />
+          <ScalarProperty Name="c_to_username" ColumnName="c_to_username" />
+          <ScalarProperty Name="c_comment_text" ColumnName="c_comment_text" />
+          <ScalarProperty Name="c_date_posted" ColumnName="c_date_posted" />
+          <ScalarProperty Name="c_approved" ColumnName="c_approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommunityPhotoApproval">
+      <EntityTypeMapping TypeName="ezFixUpModel.CommunityPhotoApproval">
+        <MappingFragment StoreEntitySet="CommunityPhotoApproval">
+          <ScalarProperty Name="cpa_id" ColumnName="cpa_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="cpa_approved" ColumnName="cpa_approved" />
+          <ScalarProperty Name="cpa_timestamp" ColumnName="cpa_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommunityProfileApproval">
+      <EntityTypeMapping TypeName="ezFixUpModel.CommunityProfileApproval">
+        <MappingFragment StoreEntitySet="CommunityProfileApproval">
+          <ScalarProperty Name="cpa_id" ColumnName="cpa_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="cpa_approvedby" ColumnName="cpa_approvedby" />
+          <ScalarProperty Name="cpa_approved" ColumnName="cpa_approved" />
+          <ScalarProperty Name="cpa_timestamp" ColumnName="cpa_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="ezFixUpModel.ContactUs">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="cu_id" ColumnName="cu_id" />
+          <ScalarProperty Name="cu_reportedby" ColumnName="cu_reportedby" />
+          <ScalarProperty Name="cu_type" ColumnName="cu_type" />
+          <ScalarProperty Name="cu_report" ColumnName="cu_report" />
+          <ScalarProperty Name="cu_reporteduser" ColumnName="cu_reporteduser" />
+          <ScalarProperty Name="cu_targetid" ColumnName="cu_targetid" />
+          <ScalarProperty Name="cu_reviewed" ColumnName="cu_reviewed" />
+          <ScalarProperty Name="cu_datereported" ColumnName="cu_datereported" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentPage">
+      <EntityTypeMapping TypeName="ezFixUpModel.ContentPage">
+        <MappingFragment StoreEntitySet="ContentPage">
+          <ScalarProperty Name="cp_id" ColumnName="cp_id" />
+          <ScalarProperty Name="cp_title" ColumnName="cp_title" />
+          <ScalarProperty Name="cp_content" ColumnName="cp_content" />
+          <ScalarProperty Name="cp_header_position" ColumnName="cp_header_position" />
+          <ScalarProperty Name="cp_footer_position" ColumnName="cp_footer_position" />
+          <ScalarProperty Name="l_id" ColumnName="l_id" />
+          <ScalarProperty Name="cp_visiblefor" ColumnName="cp_visiblefor" />
+          <ScalarProperty Name="cp_url" ColumnName="cp_url" />
+          <ScalarProperty Name="cp_metadescription" ColumnName="cp_metadescription" />
+          <ScalarProperty Name="cp_metakeyword" ColumnName="cp_metakeyword" />
+          <ScalarProperty Name="cp_urlrewrite" ColumnName="cp_urlrewrite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentViews">
+      <EntityTypeMapping TypeName="ezFixUpModel.ContentViews">
+        <MappingFragment StoreEntitySet="ContentViews">
+          <ScalarProperty Name="cv_key" ColumnName="cv_key" />
+          <ScalarProperty Name="l_id" ColumnName="l_id" />
+          <ScalarProperty Name="cv_content" ColumnName="cv_content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coupons">
+      <EntityTypeMapping TypeName="ezFixUpModel.Coupons">
+        <MappingFragment StoreEntitySet="Coupons">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_code" ColumnName="c_code" />
+          <ScalarProperty Name="c_username" ColumnName="c_username" />
+          <ScalarProperty Name="c_start_date" ColumnName="c_start_date" />
+          <ScalarProperty Name="c_due_date" ColumnName="c_due_date" />
+          <ScalarProperty Name="c_max_use" ColumnName="c_max_use" />
+          <ScalarProperty Name="c_type_id" ColumnName="c_type_id" />
+          <ScalarProperty Name="c_used" ColumnName="c_used" />
+          <ScalarProperty Name="c_only_new_user" ColumnName="c_only_new_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CouponTypes">
+      <EntityTypeMapping TypeName="ezFixUpModel.CouponTypes">
+        <MappingFragment StoreEntitySet="CouponTypes">
+          <ScalarProperty Name="ct_id" ColumnName="ct_id" />
+          <ScalarProperty Name="ct_name" ColumnName="ct_name" />
+          <ScalarProperty Name="ct_description" ColumnName="ct_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CouponUses">
+      <EntityTypeMapping TypeName="ezFixUpModel.CouponUses">
+        <MappingFragment StoreEntitySet="CouponUses">
+          <ScalarProperty Name="cu_code" ColumnName="cu_code" />
+          <ScalarProperty Name="cu_username" ColumnName="cu_username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditsHistory">
+      <EntityTypeMapping TypeName="ezFixUpModel.CreditsHistory">
+        <MappingFragment StoreEntitySet="CreditsHistory">
+          <ScalarProperty Name="ch_id" ColumnName="ch_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ch_date" ColumnName="ch_date" />
+          <ScalarProperty Name="ch_service" ColumnName="ch_service" />
+          <ScalarProperty Name="ch_amount" ColumnName="ch_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditsPackages">
+      <EntityTypeMapping TypeName="ezFixUpModel.CreditsPackages">
+        <MappingFragment StoreEntitySet="CreditsPackages">
+          <ScalarProperty Name="cp_id" ColumnName="cp_id" />
+          <ScalarProperty Name="cp_name" ColumnName="cp_name" />
+          <ScalarProperty Name="cp_quantity" ColumnName="cp_quantity" />
+          <ScalarProperty Name="cp_price" ColumnName="cp_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discounts">
+      <EntityTypeMapping TypeName="ezFixUpModel.Discounts">
+        <MappingFragment StoreEntitySet="Discounts">
+          <ScalarProperty Name="d_id" ColumnName="d_id" />
+          <ScalarProperty Name="d_amount" ColumnName="d_amount" />
+          <ScalarProperty Name="d_type" ColumnName="d_type" />
+          <ScalarProperty Name="d_field" ColumnName="d_field" />
+          <ScalarProperty Name="d_match" ColumnName="d_match" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ECardCategories">
+      <EntityTypeMapping TypeName="ezFixUpModel.ECardCategories">
+        <MappingFragment StoreEntitySet="ECardCategories">
+          <ScalarProperty Name="ecc_id" ColumnName="ecc_id" />
+          <ScalarProperty Name="ecc_name" ColumnName="ecc_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ecards">
+      <EntityTypeMapping TypeName="ezFixUpModel.Ecards">
+        <MappingFragment StoreEntitySet="Ecards">
+          <ScalarProperty Name="ec_id" ColumnName="ec_id" />
+          <ScalarProperty Name="ect_id" ColumnName="ect_id" />
+          <ScalarProperty Name="ec_from_username" ColumnName="ec_from_username" />
+          <ScalarProperty Name="ec_to_username" ColumnName="ec_to_username" />
+          <ScalarProperty Name="ec_date" ColumnName="ec_date" />
+          <ScalarProperty Name="ec_message" ColumnName="ec_message" />
+          <ScalarProperty Name="ec_deleted_by_fromuser" ColumnName="ec_deleted_by_fromuser" />
+          <ScalarProperty Name="ec_deleted_by_touser" ColumnName="ec_deleted_by_touser" />
+          <ScalarProperty Name="ec_is_opened" ColumnName="ec_is_opened" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EcardTypes">
+      <EntityTypeMapping TypeName="ezFixUpModel.EcardTypes">
+        <MappingFragment StoreEntitySet="EcardTypes">
+          <ScalarProperty Name="ect_id" ColumnName="ect_id" />
+          <ScalarProperty Name="ect_name" ColumnName="ect_name" />
+          <ScalarProperty Name="ect_phrase" ColumnName="ect_phrase" />
+          <ScalarProperty Name="ect_content" ColumnName="ect_content" />
+          <ScalarProperty Name="ect_type" ColumnName="ect_type" />
+          <ScalarProperty Name="ect_active" ColumnName="ect_active" />
+          <ScalarProperty Name="ect_category_id" ColumnName="ect_category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailQueue">
+      <EntityTypeMapping TypeName="ezFixUpModel.EmailQueue">
+        <MappingFragment StoreEntitySet="EmailQueue">
+          <ScalarProperty Name="eq_id" ColumnName="eq_id" />
+          <ScalarProperty Name="eq_from" ColumnName="eq_from" />
+          <ScalarProperty Name="eq_to" ColumnName="eq_to" />
+          <ScalarProperty Name="eq_fromname" ColumnName="eq_fromname" />
+          <ScalarProperty Name="eq_toname" ColumnName="eq_toname" />
+          <ScalarProperty Name="eq_cc" ColumnName="eq_cc" />
+          <ScalarProperty Name="eq_bcc" ColumnName="eq_bcc" />
+          <ScalarProperty Name="eq_subject" ColumnName="eq_subject" />
+          <ScalarProperty Name="eq_body" ColumnName="eq_body" />
+          <ScalarProperty Name="eq_tries" ColumnName="eq_tries" />
+          <ScalarProperty Name="eq_last_try" ColumnName="eq_last_try" />
+          <ScalarProperty Name="eq_last_error" ColumnName="eq_last_error" />
+          <ScalarProperty Name="eq_next_try" ColumnName="eq_next_try" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailTemplates">
+      <EntityTypeMapping TypeName="ezFixUpModel.EmailTemplates">
+        <MappingFragment StoreEntitySet="EmailTemplates">
+          <ScalarProperty Name="et_name" ColumnName="et_name" />
+          <ScalarProperty Name="et_subject" ColumnName="et_subject" />
+          <ScalarProperty Name="et_body" ColumnName="et_body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstablishedCommunications">
+      <EntityTypeMapping TypeName="ezFixUpModel.EstablishedCommunications">
+        <MappingFragment StoreEntitySet="EstablishedCommunications">
+          <ScalarProperty Name="ec_from_username" ColumnName="ec_from_username" />
+          <ScalarProperty Name="ec_to_username" ColumnName="ec_to_username" />
+          <ScalarProperty Name="ec_date" ColumnName="ec_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventComments">
+      <EntityTypeMapping TypeName="ezFixUpModel.EventComments">
+        <MappingFragment StoreEntitySet="EventComments">
+          <ScalarProperty Name="ec_id" ColumnName="ec_id" />
+          <ScalarProperty Name="e_id" ColumnName="e_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ec_date" ColumnName="ec_date" />
+          <ScalarProperty Name="ec_comment" ColumnName="ec_comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="ezFixUpModel.Events">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="e_id" ColumnName="e_id" />
+          <ScalarProperty Name="e_fromusername" ColumnName="e_fromusername" />
+          <ScalarProperty Name="e_fromgroup" ColumnName="e_fromgroup" />
+          <ScalarProperty Name="e_type" ColumnName="e_type" />
+          <ScalarProperty Name="e_details" ColumnName="e_details" />
+          <ScalarProperty Name="e_date" ColumnName="e_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacebookCities">
+      <EntityTypeMapping TypeName="ezFixUpModel.FacebookCities">
+        <MappingFragment StoreEntitySet="FacebookCities">
+          <ScalarProperty Name="fc_key" ColumnName="fc_key" />
+          <ScalarProperty Name="fc_name" ColumnName="fc_name" />
+          <ScalarProperty Name="fc_subtext" ColumnName="fc_subtext" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacebookCountries">
+      <EntityTypeMapping TypeName="ezFixUpModel.FacebookCountries">
+        <MappingFragment StoreEntitySet="FacebookCountries">
+          <ScalarProperty Name="fc_id" ColumnName="fc_id" />
+          <ScalarProperty Name="fc_country_code" ColumnName="fc_country_code" />
+          <ScalarProperty Name="fc_name" ColumnName="fc_name" />
+          <ScalarProperty Name="fc_supports_region" ColumnName="fc_supports_region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacebookInvitations">
+      <EntityTypeMapping TypeName="ezFixUpModel.FacebookInvitations">
+        <MappingFragment StoreEntitySet="FacebookInvitations">
+          <ScalarProperty Name="fi_id" ColumnName="fi_id" />
+          <ScalarProperty Name="fi_request_id" ColumnName="fi_request_id" />
+          <ScalarProperty Name="fi_sender_id" ColumnName="fi_sender_id" />
+          <ScalarProperty Name="fi_recipient_id" ColumnName="fi_recipient_id" />
+          <ScalarProperty Name="fi_created_time" ColumnName="fi_created_time" />
+          <ScalarProperty Name="fi_is_credited" ColumnName="fi_is_credited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaqCategories">
+      <EntityTypeMapping TypeName="ezFixUpModel.FaqCategories">
+        <MappingFragment StoreEntitySet="FaqCategories">
+          <ScalarProperty Name="fc_id" ColumnName="fc_id" />
+          <ScalarProperty Name="fc_name" ColumnName="fc_name" />
+          <ScalarProperty Name="fc_active" ColumnName="fc_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAQs">
+      <EntityTypeMapping TypeName="ezFixUpModel.FAQs">
+        <MappingFragment StoreEntitySet="FAQs">
+          <ScalarProperty Name="q_id" ColumnName="q_id" />
+          <ScalarProperty Name="q_name" ColumnName="q_name" />
+          <ScalarProperty Name="q_active" ColumnName="q_active" />
+          <ScalarProperty Name="q_order" ColumnName="q_order" />
+          <ScalarProperty Name="q_question" ColumnName="q_question" />
+          <ScalarProperty Name="q_answer" ColumnName="q_answer" />
+          <ScalarProperty Name="q_category_id" ColumnName="q_category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Favourites">
+      <EntityTypeMapping TypeName="ezFixUpModel.Favourites">
+        <MappingFragment StoreEntitySet="Favourites">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="f_username" ColumnName="f_username" />
+          <ScalarProperty Name="f_timestamp" ColumnName="f_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="ezFixUpModel.Friends">
+        <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="f_username" ColumnName="f_username" />
+          <ScalarProperty Name="f_timestamp" ColumnName="f_timestamp" />
+          <ScalarProperty Name="f_accepted" ColumnName="f_accepted" />
+          <ScalarProperty Name="fb_mutualy_friends" ColumnName="fb_mutualy_friends" />
+          <ScalarProperty Name="f_is_facebook_friend" ColumnName="f_is_facebook_friend" />
+          <ScalarProperty Name="f_denied_counter" ColumnName="f_denied_counter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftCategories">
+      <EntityTypeMapping TypeName="ezFixUpModel.GiftCategories">
+        <MappingFragment StoreEntitySet="GiftCategories">
+          <ScalarProperty Name="gc_id" ColumnName="gc_id" />
+          <ScalarProperty Name="gc_name" ColumnName="gc_name" />
+          <ScalarProperty Name="gc_active" ColumnName="gc_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftsMessages">
+      <EntityTypeMapping TypeName="ezFixUpModel.GiftsMessages">
+        <MappingFragment StoreEntitySet="GiftsMessages">
+          <ScalarProperty Name="gm_id" ColumnName="gm_id" />
+          <ScalarProperty Name="gm_gift_id" ColumnName="gm_gift_id" />
+          <ScalarProperty Name="gm_message_id" ColumnName="gm_message_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftTypes">
+      <EntityTypeMapping TypeName="ezFixUpModel.GiftTypes">
+        <MappingFragment StoreEntitySet="GiftTypes">
+          <ScalarProperty Name="gt_id" ColumnName="gt_id" />
+          <ScalarProperty Name="gt_name" ColumnName="gt_name" />
+          <ScalarProperty Name="gt_phrase" ColumnName="gt_phrase" />
+          <ScalarProperty Name="gt_content" ColumnName="gt_content" />
+          <ScalarProperty Name="gt_type" ColumnName="gt_type" />
+          <ScalarProperty Name="gt_active" ColumnName="gt_active" />
+          <ScalarProperty Name="gt_category_id" ColumnName="gt_category_id" />
+          <ScalarProperty Name="gt_price" ColumnName="gt_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupBans">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupBans">
+        <MappingFragment StoreEntitySet="GroupBans">
+          <ScalarProperty Name="gb_id" ColumnName="gb_id" />
+          <ScalarProperty Name="g_id" ColumnName="g_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gb_expires" ColumnName="gb_expires" />
+          <ScalarProperty Name="gb_date" ColumnName="gb_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupEvents">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupEvents">
+        <MappingFragment StoreEntitySet="GroupEvents">
+          <ScalarProperty Name="ge_id" ColumnName="ge_id" />
+          <ScalarProperty Name="g_id" ColumnName="g_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ge_title" ColumnName="ge_title" />
+          <ScalarProperty Name="ge_description" ColumnName="ge_description" />
+          <ScalarProperty Name="ge_image" ColumnName="ge_image" />
+          <ScalarProperty Name="ge_date" ColumnName="ge_date" />
+          <ScalarProperty Name="ge_location" ColumnName="ge_location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupEventsComments">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupEventsComments">
+        <MappingFragment StoreEntitySet="GroupEventsComments">
+          <ScalarProperty Name="gec_id" ColumnName="gec_id" />
+          <ScalarProperty Name="ge_id" ColumnName="ge_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gec_comment" ColumnName="gec_comment" />
+          <ScalarProperty Name="gec_date" ColumnName="gec_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupMembers">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupMembers">
+        <MappingFragment StoreEntitySet="GroupMembers">
+          <ScalarProperty Name="g_id" ColumnName="g_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gm_type" ColumnName="gm_type" />
+          <ScalarProperty Name="gm_joindate" ColumnName="gm_joindate" />
+          <ScalarProperty Name="gm_invitedby" ColumnName="gm_invitedby" />
+          <ScalarProperty Name="gm_active" ColumnName="gm_active" />
+          <ScalarProperty Name="gm_joinanswer" ColumnName="gm_joinanswer" />
+          <ScalarProperty Name="gm_warned" ColumnName="gm_warned" />
+          <ScalarProperty Name="gm_warn_reason" ColumnName="gm_warn_reason" />
+          <ScalarProperty Name="gm_warn_expirationdate" ColumnName="gm_warn_expirationdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupPhotos">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupPhotos">
+        <MappingFragment StoreEntitySet="GroupPhotos">
+          <ScalarProperty Name="gp_id" ColumnName="gp_id" />
+          <ScalarProperty Name="g_id" ColumnName="g_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gp_name" ColumnName="gp_name" />
+          <ScalarProperty Name="gp_description" ColumnName="gp_description" />
+          <ScalarProperty Name="gp_image" ColumnName="gp_image" />
+          <ScalarProperty Name="gp_date" ColumnName="gp_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupPollsAnswers">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupPollsAnswers">
+        <MappingFragment StoreEntitySet="GroupPollsAnswers">
+          <ScalarProperty Name="gt_id" ColumnName="gt_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gpc_id" ColumnName="gpc_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupPollsChoices">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupPollsChoices">
+        <MappingFragment StoreEntitySet="GroupPollsChoices">
+          <ScalarProperty Name="gpc_id" ColumnName="gpc_id" />
+          <ScalarProperty Name="gt_id" ColumnName="gt_id" />
+          <ScalarProperty Name="gpc_answer" ColumnName="gpc_answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupPosts">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupPosts">
+        <MappingFragment StoreEntitySet="GroupPosts">
+          <ScalarProperty Name="gp_id" ColumnName="gp_id" />
+          <ScalarProperty Name="gt_id" ColumnName="gt_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gp_dateposted" ColumnName="gp_dateposted" />
+          <ScalarProperty Name="gp_dateedited" ColumnName="gp_dateedited" />
+          <ScalarProperty Name="gp_editnotes" ColumnName="gp_editnotes" />
+          <ScalarProperty Name="gp_post" ColumnName="gp_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="ezFixUpModel.Groups">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="g_id" ColumnName="g_id" />
+          <ScalarProperty Name="g_name" ColumnName="g_name" />
+          <ScalarProperty Name="g_description" ColumnName="g_description" />
+          <ScalarProperty Name="g_icon" ColumnName="g_icon" />
+          <ScalarProperty Name="g_datecreated" ColumnName="g_datecreated" />
+          <ScalarProperty Name="g_approved" ColumnName="g_approved" />
+          <ScalarProperty Name="g_accesslevel" ColumnName="g_accesslevel" />
+          <ScalarProperty Name="g_owner" ColumnName="g_owner" />
+          <ScalarProperty Name="g_activemembers" ColumnName="g_activemembers" />
+          <ScalarProperty Name="g_jointerms" ColumnName="g_jointerms" />
+          <ScalarProperty Name="g_joinquestion" ColumnName="g_joinquestion" />
+          <ScalarProperty Name="g_permissions" ColumnName="g_permissions" />
+          <ScalarProperty Name="g_minage" ColumnName="g_minage" />
+          <ScalarProperty Name="g_autojoin" ColumnName="g_autojoin" />
+          <ScalarProperty Name="g_autojoincountry" ColumnName="g_autojoincountry" />
+          <ScalarProperty Name="g_autojoinregion" ColumnName="g_autojoinregion" />
+          <ScalarProperty Name="g_autojoincity" ColumnName="g_autojoincity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupTopics">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupTopics">
+        <MappingFragment StoreEntitySet="GroupTopics">
+          <ScalarProperty Name="gt_id" ColumnName="gt_id" />
+          <ScalarProperty Name="g_id" ColumnName="g_id" />
+          <ScalarProperty Name="gt_name" ColumnName="gt_name" />
+          <ScalarProperty Name="gt_datecreated" ColumnName="gt_datecreated" />
+          <ScalarProperty Name="gt_dateupdated" ColumnName="gt_dateupdated" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gt_posts" ColumnName="gt_posts" />
+          <ScalarProperty Name="gt_locked" ColumnName="gt_locked" />
+          <ScalarProperty Name="gt_stickyuntil" ColumnName="gt_stickyuntil" />
+          <ScalarProperty Name="gt_poll" ColumnName="gt_poll" />
+          <ScalarProperty Name="gt_views" ColumnName="gt_views" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupTopicSubscriptions">
+      <EntityTypeMapping TypeName="ezFixUpModel.GroupTopicSubscriptions">
+        <MappingFragment StoreEntitySet="GroupTopicSubscriptions">
+          <ScalarProperty Name="gts_id" ColumnName="gts_id" />
+          <ScalarProperty Name="gt_id" ColumnName="gt_id" />
+          <ScalarProperty Name="g_id" ColumnName="g_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="gts_dateupdated" ColumnName="gts_dateupdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HourlyStats">
+      <EntityTypeMapping TypeName="ezFixUpModel.HourlyStats">
+        <MappingFragment StoreEntitySet="HourlyStats">
+          <ScalarProperty Name="hs_time" ColumnName="hs_time" />
+          <ScalarProperty Name="hs_usersonline" ColumnName="hs_usersonline" />
+          <ScalarProperty Name="hs_newusers" ColumnName="hs_newusers" />
+          <ScalarProperty Name="hs_sentmessages" ColumnName="hs_sentmessages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interests">
+      <EntityTypeMapping TypeName="ezFixUpModel.Interests">
+        <MappingFragment StoreEntitySet="Interests">
+          <ScalarProperty Name="i_id" ColumnName="i_id" />
+          <ScalarProperty Name="i_from_username" ColumnName="i_from_username" />
+          <ScalarProperty Name="i_to_username" ColumnName="i_to_username" />
+          <ScalarProperty Name="i_date_posted" ColumnName="i_date_posted" />
+          <ScalarProperty Name="i_deleted_by_fromuser" ColumnName="i_deleted_by_fromuser" />
+          <ScalarProperty Name="i_deleted_by_touser" ColumnName="i_deleted_by_touser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IPLogs">
+      <EntityTypeMapping TypeName="ezFixUpModel.IPLogs">
+        <MappingFragment StoreEntitySet="IPLogs">
+          <ScalarProperty Name="ipl_id" ColumnName="ipl_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ipl_ip" ColumnName="ipl_ip" />
+          <ScalarProperty Name="ipl_action" ColumnName="ipl_action" />
+          <ScalarProperty Name="ipl_timestamp" ColumnName="ipl_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="ezFixUpModel.Languages">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="l_id" ColumnName="l_id" />
+          <ScalarProperty Name="l_language" ColumnName="l_language" />
+          <ScalarProperty Name="l_active" ColumnName="l_active" />
+          <ScalarProperty Name="l_predefined" ColumnName="l_predefined" />
+          <ScalarProperty Name="l_order" ColumnName="l_order" />
+          <ScalarProperty Name="l_browser_languages" ColumnName="l_browser_languages" />
+          <ScalarProperty Name="l_ipcountries" ColumnName="l_ipcountries" />
+          <ScalarProperty Name="l_theme" ColumnName="l_theme" />
+          <ScalarProperty Name="l_dir" ColumnName="l_dir" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matchmakings">
+      <EntityTypeMapping TypeName="ezFixUpModel.Matchmakings">
+        <MappingFragment StoreEntitySet="Matchmakings">
+          <ScalarProperty Name="mm_id" ColumnName="mm_id" />
+          <ScalarProperty Name="mm_matchmaker_username" ColumnName="mm_matchmaker_username" />
+          <ScalarProperty Name="mm_to_friend_username" ColumnName="mm_to_friend_username" />
+          <ScalarProperty Name="mm_with_friend_username" ColumnName="mm_with_friend_username" />
+          <ScalarProperty Name="mm_timestamp" ColumnName="mm_timestamp" />
+          <ScalarProperty Name="mm_to_friend_ack" ColumnName="mm_to_friend_ack" />
+          <ScalarProperty Name="mm_with_friend_ack" ColumnName="mm_with_friend_ack" />
+          <ScalarProperty Name="mm_status" ColumnName="mm_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="ezFixUpModel.Messages">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="m_id" ColumnName="m_id" />
+          <ScalarProperty Name="m_from_username" ColumnName="m_from_username" />
+          <ScalarProperty Name="m_from_folder" ColumnName="m_from_folder" />
+          <ScalarProperty Name="m_to_username" ColumnName="m_to_username" />
+          <ScalarProperty Name="m_to_folder" ColumnName="m_to_folder" />
+          <ScalarProperty Name="m_body" ColumnName="m_body" />
+          <ScalarProperty Name="m_timestamp" ColumnName="m_timestamp" />
+          <ScalarProperty Name="m_replied_to" ColumnName="m_replied_to" />
+          <ScalarProperty Name="m_is_read" ColumnName="m_is_read" />
+          <ScalarProperty Name="m_pending_approval" ColumnName="m_pending_approval" />
+          <ScalarProperty Name="m_new" ColumnName="m_new" />
+          <ScalarProperty Name="m_type_id" ColumnName="m_type_id" />
+          <ScalarProperty Name="m_subject" ColumnName="m_subject" />
+          <ScalarProperty Name="m_about_username" ColumnName="m_about_username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessagesHistoryCache">
+      <EntityTypeMapping TypeName="ezFixUpModel.MessagesHistoryCache">
+        <MappingFragment StoreEntitySet="MessagesHistoryCache">
+          <ScalarProperty Name="mhc_fromusername" ColumnName="mhc_fromusername" />
+          <ScalarProperty Name="mhc_tousername" ColumnName="mhc_tousername" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessagesSandbox">
+      <EntityTypeMapping TypeName="ezFixUpModel.MessagesSandbox">
+        <MappingFragment StoreEntitySet="MessagesSandbox">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ms_message" ColumnName="ms_message" />
+          <ScalarProperty Name="ms_count" ColumnName="ms_count" />
+          <ScalarProperty Name="ms_datetime" ColumnName="ms_datetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessagesTypes">
+      <EntityTypeMapping TypeName="ezFixUpModel.MessagesTypes">
+        <MappingFragment StoreEntitySet="MessagesTypes">
+          <ScalarProperty Name="mt_id" ColumnName="mt_id" />
+          <ScalarProperty Name="mt_name" ColumnName="mt_name" />
+          <ScalarProperty Name="mt_active" ColumnName="mt_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="ezFixUpModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="n_id" ColumnName="n_id" />
+          <ScalarProperty Name="n_date" ColumnName="n_date" />
+          <ScalarProperty Name="n_text" ColumnName="n_text" />
+          <ScalarProperty Name="n_title" ColumnName="n_title" />
+          <ScalarProperty Name="l_id" ColumnName="l_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentHistory">
+      <EntityTypeMapping TypeName="ezFixUpModel.PaymentHistory">
+        <MappingFragment StoreEntitySet="PaymentHistory">
+          <ScalarProperty Name="ph_id" ColumnName="ph_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ph_paymentprocessor" ColumnName="ph_paymentprocessor" />
+          <ScalarProperty Name="ph_amount" ColumnName="ph_amount" />
+          <ScalarProperty Name="ph_description" ColumnName="ph_description" />
+          <ScalarProperty Name="ph_notes" ColumnName="ph_notes" />
+          <ScalarProperty Name="ph_status" ColumnName="ph_status" />
+          <ScalarProperty Name="ph_timestamp" ColumnName="ph_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PendingGuids">
+      <EntityTypeMapping TypeName="ezFixUpModel.PendingGuids">
+        <MappingFragment StoreEntitySet="PendingGuids">
+          <ScalarProperty Name="pg_username" ColumnName="pg_username" />
+          <ScalarProperty Name="pg_guid" ColumnName="pg_guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoAccess">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoAccess">
+        <MappingFragment StoreEntitySet="PhotoAccess">
+          <ScalarProperty Name="pa_photoowner" ColumnName="pa_photoowner" />
+          <ScalarProperty Name="pa_photoviewer" ColumnName="pa_photoviewer" />
+          <ScalarProperty Name="pa_dateaccessgranted" ColumnName="pa_dateaccessgranted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoAlbums">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoAlbums">
+        <MappingFragment StoreEntitySet="PhotoAlbums">
+          <ScalarProperty Name="pa_id" ColumnName="pa_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pa_name" ColumnName="pa_name" />
+          <ScalarProperty Name="pa_access" ColumnName="pa_access" />
+          <ScalarProperty Name="pa_cover_photoid" ColumnName="pa_cover_photoid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoComments">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoComments">
+        <MappingFragment StoreEntitySet="PhotoComments">
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pc_comment" ColumnName="pc_comment" />
+          <ScalarProperty Name="pc_date" ColumnName="pc_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoContestEntries">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoContestEntries">
+        <MappingFragment StoreEntitySet="PhotoContestEntries">
+          <ScalarProperty Name="pce_id" ColumnName="pce_id" />
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoContestRanks">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoContestRanks">
+        <MappingFragment StoreEntitySet="PhotoContestRanks">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+          <ScalarProperty Name="pce_id" ColumnName="pce_id" />
+          <ScalarProperty Name="pcr_value" ColumnName="pcr_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoContests">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoContests">
+        <MappingFragment StoreEntitySet="PhotoContests">
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+          <ScalarProperty Name="pc_name" ColumnName="pc_name" />
+          <ScalarProperty Name="pc_gender" ColumnName="pc_gender" />
+          <ScalarProperty Name="pc_description" ColumnName="pc_description" />
+          <ScalarProperty Name="pc_terms" ColumnName="pc_terms" />
+          <ScalarProperty Name="pc_minage" ColumnName="pc_minage" />
+          <ScalarProperty Name="pc_maxage" ColumnName="pc_maxage" />
+          <ScalarProperty Name="pc_datecreated" ColumnName="pc_datecreated" />
+          <ScalarProperty Name="pc_dateends" ColumnName="pc_dateends" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoContestVotes">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoContestVotes">
+        <MappingFragment StoreEntitySet="PhotoContestVotes">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pce_id_picked" ColumnName="pce_id_picked" />
+          <ScalarProperty Name="pce_id_nonpicked" ColumnName="pce_id_nonpicked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoNotes">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoNotes">
+        <MappingFragment StoreEntitySet="PhotoNotes">
+          <ScalarProperty Name="pn_id" ColumnName="pn_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pn_notes" ColumnName="pn_notes" />
+          <ScalarProperty Name="pn_timestamp" ColumnName="pn_timestamp" />
+          <ScalarProperty Name="pn_x" ColumnName="pn_x" />
+          <ScalarProperty Name="pn_y" ColumnName="pn_y" />
+          <ScalarProperty Name="pn_width" ColumnName="pn_width" />
+          <ScalarProperty Name="pn_height" ColumnName="pn_height" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoRatings">
+      <EntityTypeMapping TypeName="ezFixUpModel.PhotoRatings">
+        <MappingFragment StoreEntitySet="PhotoRatings">
+          <ScalarProperty Name="pr_fromusername" ColumnName="pr_fromusername" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="pr_rating" ColumnName="pr_rating" />
+          <ScalarProperty Name="pr_timestamp" ColumnName="pr_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="ezFixUpModel.Photos">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pa_id" ColumnName="pa_id" />
+          <ScalarProperty Name="p_image" ColumnName="p_image" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="p_description" ColumnName="p_description" />
+          <ScalarProperty Name="p_approved" ColumnName="p_approved" />
+          <ScalarProperty Name="p_primary" ColumnName="p_primary" />
+          <ScalarProperty Name="p_explicit" ColumnName="p_explicit" />
+          <ScalarProperty Name="p_private" ColumnName="p_private" />
+          <ScalarProperty Name="p_approvedby" ColumnName="p_approvedby" />
+          <ScalarProperty Name="p_approvedtimestamp" ColumnName="p_approvedtimestamp" />
+          <ScalarProperty Name="p_facecrop" ColumnName="p_facecrop" />
+          <ScalarProperty Name="p_manual_approval" ColumnName="p_manual_approval" />
+          <ScalarProperty Name="p_salute" ColumnName="p_salute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PollAnswers">
+      <EntityTypeMapping TypeName="ezFixUpModel.PollAnswers">
+        <MappingFragment StoreEntitySet="PollAnswers">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PollChoices">
+      <EntityTypeMapping TypeName="ezFixUpModel.PollChoices">
+        <MappingFragment StoreEntitySet="PollChoices">
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="pc_answer" ColumnName="pc_answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Polls">
+      <EntityTypeMapping TypeName="ezFixUpModel.Polls">
+        <MappingFragment StoreEntitySet="Polls">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_title" ColumnName="p_title" />
+          <ScalarProperty Name="p_startdate" ColumnName="p_startdate" />
+          <ScalarProperty Name="p_enddate" ColumnName="p_enddate" />
+          <ScalarProperty Name="p_showresultsuntil" ColumnName="p_showresultsuntil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileAnswers">
+      <EntityTypeMapping TypeName="ezFixUpModel.ProfileAnswers">
+        <MappingFragment StoreEntitySet="ProfileAnswers">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="pq_id" ColumnName="pq_id" />
+          <ScalarProperty Name="pa_value" ColumnName="pa_value" />
+          <ScalarProperty Name="pa_approved" ColumnName="pa_approved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileChoices">
+      <EntityTypeMapping TypeName="ezFixUpModel.ProfileChoices">
+        <MappingFragment StoreEntitySet="ProfileChoices">
+          <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+          <ScalarProperty Name="pq_id" ColumnName="pq_id" />
+          <ScalarProperty Name="pc_value" ColumnName="pc_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileQuestions">
+      <EntityTypeMapping TypeName="ezFixUpModel.ProfileQuestions">
+        <MappingFragment StoreEntitySet="ProfileQuestions">
+          <ScalarProperty Name="pq_id" ColumnName="pq_id" />
+          <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+          <ScalarProperty Name="pq_name" ColumnName="pq_name" />
+          <ScalarProperty Name="pq_altname" ColumnName="pq_altname" />
+          <ScalarProperty Name="pq_description" ColumnName="pq_description" />
+          <ScalarProperty Name="pq_hint" ColumnName="pq_hint" />
+          <ScalarProperty Name="pq_edit_style" ColumnName="pq_edit_style" />
+          <ScalarProperty Name="pq_show_style" ColumnName="pq_show_style" />
+          <ScalarProperty Name="pq_search_style" ColumnName="pq_search_style" />
+          <ScalarProperty Name="pq_required" ColumnName="pq_required" />
+          <ScalarProperty Name="pq_priority" ColumnName="pq_priority" />
+          <ScalarProperty Name="pq_requires_approval" ColumnName="pq_requires_approval" />
+          <ScalarProperty Name="pq_visible_male" ColumnName="pq_visible_male" />
+          <ScalarProperty Name="pq_visible_female" ColumnName="pq_visible_female" />
+          <ScalarProperty Name="pq_visible_couple" ColumnName="pq_visible_couple" />
+          <ScalarProperty Name="pq_match_field" ColumnName="pq_match_field" />
+          <ScalarProperty Name="pq_viewpaidonly" ColumnName="pq_viewpaidonly" />
+          <ScalarProperty Name="pq_editpaidonly" ColumnName="pq_editpaidonly" />
+          <ScalarProperty Name="pq_parent_question_id" ColumnName="pq_parent_question_id" />
+          <ScalarProperty Name="pq_parent_question_choices" ColumnName="pq_parent_question_choices" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileTopics">
+      <EntityTypeMapping TypeName="ezFixUpModel.ProfileTopics">
+        <MappingFragment StoreEntitySet="ProfileTopics">
+          <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+          <ScalarProperty Name="pt_name" ColumnName="pt_name" />
+          <ScalarProperty Name="pt_priority" ColumnName="pt_priority" />
+          <ScalarProperty Name="pt_editcolumns" ColumnName="pt_editcolumns" />
+          <ScalarProperty Name="pt_viewcolumns" ColumnName="pt_viewcolumns" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileViews">
+      <EntityTypeMapping TypeName="ezFixUpModel.ProfileViews">
+        <MappingFragment StoreEntitySet="ProfileViews">
+          <ScalarProperty Name="pv_viewer" ColumnName="pv_viewer" />
+          <ScalarProperty Name="pv_viewed" ColumnName="pv_viewed" />
+          <ScalarProperty Name="pv_timestamp" ColumnName="pv_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="ezFixUpModel.Ratings">
+        <MappingFragment StoreEntitySet="Ratings">
+          <ScalarProperty Name="r_fromusername" ColumnName="r_fromusername" />
+          <ScalarProperty Name="r_tousername" ColumnName="r_tousername" />
+          <ScalarProperty Name="r_rating" ColumnName="r_rating" />
+          <ScalarProperty Name="r_timestamp" ColumnName="r_timestamp" />
+          <ScalarProperty Name="r_ip" ColumnName="r_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relationships">
+      <EntityTypeMapping TypeName="ezFixUpModel.Relationships">
+        <MappingFragment StoreEntitySet="Relationships">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="r_username" ColumnName="r_username" />
+          <ScalarProperty Name="r_type" ColumnName="r_type" />
+          <ScalarProperty Name="r_pendingtype" ColumnName="r_pendingtype" />
+          <ScalarProperty Name="r_accepted" ColumnName="r_accepted" />
+          <ScalarProperty Name="r_timestamp" ColumnName="r_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SavedSearches">
+      <EntityTypeMapping TypeName="ezFixUpModel.SavedSearches">
+        <MappingFragment StoreEntitySet="SavedSearches">
+          <ScalarProperty Name="ss_id" ColumnName="ss_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ss_name" ColumnName="ss_name" />
+          <ScalarProperty Name="ss_gender" ColumnName="ss_gender" />
+          <ScalarProperty Name="ss_country" ColumnName="ss_country" />
+          <ScalarProperty Name="ss_state" ColumnName="ss_state" />
+          <ScalarProperty Name="ss_zip" ColumnName="ss_zip" />
+          <ScalarProperty Name="ss_city" ColumnName="ss_city" />
+          <ScalarProperty Name="ss_agefrom" ColumnName="ss_agefrom" />
+          <ScalarProperty Name="ss_ageto" ColumnName="ss_ageto" />
+          <ScalarProperty Name="ss_photoreq" ColumnName="ss_photoreq" />
+          <ScalarProperty Name="ss_choiceids" ColumnName="ss_choiceids" />
+          <ScalarProperty Name="ss_emailmatches" ColumnName="ss_emailmatches" />
+          <ScalarProperty Name="ss_nextemaildate" ColumnName="ss_nextemaildate" />
+          <ScalarProperty Name="ss_emailfrequency" ColumnName="ss_emailfrequency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduledAnnouncements">
+      <EntityTypeMapping TypeName="ezFixUpModel.ScheduledAnnouncements">
+        <MappingFragment StoreEntitySet="ScheduledAnnouncements">
+          <ScalarProperty Name="sa_id" ColumnName="sa_id" />
+          <ScalarProperty Name="sa_name" ColumnName="sa_name" />
+          <ScalarProperty Name="sa_subject" ColumnName="sa_subject" />
+          <ScalarProperty Name="sa_body" ColumnName="sa_body" />
+          <ScalarProperty Name="sa_gender" ColumnName="sa_gender" />
+          <ScalarProperty Name="sa_paidmember" ColumnName="sa_paidmember" />
+          <ScalarProperty Name="sa_hasphotos" ColumnName="sa_hasphotos" />
+          <ScalarProperty Name="sa_hasprofile" ColumnName="sa_hasprofile" />
+          <ScalarProperty Name="sa_languageid" ColumnName="sa_languageid" />
+          <ScalarProperty Name="sa_country" ColumnName="sa_country" />
+          <ScalarProperty Name="sa_region" ColumnName="sa_region" />
+          <ScalarProperty Name="sa_type" ColumnName="sa_type" />
+          <ScalarProperty Name="sa_date" ColumnName="sa_date" />
+          <ScalarProperty Name="sa_days" ColumnName="sa_days" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="ezFixUpModel.Settings">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="s_key" ColumnName="s_key" />
+          <ScalarProperty Name="s_value" ColumnName="s_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscriptions">
+      <EntityTypeMapping TypeName="ezFixUpModel.Subscriptions">
+        <MappingFragment StoreEntitySet="Subscriptions">
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="s_order_date" ColumnName="s_order_date" />
+          <ScalarProperty Name="s_renew_date" ColumnName="s_renew_date" />
+          <ScalarProperty Name="s_confirmed" ColumnName="s_confirmed" />
+          <ScalarProperty Name="s_cancelled" ColumnName="s_cancelled" />
+          <ScalarProperty Name="s_cancellation_requested" ColumnName="s_cancellation_requested" />
+          <ScalarProperty Name="s_paymentprocessor" ColumnName="s_paymentprocessor" />
+          <ScalarProperty Name="s_custom" ColumnName="s_custom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Templates">
+      <EntityTypeMapping TypeName="ezFixUpModel.Templates">
+        <MappingFragment StoreEntitySet="Templates">
+          <ScalarProperty Name="t_key" ColumnName="t_key" />
+          <ScalarProperty Name="t_value" ColumnName="t_value" />
+          <ScalarProperty Name="t_description" ColumnName="t_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipsPopups">
+      <EntityTypeMapping TypeName="ezFixUpModel.TipsPopups">
+        <MappingFragment StoreEntitySet="TipsPopups">
+          <ScalarProperty Name="tp_id" ColumnName="tp_id" />
+          <ScalarProperty Name="tp_language_id" ColumnName="tp_language_id" />
+          <ScalarProperty Name="tp_show_times" ColumnName="tp_show_times" />
+          <ScalarProperty Name="tp_login_count_trigger" ColumnName="tp_login_count_trigger" />
+          <ScalarProperty Name="tp_days_count_trigger" ColumnName="tp_days_count_trigger" />
+          <ScalarProperty Name="tp_page_name" ColumnName="tp_page_name" />
+          <ScalarProperty Name="tp_min_credits_trigger" ColumnName="tp_min_credits_trigger" />
+          <ScalarProperty Name="tp_no_spending_days_trigger" ColumnName="tp_no_spending_days_trigger" />
+          <ScalarProperty Name="tp_content" ColumnName="tp_content" />
+          <ScalarProperty Name="tp_title" ColumnName="tp_title" />
+          <ScalarProperty Name="tp_name_key" ColumnName="tp_name_key" />
+          <ScalarProperty Name="tp_matchmaker_view" ColumnName="tp_matchmaker_view" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Translations">
+      <EntityTypeMapping TypeName="ezFixUpModel.Translations">
+        <MappingFragment StoreEntitySet="Translations">
+          <ScalarProperty Name="l_id" ColumnName="l_id" />
+          <ScalarProperty Name="t_key" ColumnName="t_key" />
+          <ScalarProperty Name="t_adminpanel" ColumnName="t_adminpanel" />
+          <ScalarProperty Name="t_value" ColumnName="t_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TwitterCredentials">
+      <EntityTypeMapping TypeName="ezFixUpModel.TwitterCredentials">
+        <MappingFragment StoreEntitySet="TwitterCredentials">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="tc_username" ColumnName="tc_username" />
+          <ScalarProperty Name="tc_password" ColumnName="tc_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnlockedSections">
+      <EntityTypeMapping TypeName="ezFixUpModel.UnlockedSections">
+        <MappingFragment StoreEntitySet="UnlockedSections">
+          <ScalarProperty Name="us_id" ColumnName="us_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="us_type" ColumnName="us_type" />
+          <ScalarProperty Name="us_targetusername" ColumnName="us_targetusername" />
+          <ScalarProperty Name="us_targetid" ColumnName="us_targetid" />
+          <ScalarProperty Name="us_unlockeduntil" ColumnName="us_unlockeduntil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLevels">
+      <EntityTypeMapping TypeName="ezFixUpModel.UserLevels">
+        <MappingFragment StoreEntitySet="UserLevels">
+          <ScalarProperty Name="ul_id" ColumnName="ul_id" />
+          <ScalarProperty Name="ul_name" ColumnName="ul_name" />
+          <ScalarProperty Name="ul_minscore" ColumnName="ul_minscore" />
+          <ScalarProperty Name="ul_restrictions" ColumnName="ul_restrictions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ezFixUpModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+          <ScalarProperty Name="u_birthdate" ColumnName="u_birthdate" />
+          <ScalarProperty Name="u_birthdate2" ColumnName="u_birthdate2" />
+          <ScalarProperty Name="u_usersince" ColumnName="u_usersince" />
+          <ScalarProperty Name="u_active" ColumnName="u_active" />
+          <ScalarProperty Name="u_smsconfirmed" ColumnName="u_smsconfirmed" />
+          <ScalarProperty Name="u_prevlogin" ColumnName="u_prevlogin" />
+          <ScalarProperty Name="u_lastlogin" ColumnName="u_lastlogin" />
+          <ScalarProperty Name="u_logincount" ColumnName="u_logincount" />
+          <ScalarProperty Name="u_lastonline" ColumnName="u_lastonline" />
+          <ScalarProperty Name="u_profileviews" ColumnName="u_profileviews" />
+          <ScalarProperty Name="u_profilevisible" ColumnName="u_profilevisible" />
+          <ScalarProperty Name="u_receiveemails" ColumnName="u_receiveemails" />
+          <ScalarProperty Name="u_state" ColumnName="u_state" />
+          <ScalarProperty Name="u_zip_code" ColumnName="u_zip_code" />
+          <ScalarProperty Name="u_city" ColumnName="u_city" />
+          <ScalarProperty Name="u_deleted" ColumnName="u_deleted" />
+          <ScalarProperty Name="u_paid_member" ColumnName="u_paid_member" />
+          <ScalarProperty Name="u_signup_ip" ColumnName="u_signup_ip" />
+          <ScalarProperty Name="u_interested_in" ColumnName="u_interested_in" />
+          <ScalarProperty Name="u_lastsessionid" ColumnName="u_lastsessionid" />
+          <ScalarProperty Name="u_message_verifications_left" ColumnName="u_message_verifications_left" />
+          <ScalarProperty Name="u_verifiedbyadmin" ColumnName="u_verifiedbyadmin" />
+          <ScalarProperty Name="l_id" ColumnName="l_id" />
+          <ScalarProperty Name="u_incoming_messages_restrictions" ColumnName="u_incoming_messages_restrictions" />
+          <ScalarProperty Name="u_billingdetails" ColumnName="u_billingdetails" />
+          <ScalarProperty Name="u_invited_by" ColumnName="u_invited_by" />
+          <ScalarProperty Name="a_id" ColumnName="a_id" />
+          <ScalarProperty Name="u_options" ColumnName="u_options" />
+          <ScalarProperty Name="u_deletereason" ColumnName="u_deletereason" />
+          <ScalarProperty Name="u_longitude" ColumnName="u_longitude" />
+          <ScalarProperty Name="u_latitude" ColumnName="u_latitude" />
+          <ScalarProperty Name="u_score" ColumnName="u_score" />
+          <ScalarProperty Name="u_tokenuniqueid" ColumnName="u_tokenuniqueid" />
+          <ScalarProperty Name="u_personalizationinfo" ColumnName="u_personalizationinfo" />
+          <ScalarProperty Name="u_credits" ColumnName="u_credits" />
+          <ScalarProperty Name="u_moderationscore" ColumnName="u_moderationscore" />
+          <ScalarProperty Name="u_spamsuspected" ColumnName="u_spamsuspected" />
+          <ScalarProperty Name="u_face_control_approved" ColumnName="u_face_control_approved" />
+          <ScalarProperty Name="u_profile_skin" ColumnName="u_profile_skin" />
+          <ScalarProperty Name="u_status_text" ColumnName="u_status_text" />
+          <ScalarProperty Name="u_featuredmember" ColumnName="u_featuredmember" />
+          <ScalarProperty Name="u_myspaceid" ColumnName="u_myspaceid" />
+          <ScalarProperty Name="u_facebookid" ColumnName="u_facebookid" />
+          <ScalarProperty Name="u_eventssettings" ColumnName="u_eventssettings" />
+          <ScalarProperty Name="u_country" ColumnName="u_country" />
+          <ScalarProperty Name="u_invitedby_count" ColumnName="u_invitedby_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserScoresLog">
+      <EntityTypeMapping TypeName="ezFixUpModel.UserScoresLog">
+        <MappingFragment StoreEntitySet="UserScoresLog">
+          <ScalarProperty Name="usl_id" ColumnName="usl_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="usl_timestamp" ColumnName="usl_timestamp" />
+          <ScalarProperty Name="usl_score" ColumnName="usl_score" />
+          <ScalarProperty Name="usl_notes" ColumnName="usl_notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTipsStatus">
+      <EntityTypeMapping TypeName="ezFixUpModel.UserTipsStatus">
+        <MappingFragment StoreEntitySet="UserTipsStatus">
+          <ScalarProperty Name="uts_id" ColumnName="uts_id" />
+          <ScalarProperty Name="uts_tip_id" ColumnName="uts_tip_id" />
+          <ScalarProperty Name="uts_username" ColumnName="uts_username" />
+          <ScalarProperty Name="uts_viewed_times" ColumnName="uts_viewed_times" />
+          <ScalarProperty Name="uts_is_blocked" ColumnName="uts_is_blocked" />
+          <ScalarProperty Name="uts_last_viewed_date" ColumnName="uts_last_viewed_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerifiedUsers">
+      <EntityTypeMapping TypeName="ezFixUpModel.VerifiedUsers">
+        <MappingFragment StoreEntitySet="VerifiedUsers">
+          <ScalarProperty Name="vu_verifiedby" ColumnName="vu_verifiedby" />
+          <ScalarProperty Name="vu_verifieduser" ColumnName="vu_verifieduser" />
+          <ScalarProperty Name="vu_timestamp" ColumnName="vu_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoAccess">
+      <EntityTypeMapping TypeName="ezFixUpModel.VideoAccess">
+        <MappingFragment StoreEntitySet="VideoAccess">
+          <ScalarProperty Name="va_videoviewer" ColumnName="va_videoviewer" />
+          <ScalarProperty Name="va_videoowner" ColumnName="va_videoowner" />
+          <ScalarProperty Name="va_dateaccessgranted" ColumnName="va_dateaccessgranted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoEmbeds">
+      <EntityTypeMapping TypeName="ezFixUpModel.VideoEmbeds">
+        <MappingFragment StoreEntitySet="VideoEmbeds">
+          <ScalarProperty Name="ve_id" ColumnName="ve_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="ve_thumburl" ColumnName="ve_thumburl" />
+          <ScalarProperty Name="ve_videourl" ColumnName="ve_videourl" />
+          <ScalarProperty Name="ve_title" ColumnName="ve_title" />
+          <ScalarProperty Name="ve_sourcetype" ColumnName="ve_sourcetype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoProfiles">
+      <EntityTypeMapping TypeName="ezFixUpModel.VideoProfiles">
+        <MappingFragment StoreEntitySet="VideoProfiles">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="vp_approved" ColumnName="vp_approved" />
+          <ScalarProperty Name="vp_private" ColumnName="vp_private" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoUploads">
+      <EntityTypeMapping TypeName="ezFixUpModel.VideoUploads">
+        <MappingFragment StoreEntitySet="VideoUploads">
+          <ScalarProperty Name="vu_id" ColumnName="vu_id" />
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="vu_processed" ColumnName="vu_processed" />
+          <ScalarProperty Name="vu_approved" ColumnName="vu_approved" />
+          <ScalarProperty Name="vu_private" ColumnName="vu_private" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Votes">
+      <EntityTypeMapping TypeName="ezFixUpModel.Votes">
+        <MappingFragment StoreEntitySet="Votes">
+          <ScalarProperty Name="v_fromusername" ColumnName="v_fromusername" />
+          <ScalarProperty Name="v_tousername" ColumnName="v_tousername" />
+          <ScalarProperty Name="v_score" ColumnName="v_score" />
+          <ScalarProperty Name="v_timestamp" ColumnName="v_timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WinkCategories">
+      <EntityTypeMapping TypeName="ezFixUpModel.WinkCategories">
+        <MappingFragment StoreEntitySet="WinkCategories">
+          <ScalarProperty Name="wc_id" ColumnName="wc_id" />
+          <ScalarProperty Name="wc_name" ColumnName="wc_name" />
+          <ScalarProperty Name="wc_language_id" ColumnName="wc_language_id" />
+          <ScalarProperty Name="wc_active" ColumnName="wc_active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WinkMessaages">
+      <EntityTypeMapping TypeName="ezFixUpModel.WinkMessaages">
+        <MappingFragment StoreEntitySet="WinkMessaages">
+          <ScalarProperty Name="wm_id" ColumnName="wm_id" />
+          <ScalarProperty Name="wm_message_id" ColumnName="wm_message_id" />
+          <ScalarProperty Name="wm_wink_id" ColumnName="wm_wink_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WinkTypes">
+      <EntityTypeMapping TypeName="ezFixUpModel.WinkTypes">
+        <MappingFragment StoreEntitySet="WinkTypes">
+          <ScalarProperty Name="wt_id" ColumnName="wt_id" />
+          <ScalarProperty Name="wt_name" ColumnName="wt_name" />
+          <ScalarProperty Name="wt_phrase" ColumnName="wt_phrase" />
+          <ScalarProperty Name="wt_active" ColumnName="wt_active" />
+          <ScalarProperty Name="wt_category_id" ColumnName="wt_category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_FemaleInterestedInFemaleSingles">
+      <EntityTypeMapping TypeName="ezFixUpModel.View_FemaleInterestedInFemaleSingles">
+        <MappingFragment StoreEntitySet="View_FemaleInterestedInFemaleSingles">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+          <ScalarProperty Name="u_birthdate" ColumnName="u_birthdate" />
+          <ScalarProperty Name="u_usersince" ColumnName="u_usersince" />
+          <ScalarProperty Name="u_state" ColumnName="u_state" />
+          <ScalarProperty Name="u_city" ColumnName="u_city" />
+          <ScalarProperty Name="u_lastonline" ColumnName="u_lastonline" />
+          <ScalarProperty Name="u_interested_in" ColumnName="u_interested_in" />
+          <ScalarProperty Name="u_score" ColumnName="u_score" />
+          <ScalarProperty Name="u_credits" ColumnName="u_credits" />
+          <ScalarProperty Name="u_status_text" ColumnName="u_status_text" />
+          <ScalarProperty Name="u_facebookid" ColumnName="u_facebookid" />
+          <ScalarProperty Name="u_country" ColumnName="u_country" />
+          <ScalarProperty Name="u_profileviews" ColumnName="u_profileviews" />
+          <ScalarProperty Name="u_myspaceid" ColumnName="u_myspaceid" />
+          <ScalarProperty Name="u_paid_member" ColumnName="u_paid_member" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="p_primary" ColumnName="p_primary" />
+          <ScalarProperty Name="p_approved" ColumnName="p_approved" />
+          <ScalarProperty Name="p_private" ColumnName="p_private" />
+          <ScalarProperty Name="p_explicit" ColumnName="p_explicit" />
+          <ScalarProperty Name="p_image" ColumnName="p_image" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="u_signup_ip" ColumnName="u_signup_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_FemaleInterestedInMaleSingles">
+      <EntityTypeMapping TypeName="ezFixUpModel.View_FemaleInterestedInMaleSingles">
+        <MappingFragment StoreEntitySet="View_FemaleInterestedInMaleSingles">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+          <ScalarProperty Name="u_birthdate" ColumnName="u_birthdate" />
+          <ScalarProperty Name="u_usersince" ColumnName="u_usersince" />
+          <ScalarProperty Name="u_state" ColumnName="u_state" />
+          <ScalarProperty Name="u_city" ColumnName="u_city" />
+          <ScalarProperty Name="u_lastonline" ColumnName="u_lastonline" />
+          <ScalarProperty Name="u_interested_in" ColumnName="u_interested_in" />
+          <ScalarProperty Name="u_score" ColumnName="u_score" />
+          <ScalarProperty Name="u_credits" ColumnName="u_credits" />
+          <ScalarProperty Name="u_status_text" ColumnName="u_status_text" />
+          <ScalarProperty Name="u_facebookid" ColumnName="u_facebookid" />
+          <ScalarProperty Name="u_country" ColumnName="u_country" />
+          <ScalarProperty Name="u_profileviews" ColumnName="u_profileviews" />
+          <ScalarProperty Name="u_myspaceid" ColumnName="u_myspaceid" />
+          <ScalarProperty Name="u_paid_member" ColumnName="u_paid_member" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="p_primary" ColumnName="p_primary" />
+          <ScalarProperty Name="p_approved" ColumnName="p_approved" />
+          <ScalarProperty Name="p_private" ColumnName="p_private" />
+          <ScalarProperty Name="p_explicit" ColumnName="p_explicit" />
+          <ScalarProperty Name="p_image" ColumnName="p_image" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="u_signup_ip" ColumnName="u_signup_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_MaleInterestedInFemaleSingles">
+      <EntityTypeMapping TypeName="ezFixUpModel.View_MaleInterestedInFemaleSingles">
+        <MappingFragment StoreEntitySet="View_MaleInterestedInFemaleSingles">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+          <ScalarProperty Name="u_birthdate" ColumnName="u_birthdate" />
+          <ScalarProperty Name="u_usersince" ColumnName="u_usersince" />
+          <ScalarProperty Name="u_state" ColumnName="u_state" />
+          <ScalarProperty Name="u_city" ColumnName="u_city" />
+          <ScalarProperty Name="u_lastonline" ColumnName="u_lastonline" />
+          <ScalarProperty Name="u_interested_in" ColumnName="u_interested_in" />
+          <ScalarProperty Name="u_score" ColumnName="u_score" />
+          <ScalarProperty Name="u_credits" ColumnName="u_credits" />
+          <ScalarProperty Name="u_status_text" ColumnName="u_status_text" />
+          <ScalarProperty Name="u_facebookid" ColumnName="u_facebookid" />
+          <ScalarProperty Name="u_country" ColumnName="u_country" />
+          <ScalarProperty Name="u_profileviews" ColumnName="u_profileviews" />
+          <ScalarProperty Name="u_myspaceid" ColumnName="u_myspaceid" />
+          <ScalarProperty Name="u_paid_member" ColumnName="u_paid_member" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="p_primary" ColumnName="p_primary" />
+          <ScalarProperty Name="p_approved" ColumnName="p_approved" />
+          <ScalarProperty Name="p_private" ColumnName="p_private" />
+          <ScalarProperty Name="p_explicit" ColumnName="p_explicit" />
+          <ScalarProperty Name="p_image" ColumnName="p_image" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="u_signup_ip" ColumnName="u_signup_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_MaleInterestedInMaleSingles">
+      <EntityTypeMapping TypeName="ezFixUpModel.View_MaleInterestedInMaleSingles">
+        <MappingFragment StoreEntitySet="View_MaleInterestedInMaleSingles">
+          <ScalarProperty Name="u_username" ColumnName="u_username" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_gender" ColumnName="u_gender" />
+          <ScalarProperty Name="u_birthdate" ColumnName="u_birthdate" />
+          <ScalarProperty Name="u_usersince" ColumnName="u_usersince" />
+          <ScalarProperty Name="u_state" ColumnName="u_state" />
+          <ScalarProperty Name="u_city" ColumnName="u_city" />
+          <ScalarProperty Name="u_lastonline" ColumnName="u_lastonline" />
+          <ScalarProperty Name="u_interested_in" ColumnName="u_interested_in" />
+          <ScalarProperty Name="u_score" ColumnName="u_score" />
+          <ScalarProperty Name="u_credits" ColumnName="u_credits" />
+          <ScalarProperty Name="u_status_text" ColumnName="u_status_text" />
+          <ScalarProperty Name="u_facebookid" ColumnName="u_facebookid" />
+          <ScalarProperty Name="u_country" ColumnName="u_country" />
+          <ScalarProperty Name="u_profileviews" ColumnName="u_profileviews" />
+          <ScalarProperty Name="u_myspaceid" ColumnName="u_myspaceid" />
+          <ScalarProperty Name="u_paid_member" ColumnName="u_paid_member" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="p_primary" ColumnName="p_primary" />
+          <ScalarProperty Name="p_approved" ColumnName="p_approved" />
+          <ScalarProperty Name="p_private" ColumnName="p_private" />
+          <ScalarProperty Name="p_explicit" ColumnName="p_explicit" />
+          <ScalarProperty Name="p_image" ColumnName="p_image" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="u_signup_ip" ColumnName="u_signup_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="GroupEventsAttenders" TypeName="ezFixUpModel.GroupEventsAttenders" StoreEntitySet="GroupEventsAttenders">
+      <EndProperty Name="GroupEvents">
+        <ScalarProperty Name="ge_id" ColumnName="ge_id" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="u_username" ColumnName="u_username" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GroupsCategories" TypeName="ezFixUpModel.GroupsCategories" StoreEntitySet="GroupsCategories">
+      <EndProperty Name="Categories">
+        <ScalarProperty Name="c_id" ColumnName="c_id" />
+      </EndProperty>
+      <EndProperty Name="Groups">
+        <ScalarProperty Name="g_id" ColumnName="g_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

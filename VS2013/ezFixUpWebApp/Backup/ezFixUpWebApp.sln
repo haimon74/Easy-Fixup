@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUpWebApp", "ezFixUpWebApp\ezFixUpWebApp.csproj", "{6BB1AC70-5019-4E5B-AA0E-6D42B1E124BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Data", "ezFixUp.Data\ezFixUp.Data.csproj", "{1A21852D-EEE9-4A1E-BE65-0087D8D6B9FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Data.Contracts", "ezFixUp.Data.Contracts\ezFixUp.Data.Contracts.csproj", "{159C7295-2736-4232-BCFF-154CFBFD2C41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Model", "ezFixUp.Model\ezFixUp.Model.csproj", "{54108E7C-9F26-4F78-A56A-B3A61943AA2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.DataContracts", "ezFixUp.DataContracts\ezFixUp.DataContracts.csproj", "{4AB8365C-59CF-4C24-9798-5BF174FA7CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Web", "ezFixUp.Web\ezFixUp.Web.csproj", "{8CC5B6CA-B48D-43E7-8098-6F9AC5B3EAAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Web.Tests", "ezFixUp.Web.Tests\ezFixUp.Web.Tests.csproj", "{C332B1E7-127A-4BF6-A7E6-95A70D14DAB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BB1AC70-5019-4E5B-AA0E-6D42B1E124BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB1AC70-5019-4E5B-AA0E-6D42B1E124BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB1AC70-5019-4E5B-AA0E-6D42B1E124BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB1AC70-5019-4E5B-AA0E-6D42B1E124BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A21852D-EEE9-4A1E-BE65-0087D8D6B9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A21852D-EEE9-4A1E-BE65-0087D8D6B9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A21852D-EEE9-4A1E-BE65-0087D8D6B9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A21852D-EEE9-4A1E-BE65-0087D8D6B9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{159C7295-2736-4232-BCFF-154CFBFD2C41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{159C7295-2736-4232-BCFF-154CFBFD2C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{159C7295-2736-4232-BCFF-154CFBFD2C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{159C7295-2736-4232-BCFF-154CFBFD2C41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54108E7C-9F26-4F78-A56A-B3A61943AA2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54108E7C-9F26-4F78-A56A-B3A61943AA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54108E7C-9F26-4F78-A56A-B3A61943AA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54108E7C-9F26-4F78-A56A-B3A61943AA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB8365C-59CF-4C24-9798-5BF174FA7CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB8365C-59CF-4C24-9798-5BF174FA7CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB8365C-59CF-4C24-9798-5BF174FA7CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB8365C-59CF-4C24-9798-5BF174FA7CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC5B6CA-B48D-43E7-8098-6F9AC5B3EAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC5B6CA-B48D-43E7-8098-6F9AC5B3EAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC5B6CA-B48D-43E7-8098-6F9AC5B3EAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC5B6CA-B48D-43E7-8098-6F9AC5B3EAAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C332B1E7-127A-4BF6-A7E6-95A70D14DAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C332B1E7-127A-4BF6-A7E6-95A70D14DAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C332B1E7-127A-4BF6-A7E6-95A70D14DAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C332B1E7-127A-4BF6-A7E6-95A70D14DAB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35;packages\EnterpriseLibrary.ExceptionHandling.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Validation.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Security.5.0.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal

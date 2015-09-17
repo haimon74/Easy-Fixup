@@ -1,0 +1,713 @@
+﻿<%@ Import Namespace="ezFixUp" %>
+<%@ Import Namespace="ezFixUp.Classes" %>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ezFixUp.Site" %>
+<%@ Register TagPrefix="uc1" TagName="Header" Src="Components/Header.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="Footer" Src="Components/Footer.ascx" %>
+<%--<%@ Register Src="AjaxChat/Components/MessengerPresence.ascx" TagName="MessengerPresence"
+    TagPrefix="uc2" %>--%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml"
+xmlns:f="http://java.sun.com/jsf/core">
+<head id="Head1" runat="server">
+    <title>ezFixUp.com</title>
+    <meta property="og:title" content="ezFixUp - Matchmaking and Dating site" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ezFixUp.com" />
+    <meta property="og:image" content="https://ezFixUp.com/images/watermark.png" />
+    <meta property="og:site_name" content="Easy Fix-Up" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="he_IL" />
+    <%--<meta property="fb:app_id" content="139801212735949" />--%>
+    <%--<meta property="fb:app_id" content="160629763494" />--%>
+    <meta name="KEYWORDS" content="social dating site, meet your soulmate via common friend, matchmaking , matchmaker, try it free" />
+    <meta name="DESCRIPTION" content="social dating site, meet your soulmate via common friend, matchmaking , matchmaker, try it free" />
+    <%--<meta http-equiv="REFRESH" content="5"/>--%>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="CACHE-CONTROL" content="PUBLIC" />
+    <meta http-equiv="expires" content="Sun, 29 Mar 2020 00:00:00 GMT"/>
+    <meta name="author" content="ezFixUp Software Team" />
+    <meta name="copyright" content="2012 by Easy Fix-Up LTD" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="General" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <%--<meta http-equiv="content-type" content="text/html; charset=windows-1255"/>--%>
+    <%--<meta http-equiv="content-type" content="text/html;charset=iso-8859-8" />--%>
+    <!-- for heb:...-8 | arablic:...-6-->
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    
+    <script type="text/javascript" src="./scripts/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript" src="./scripts/jquery-ui.min.js"></script> 
+    
+   <%--<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script> --%>
+   <%--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script> --%> 
+   <%--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.7/jquery-ui.min.js"></script> --%> 
+   <%--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script> --%> 
+   <%--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.min.js"></script> --%> 
+   <%--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script> --%> 
+   <%--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmplPlus.min.js"></script> --%> 
+   
+    
+    <link rel="stylesheet/less" type="text/less" href="Images/styles.less" />
+     
+    <script type="text/javascript" src="./scripts/less-1.1.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        //less.env = "development";
+        //less.watch();
+    </script>
+    <%--<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.4.1/build/cssreset-context/cssreset-context-min.css" media="screen" />--%>
+    <link rel="stylesheet" type="text/css" href="Images/common.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/hot-sneaks/jquery-ui-1.8.7.custom.css" media="screen" />
+    <%--<script type="text/javascript">
+        bajb_backdetect.OnBack = function() {
+            //return false;
+            alert('back');
+        }
+    </script>--%>
+    
+    <%--<script data-main="scripts/main.js" src="scripts/require-jquery.js"></script>--%>
+    
+    <style type="text/css">
+        #content-wrapper
+        {
+            display: none;
+        }
+        /*.loading { background: url('progress-indicator.gif') no-repeat center; }*/
+    </style>
+    
+    <script type='text/javascript'>
+        var asyncScripts = [// 'scripts/rtlLayout.js',
+        // 'scripts/components/header.js',
+        // 'scripts/pages/master.page.js',
+        // 'scripts/masterPageLoad.js'//
+        //'scripts/async_facebook_loader.js'
+                              ];
+        function loadScriptNonBlockingWay(url) {
+            setTimeout(function () {
+                var elmScript = document.createElement('script');
+                elmScript.async = true;
+                elmScript.src = url;
+                elmScript.type = 'text/javascript';
+                document.getElementsByTagName('head')[0].appendChild(elmScript);
+            }, 0);
+        }
+        //loadScriptNonBlockingWay('https://code.jquery.com/jquery-latest.min.js');
+        //loadScriptNonBlockingWay('https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.js');
+        waitToLoadJQueryDependentScripts();
+        var ezFixUpJqueryLoaded = false;
+        var popeyeLoaded = false;
+        function waitToLoadJQueryDependentScripts() {
+            // Script that does something and depends on jQuery being there.
+            if (window.$ && jQuery) {
+                //loadScriptNonBlockingWay('https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.7/jquery-ui.min.js');
+                //loadScriptNonBlockingWay('https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js');
+                //loadScriptNonBlockingWay('https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js');
+                $(window).load(function () {
+                    loadScriptNonBlockingWay('./scripts/jquery.ezFixUp.js');
+                    //loadScriptNonBlockingWay('./scripts/jquery.popeye.js');
+                    //loadScriptNonBlockingWay('./scripts/fmt_vmenu/fmt.js');
+                    //loadScriptNonBlockingWay('./scripts/masterPageLoad.js');
+                    loadScriptNonBlockingWay('./scripts/async_facebook_loader.js');
+
+                    loadDependentScripts();
+
+                    //loadScriptNonBlockingWay('https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.min.js');
+                    //loadScriptNonBlockingWay('https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js');
+                    //loadScriptNonBlockingWay('https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmplPlus.min.js');
+                });
+            } else {
+                // wait 50 milliseconds and try again.
+                window.setTimeout(waitToLoadJQueryDependentScripts, 50);
+            }
+        }
+        function loadDependentScripts() {
+            if (ezFixUpJqueryLoaded) {
+                loadScriptNonBlockingWay('./scripts/components/header.js');
+                loadScriptNonBlockingWay('./scripts/main.js');
+                loadScriptNonBlockingWay('./scripts/pages/master.page.js');
+                loadScriptNonBlockingWay('./scripts/rtlLayout.js');
+                for (var i = 0; i < asyncScripts.length; i++) {
+                    loadScriptNonBlockingWay(asyncScripts[i]);
+                }
+            } else {
+                window.setTimeout(loadDependentScripts, 50);
+            }
+        }
+    </script>
+</head>
+<body id="body" runat="server" class="yui3-cssreset">
+<% if (Global.GetSessionState()["Direction"] == "rtl")
+    {%>
+    <link href="Images/direction-rtl.css" rel="stylesheet" type="text/css" />
+ <%} %>
+<img src="Images/bullet_arrow_down.png" alt="" style="display:none;"/>
+<img src="Images/gr_custom-inputs.png" alt="" style="display:none;"/>
+    <!--ondragstart="return false;" oncontextmenu="return false;">
+<!--onselectstart="return false;" onmousedown="return false;">-->
+    <!--[if (gte IE 6)&(lte IE 8)]>
+      <script type="text/javascript" src="scripts/selectivizr.js"></script>      
+    <![endif]-->
+    <%--<div class="ppy-outer">
+        <div class="ppy-stage">
+            <div class="ppy-nav">
+                <a class="ppy-prev" title="Previous image">Previous</a>
+                <a class="ppy-switch-enlarge" title="Enlarge">Enlarge</a>
+                <a class="ppy-switch-compact" title="Close">Close</a>
+                <a class="ppy-next" title="Next image">Next</a>
+            </div>
+        </div>
+    </div>
+    <div class="ppy-caption">
+        <div class="ppy-counter">
+            Image <strong class="ppy-current"></strong> of <strong class="ppy-total"></strong> 
+        </div>
+        <span class="ppy-text"></span>
+    </div>--%>
+    <% //Initilize thr Progress Bar and show a message
+        //InitNotify("Welcome to ezFixUp".Translate());
+    %>    
+    
+    <script type="text/javascript">
+        // global variables
+        var loadUserData = false;
+        var fbTriesElapsed = '<%= FacebookHelper.SessionConnectTriesElapsed %>';
+        var pleaseChooseText = '<%= PageBase.PleaseChooseTranslated %>';
+        var lastProfileText = '<%= PageBase.LastProfileTranslated %>';
+        var lastProfileUrl = '<%=((PageBase) Page).GetLastViewedProfileUrl()%>';
+        var matchRequestConfirmationPopupContentTemplate = '<%=PageBase.MatchRequestConfirmationPopupContentTemplateTranslated%>';
+        var redirectToLastViewedUser = '<%=((PageBase) Page).IsToRedirectToLastViewedUsername%>';
+        var statusLinkText = '<%= ((PageBase)Page).StatusPageLinkText %>';
+        var statusLinkUrl = '<%= ((PageBase)Page).StatusPageLinkURL %>';
+        var closeText = '<%= PageBase.CloseTranslated %>';
+        var disableText = '<%= PageBase.DisableTranslated %>';
+        var statusString = "<%= ((PageBase)Page).StatusPageMessage %>";
+        var tipTitleString = "<%= ((PageBase)Page).TipTitle %>";
+        var tipContentString = escape("<%= ((PageBase)Page).TipMessage %>");
+        var pageName = '<%= this.Page.GetType() %>';
+        var facebookAppId = '<%= FacebookHelper.AppID %>';
+        var fbBasicPermissionScope = '<%=ConfigurationManager.AppSettings["FacebookPermissions"] %>';
+        var viewer = "<%= (PageBase.GetCurrentUserSession() != null) ? PageBase.GetCurrentUserSession().Username : null%>";
+
+        var lbAskIds = ["#" + "<%=lbModalMF1_AskAbout.ClientID%>", "#" + "<%=lbModalMF2_AskAbout.ClientID%>", "#" + "<%=lbModalMF3_AskAbout.ClientID%>"];
+        var lbReqIds = ["#" + "<%=lbModalMF1_MatchReq.ClientID%>", "#" + "<%=lbModalMF2_MatchReq.ClientID%>", "#" + "<%=lbModalMF3_MatchReq.ClientID%>"];
+
+        var invite_after_action_title = '<%=  "Invite After Action to Facebook Friends TITLE".Translate()%>';
+        var invite_after_action_message = '<%=  "Invite After Action to Facebook Friends MESSAGE".Translate()%>';
+        var invite_title = '<%=  "Invite Facebook Friends TITLE".Translate()%>';
+        var invite_message = '<%=  "Invite Facebook Friends MESSAGE".Translate()%>';
+    
+    </script>
+    
+    <div id="errorAlertPopup" style="" class="errorAlertDialog" title='<%= "Alert Message".Translate() %>'></div>
+    <div id="showStatusPopup" style="" class="showStatusDialog" title='<%= "Status Message".Translate() %>'></div>
+    <div id="actionResultPopup" style="" class="showStatusDialog" title='<%= "Action Result".Translate() %>'>
+        <div id='actionResultMessage' style=''>
+        </div>
+    </div>
+    <div id="showTipPopup" style="" class="TipModal tal" title='<%= "Tip".Translate()%>'></div>
+    <div id="fbLoginModal" style="" class="tal" title='<%= "Confirm Facebook Login".Translate()%>'></div>
+    <div id="sendMessageModal" style="display:none;" class="tal" title='<%= "Edit Your Message".Translate()%>'>
+        <iframe src='' id='sendMessageFrame' style='border:none;height:500px;width:100%;overflow:visible'>
+        </iframe>
+    </div>
+    <div id='iconsTutorialModal' title='<%= "Icons Help".Translate().ToUpper() %>'></div>
+    <% if (!(Page is SendMessage)){ %>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $("#sendMessageModal").dialog({
+                width: 770,
+                minHeight: 550,
+                maxHeight: 900,
+                height: 'auto',
+                modal: false,
+                resizable: true,
+                autoOpen:false,
+                buttons: {
+                    '<%= PageBase.CloseTranslated %>': function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+            //$('#sendMessageFrame').attr('src', './PopupSendMessage_to_eric.aspx');
+            //$('#sendMessageModal').load('./SendMessage_to_eric.aspx #main');
+        });
+        </script>
+        <%} %>
+<%--<%
+
+    UserSession userSession = PageBase.GetCurrentUserSession();
+    bool toUpdate = userSession != null && userSession.ToUpdateFacebookFriendsData;
+    
+    if (toUpdate)
+    {
+        var basePage = (Page as PageBase);
+        var lstTips = basePage.CurrentUserSession.TipsToPageViewDic.ContainsKey("loginthroughfacebook.aspx")
+                    ? basePage.CurrentUserSession.TipsToPageViewDic["loginthroughfacebook.aspx"] : null;
+        var TipMessage = lstTips != null
+                        ? lstTips[0].Content.Replace('\"', '\'')
+                                            .Replace("&lt;", "<")
+                                            .Replace("&gt;", ">")
+                                            .Replace("\r\n", "<br/>")
+                                            .Replace("\n", "<br/>")
+                        : "<br/><br/>Please wait while syncing with your facebook profile".Translate();
+        var TipTitle = lstTips != null ? lstTips[0].Title : null;
+        %> 
+        <script type="text/javascript">
+            $("#showStatusPopup").html("<%= TipMessage %>");
+            $("#showStatusPopup").attr("title", "<%= TipTitle %>");
+            $("#showStatusPopup").dialog({
+                width: 400,
+                modal: true,
+                resizable: false,
+                buttons: {
+                    '<%= PageBase.CloseTranslated %>': function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            window.setTimeout("$('#showStatusPopup').dialog('close');", <%= Config.Misc.PopupShowTimeMiliSeconds %>);
+            
+        </script>
+   <%}
+    
+    //HttpContext.Current.Response.Flush();
+%>--%>
+    <form id="form1" runat="server">
+    
+    <% //Notify("10", "Loading Page ...".Translate()); %>
+    
+    <ajaxToolkit:ToolkitScriptManager ID="ScriptManagerMaster" CombineScripts="true" ScriptMode="Release" CompositeScript-ScriptMode="Release" LoadScriptsBeforeUI="false"  
+        runat="server" EnablePartialRendering="true" EnableHistory="true" >
+        <CompositeScript ScriptMode="Release">
+            <Scripts>
+                <asp:ScriptReference name="MicrosoftAjax.js"/>
+                <asp:ScriptReference name="MicrosoftAjaxWebForms.js"/>
+        	    <%--<asp:ScriptReference name="Estream.AjaxChat.Components.MessengerPresence_c.js" assembly="AjaxChat"/>--%>
+	            <asp:ScriptReference name="Common.Common.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="ExtenderBase.BaseScripts.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="DynamicPopulate.DynamicPopulateBehavior.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="Compat.Timer.Timer.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="Compat.DragDrop.DragDropScripts.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="DragPanel.FloatingBehavior.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="RoundedCorners.RoundedCornersBehavior.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="DropShadow.DropShadowBehavior.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="ModalPopup.ModalPopupBehavior.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            <asp:ScriptReference name="CascadingDropDown.CascadingDropDownBehavior.js" assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"/>
+	            
+	            <asp:ScriptReference Path="./scripts/masterPageLoad.js"/>
+                <%--<asp:ScriptReference Path="https://code.jquery.com/jquery-latest.min.js"/>
+	            <asp:ScriptReference Path="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.7/jquery-ui.min.js"/>
+	            <asp:ScriptReference Path="~/scripts/fmt_vmenu/fmt.js"/>
+                <asp:ScriptReference Path="~/scripts/jquery.popeye.js"/>
+                <asp:ScriptReference Path="~/scripts/jquery.ezFixUp.min.js"/>
+                <asp:ScriptReference Path="~/scripts/rtlLayout.js"/>
+                <asp:ScriptReference Path="~/scripts/components/header.js"/>
+                <asp:ScriptReference Path="~/scripts/pages/master.page.js"/>
+                <asp:ScriptReference Path="~/scripts/masterPageLoad.js"/>
+                <asp:ScriptReference Path="~/scripts/main.js"/>--%>
+	            
+            </Scripts>
+        </CompositeScript>
+        <Services>
+            <%--<asp:ServiceReference Path="~/Services/HeaderService.asmx" InlineScript="true" />--%>
+        </Services>
+    </ajaxToolkit:ToolkitScriptManager>
+
+    <ms:ScriptReferenceProfiler ID="ScriptReferenceProfiler1" runat="server" Visible="false" ></ms:ScriptReferenceProfiler>
+     
+    
+    <% //Notify("30", "Loading Page ...".Translate()); %>
+    
+    
+    <div id="modalMoreIcons" style="background-color:white;display:none;" title='<%= "ALL ACTIONS & MUTUAL FRIENDS".Translate() %>'>
+        <input id="hfViewed" type="hidden" />
+        <div id="modalContent" class='ui-corner-all'>
+            <div id='modalUserDetails' class='ui-corner-all' style='height:180px;padding:5px;background-color: rgb(228,239,243);'>
+                <img id='modalPrimaryImage' src='' alt='primary image' class='fl roundedPrimaryImage' 
+                     style='width:190px;height:170px;border:none;margin-top:5px;margin-left:5px;'/>
+                <div id='modalBasicDetails' class='fl tal' style='margin-left:10px;margin-top:5px;line-height:17px;width:220px;'>
+                    <%= "Hi, I am ".Translate() %><label id='lblModalUsername'></label>,<br />
+                    <%= "I am a single ".Translate() %> <label id='lblModalGender'></label>,<br />
+                    <%= "Interested in ".Translate() %> <label id='lblModalInterestedIn'></label>.<br />
+                    <%= "My age is ".Translate() %> <label id='lblModalAge'></label><br />
+                    <%= "And I am from ".Translate() %> <label id='lblModalCountry'></label>.<br />
+                    <%= "I was last online on ".Translate() %> <label id='lblModalLastOnline'></label>.<br />
+                    <div align="center" style="margin: 0 auto;height:70px;">
+                        <div style=" padding-top: 20px;width:210px; height: 50px; display: inline-block;vertical-align: bottom;">
+                            <div id="lbModalSendMsg"  class="MsgBtnSmall tipsys" title='<%= Lang.Trans("Send message") %>'></div>
+                            <div id="lbModalWink"  class="WinkBtnSmall tipsys" title='<%= Lang.Trans("Send wink") %>'></div>
+                            <div id="lbModalSendGift"  class="GiftBtnSmall tipsys" title='<%= Lang.Trans("Send gift") %>'></div>
+                            <div id="lbModalInviteFriend"  class="AddBtnSmall tipsys" title='<%= Lang.Trans("Friendship request") %>'></div>
+                            <div id="lbModalRemoveFriend"  class="RemoveFriendBtnSmall tipsys" title='<%= Lang.Trans("Remove from friends list") %>'></div>
+                            <%bool isFriendsPage = (Page is Friends3);
+                              if (isFriendsPage)
+                              {%>
+                            <div id="lbModalAcceptFriend"  class="AcceptBtnSmall tipsys" title='<%= Lang.Trans("Accept friendship request") %>'></div>
+                            <div id="lbModalDenyFriend"  class="DenyBtnSmall tipsys" title='<%= Lang.Trans("Reject friendship request") %>'></div>
+                            <%} %>
+                            <div id="lbModalBlock"  class="BlockBtnSmall tipsys" title='<%= Lang.Trans("Block user") %>'></div>
+                            <div id="lbModalFavorite"  class="FavoriteBtnSmall tipsys" title='<%= Lang.Trans("Add to favorite list") %>'></div>
+                            <div id="lbModalRemoveFavorite"  class="UnFavoriteBtnSmall tipsys" title='<%= Lang.Trans("Remove from favorite list") %>'></div>
+                            <% bool isMatchToSelected = MatchmakerHelper.IsMatchmakerState && MatchmakerHelper.IsMatchToFriendAlredySelected; %>
+                            <div id="lbModalMatchRequest"  title='<%= Lang.Trans(isMatchToSelected ? "Match with him/her" : "Match to him/her") %>' 
+                                class="MatchBtnSmall tipsys" onclick='jQuery(sId.modalMoreIconsId).dialog("close"); <% if (isMatchToSelected) { %>  setFriendToMatchWith(this.id);  <%} else{ %> setFriendToMatch(this.id);closeMutualFriendsModal(); <%} %>  return false; '></div>
+                        </div>
+                    </div>
+                </div>
+                            
+            </div>
+            <div id="pnlPopMF" style="width: 100%; height: 95px;">
+                <table>
+                    <tr>
+                        <td>
+                            <div id="mf1div" class="ThumbsWrapModal roundedMutualFriends">
+                                <div id="mf1pop" class="ThumbIconsWrap" style="display: none;" viewed=''>
+                                    <asp:LinkButton ID="lbModalMF1_AskAbout" runat="server" CssClass="ModalAskAboutBtnSmall tipsys" 
+                                        OnClientClick='cancelEvent(event);'/>
+                                    <asp:LinkButton ID="lbModalMF1_MatchReq" runat="server" CssClass="ModalMatchRequestBtnSmall tipsys" 
+                                        OnClientClick='cancelEvent(event);popupMatchmakingRequestClick(event, this.id);'/>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="mf2div" class="ThumbsWrapModal roundedMutualFriends">
+                                <div id="mf2pop" class="ThumbIconsWrap" style="display: none;" viewed=''>
+                                    <asp:LinkButton ID="lbModalMF2_AskAbout" runat="server" CssClass="ModalAskAboutBtnSmall tipsys"/>
+                                    <asp:LinkButton ID="lbModalMF2_MatchReq" runat="server" CssClass="ModalMatchRequestBtnSmall tipsys" 
+                                        OnClientClick='cancelEvent(event);popupMatchmakingRequestClick(event, this.id);'/>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="mf3div" class="ThumbsWrapModal roundedMutualFriends">
+                                <div id="mf3pop" class="ThumbIconsWrap" style="display: none;" viewed=''>
+                                    <asp:LinkButton ID="lbModalMF3_AskAbout" runat="server" CssClass="ModalAskAboutBtnSmall tipsys" />
+                                    <asp:LinkButton ID="lbModalMF3_MatchReq" runat="server" CssClass="ModalMatchRequestBtnSmall tipsys" 
+                                        OnClientClick='cancelEvent(event);popupMatchmakingRequestClick(event, this.id);'/>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <%--<ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupDragHandleControlID="Panel2"
+        CancelControlID="modalCloseButton" RepositionMode="RepositionOnWindowResizeAndScroll" 
+        BackgroundCssClass="milki" Drag="true" DropShadow="false" PopupControlID="Panel1"
+        BehaviorID="programmaticModalPopupBehavior" TargetControlID="hiddenTargetControlForModalPopup">
+        <Animations>
+            <OnShowing>
+                <Sequence>
+                    <StyleAction AnimationTarget="Panel1" Attribute="display" Value="none" />
+                    <Resize Duration="0" Height="50px" Width="50px" />
+                </Sequence>
+            </OnShowing>
+            <OnShown>
+                <Sequence>
+                    <Parallel>
+                        <FadeIn />
+                        <Scale ScaleFactor="5" Center="True" />
+                    </Parallel>
+                    <StyleAction AnimationTarget="Panel1" Attribute="display" Value="" />
+                </Sequence>
+            </OnShown>    
+            <OnHiding>
+                <Sequence>                            
+                    <StyleAction AnimationTarget="Panel1" Attribute="display" Value="none" />
+                    <Parallel>
+                        <FadeOut />
+                        <Scale ScaleFactor="10" Center="True" />
+                    </Parallel>
+                </Sequence>
+            </OnHiding>            
+        </Animations>
+    </ajaxToolkit:ModalPopupExtender>--%>
+    
+    <%--<ajaxToolkit:AnimationExtender ID="AEFadeIn" runat="server" Enabled="True" TargetControlID="hfFadeIn">
+        <Animations>
+            <OnClick>
+                <Sequence AnimationTarget="Panel1">
+                    <FadeIn Duration="5" MinimumOpacity="0" MaximumOpacity="1" />
+                </Sequence>
+            </OnClick>
+        </Animations>
+
+    </ajaxToolkit:AnimationExtender>--%>
+    <%--<asp:HiddenField runat="server" ID="hfFadeIn" />--%>
+
+    <div id="progressDiv" class="invisible">
+        <div style="position:fixed;text-align:center;width:100%;height:100%; z-index:100000; ">
+        <asp:Image ID="imgLoadingProgress" ImageUrl="~/images/loaderAnimation.gif" Width="40" CssClass="staticLoader" Height="40" runat="server" />
+        </div>
+    </div>
+    <%--<uc2:MessengerPresence ID="MessengerPresence" runat="server" Visible="false"/>--%>
+    
+    <ajaxToolkit:AlwaysVisibleControlExtender ID="avceNotification" runat="server" TargetControlID="divNotification"
+        VerticalSide="Bottom" VerticalOffset="0" HorizontalSide="Right" HorizontalOffset="20" 
+        Enabled="false" ScrollEffectDuration=".1" />
+    <div id="divUserPreview" style="display: none; position: absolute; z-index: 99999">
+        <div id="divUserPreviewImage">
+        </div>
+        <div id="divUserPreviewDetails">
+        </div>
+    </div>
+    
+    <div id="wrap" class="container" >
+    <%--<div id="layout" class='drop-shadow curved curved-vt-2'>--%>
+    <div id="layout">
+        <uc1:Header ID="Header1" runat="server" />
+        <%--<div id="HeaderContainer">
+          <div id="HeaderBlock" class="loading"></div> 
+        </div> --%>        
+        
+        <% //Notify("60", "Loading Page ...".Translate()); %>
+    
+        <div id="content" >
+            <asp:ContentPlaceHolder ID="cphContent" runat="server" />
+        </div>
+        
+        <% //Notify("90", "Loading Page ...".Translate()); %>
+        
+        <uc1:Footer ID="Footer1" runat="server" />
+        <div id="divNotification" runat="server" visible="false">
+            <table id="tableNotification" cellpadding="0" cellspacing="0" width="100%" align="right">
+                <tr>
+                    <td valign="middle" height="65px">
+                        <div id="divNotificationInner">
+                        </div>
+                    </td>
+                    <td valign="middle" height="65px" width="80px">
+                        <div id="divNotificationHeader">
+                            <button class="btnClose" onclick="HideNotification(); return false;">
+                                <%= PageBase.CloseTranslated %></button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>    
+    </form>
+
+<%--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.1.min.js"></script> 
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>--%>
+
+    <% //Notify("100", "Loading Page ...".Translate()); %>
+
+    <%if ((Page is _default) || (Page is ezFixUp.Login) || (Page is Registration))
+      {%>
+        <script type="text/javascript">
+            //asyncScripts.push('scripts/async_facebook_loader.js');
+        </script>        
+        <%
+      }%>
+    
+    <%--<%if ( !(Page is ezFixUp.Login) && !FacebookHelper.IsCurrentSessionConnected && FacebookHelper.SessionConnectTriesElapsed > 0)
+      {%>
+        <script type="text/javascript">
+            asyncScripts.push('scripts/facebook_init.js');
+        </script>
+        <%
+      }%>--%>
+    <%if (Page is PageBase && PageBase.IsUserAuthorized())
+      {%>
+        <script type="text/javascript">
+            //asyncScripts.push('scripts/OnlineCheck.js');
+        </script>
+        <%
+      }%>
+      
+
+<% if (Page is Home || Page is Home_mm) { %>
+<script type="text/javascript">
+    loadUserData = false;
+</script>
+
+<%} %>
+
+<%--<link rel="stylesheet" type="text/css" href="https://yui.yahooapis.com/3.4.1/build/cssreset-context/cssreset-context-min.css" />
+<link href="Images/common.css" rel="Stylesheet" type="text/css" />
+<link href="css/hot-sneaks/jquery-ui-1.8.7.custom.css" rel="Stylesheet" type="text/css" />--%>
+
+<script type="text/javascript">
+    
+    var alert_string;
+    function siteAlert()
+    {
+        jQuery(function($) {
+        
+            if (alert_string != null && alert_string != "") {
+                var selector = $("#errorAlertPopup");
+                $("#errorAlertPopup").html(alert_string);
+                //debugger;
+                $("#errorAlertPopup").dialog({
+                    width: 300,
+                    modal: true,
+                    resizable: false,
+                    buttons: {
+                        OK: function() {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            }
+            else if (pageName.indexOf("ShowStatus") < 0){
+                if (statusString != null && statusString != "") {
+                    var selector = $("#showStatusPopup");
+                    $("#showStatusPopup").html(statusString);
+                    $("#showStatusPopup").bind( "dialogopen", function(event, ui) {
+                        setTimeout("$('#showStatusPopup').dialog('close');", <%= Config.Misc.PopupShowTimeMiliSeconds %>);
+                    });
+                    $("#showStatusPopup").dialog({
+                        width: 500,
+                        modal: true,
+                        resizable: false,
+                        beforeClose: function(event, ui) { clearSessionStatusMessage(redirectToLastViewedUser == 'true' ? lastProfileUrl : '');},
+                        buttons: {
+                            '<%= PageBase.CloseTranslated %>': function() {
+                                $(this).dialog("close");                                
+                            }
+//                            ,
+//                            '<%= ((PageBase)Page).LastViewedName %>': function() {
+//                                $(this).dialog("close");
+//                                clearSessionStatusMessage();
+//                                window.location = lastProfileUrl;
+//                            },
+//                            '<%= ((PageBase)Page).StatusPageLinkText %>': function() {
+//                                $(this).dialog("close");
+//                                clearSessionStatusMessage();
+//                                window.location = statusLinkUrl;
+//                            }
+                        }
+                    });
+                }
+                else if (tipContentString != null && tipContentString  != "") {
+                    var selector = $("#showTipPopup");
+                    $("#showTipPopup").html(unescape(tipContentString));
+                    $("#showTipPopup").attr('title', tipTitleString);
+                    $("#showTipPopup").dialog({
+                        width: 600,
+                        modal: true,
+                        resizable: false,
+                        close: function(event,ui) {
+                                var my = $(this);
+                                clearSessionStatusMessage();
+                                var srvUrl = './handlers/TipsHandler.ashx';
+                                $.get(srvUrl, {cmd:"close",page:"Mailbox"},function(data) {
+                                    //my.dialog("close");
+                                });
+                            },
+                        buttons: {
+                            '<%= PageBase.CloseTranslated %>': function() {
+                                $(this).dialog("close");
+//                                var my = $(this);
+//                                clearSessionStatusMessage();
+//                                var srvUrl = './handlers/TipsHandler.ashx';
+//                                $.get(srvUrl, {cmd:"close",page:"Mailbox"},function(data) {
+//                                    my.dialog("close");
+//                                });
+                            },
+                            '<%= PageBase.DonotShowThisTipAgainTranslated  %>': function() {
+                                var my = $(this);
+                                clearSessionStatusMessage();
+                                var srvUrl = './handlers/TipsHandler.ashx';
+                                $.get(srvUrl, {cmd:"disable",page:"Mailbox"},function(data) {
+                                    my.dialog("close");
+                                });
+                            }
+                        }
+                    });
+                }     
+            }              
+        });
+        alert_string = null;
+        <% ((PageBase)Page).StatusPageMessage = null;
+           ((PageBase)Page).TipMessage = null; %>
+    }
+    
+</script>
+  
+  
+  <asp:Literal ID="ltrGoogleAnalytics" runat="server" Visible="false"></asp:Literal>
+    
+    
+    <div id="fb-root"></div>
+    
+ <script language="javascript" type="text/javascript">
+     function KeepSessionAlive() {
+         $.get("./Handlers/RefreshSessionState.ashx");
+     }
+     setInterval(KeepSessionAlive, 180000);
+
+     Array.prototype.copy = function () // easy copy of an array
+     {
+         return [].concat(this);
+     };
+
+     // this function is added to jQuery, it allows access to the readylist
+     // it works for jQuery 1.3.2, it might break on future versions
+     $.getReadyList = function () {
+         if (this.readyList != null)
+             this.myreadylist = this.readyList.copy();
+         return this.myreadylist;
+     };
+
+     // this should be added last so it gets all the ready event
+     $(document).ready(function () {
+         readylist = $.getReadyList();
+     });
+
+     $("#actionResultPopup").dialog({
+         width: 400,
+         minHeight: 200,
+         height: 'auto',
+         modal: false,
+         resizable: false,
+         autoOpen: false,
+         buttons: {
+             '<%= PageBase.CloseTranslated %>': function () {
+                 $(this).dialog("close");
+             }
+         }
+     });
+            
+ </script>
+ 
+ </body>
+
+ 
+<%  
+    UserSession userSession = PageBase.GetCurrentUserSession();
+    bool toUpdate = userSession != null && userSession.ToUpdateFacebookFriendsData;
+    
+    if (toUpdate) {
+        var facebook = userSession.GetFacebookApp();
+        if (facebook != null)
+        {
+            ((PageBase)this.Page).AddUpdateFacebookFriendsDataWorker(facebook, userSession.FacebookID.Value, facebook.AccessToken);
+        }
+    }
+    
+    if (userSession != null)
+    {
+        if (!Global.GetSessionState().ContainsKey("UserDataFetched"))
+        {
+            Global.GetSessionState()["UserDataFetched"] = true;
+            %>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $.get('./handlers/LoadAsyncUserDate.ashx', function (data) { });
+                });
+            </script>
+            <%
+            //UserSession.FetchUserCacheDataThread(userSession);            
+        }
+    }%>
+</html>
+

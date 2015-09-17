@@ -1,0 +1,31 @@
+﻿body{ font-size: 14px;line-height: 17px }
+#wrap{ text-align: right; direction: rtl }
+#main{float:left}
+#sidebar{ float: right}
+        
+.tar{ text-align: left }
+.tal{ text-align: right }
+ul#navi li{ float: right }
+.fl{ float: right }
+.fr{ float: left }
+div.labelHdr{float:right !important}
+input[type=checkbox].myHiddenCheckbox+label.customChecked{background-position:right -81px !important;}
+input[type=checkbox].myHiddenCheckbox+label.customUnchecked{background-position:right -21px !important;}
+input[type=radio].myHiddenRadio+label.radioChecked{background-position:right -241px !important;}
+input[type=radio].myHiddenRadio+label.radioUnchecked{background-position:right -161px !important;}
+
+div.logout{float:left !important}
+div.labelHdr a{float:left !important}
+#registration_rt{float:left !important}
+
+.plus1{background-position:right center !important}
+.minus1{background-position:right center !important}
+div.expander a{padding:0 18px 0 0}
+span.customStyleSelectBoxInner{background-position:left center !important}
+span.customStyleSelectBoxInner{text-align:right}
+select{background-position:left top !important}
+
+.logo_header > tr{text-align:right}
+
+#fmt ul li ul.fmtDrpDwn{left:-100%}
+#fmt ul li ul.fmtDrpDwn ul{left:-100%}

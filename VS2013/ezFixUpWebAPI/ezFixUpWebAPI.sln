@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUpWebAPI", "ezFixUpWebAPI\ezFixUpWebAPI.csproj", "{C6C0F5BD-1EBF-4904-B520-2E16C08EE329}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUpWebAPI.Tests", "ezFixUpWebAPI.Tests\ezFixUpWebAPI.Tests.csproj", "{505A1845-D366-47C2-BC82-4ABBEA040558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Contracts", "ezFixUp.Contracts\ezFixUp.Contracts.csproj", "{EA28CCCA-B23F-462F-9A54-1FC0D7F17167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Data.Contracts", "ezFixUp.Data.Contracts\ezFixUp.Data.Contracts.csproj", "{78E166CA-CBD0-4E1A-AA4E-B30BD771B56C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Data", "ezFixUp.Data\ezFixUp.Data.csproj", "{CB35B0DE-AA2A-4609-8A5C-9FF6E623E5B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.DataContracts", "ezFixUp.DataContracts\ezFixUp.DataContracts.csproj", "{F77F940C-E984-4FE3-981B-77B686DD49D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezFixUp.Model", "ezFixUp.Model\ezFixUp.Model.csproj", "{CE836909-ED1A-4032-9A55-3616D4926D5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoremIpsumGenerator", "LoremIpsumGenerator\LoremIpsumGenerator.csproj", "{D6771E78-B851-493B-A074-E238F2D7D652}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6C0F5BD-1EBF-4904-B520-2E16C08EE329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C0F5BD-1EBF-4904-B520-2E16C08EE329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C0F5BD-1EBF-4904-B520-2E16C08EE329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C0F5BD-1EBF-4904-B520-2E16C08EE329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505A1845-D366-47C2-BC82-4ABBEA040558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505A1845-D366-47C2-BC82-4ABBEA040558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505A1845-D366-47C2-BC82-4ABBEA040558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505A1845-D366-47C2-BC82-4ABBEA040558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA28CCCA-B23F-462F-9A54-1FC0D7F17167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA28CCCA-B23F-462F-9A54-1FC0D7F17167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA28CCCA-B23F-462F-9A54-1FC0D7F17167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA28CCCA-B23F-462F-9A54-1FC0D7F17167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78E166CA-CBD0-4E1A-AA4E-B30BD771B56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78E166CA-CBD0-4E1A-AA4E-B30BD771B56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78E166CA-CBD0-4E1A-AA4E-B30BD771B56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78E166CA-CBD0-4E1A-AA4E-B30BD771B56C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB35B0DE-AA2A-4609-8A5C-9FF6E623E5B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB35B0DE-AA2A-4609-8A5C-9FF6E623E5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB35B0DE-AA2A-4609-8A5C-9FF6E623E5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB35B0DE-AA2A-4609-8A5C-9FF6E623E5B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77F940C-E984-4FE3-981B-77B686DD49D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77F940C-E984-4FE3-981B-77B686DD49D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77F940C-E984-4FE3-981B-77B686DD49D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77F940C-E984-4FE3-981B-77B686DD49D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE836909-ED1A-4032-9A55-3616D4926D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE836909-ED1A-4032-9A55-3616D4926D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE836909-ED1A-4032-9A55-3616D4926D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE836909-ED1A-4032-9A55-3616D4926D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6771E78-B851-493B-A074-E238F2D7D652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6771E78-B851-493B-A074-E238F2D7D652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6771E78-B851-493B-A074-E238F2D7D652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6771E78-B851-493B-A074-E238F2D7D652}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://minint-ot6c0ek:8080/tfs/ezfixup
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ezFixUpWebAPI.Tests\\ezFixUpWebAPI.Tests.csproj
+		SccProjectName1 = ezFixUpWebAPI.Tests
+		SccLocalPath1 = ezFixUpWebAPI.Tests
+		SccProjectUniqueName2 = ezFixUpWebAPI\\ezFixUpWebAPI.csproj
+		SccProjectName2 = ezFixUpWebAPI
+		SccLocalPath2 = ezFixUpWebAPI
+		SccProjectUniqueName3 = ezFixUp.Contracts\\ezFixUp.Contracts.csproj
+		SccProjectName3 = ezFixUp.Contracts
+		SccLocalPath3 = ezFixUp.Contracts
+		SccProjectUniqueName4 = ezFixUp.Data.Contracts\\ezFixUp.Data.Contracts.csproj
+		SccProjectName4 = ezFixUp.Data.Contracts
+		SccLocalPath4 = ezFixUp.Data.Contracts
+		SccProjectUniqueName5 = ezFixUp.Data\\ezFixUp.Data.csproj
+		SccProjectName5 = ezFixUp.Data
+		SccLocalPath5 = ezFixUp.Data
+		SccProjectUniqueName6 = ezFixUp.DataContracts\\ezFixUp.DataContracts.csproj
+		SccProjectName6 = ezFixUp.DataContracts
+		SccLocalPath6 = ezFixUp.DataContracts
+		SccProjectUniqueName7 = ezFixUp.Model\\ezFixUp.Model.csproj
+		SccProjectName7 = ezFixUp.Model
+		SccLocalPath7 = ezFixUp.Model
+		SccProjectUniqueName8 = LoremIpsumGenerator\\LoremIpsumGenerator.csproj
+		SccProjectName8 = LoremIpsumGenerator
+		SccLocalPath8 = LoremIpsumGenerator
+	EndGlobalSection
+EndGlobal

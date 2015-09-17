@@ -1,0 +1,41 @@
+﻿<%@ Import Namespace="AspNetDating.Classes"%>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AspNetDating.Mobile.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <link href="Images/Style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <div id="header">
+        <a href="default.aspx">
+            <img src="images/logo.png" border="0"/>
+        </a>
+    </div>
+    <div id="divMessage" runat="server" align="center" visible="false" enableviewstate="false"></div>
+    <ul class="HeaderNav">
+        <li id="liHome" runat="server">
+            <a href="Home.aspx"><img src="Images/home.png" alt="mobile-home-page" border="0"/></a>
+        </li>
+        <li id="liSearch" runat="server">
+            <a href="Search.aspx"><img src="Images/search.png"  alt="mobile-search-page"border="0"/></a>
+        </li>
+        <li id="liProfile" runat="server">
+            <a href="Profile.aspx"><img src="Images/profile.png" alt="mobile-profile-page" border="0"/></a>
+        </li>
+        <li id="liMailbox" runat="server">
+            <a href="Mailbox.aspx"><img src="Images/mailbox.png" alt="mobile-mailbox-page" border="0"/></a>
+        </li>
+    </ul>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+	<div id="footer"></div>
+    </form>
+</body>
+</html>

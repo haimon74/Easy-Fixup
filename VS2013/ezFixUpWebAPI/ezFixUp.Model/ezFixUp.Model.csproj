@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE836909-ED1A-4032-9A55-3616D4926D5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ezFixUp.Model</RootNamespace>
+    <AssemblyName>ezFixUp.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attendance.cs" />
+    <Compile Include="Contracts\IAttendanceRepository.cs" />
+    <Compile Include="Contracts\ICodeCamperUow.cs" />
+    <Compile Include="Contracts\IPersonsRepository.cs" />
+    <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Contracts\ISessionsRepository.cs" />
+    <Compile Include="Lookups.cs" />
+    <Compile Include="Models\AbuseReport.cs" />
+    <Compile Include="Models\Ad.cs" />
+    <Compile Include="Models\AdComment.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\AdPhoto.cs" />
+    <Compile Include="Models\AdsCategory.cs" />
+    <Compile Include="Models\Affiliate.cs" />
+    <Compile Include="Models\AffiliateBanner.cs" />
+    <Compile Include="Models\AffiliateCommission.cs" />
+    <Compile Include="Models\AffiliatesHistory.cs" />
+    <Compile Include="Models\archive_Messages.cs" />
+    <Compile Include="Models\archive_Photos.cs" />
+    <Compile Include="Models\archive_ProfileAnswers.cs" />
+    <Compile Include="Models\AskAboutQuestion.cs" />
+    <Compile Include="Models\AudioAccess.cs" />
+    <Compile Include="Models\AudioUpload.cs" />
+    <Compile Include="Models\BannerCode.cs" />
+    <Compile Include="Models\BillingPlan.cs" />
+    <Compile Include="Models\BlockedUser.cs" />
+    <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\BlogPost.cs" />
+    <Compile Include="Models\BlogPostComment.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ChatAdmin.cs" />
+    <Compile Include="Models\ChatBan.cs" />
+    <Compile Include="Models\ChatIgnoredUser.cs" />
+    <Compile Include="Models\ChatMessage.cs" />
+    <Compile Include="Models\ChatPresence.cs" />
+    <Compile Include="Models\ChatRoom.cs" />
+    <Compile Include="Models\ChatRoomActivity.cs" />
+    <Compile Include="Models\ChatRoomAdmin.cs" />
+    <Compile Include="Models\ChatSetting.cs" />
+    <Compile Include="Models\ChatTranslation.cs" />
+    <Compile Include="Models\ChatUser.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\CommunityPhotoApproval.cs" />
+    <Compile Include="Models\CommunityProfileApproval.cs" />
+    <Compile Include="Models\ContactU.cs" />
+    <Compile Include="Models\ContentPage.cs" />
+    <Compile Include="Models\ContentView.cs" />
+    <Compile Include="Models\Coupon.cs" />
+    <Compile Include="Models\CouponType.cs" />
+    <Compile Include="Models\CouponUs.cs" />
+    <Compile Include="Models\CreditsHistory.cs" />
+    <Compile Include="Models\CreditsPackage.cs" />
+    <Compile Include="Models\Discount.cs" />
+    <Compile Include="Models\Ecard.cs" />
+    <Compile Include="Models\ECardCategory.cs" />
+    <Compile Include="Models\EcardType.cs" />
+    <Compile Include="Models\EmailQueue.cs" />
+    <Compile Include="Models\EmailTemplate.cs" />
+    <Compile Include="Models\EstablishedCommunication.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventComment.cs" />
+    <Compile Include="Models\ezFixUpContext.cs" />
+    <Compile Include="Models\FacebookCity.cs" />
+    <Compile Include="Models\FacebookCountry.cs" />
+    <Compile Include="Models\FacebookInvitation.cs" />
+    <Compile Include="Models\FAQ.cs" />
+    <Compile Include="Models\FaqCategory.cs" />
+    <Compile Include="Models\Favourite.cs" />
+    <Compile Include="Models\Friend.cs" />
+    <Compile Include="Models\GiftCategory.cs" />
+    <Compile Include="Models\GiftsMessage.cs" />
+    <Compile Include="Models\GiftType.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupBan.cs" />
+    <Compile Include="Models\GroupEvent.cs" />
+    <Compile Include="Models\GroupEventsComment.cs" />
+    <Compile Include="Models\GroupMember.cs" />
+    <Compile Include="Models\GroupPhoto.cs" />
+    <Compile Include="Models\GroupPollsAnswer.cs" />
+    <Compile Include="Models\GroupPollsChoice.cs" />
+    <Compile Include="Models\GroupPost.cs" />
+    <Compile Include="Models\GroupTopic.cs" />
+    <Compile Include="Models\GroupTopicSubscription.cs" />
+    <Compile Include="Models\HourlyStat.cs" />
+    <Compile Include="Models\Interest.cs" />
+    <Compile Include="Models\IPLog.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Mapping\AbuseReportMap.cs" />
+    <Compile Include="Models\Mapping\AdCommentMap.cs" />
+    <Compile Include="Models\Mapping\AdMap.cs" />
+    <Compile Include="Models\Mapping\AdminMap.cs" />
+    <Compile Include="Models\Mapping\AdPhotoMap.cs" />
+    <Compile Include="Models\Mapping\AdsCategoryMap.cs" />
+    <Compile Include="Models\Mapping\AffiliateBannerMap.cs" />
+    <Compile Include="Models\Mapping\AffiliateCommissionMap.cs" />
+    <Compile Include="Models\Mapping\AffiliateMap.cs" />
+    <Compile Include="Models\Mapping\AffiliatesHistoryMap.cs" />
+    <Compile Include="Models\Mapping\archive_MessagesMap.cs" />
+    <Compile Include="Models\Mapping\archive_PhotosMap.cs" />
+    <Compile Include="Models\Mapping\archive_ProfileAnswersMap.cs" />
+    <Compile Include="Models\Mapping\AskAboutQuestionMap.cs" />
+    <Compile Include="Models\Mapping\AudioAccessMap.cs" />
+    <Compile Include="Models\Mapping\AudioUploadMap.cs" />
+    <Compile Include="Models\Mapping\BannerCodeMap.cs" />
+    <Compile Include="Models\Mapping\BillingPlanMap.cs" />
+    <Compile Include="Models\Mapping\BlockedUserMap.cs" />
+    <Compile Include="Models\Mapping\BlogMap.cs" />
+    <Compile Include="Models\Mapping\BlogPostCommentMap.cs" />
+    <Compile Include="Models\Mapping\BlogPostMap.cs" />
+    <Compile Include="Models\Mapping\CategoryMap.cs" />
+    <Compile Include="Models\Mapping\ChatAdminMap.cs" />
+    <Compile Include="Models\Mapping\ChatBanMap.cs" />
+    <Compile Include="Models\Mapping\ChatIgnoredUserMap.cs" />
+    <Compile Include="Models\Mapping\ChatMessageMap.cs" />
+    <Compile Include="Models\Mapping\ChatPresenceMap.cs" />
+    <Compile Include="Models\Mapping\ChatRoomActivityMap.cs" />
+    <Compile Include="Models\Mapping\ChatRoomAdminMap.cs" />
+    <Compile Include="Models\Mapping\ChatRoomMap.cs" />
+    <Compile Include="Models\Mapping\ChatSettingMap.cs" />
+    <Compile Include="Models\Mapping\ChatTranslationMap.cs" />
+    <Compile Include="Models\Mapping\ChatUserMap.cs" />
+    <Compile Include="Models\Mapping\CommentMap.cs" />
+    <Compile Include="Models\Mapping\CommunityPhotoApprovalMap.cs" />
+    <Compile Include="Models\Mapping\CommunityProfileApprovalMap.cs" />
+    <Compile Include="Models\Mapping\ContactUMap.cs" />
+    <Compile Include="Models\Mapping\ContentPageMap.cs" />
+    <Compile Include="Models\Mapping\ContentViewMap.cs" />
+    <Compile Include="Models\Mapping\CouponMap.cs" />
+    <Compile Include="Models\Mapping\CouponTypeMap.cs" />
+    <Compile Include="Models\Mapping\CouponUsMap.cs" />
+    <Compile Include="Models\Mapping\CreditsHistoryMap.cs" />
+    <Compile Include="Models\Mapping\CreditsPackageMap.cs" />
+    <Compile Include="Models\Mapping\DiscountMap.cs" />
+    <Compile Include="Models\Mapping\ECardCategoryMap.cs" />
+    <Compile Include="Models\Mapping\EcardMap.cs" />
+    <Compile Include="Models\Mapping\EcardTypeMap.cs" />
+    <Compile Include="Models\Mapping\EmailQueueMap.cs" />
+    <Compile Include="Models\Mapping\EmailTemplateMap.cs" />
+    <Compile Include="Models\Mapping\EstablishedCommunicationMap.cs" />
+    <Compile Include="Models\Mapping\EventCommentMap.cs" />
+    <Compile Include="Models\Mapping\EventMap.cs" />
+    <Compile Include="Models\Mapping\FacebookCityMap.cs" />
+    <Compile Include="Models\Mapping\FacebookCountryMap.cs" />
+    <Compile Include="Models\Mapping\FacebookInvitationMap.cs" />
+    <Compile Include="Models\Mapping\FaqCategoryMap.cs" />
+    <Compile Include="Models\Mapping\FAQMap.cs" />
+    <Compile Include="Models\Mapping\FavouriteMap.cs" />
+    <Compile Include="Models\Mapping\FriendMap.cs" />
+    <Compile Include="Models\Mapping\GiftCategoryMap.cs" />
+    <Compile Include="Models\Mapping\GiftsMessageMap.cs" />
+    <Compile Include="Models\Mapping\GiftTypeMap.cs" />
+    <Compile Include="Models\Mapping\GroupBanMap.cs" />
+    <Compile Include="Models\Mapping\GroupEventMap.cs" />
+    <Compile Include="Models\Mapping\GroupEventsCommentMap.cs" />
+    <Compile Include="Models\Mapping\GroupMap.cs" />
+    <Compile Include="Models\Mapping\GroupMemberMap.cs" />
+    <Compile Include="Models\Mapping\GroupPhotoMap.cs" />
+    <Compile Include="Models\Mapping\GroupPollsAnswerMap.cs" />
+    <Compile Include="Models\Mapping\GroupPollsChoiceMap.cs" />
+    <Compile Include="Models\Mapping\GroupPostMap.cs" />
+    <Compile Include="Models\Mapping\GroupTopicMap.cs" />
+    <Compile Include="Models\Mapping\GroupTopicSubscriptionMap.cs" />
+    <Compile Include="Models\Mapping\HourlyStatMap.cs" />
+    <Compile Include="Models\Mapping\InterestMap.cs" />
+    <Compile Include="Models\Mapping\IPLogMap.cs" />
+    <Compile Include="Models\Mapping\LanguageMap.cs" />
+    <Compile Include="Models\Mapping\MatchmakingMap.cs" />
+    <Compile Include="Models\Mapping\MessageMap.cs" />
+    <Compile Include="Models\Mapping\MessagesHistoryCacheMap.cs" />
+    <Compile Include="Models\Mapping\MessagesSandboxMap.cs" />
+    <Compile Include="Models\Mapping\MessagesTypeMap.cs" />
+    <Compile Include="Models\Mapping\NewsMap.cs" />
+    <Compile Include="Models\Mapping\PaymentHistoryMap.cs" />
+    <Compile Include="Models\Mapping\PendingGuidMap.cs" />
+    <Compile Include="Models\Mapping\PhotoAccessMap.cs" />
+    <Compile Include="Models\Mapping\PhotoAlbumMap.cs" />
+    <Compile Include="Models\Mapping\PhotoCommentMap.cs" />
+    <Compile Include="Models\Mapping\PhotoContestEntryMap.cs" />
+    <Compile Include="Models\Mapping\PhotoContestMap.cs" />
+    <Compile Include="Models\Mapping\PhotoContestRankMap.cs" />
+    <Compile Include="Models\Mapping\PhotoContestVoteMap.cs" />
+    <Compile Include="Models\Mapping\PhotoMap.cs" />
+    <Compile Include="Models\Mapping\PhotoNoteMap.cs" />
+    <Compile Include="Models\Mapping\PhotoRatingMap.cs" />
+    <Compile Include="Models\Mapping\PollAnswerMap.cs" />
+    <Compile Include="Models\Mapping\PollChoiceMap.cs" />
+    <Compile Include="Models\Mapping\PollMap.cs" />
+    <Compile Include="Models\Mapping\ProfileAnswerMap.cs" />
+    <Compile Include="Models\Mapping\ProfileChoiceMap.cs" />
+    <Compile Include="Models\Mapping\ProfileQuestionMap.cs" />
+    <Compile Include="Models\Mapping\ProfileTopicMap.cs" />
+    <Compile Include="Models\Mapping\ProfileViewMap.cs" />
+    <Compile Include="Models\Mapping\RatingMap.cs" />
+    <Compile Include="Models\Mapping\RelationshipMap.cs" />
+    <Compile Include="Models\Mapping\SavedSearchMap.cs" />
+    <Compile Include="Models\Mapping\ScheduledAnnouncementMap.cs" />
+    <Compile Include="Models\Mapping\SettingMap.cs" />
+    <Compile Include="Models\Mapping\SubscriptionMap.cs" />
+    <Compile Include="Models\Mapping\TemplateMap.cs" />
+    <Compile Include="Models\Mapping\TipsPopupMap.cs" />
+    <Compile Include="Models\Mapping\TranslationMap.cs" />
+    <Compile Include="Models\Mapping\TwitterCredentialMap.cs" />
+    <Compile Include="Models\Mapping\UnlockedSectionMap.cs" />
+    <Compile Include="Models\Mapping\UserLevelMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Mapping\UserScoresLogMap.cs" />
+    <Compile Include="Models\Mapping\UserTipsStatuMap.cs" />
+    <Compile Include="Models\Mapping\VerifiedUserMap.cs" />
+    <Compile Include="Models\Mapping\VideoAccessMap.cs" />
+    <Compile Include="Models\Mapping\VideoEmbedMap.cs" />
+    <Compile Include="Models\Mapping\VideoProfileMap.cs" />
+    <Compile Include="Models\Mapping\VideoUploadMap.cs" />
+    <Compile Include="Models\Mapping\View_FemaleInterestedInFemaleSinglesMap.cs" />
+    <Compile Include="Models\Mapping\View_FemaleInterestedInMaleSinglesMap.cs" />
+    <Compile Include="Models\Mapping\View_MaleInterestedInFemaleSinglesMap.cs" />
+    <Compile Include="Models\Mapping\View_MaleInterestedInMaleSinglesMap.cs" />
+    <Compile Include="Models\Mapping\VoteMap.cs" />
+    <Compile Include="Models\Mapping\WinkCategoryMap.cs" />
+    <Compile Include="Models\Mapping\WinkMessaageMap.cs" />
+    <Compile Include="Models\Mapping\WinkTypeMap.cs" />
+    <Compile Include="Models\Matchmaking.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\MessagesHistoryCache.cs" />
+    <Compile Include="Models\MessagesSandbox.cs" />
+    <Compile Include="Models\MessagesType.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\PaymentHistory.cs" />
+    <Compile Include="Models\PendingGuid.cs" />
+    <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\PhotoAccess.cs" />
+    <Compile Include="Models\PhotoAlbum.cs" />
+    <Compile Include="Models\PhotoComment.cs" />
+    <Compile Include="Models\PhotoContest.cs" />
+    <Compile Include="Models\PhotoContestEntry.cs" />
+    <Compile Include="Models\PhotoContestRank.cs" />
+    <Compile Include="Models\PhotoContestVote.cs" />
+    <Compile Include="Models\PhotoNote.cs" />
+    <Compile Include="Models\PhotoRating.cs" />
+    <Compile Include="Models\Poll.cs" />
+    <Compile Include="Models\PollAnswer.cs" />
+    <Compile Include="Models\PollChoice.cs" />
+    <Compile Include="Models\ProfileAnswer.cs" />
+    <Compile Include="Models\ProfileChoice.cs" />
+    <Compile Include="Models\ProfileQuestion.cs" />
+    <Compile Include="Models\ProfileTopic.cs" />
+    <Compile Include="Models\ProfileView.cs" />
+    <Compile Include="Models\Rating.cs" />
+    <Compile Include="Models\Relationship.cs" />
+    <Compile Include="Models\SavedSearch.cs" />
+    <Compile Include="Models\ScheduledAnnouncement.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\Subscription.cs" />
+    <Compile Include="Models\Template.cs" />
+    <Compile Include="Models\TipsPopup.cs" />
+    <Compile Include="Models\Translation.cs" />
+    <Compile Include="Models\TwitterCredential.cs" />
+    <Compile Include="Models\UnlockedSection.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserLevel.cs" />
+    <Compile Include="Models\UserScoresLog.cs" />
+    <Compile Include="Models\UserTipsStatu.cs" />
+    <Compile Include="Models\VerifiedUser.cs" />
+    <Compile Include="Models\VideoAccess.cs" />
+    <Compile Include="Models\VideoEmbed.cs" />
+    <Compile Include="Models\VideoProfile.cs" />
+    <Compile Include="Models\VideoUpload.cs" />
+    <Compile Include="Models\View_FemaleInterestedInFemaleSingles.cs" />
+    <Compile Include="Models\View_FemaleInterestedInMaleSingles.cs" />
+    <Compile Include="Models\View_MaleInterestedInFemaleSingles.cs" />
+    <Compile Include="Models\View_MaleInterestedInMaleSingles.cs" />
+    <Compile Include="Models\Vote.cs" />
+    <Compile Include="Models\WinkCategory.cs" />
+    <Compile Include="Models\WinkMessaage.cs" />
+    <Compile Include="Models\WinkType.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="SessionBrief.cs" />
+    <Compile Include="Speaker.cs" />
+    <Compile Include="TagGroup.cs" />
+    <Compile Include="TimeSlot.cs" />
+    <Compile Include="Track.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ModelDiagram.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CodeTemplates\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

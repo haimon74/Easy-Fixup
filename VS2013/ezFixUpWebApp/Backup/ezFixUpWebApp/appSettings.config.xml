@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+  <!--<add key="facebook_image_size" value="large"/>-->
+  <add key="facebook_image_size" value="normal" />
+  <add key="ENABLE_CHANGE_MY_GENDER_IN_SEARCH" value="true" />
+  <!--<add key="ENABLE_CHANGE_MY_GENDER_IN_SEARCH" value="false"/>-->
+  <add key="IsTraceEnabled" value="false" />
+  <add key="PayflowTestServer" value="true" />
+  <add key="PAYFLOW_HOST" value="pilot-payflowpro.verisign.com/transaction" />
+  <add key="CERT_OVERRIDE" value="ON" />
+  <add key="PayflowPartner" value="PayPal" />
+  <add key="PayflowUser" value="estreamtest" />
+  <add key="PayflowVendor" value="estreamtest" />
+  <add key="PayflowPassword" value="321pass" />
+  <add key="PayflowCurrency" value="USD" />
+  <add key="ChartImageHandler" value="storage=inprocess;timeout=20;" />
+  <!-- CCBill Settings -->
+  <add key="CCBillDataLinkUrl" value="https://datalink.ccbill.com/data/main.cgi?startTime={0}&amp;endTime={1}&amp;transactionTypes=NEW,REBILL,REFUND,EXPIRE,CHARGEBACK,VOID&amp;clientAccnum=12345&amp;username=testuser&amp;password=testpass&amp;testMode=1" />
+  <add key="CCBillAccountNumber" value="123456" />
+  <add key="CCBillSubaccount" value="0000" />
+  <add key="CCBillFormname" value="144cc" />
+  <add key="CCBillAllowedTypes" value="0000026004:840" />
+  <add key="CCBillSubscriptionType" value="0000026004:840" />
+  <add key="CCBillAllowedTypesCredits" value="0000000010:840" />
+  <add key="CCBillSubscriptionTypeCredits" value="0000000010:840" />
+  <add key="CCBillTimeOffset" value="-10" />
+  <add key="FacebookPermissions" value="offline_access,publish_stream,email,user_birthday,friends_birthday,user_location,user_hometown,user_photos,user_relationships, friends_relationships, friends_photos, user_status, friends_hometown" />
+  <add key="jQuery.Theme" value="hot-sneaks" />
+  <add key="jQuery.ThemeFolder" value="~/css/" />
+</appSettings>

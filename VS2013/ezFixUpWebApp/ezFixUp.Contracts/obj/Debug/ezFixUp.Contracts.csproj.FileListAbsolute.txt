@@ -1,0 +1,4 @@
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Contracts\bin\Debug\ezFixUp.Contracts.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Contracts\bin\Debug\ezFixUp.Contracts.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Contracts\obj\Debug\ezFixUp.Contracts.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Contracts\obj\Debug\ezFixUp.Contracts.pdb

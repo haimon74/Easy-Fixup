@@ -1,0 +1,25 @@
+﻿<asp:DataList Runat="server" RepeatColumns="6" SkinID="Friends"/>
+<asp:DataList Runat="server" RepeatColumns="4" SkinID="GroupMembers"/>
+<asp:DataList Runat="server" RepeatColumns="5" SkinID="UserPhotos"/>
+<asp:checkboxlist Runat="server" RepeatColumns="4" SkinID="Interests"/>
+<asp:DataList Runat="server" RepeatColumns="4" SkinID="NewGroups"/>
+<asp:DataList Runat="server" RepeatColumns="2" SkinID="Categories"/>
+<asp:DataList Runat="server" RepeatColumns="5" SkinID="GroupNewPhotos"/>
+<asp:Calendar Runat="server" TitleStyle-BackColor="#c55d07" SkinID="TitleStyle"/>
+
+<%@ Register TagPrefix="uc" TagName="NewUsers" Src="~/Components/NewUsers.ascx" %>
+<uc:NewUsers Runat="server" RepeatColumns="3" SkinID="NewUsers" />
+<asp:DataList Runat="server" RepeatColumns="3" SkinID="NewUsersHome" />
+
+<asp:DataList Runat="server" RepeatColumns="3" SkinID="NewVideosHome" />
+<asp:DataList Runat="server" RepeatColumns="3" SkinID="BroadcastWatchers"/>
+
+<%@ Register TagPrefix="uc1" TagName="FlexButton" Src="~/Components/FlexButton.ascx" %>
+<uc1:FlexButton runat="server" RenderAs="LinkButton" SkinID="Register"/>
+<uc1:FlexButton runat="server" RenderAs="LinkButton" SkinID="ForgotPassword"/>
+<uc1:FlexButton runat="server" RenderAs="LinkButton" SkinID="InnerRegister"/>
+<uc1:FlexButton runat="server" RenderAs="LinkButton" SkinID="InnerForgotPassword"/>
+<uc1:FlexButton runat="server" RenderAs="ImageButton" ImageUrl="~/App_Themes/Default/btnFind.gif" SkinID="Search"/>
+<uc1:FlexButton runat="server" RenderAs="ImageButton" ImageUrl="~/App_Themes/Default/btnLogin.gif" SkinID="Login" />
+<uc1:FlexButton runat="server" RenderAs="ImageButton" ImageUrl="~/App_Themes/Default/btnLogin.gif" SkinID="InnerLogin" />
+<uc1:FlexButton runat="server" RenderAs="ImageButton" ImageUrl="~/App_Themes/Default/btnUploadPhotos.gif" SkinID="UploadPhotos" />

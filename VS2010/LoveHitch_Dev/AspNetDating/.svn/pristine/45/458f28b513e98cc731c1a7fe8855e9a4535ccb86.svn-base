@@ -1,0 +1,27 @@
+﻿&siteUrl=localhost:1111&
+&mediaServer=rtmp://fms.aspnetdating.com:1935/vProfile_local/&
+&maxRecTime=60&
+&microphonLevelFXColor=#00FF00&
+&fontColor=#8E9643&
+&fontSize=12&
+&fontType=_sans&
+&vPlayerSkin=playerSkin&
+
+&string_1=Connecting ...&
+&string_2=Disconnected.&
+&string_3=Rejected: User is Already Connected&
+&string_4=Connection Error.&
+&string_5=Delete Profile ....&
+&string_6=This Profile Has Been Deleted.&
+&string_7=Buffering: &
+&string_8=No Camera Connected or Recognized. Click Here To Continue.&
+&string_9=No Mircrophone Connected or Recognized. Click Here To Continue.&
+&string_10=Saving Video ...&
+&string_11=Saving Audio...&
+&string_12=Error saving video. Please try again later.&
+&string_13=Error saving audio.Please try again later.&
+&string_14=Error delete file. Please try again later. Click Here To Continue.&
+&string_15=Your Video Profile has been deleted from administrator. Click Here To Continue.&
+&string_16=Uploading: &
+
+

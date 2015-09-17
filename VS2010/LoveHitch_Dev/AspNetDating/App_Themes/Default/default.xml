@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Schema>
+	<Header />
+	<Body>
+		<Component ID="SearchBox1" Src="Components/Search/SearchBox.ascx" />
+		<HtmlContent>
+			<![CDATA[
+			<div id="DefaultPageImg"></div>
+			]]>
+		</HtmlContent>
+    <!--<Component Src="Components/LoginBox.ascx" />-->
+		<Component Src="Components/NewsBox.ascx" />
+		<Component Src="Components/NewUsers.ascx" SkinID="NewUsers" />
+	</Body>
+	<Footer />
+</Schema>

@@ -1,0 +1,250 @@
+/* ASPnetDating 
+ * Copyright (C) 2003-2010 eStream 
+ * lovehitch.com
+
+ *  
+ * IMPORTANT: This is a commercial software product. By using this product  
+ * you agree to be bound by the terms of the ASPnetDating license agreement.  
+ * It can be found at lovehitch.com/agreement.htm
+
+ *  
+ * This notice may not be removed from the source code. 
+ */
+using System;
+using System.Data;
+using System.Drawing;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using AspNetDating.Classes;
+
+namespace AspNetDating.Admin
+{
+    /// <summary>
+    /// Summary description for EditTopics.
+    /// </summary>
+    public partial class EditTopics : AdminPageBase
+    {
+        protected MessageBox MessageBox;
+        //protected System.Web.UI.WebControls.Label lblMessage;
+
+        #region Properties
+
+        private DataTable DataSource
+        {
+            get { return ViewState["ProfileTopicsDataSource"] as DataTable; }
+            set { ViewState["ProfileTopicsDataSource"] = value; }
+        }
+
+        #endregion
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            LoadStrings();
+            if (!Page.IsPostBack)
+            {
+                if (!HasWriteAccess)
+                {
+                    btnAddNewTopic.Enabled = false;
+                    btnDeleteSelectedTopics.Enabled = false;
+                }
+                
+                PopulateDataGrid();
+            }
+        }
+
+        private void LoadStrings()
+        {
+            dgTopics.Columns[1].HeaderText = Lang.TransA("Title");
+            dgTopics.Columns[2].HeaderText = Lang.TransA("EditColumns");
+            dgTopics.Columns[3].HeaderText = Lang.TransA("ViewColumns");
+            dgTopics.Columns[4].HeaderText = Lang.TransA("Order");
+
+            btnAddNewTopic.Text = Lang.TransA("Add new topic");
+            btnDeleteSelectedTopics.Text = Lang.TransA("Delete selected topic");
+            btnDeleteSelectedTopics.Attributes.Add("onclick",
+                                                   String.Format("javascript: return confirm('{0}')",
+                                                                 Lang.TransA(
+                                                                     "Do you really want to delete selected topics?")));
+        }
+
+        #region Web Form Designer generated code
+
+        protected override void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            if (CurrentAdminSession != null)
+                Privileges = CurrentAdminSession.Privileges.topicsQuestions;
+            base.OnInit(e);
+        }
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.dgTopics.ItemCreated +=
+                new System.Web.UI.WebControls.DataGridItemEventHandler(this.dgTopics_ItemCreated);
+            this.dgTopics.ItemCommand +=
+                new System.Web.UI.WebControls.DataGridCommandEventHandler(this.dgTopics_ItemCommand);
+            this.dgTopics.ItemDataBound += new DataGridItemEventHandler(dgTopics_ItemDataBound);
+        }
+
+        #endregion
+
+        private void PopulateDataGrid()
+        {
+            ProfileTopic[] topics = ProfileTopic.Fetch();
+
+            if (topics == null)
+            {
+                MessageBox.Show(
+                    Lang.TransA("There are no existing topics! Please click on \"Add new topic\" to create new one."),
+                    Misc.MessageType.Error);
+                dgTopics.Visible = false;
+            }
+            else
+            {
+                BindTopicDetails(topics);
+
+                dgTopics.Visible = true;
+            }
+        }
+
+        private void BindTopicDetails(ProfileTopic[] topics)
+        {
+            DataTable dtTopics = new DataTable("Topics");
+            dtTopics.Columns.Add("TopicID");
+            dtTopics.Columns.Add("Title");
+            dtTopics.Columns.Add("EditColumns", typeof (int));
+            dtTopics.Columns.Add("ViewColumns", typeof (int));
+
+            foreach (ProfileTopic topic in topics)
+            {
+                dtTopics.Rows.Add(new object[]
+                                      {
+                                          topic.ID,
+                                          topic.Name,
+                                          topic.EditColumns,
+                                          topic.ViewColumns
+                                      }
+                    );
+            }
+
+            DataSource = dtTopics;
+
+            dgTopics.DataSource = dtTopics;
+            dgTopics.DataBind();
+        }
+
+        private void dgTopics_ItemCommand(object source, DataGridCommandEventArgs e)
+        {
+            HtmlInputCheckBox cbSelect = (HtmlInputCheckBox) e.Item.FindControl("cbSelect");
+            int topicID = Convert.ToInt32(cbSelect.Value);
+
+            switch (e.CommandName)
+            {
+                case "EditTopic":
+                    EditTopic(e, topicID);
+                    break;
+                case "ChangeOrder":
+                    if (!HasWriteAccess)
+                        return;
+                    ChangeOrder(e, topicID);
+                    PopulateDataGrid();
+                    break;
+            }
+        }
+
+        private void EditTopic(DataGridCommandEventArgs e, int topicID)
+        {
+            string url = String.Format("EditTopic.aspx?tid={0}&new=1", topicID);
+            Response.Redirect(url);
+        }
+
+        private void ChangeOrder(DataGridCommandEventArgs e, int topicID)
+        {            
+            string direction = (string) (e.CommandArgument);
+
+            switch (direction)
+            {
+                case "Up":
+                    ProfileTopic.ChangeOrder(topicID, eDirections.Up);
+                    break;
+                case "Down":
+                    ProfileTopic.ChangeOrder(topicID, eDirections.Down);
+                    break;
+            }
+        }
+
+        private void dgTopics_ItemCreated(object sender, DataGridItemEventArgs e)
+        {
+            //created item is header or footer
+            if (e.Item.ItemIndex == -1)
+                return;
+
+            //remove the upper arrow if the current item is the first one
+            if (e.Item.ItemIndex == 0)
+            {
+                (e.Item.FindControl("lnkUp") as LinkButton).Visible = false;
+                //return;
+            }
+
+            //remove the lower arrow if the current item is the last one
+            int lastItemIndex = DataSource.Rows.Count - 1;
+            if (e.Item.ItemIndex == lastItemIndex)
+                (e.Item.FindControl("lnkDown") as LinkButton).Visible = false;
+        }
+
+        protected void btnAddNewTopic_Click(object sender, EventArgs e)
+        {
+            if (!HasWriteAccess)
+                return;
+            
+            ProfileTopic topic = new ProfileTopic();
+            topic.Name = "NewTopic";
+            topic.EditColumns = 1;
+            topic.ViewColumns = 1;
+            topic.Save();
+            PopulateDataGrid();
+        }
+
+        protected void btnDeleteSelectedTopics_Click(object sender, EventArgs e)
+        {
+            if (!HasWriteAccess)
+                return;
+            
+            foreach (DataGridItem item in dgTopics.Items)
+            {
+                HtmlInputCheckBox cbSelect = (HtmlInputCheckBox) item.FindControl("cbSelect");
+                if (cbSelect.Checked)
+                {
+                    int topicID = Convert.ToInt32(cbSelect.Value);
+                    ProfileTopic.Delete(topicID);
+                }
+            }
+            PopulateDataGrid();
+        }
+
+        private void dgTopics_ItemDataBound(object sender, DataGridItemEventArgs e)
+        {
+            if (e.Item.ItemIndex == -1)
+                return;
+
+            LinkButton lnkUp = e.Item.FindControl("lnkUp") as LinkButton;
+            LinkButton lnkDown = e.Item.FindControl("lnkDown") as LinkButton;
+
+            if (!HasWriteAccess)
+            {
+                if (lnkUp != null)
+                    lnkUp.Enabled = false;
+
+                if (lnkDown != null)
+                    lnkDown.Enabled = false;
+            }
+        }
+    }
+}

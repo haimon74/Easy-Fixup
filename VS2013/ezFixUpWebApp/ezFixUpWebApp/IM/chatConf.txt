@@ -1,0 +1,31 @@
+﻿&siteUrl=localhost:1111&
+&mediaServer=rtmp://fms.ezFixUp.com:1935/av_chat_dev/&
+&chatColor=#920000&
+&myChatColor=#739200&
+&infoColor=#666666&
+&linkColor=#0099A9&
+&chatSize=12&
+&chatFont=_sans&
+&timeStamp=true&
+&chatSkin=default&
+&msgSound=beep.mp3&
+&msgSoundVol=80&
+
+&string_1=Age:&
+&string_2=Sex:&
+&string_3=Location:&
+&string_4=Connecting to server.&
+&string_5=Disconnected.&
+&string_6=You are Online.&
+&string_7=Unable to resolve server.&
+
+&string_8=Press 'video off' to start {username}'s video.&
+&string_9=Press 'video off' to start {username}'s audio.&
+
+&string_10=Error connecting to server.&
+&string_11=Add to favorities in progress ....&
+
+&string_12={username} is Online.&
+&string_13={username} is Offline.&
+&string_14=Awaiting {username}..&
+

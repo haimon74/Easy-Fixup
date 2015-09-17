@@ -1,0 +1,92 @@
+/* ASPnetDating 
+ * Copyright (C) 2003-2010 eStream 
+ * lovehitch.com
+
+ *  
+ * IMPORTANT: This is a commercial software product. By using this product  
+ * you agree to be bound by the terms of the ASPnetDating license agreement.  
+ * It can be found at lovehitch.com/agreement.htm
+
+ *  
+ * This notice may not be removed from the source code. 
+ */
+using System;
+using AspNetDating.Classes;
+
+namespace AspNetDating.IM
+{
+    /// <summary>
+    /// Summary description for wmWindowOpened.
+    /// </summary>
+    public partial class wmWindowOpened : PageBase
+    {
+        public wmWindowOpened()
+        {
+            DoNotRegisterIMJavascript = true;
+        }
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // This page is used to tell you database that a WM window was launched up or that 
+            // they denied a WM window request.
+
+            //This will need to be set to the userID of the currently logged in member
+            string strUserID = CurrentUserSession == null ? null : CurrentUserSession.Username;
+
+            string strDoPresence = Request.QueryString["doPresence"] != null
+                                       ? Request.QueryString["doPresence"]
+                                       : "false";
+            bool bDoPresence = strDoPresence == "true" || strDoPresence == "1";
+
+            string strForceClear = Request.QueryString["forceClear"] != null
+                                       ? Request.QueryString["forceClear"]
+                                       : "false";
+            bool bForceClear = strForceClear == "true" || strForceClear == "1";
+
+            int iRefreshInterval = Request.QueryString["iRefreshInterval"] != null
+                                       ? Int32.Parse(Request.QueryString["iRefreshInterval"])
+                                       : 5;
+            string strDestinationUserID = Request.QueryString["destinationUserID"];
+
+            if (strUserID != null && strDestinationUserID != null)
+            {
+                if (bForceClear)
+                {
+                    // the user said 'no' so delete the request from the db
+                    InstantMessenger.DeleteOpenWindowRequest(strDestinationUserID, strUserID);
+                }
+                else
+                {
+                    // we opened up a WM window so update the db so we don't open again for a few minutes
+                    InstantMessenger.SetWindowOpened(strDestinationUserID, strUserID);
+                }
+            }
+
+            if (bDoPresence)
+            {
+                Response.Redirect("wmLauncher.aspx?iRefreshInterval=" + iRefreshInterval, true);
+            }
+        }
+
+        #region Web Form Designer generated code
+
+        protected override void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+        }
+
+        #endregion
+    }
+}

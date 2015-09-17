@@ -1,0 +1,109 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
+using AspNetDating.Classes;
+using AspNetDating.Model;
+using Newtonsoft.Json;
+using Photo = AspNetDating.Classes.Photo;
+using User = AspNetDating.Classes.User;
+
+namespace AspNetDating.Services
+{
+    /// <summary>
+    /// Summary description for SearchService
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    [ScriptService]
+    public class SearchService : WebService
+    {
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
+        public string DynamicPopulateModal(string contextKey)
+        {
+            return "<p>" + contextKey + "</p>";
+        }
+
+        [WebMethod(EnableSession = true, CacheDuration=120)]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void GetMutualFriends(string viewer, string viewed)
+        {
+            var mfSearch = new MutualFriendsSearch { Viewer = viewer, Viewed = viewed };
+            var searchResults = mfSearch.GetResults();
+            User[] mf = (searchResults != null)? searchResults.Get(): new User[] {};
+            IList<MutualFriendsClass> list = mf.Select(user => 
+                new MutualFriendsClass {Username = user.Username, PhotoId = Photo.GetPrimaryOrDefaultId(user.Username)}).ToList();
+            string retval = JsonConvert.SerializeObject(list);
+            HttpContext.Current.Response.ContentType = "application/json";
+            HttpContext.Current.Response.ContentEncoding = Encoding.UTF8;
+            HttpContext.Current.Response.Write(retval);
+            HttpContext.Current.Response.End();
+        }
+        private string GetDisplayName(string viewer, string viewed)
+        {
+            return UserSession.GetViewedUserDisplayedNameByUsername(viewer, viewed);
+        }
+        //[WebMethod(CacheDuration=120)]
+        public MutualFriendsClass[] GetMutualFriendsArray(string viewer, string viewed, int count)
+        {
+            var mfSearch = new MutualFriendsSearch{ Viewer = viewer, Viewed = viewed };
+            DateTime[] time = new DateTime[5];
+            time[0] = DateTime.Now;
+            var searchResults = mfSearch.GetResults();
+            User[] mf = (searchResults != null)? searchResults.Get(): new User[] {};
+            time[1] = DateTime.Now;
+            var dic = (Dictionary<string, List<string>>)Session["MatchmakingRequestedDic"];
+            var reqList = dic.ContainsKey(viewed) ? (List<string>)dic[viewed] : null;
+            IList<MutualFriendsClass> list = new List<MutualFriendsClass>();
+            
+            list = mf.Select(user =>
+                           new MutualFriendsClass
+                               {
+                                   Name = GetDisplayName(viewer, user.Username),
+                                   Username = user.Username,
+                                   PhotoId = Photo.GetPrimaryOrDefaultId(user.Username),
+                                   PhotoUrl = ImageHandler.CreateImageUrl(
+                                       Photo.GetPrimaryOrDefaultId(user.Username),
+                                       30, 30, false, true, true),
+                                   AlreadyRequested =
+                                       (reqList != null &&
+                                        reqList.Contains(user.Username))
+                               }).Take(count).ToList();
+            return list.ToArray();
+        }
+
+        //[WebMethod(CacheDuration = 120)]
+        public MutualFriendsClass[] GetFacebookMutualFriendsArray(string viewer, string viewed, int count)
+        {
+            var mfSearch = new FacebookMutualFriendsSearch(viewer, viewed,PageBase.GetCurrentUserSession(), FacebookHelper.GetSessionFacebookApp() );
+            var searchResults = mfSearch.GetResults();
+            User[] mf = (searchResults != null) ? searchResults.Get() : new User[] { };
+            IList<MutualFriendsClass> list = mf.Select(user =>
+                  new MutualFriendsClass
+                      {
+                          Name = user.Name,
+                          Username = String.Format("{0}", user.FacebookID),
+                          PhotoId = 0,
+                          PhotoUrl = String.Format("http://graph.facebook.com/{0}/picture", user.FacebookID)
+                      }).Take(count).ToList();
+            return list.ToArray(); 
+            //var lstMutualFriends = mfSearch.GetSavedResults();
+            //return lstMutualFriends.Take(count).ToArray();
+        }
+
+        public class MutualFriendsClass
+        {
+            public string Name { get; set; }
+            public string Username { get; set; }
+            public int PhotoId { get; set; }
+            public string PhotoUrl { get; set; }
+            public bool AlreadyRequested { get; set; }
+        }
+    }
+}

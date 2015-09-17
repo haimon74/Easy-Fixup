@@ -1,0 +1,252 @@
+body{background:White;}
+
+.logo_header{;width:960px;height:140px;}
+
+/* NAVIGATION */
+div#navi, #fmt ul li 
+{
+	background: lightblue url(bg_gradient_sprites.png) 0 -1px repeat-x !important;
+	height:33px; line-height:20px; font-size:14px;
+}
+div#navi > table > tbody > tr > td {background:url(bg_gradient_sprites.png) repeat-x 0 -124px;}
+
+#cupidon{position:absolute;top:-130px;left:-10px;width:144px;height:122px;background:url(CupidMenuBar.png);z-index:10;}
+
+.btnEditable, .btnViewTiny { background:url(btn_sprites.png) -4px -55px; }
+
+.btnContinue{background:url(btn_sprites.png) -211px -2px;width:24px;height:17px; border:none;}
+
+.LoginBoxTop, .default .NewsBoxTop,.default .UsersBoxTop,.WideBoxTop
+{background:url(bg_gradient_sprites.png) 0 0px ;width:auto; line-height:2em;}
+
+
+.home_mm .SideMenuBoxContent, .SideMenuBoxContent, .SideMenuWebpartContent{background: transparent;}
+.home_mm .SearchBoxContent, .manageprofile .SideMenuBoxContent, .search3 .SearchBoxContent{background:transparent !important/*rgb(250,250,250) rgb(210,229,235)  !important*/;}
+.SideMenuBoxTop,.StandardBoxTop, .SearchBoxTop, .ModalBoxTop{background:DodgerBlue url(bg_gradient_sprites.png) 0 0; height:33px !important; line-height:30px;}
+.SideMenuBoxTop{background:transparent;line-height:20px;height:33px;}
+.SideMenuBoxTop h2.SideMenuBoxHeader {color:rgb(193,39,45) !important;font-size:large;padding:0;}
+.ModalBoxTop{line-height:1.5em !important;}
+.SideMenuContent{background: transparent !important;padding:0;}
+.SearchBoxContent .searchtable{  width:99%;  color: #000 !important; }
+/* end DefaultPage Search Box */
+
+/* Left Navigation Box */
+.SideMenuWebpartTop{    padding:0 5px 0px 5px !important;  background: rgb(1,99,162) url(bg_gradient_sprites.png) 0px -1px ; height:33px;line-height:20px; overflow:hidden;}
+.SideMenuWebpartsWrap{ width: 100%; margin-bottom:6px;float:right;}
+.SideMenu, .SideMenuBox, .SideMenuBoxX
+{  margin-bottom: 6px; width: 100%; border: solid 1px white; display:inline-table; background: transparent;}
+.SideMenu{border: none;}
+.SideMenu #fmt ul li {background:rgb(210,229,235) url(bg_gradient_sprites.png) 0 0 repeat-x!important;}
+/* WebParts */
+/* Right Web Parts */
+.StandardWebpartTop
+{  padding:0 10px 0px 10px; background:DodgerBlue url(bg_gradient_sprites.png) 0 -1px ; line-height:20px; width: auto; height:33px !important;}
+.AppleMAC-Safari5 .StandardWebpartTop
+{    padding:0 10px 0px 10px;  height:33px !important;}
+.StandardWebpartTop span, .StandardEditorZone .StandardWebpartTop table td
+{ font-size: 14px; font-weight:normal;  color: #fff;text-transform:uppercase;}
+/* End WebParts */
+/*----------------------------------------*/
+.roundedBoxHeader{
+	border-radius: 8px 8px 8px 8px !important;
+  -webkit-border-radius: 8px 8px 8px 8px !important;
+  -moz-border-radius: 8px 8px 8px 8px !important;
+}
+.roundedBoxHeader {border: solid 2px transparent;} 
+/*----------------------------------------*/
+.l_form_ddl, .reg_ddl, .settings_ddl{
+.registerComboBoxStyle .ajax__combobox_textboxcontainer input
+    background-color:rgb(210,229,235) ;    border: solid 0px none;    height: 22px;}
+.registerComboBoxStyle .ajax__combobox_buttoncontainer button
+{    background-color: rgb(210,229,235) ;     border: solid 0px none;}
+.registerComboBoxStyle .ajax__combobox_itemlist{    width: auto;}
+.WindowsStyle .ajax__combobox_inputcontainer .ajax__combobox_textboxcontainer input
+{    margin: 0;    border: solid 1px #7F9DB9;    border-right: 0px none;
+    padding: 1px 0px 0px 5px;    font-size: 13px;    height: 18px;}
+.WindowsStyle .ajax__combobox_inputcontainer .ajax__combobox_buttoncontainer button
+{    margin: 0;    padding: 0;    background-image: url(ComboBox/images/windows-arrow.gif);
+    background-position: top left;    border: 0px none;    height: 20px;    width: 20px;}
+.WindowsStyle .ajax__combobox_itemlist{    border-color: #7F9DB9;}
+.newPreview{    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);}
+/*=====================================*/
+
+
+/*----------------------------------------*/
+.addGift, .viewGift,.selectPreviewGiftBtn{background: transparent; color: transparent; text-align: center; 
+     width: 53px !important; cursor: pointer;height:16px !important;font-weight:normal;margin:0 auto;background-position: center center;}
+.addGiftBtn{background: url(btn_sprites.png) -126px -318px no-repeat !important}
+.addGiftBtnH{background: url(btn_sprites.png) -181px -318px no-repeat !important;}
+.viewGiftBtn{background: url(btn_sprites.png) -2px -318px no-repeat !important;}
+.viewGiftBtnH{background: url(btn_sprites.png) -57px -318px no-repeat !important;}
+.selectPreviewGiftBtn{background: url(btn_sprites.png) -137px -287px no-repeat !important;width:100px !important;height:28px;color:White;}
+
+.BrowseBtn,.CancelBtn, .SendBtn,.SubmitBtn, .LoginBtn, .SearchBtn, .RegisterSaveEnterBtn, .DeleteBtn,.MarkUnreadBtn, .SaveBtn, .TopicBtn, .RegisterNextBtn, .FilterBtn
+{    
+    text-align:center;text-indent: 0; font-size:1em; display:block;margin: 0 auto;
+    font-weight:normal; color:White !important; border: none 0px transparent;
+}
+.BrowseBtn,.CancelBtn, .SendBtn,.SubmitBtn, .FilterBtn, .LoginBtn, .SearchBtn, .DeleteBtn,.MarkUnreadBtn,.SaveBtn, .TopicBtn 
+{  width:65px;height:23px; line-height:20px; background:url(btn_sprites.png) -107px -116px; 
+}
+.BrowseBtnH,.CancelBtnH, .SendBtnH,.SubmitBtnH, .FilterBtnH, .LoginBtnH, .SearchBtnH, .DeleteBtnH,.MarkUnreadBtnH,.SaveBtnH, .TopicBtnH ,
+a.BrowseBtn :hover,a.CancelBtn :hover, a.SendBtn :hover,a.SubmitBtn :hover, a.FilterBtn :hover, a.LoginBtn :hover, 
+a.SearchBtn :hover, a.DeleteBtn :hover,a.MarkUnreadBtn :hover,a.SaveBtn :hover, a.TopicBtn  :hover
+{   background:url(btn_sprites.png) -172px -116px !important;   }
+
+.CancelBtn, .DeleteBtn{background:url(btn_sprites.png) -109px -215px; }
+.BrowseBtn,.CancelBtn, .SendBtn, .FilterBtn, .DeleteBtn, .MarkUnreadBtn,.SaveBtn, .TopicBtn {display:inline;}
+.RegisterNextBtn{    width:63px;height:30px; line-height:25px; background:url(btn_sprites.png) 0 170px; float:right;margin-top:20px;}
+.RegisterSaveEnterBtn{ width:120px;height:30px; font-size:1.1em;line-height:29px;background:url(btn_sprites.png) 0 -180px;margin: auto auto 10px auto; display:inline-block;}
+.FormBtn{    display: none;}
+
+.LargeButtonRect{text-align:center;text-indent: 0; display:block; margin: 0 auto; color:White; font-size:small; font-weight:bold;
+             width:160px; height:30px; line-height:28px; background:url(btn_sprites.png) -77px -74px;}
+.LargeButton{text-align:center;text-indent: 0; display:block; margin: 0 auto; color:White; font-size:small; font-weight:bold;
+             width:125px; height:30px; line-height:28px; background:url(btn_sprites.png) -109px -150px;}
+
+.WinkBtn, .MsgBtn, .GiftBtn, .AddBtn, .BlockBtn, .MatchBtn, .FavoriteBtn, .AddFavoriteBtn{width:24px; float:left;}
+.WinkBtn{background:url(ActionIconSprites.png) 0px 0px; height:24px;}
+.MsgBtn{background:url(ActionIconSprites.png) 0px 140px; height:22px; }
+.GiftBtn{background:url(ActionIconSprites.png) 0px 172px; height:32px;}
+.AddFriendBtn,.AddBtn{background:url(ActionIconSprites.png) 0px 116px; height:25px;}
+.BlockBtn {background:url(ActionIconSprites.png) 0px 85px; height:25px;}
+.MatchBtn {background:url(ActionIconSprites.png) 0px 59px; height:30px;}
+.AddFavoriteBtn,.FavoriteBtn {background:url(ActionIconSprites.png) 0px 27px; height:27px;}
+
+div.WinkBtnSmall : hover , div.MsgBtnSmall : hover , div.GiftBtnSmall : hover , div.AddBtnSmall : hover , 
+div.BlockBtnSmall : hover , div.MatchBtnSmall : hover , div.FavoriteBtnSmall : hover , 
+div.AddFavoriteBtnSmall,div.MoreBtnSmall : hover ,div.AskAboutBtnSmall : hover , div.MsgPassBtnSmall : hover , 
+div.MatchRequestBtnSmall : hover , div.AcceptBtnSmall:hover, div.DenyBtnSmall : hover
+{filter:alpha(opacity=60) !important; -moz-opacity:.60 !important;opacity:0.6 !important;cursor:pointer;}
+.WinkBtnSmall, .MsgBtnSmall, .GiftBtnSmall, .AddBtnSmall,.AddFriendBtnSmall,.RemoveFriendBtnSmall, .BlockBtnSmall, .MatchBtnSmall, 
+.FavoriteBtnSmall, .AddFavoriteBtnSmall,.RemoveFavoriteBtnSmall,.UnFavoriteBtnSmall
+.MoreBtnSmall,.AskAboutBtnSmall, .MsgPassBtnSmall, .MatchRequestBtnSmall, .AcceptBtnSmall, .DenyBtnSmall
+{height:28px; float:left;}
+.WinkBtnSmall{background:url(action_icons_sprite.png) -118px -397px; width:29px;}
+.GiftBtnSmall{background:url(action_icons_sprite.png) -119px -430px; width:26px;}
+.MsgBtnSmall{background:url(action_icons_sprite.png) -118px -458px; width:27px; }
+.AddFriendBtnSmall,.AddBtnSmall{background:url(action_icons_sprite.png) -117px -483px; width:26px;}
+.RemoveFriendBtnSmall{background:url(action_icons_sprite.png) -90px -483px; width:25px;}
+.AcceptBtnSmall{background:url(action_icons_sprite.png) -118px -644px; width:25px;}
+.DenyBtnSmall{background:url(action_icons_sprite.png) -118px -609px; width:25px;}
+.BlockBtnSmall {background:url(action_icons_sprite.png) -118px -517px; width:23px;}
+.MatchBtnSmall {background:url(action_icons_sprite.png) -113px -548px; width:34px;}
+.MoreBtnSmall {background:url(action_icons_sprite.png) 0px 0px; width:20px;}
+.AddFavoriteBtnSmall,.FavoriteBtnSmall {background:url(action_icons_sprite.png) -118px -575px; width:26px;}
+.RemoveFavoriteBtnSmall,.UnFavoriteBtnSmall {background:url(action_icons_sprite.png) -90px -575px; width:26px;}
+.MatchRequestBtnSmall {background:url(action_icons_sprite.png) -5px -550px; width:28px;}
+.AskAboutBtnSmall{background:url(action_icons_sprite.png) -5px -487px; width:20px;}
+.MsgPassBtnSmall{background:url(action_icons_sprite.png) -4px -462px; width:23px; }
+
+.ModalAskAboutBtnSmall, .ModalMsgPassBtnSmall, .ModalMatchRequestBtnSmall, .ModalMatchRequestBtnSmallBlue {height:25px;float:left;}
+.ModalMatchRequestBtnSmall , .ModalMatchRequestBtnSmallBlue{width:25px;}
+.ModalMatchRequestBtnSmallBlue{background:url(action_icons_sprite.png) -5px -550px;}
+.ModalAskAboutBtnSmall{width:21px;}
+.ModalMsgPassBtnSmall{width:21px; }
+
+.PopModalSmallIconsBg{background-color: rgb(228,239,243); height: 60px; width: 100%; z-index: 5; text-align:center;}
+
+.WinkBtnMini, .MsgBtnMini, .GiftBtnMini, .AddFriendBtnMini,.AddBtnMini, .BlockBtnMini, .MatchBtnMini, .AddFavoriteBtnMini, .FavoriteBtnMini,
+.MoreBtnMini,.AskAboutBtnMini, .MsgPassBtnMini, .MatchRequestBtnMini, .RemoveBtnMini, .AskBtnMini, .UnfavoriteBtnMini
+{height:20px; float:left;margin:3px 0;}
+.WinkBtnMini{background:url(action_icons_sprite.png) -120px -696px; width:24px;}
+.MsgBtnMini{background:url(action_icons_sprite.png) -121px -678px; width:24px; }
+.MatchBtnMini{background:url(action_icons_sprite.png) -121px -714px; width:24px;}
+.MoreBtnMini{background:url(action_icons_sprite.png) -121px -748px; width:24px;}
+.AddFavoriteBtnMini, .FavoriteBtnMini{background:url(action_icons_sprite.png) -123px -731px; width:24px;}
+.UnfavoriteBtnMini{background:url(action_icons_sprite.png) -233px -122px; width:22px;}
+.GiftBtnMini{background:url(action_icons_sprite.png) -147px -703px; width:24px;height:20px;}
+.AddBtnMini,.AddFriendBtnMini{background:url(action_icons_sprite.png) -147px -684px; width:24px;}
+.RemoveBtnMini{background:url(action_icons_sprite.png)  -157px -180px; width:24px;}
+.BlockBtnMini{background:url(action_icons_sprite.png) -32px -809px; width:22px;}
+.AskBtnMini{background:url(action_icons_sprite.png) -4px -806px; width:24px;}
+.MatchRequestBtnMini{background:url(action_icons_sprite.png) -166px -806px; width:24px;}
+
+
+.WinkBtnBig, .MsgBtnBig, .GiftBtnBig, .AddBtnBig, .BlockBtnBig, .MatchBtnBig, .FavoriteBtnBig, .AddFavoriteBtnBig,
+.WinkBtnBigH, .MsgBtnBigH, .GiftBtnBigH, .AddBtnBigH, .BlockBtnBigH, .MatchBtnBigH, .FavoriteBtnBigH
+{height:55px; width:45px; float:left;}
+.BlockBtnBig {background:transparent url(action_icons_sprite.png) -160px -40px; width:45px;}
+.MatchBtnBig {background:transparent url(action_icons_sprite.png) -85px -40px;  width:45px;}
+.AddFavoriteBtnBig, .FavoriteBtnBig {background:transparent url(action_icons_sprite.png) -30px -40px;  width:45px;}
+.WinkBtnBig {background:transparent url(action_icons_sprite.png) -2px -97px; }
+.MsgBtnBig {background:transparent url(action_icons_sprite.png) -167px -97px; }
+.GiftBtnBig {background:transparent url(action_icons_sprite.png) -60px -97px; }
+.AddBtnBig {background:transparent url(action_icons_sprite.png) -111px -97px; }
+.BlockBtnBigH {background:transparent url(action_icons_sprite.png) -160px -285px;}
+.MatchBtnBigH {background:transparent url(action_icons_sprite.png) -85px -285px; }
+.FavoriteBtnBigH {background:transparent url(action_icons_sprite.png) -30px -285px;}
+.WinkBtnBigH {background:transparent url(action_icons_sprite.png) -2px -342px; }
+.MsgBtnBigH {background:transparent url(action_icons_sprite.png) -167px -342px; }
+.GiftBtnBigH {background:transparent url(action_icons_sprite.png) -60px -342px; }
+.AddBtnBigH {background:transparent url(action_icons_sprite.png) -111px -342px; }
+
+.PopModalBigIconsBg{background-color: rgb(228,239,243); height: 80px; width: 100%; z-index: 5; 
+            text-align: justify; background:url(../../Images/user_pop_icons_bg.png) !important}
+            
+.showPushedBtn,.showReleasedBtn{width:125px;height:30px;line-height:31px; padding:2px;margin:2px;color:White;
+     font-weight:bold;display:inline-block;text-align:center;text-indent: 0;border-width:0;}
+.showReleasedBtn{background:url(btn_sprites.png) -1px -283px;z-index:1;color:White;}
+.showPushedBtn{background:url(btn_sprites.png) -1px -245px;z-index:0; color:Black; 
+               filter:alpha(opacity=90) !important; -moz-opacity:.90 !important;opacity:0.9 !important;}
+a.showReleasedBtn:hover,a.showPushedBtn:hover{color:Black;}
+
+.recoverPasswordBtn
+{
+    width:160px;height:30px;line-height:28px; padding:2px;margin:2px;color:White;border-width:0;
+    background:url(btn_sprites.png) -77px -75px;z-index:1;color:White;
+}
+
+/* paginator */
+.endbox {
+	text-align:center;
+	background:transparent;
+	padding:0px 0 0 0;
+	margin:0px 0 0 0;
+	position:relative;
+	clear:both;
+	line-height:14px;
+	width:100%;
+}
+.endbox a {
+	color: darkblue;
+	text-decoration: none;
+}
+.endbox a:hover {
+	text-decoration: underline;
+}
+/* end paginator */
+
+a.firstPageBtn,a.lastPageBtn,a.prevPageBtn,a.nextPageBtn
+{width:28px;height:15px;line-height:15px; padding:2px;margin:2px;color:black;display:inline-block;text-align:center;text-indent: 0;}
+a.prevPageBtn{background:url(btn_sprites.png) -30px -357px;}
+a.nextPageBtn{background:url(btn_sprites.png) -60px -357px;}
+a.firstPageBtn{background:url(btn_sprites.png) 0px -357px;}
+a.lastPageBtn{background:url(btn_sprites.png) -90px -357px;}
+
+.longBtn{background:url(btn_sprites.png) -136px -378px;width:100px;height:23px;line-height:20px;margin:5px;color:White; font-size:0.9em;font-weight:normal;}
+a.longBtn :hover {background:url(btn_sprites.png) -136px -404px !important;}
+.plus{background-color:Transparent; background:url(plus.png) no-repeat 0px 5px ; text-indent:8px;letter-spacing: normal; background-position: left center;}
+.minus{background-color:Transparent; background:url(minus.png) no-repeat 0px 5px; text-indent:8px;letter-spacing: 1px;background-position: left center;}
+.plus1{background-color:Transparent; background:url(plus1.png) no-repeat 0px 2px ; text-indent:8px;letter-spacing: normal; background-position: left center;}
+.minus1{background-color:Transparent; background:url(minus1.png) no-repeat 0px 2px; text-indent:8px;letter-spacing: 1px;background-position: left center;}
+div#advancedSearchAccordionDiv>div>a{background-color:Teal !important;color:White !important;}
+/*----------------------------------------*/
+.milki{background:grey;filter:alpha(opacity=50) !important; -moz-opacity:.50 !important;opacity:0.50 !important;}
+div.tipsys{z-index:10000;}
+/*----------------------------------------*/
+div.extraPadContent{padding: 10px 20px 10px 20px;}
+/*----------------------------------------*/
+
+#modalCloseButton{width:16px;height:16px;margin:4px !important;background:url(modal_x.png) no-repeat;border: none; cursor: pointer; z-index: inherit;float: right; }
+
+.MfPopIconsBg0{background:url(action_icons_sprite.png) -100px -75px ; width:50px; height:26px !important;}
+.MfPopIconsBg1{background:url(action_icons_sprite.png) -100px -42px ; width:50px; height:26px !important;}
+
+.MmBlueMsgBtn{background:url(btn_sprites.png) 0px -574px; width:35px;height:25px;display:block;}
+.MmPurpleMsgBtn{background:url(btn_sprites.png) 0px -600px; width:35px;height:25px;display:block;}
+.MmMidArrowBg{background:url(btn_sprites.png) -43px -572px; width:86px;height:65px;}
+
+.mm_mode_marker {background:url(mm_mode_marker.png); position:absolute;width:174px !important;height:68px !important;
+                 z-index:10000;filter:alpha(opacity=70) !important; -moz-opacity:.70 !important;opacity:0.7 !important;}
+

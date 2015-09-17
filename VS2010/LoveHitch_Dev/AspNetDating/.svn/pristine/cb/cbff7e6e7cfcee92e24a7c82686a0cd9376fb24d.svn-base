@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+<meta name=ProgId content=VisualStudio.HTML>
+<meta name=Originator content="Microsoft Visual Studio .NET 7.1">
+</head>
+<body onload="PayPalForm.submit();">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" name="PayPalForm">
+<input type="hidden" name="cmd" value="_xclick-subscriptions">
+<input type="hidden" name="business" value="{0}">
+<input type="hidden" name="item_name" value="{1}">
+<input type="hidden" name="item_number" value="{2}">
+<input type="hidden" name="a3" value="{3}">
+<input type="hidden" name="p3" value="{4}">
+<input type="hidden" name="t3" value="{5}">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="custom" value="{6}">
+<input type="hidden" name="return" value="{7}">
+<input type="hidden" name="cancel_return" value="{8}">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="src" value="1">
+<input type="hidden" name="sra" value="1">
+<input type="hidden" name="rm" value="2">
+<input type="hidden" name="modify" value="2">
+<input type="hidden" name="notify_url" value="{9}" />
+</form>
+</body>
+</html>

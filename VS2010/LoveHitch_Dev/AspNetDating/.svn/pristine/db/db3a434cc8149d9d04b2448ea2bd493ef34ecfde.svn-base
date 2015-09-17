@@ -1,0 +1,205 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditScheduledAnnouncements.aspx.cs" Inherits="AspNetDating.Admin.EditScheduledAnnouncements" %>
+<%@ Register TagPrefix="uc1" TagName="AdminHeader" Src="AdminHeader.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="MessageBox" Src="MessageBox.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="AdminMenu" Src="AdminMenu.ascx" %>
+<%@ Import Namespace="AspNetDating.Classes" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit.HTMLEditor" TagPrefix="HTMLEditor" %>
+<%@ Register Src="~/Components/DatePicker.ascx" TagName="DatePicker" TagPrefix="uc1" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+
+<html xmlns="https://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title><%= Lang.TransA("Edit Scheduled Announcements") %></title>
+    <link rel="stylesheet" type="text/css" href="images/style.css" media="all">
+</head>
+<body>
+    <form id="form1" runat="server">
+	        <ajaxToolkit:CascadingDropDown ID="CascadingDropDownCountry" runat="server" TargetControlID="ddCountry"
+                    Category="Country" ServicePath="~/Services/Service.asmx" PromptText=" "
+                    ServiceMethod="GetCountries" />
+                <ajaxToolkit:CascadingDropDown ID="CascadingDropDownState" runat="server" TargetControlID="ddRegion"
+                    Category="Region" ServicePath="~/Services/Service.asmx" PromptText=" "
+                    ServiceMethod="GetRegionsByCountry" ParentControlID="ddCountry" />
+	        <uc1:adminheader id="AdminHeader1" runat="server"></uc1:adminheader>
+	        <div id="layout">
+	            <div id="crupms">
+                    <img src="images/i_editpages.jpg" /> 
+				    <div id="crumpstxt"><%= Lang.TransA("Edit Scheduled Announcements")%></div>
+		        </div>
+			    <div id="sidebar">
+	                <uc1:adminmenu id="Adminmenu1" runat="server"></uc1:adminmenu>
+			    </div>
+		        <div id="main">
+		    	    <div id="content-head">
+				        <div class="ch-head"><%= Lang.TransA("Edit Scheduled Announcements")%></div>
+	                    <div class="ch-description"><%= Lang.TransA("Use this section to edit scheduled announcements")%></div>	
+				    </div>
+		            <uc1:messagebox id="Messagebox1" runat="server"></uc1:messagebox>
+		            <div id="pnlAnnouncements" runat="server">
+		                <asp:DataGrid Width="100%" CssClass="btable1" ID="dgAnnouncements" 
+                            GridLines="None" runat="server" AllowPaging="False"
+                            AutoGenerateColumns="False" CellPadding="0" CellSpacing="0"
+                            BorderWidth="0" onitemcommand="dgAnnouncements_ItemCommand" OnItemCreated="dgAnnouncements_ItemCreated">
+                            <AlternatingItemStyle CssClass="btable2"></AlternatingItemStyle>
+                            <Columns>
+                                <asp:TemplateColumn>
+                                    <HeaderStyle CssClass="table_header2" HorizontalAlign="Center"></HeaderStyle>
+                                    <ItemStyle CssClass="table_cell3" Wrap="False"></ItemStyle>
+                                    <ItemTemplate>
+                                        <%# Eval("Name") %>
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>
+                                <asp:TemplateColumn>
+                                    <HeaderStyle CssClass="table_header2"></HeaderStyle>
+                                    <ItemStyle CssClass="table_cell3" Wrap="True"></ItemStyle>
+                                    <ItemTemplate>
+                                            <%# Eval("Type")%>
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>                            
+                                <asp:TemplateColumn>
+                                    <HeaderStyle CssClass="table_header2"></HeaderStyle>
+                                    <ItemStyle CssClass="table_cell3" Wrap="False"></ItemStyle>
+                                    <ItemTemplate>
+                                        <nobr>
+                                            <asp:LinkButton id="lnkEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("ID") %>' CssClass="gridlink">
+                                                <img src="images/edit_icon.jpg" border="0">
+                                                <%= Lang.TransA("Edit")%>
+                                            </asp:LinkButton>
+                                                &nbsp;
+                                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CommandArgument='<%# Eval("ID") %>' CssClass="gridlink">
+                                                <img src="images/edit_icon.jpg" border="0">
+                                                <%= Lang.TransA("Delete")%></asp:LinkButton>
+                                        </nobr>
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>
+                            </Columns>
+                        </asp:DataGrid>
+                        <div class="separator06"></div>
+                        <div class="add-buttons">
+                            <asp:Button ID="btnAddNew" runat="server" onclick="btnAddNew_Click" />
+                        </div>
+                    </div>
+                    <div id="pnlAnnouncement" runat="server" visible="false">
+                        <table cellpadding="0" cellspacing="0" class="filter">
+						    <tr>
+							    <td colspan="2" class="table_header"><%= Lang.TransA("Filter") %></td>
+						    </tr>
+						    <tr id="pnlGender" runat="server">
+							    <td class="table_cell"><%= Lang.TransA("Gender") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddGender" Runat="server">
+								    </asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr>
+							    <td class="table_cell"><%= Lang.TransA("Paid Member") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddPaid" Runat="server">
+								    </asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr>
+							    <td class="table_cell"><%= Lang.TransA("Has photos") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddHasPhotos" Runat="server">
+								    </asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr>
+							    <td class="table_cell"><%= Lang.TransA("Has profile") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddHasProfile" Runat="server">
+								    </asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr>
+							    <td class="table_cell"><%= Lang.TransA("Language") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddLanguage" Runat="server">
+								    </asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr>
+							    <td class="table_cell"><%= Lang.TransA("Country") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddCountry" Runat="server">
+								    </asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr>
+							    <td class="table_cell"><%= Lang.TransA("Region") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddRegion" Runat="server">
+								    </asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr>
+							    <td class="table_cell"><%= Lang.TransA("Type") %>:</td>
+							    <td class="table_cell"><asp:DropDownList ID="ddType" runat="server" AutoPostBack="true" 
+                                        onselectedindexchanged="ddType_SelectedIndexChanged"></asp:DropDownList>
+							    </td>
+						    </tr>
+						    <tr id="pnlName" runat="server" visible="false">
+							    <td class="table_cell"><%= Lang.TransA("Name") %>:</td>
+							    <td class="table_cell"><asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+							    </td>
+						    </tr>
+						    <tr id="pnlDate" runat="server" visible="false">
+							    <td class="table_cell"><%= Lang.TransA("Date") %>:</td>
+							    <td class="table_cell"><uc1:DatePicker ID="datePicker1" CssClass="datepicker" runat="server"></uc1:DatePicker>
+							    </td>
+						    </tr>
+						    <tr id="pnlInactivity" runat="server" visible="false">
+							    <td class="table_cell"><%= Lang.TransA("Inactivity") %>:</td>
+							    <td class="table_cell"><asp:TextBox ID="txtInactivity" runat="server" MaxLength="4" Columns="4"></asp:TextBox>&nbsp;<%= Lang.TransA("days") %>
+							    </td>
+						    </tr>
+						    <tr id="pnlAfterRegistration" runat="server" visible="false">
+							    <td class="table_cell"><%= Lang.TransA("After Registration") %>:</td>
+							    <td class="table_cell"><asp:TextBox ID="txtAfterRegistration" runat="server" MaxLength="4" Columns="4"></asp:TextBox>&nbsp;<%= Lang.TransA("days") %>
+							    </td>
+						    </tr>
+                            <tr id="pnlBeforeSubscriptionEnd" runat="server" visible="false">
+							    <td class="table_cell"><%= Lang.TransA("Before Subscription End")%>:</td>
+							    <td class="table_cell"><asp:TextBox ID="txtBeforeSubscriptionEnd" runat="server" MaxLength="4" Columns="4"></asp:TextBox>&nbsp;<%= Lang.TransA("days") %>
+							    </td>
+						    </tr>
+					    </table>
+					    <div class="separator06"></div>
+					    <table cellpadding="0" cellspacing="0" id="stable">
+					        <tr>
+						        <td class="table_header" colSpan="2"><%= Lang.TransA("Submit Announcement") %></td>
+					        </tr>
+					        <tr>
+						        <td class="table_cell"><%= Lang.TransA("Subject") %></td>
+						        <td class="table_cell"  Width="88%"><asp:textbox id="txtSubject" Runat="server" Width="100%"></asp:textbox></td>
+					        </tr>
+					        <tr>
+						        <td class="table_cell" colSpan="2">
+						            <div class="fckeditor">
+                                        <asp:PlaceHolder ID="phEditor" runat="server"></asp:PlaceHolder>
+                                    </div>
+                                </td>
+					        </tr>
+					        <tr>
+					            <td class="table_cell" colSpan="2"><%= Lang.TransA("Description: Use %%NAME%% or %%USER%% to specify the user's name or username") %></td>
+					        </tr>
+					        <tr>
+					            <td class="table_cell" colSpan="2">
+					            <%= "Send test e-mail to username".Translate() %>
+					            <asp:TextBox ID="txtTestUsername" runat="server"></asp:TextBox>
+					            <asp:Button ID="btnSendTestEmail" runat="server" onclick="btnSendTestEmail_Click" />
+                                </td>
+					        </tr>
+					        <tr>
+						        <td class="table_footer" colSpan="2">
+						        <div class="separator10"></div>
+						        <div class="add-buttons">
+							        <asp:button id="btnSave" runat="server" onclick="btnSave_Click" Visible="false"></asp:button>
+						        </div>
+						        <div class="add-buttons">
+							        <asp:button id="btnSend" runat="server" onclick="btnSend_Click"></asp:button>
+						        </div>
+					        </tr>
+				        </table>
+				    </div>
+		        </div>
+			</div>
+    </form>
+</body>
+</html>

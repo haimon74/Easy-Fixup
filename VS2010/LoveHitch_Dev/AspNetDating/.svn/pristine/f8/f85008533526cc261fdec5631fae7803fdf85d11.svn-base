@@ -1,0 +1,109 @@
+/* ASPnetDating 
+ * Copyright (C) 2003-2010 eStream 
+ * http://www.aspnetdating.com
+
+ *  
+ * IMPORTANT: This is a commercial software product. By using this product  
+ * you agree to be bound by the terms of the ASPnetDating license agreement.  
+ * It can be found at http://www.aspnetdating.com/agreement.htm
+
+ *  
+ * This notice may not be removed from the source code. 
+ */
+using System;
+using System.Text;
+using System.Web.UI.HtmlControls;
+using AspNetDating.Classes;
+
+namespace AspNetDating.IM
+{
+    /// <summary>
+    /// Summary description for wmLauncher.
+    /// </summary>
+    public partial class wmLauncher_ : PageBase
+    {
+        public wmLauncher_()
+        {
+            DoNotRegisterIMJavascript = true;
+        }
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // This page checks your database to see if your users have any WM windows that need to be launched
+            // Also, it updates your database telling your site that the user is currently on the site
+
+            // This will need to be set to the userID of the currently logged in member
+            String strUserID = CurrentUserSession == null ? null : CurrentUserSession.Username;
+
+            int iRefreshInterval = Request.QueryString["iRefreshInterval"] != null
+                                       ? Int32.Parse(Request.QueryString["iRefreshInterval"])
+                                       : 5;
+
+            if (iRefreshInterval > 0)
+            {
+                metaRefresh.Attributes["HTTP-EQUIV"] = "refresh";
+                metaRefresh.Attributes["content"] =
+                    String.Format("{0};URL={1}?iRefreshInterval={2}", iRefreshInterval, Request.FilePath,
+                                  iRefreshInterval);
+            }
+            else metaRefresh.Visible = false;
+
+            // clear out any old values (that were requested over 15 minutes ago)
+            InstantMessenger.DeleteOldOpenWindowRequests();
+
+            if (strUserID != null)
+            {
+                // update your database so that everyone knows this user is online right now
+                CurrentUserSession.UpdateLastOnline(false);
+                // execute strQuery against your database
+
+                // select a list of users who want to talk with the current user and we haven't opened a window for 5 mins
+                // join it with your existing users table so you can get their display name
+                string[] users = InstantMessenger.FetchPendingUsers(strUserID);
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<script language=\"javascript\">\n");
+                sb.Append("<!--\n");
+                foreach (string user in users)
+                {
+                    User targetUser = new User(user);
+                    targetUser.Load();
+                    InstantMessenger.SetWindowOpened(user, strUserID);
+                    //Modified by Miroslav Parvanov
+                    //real names are changed back to usernames
+                    sb.AppendFormat("window.parent.up_launchWM('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}');\n",
+                                    strUserID, user, CurrentUserSession.Username, targetUser.Username,
+                                    targetUser.Gender.ToString(), targetUser.Age, targetUser.City);
+                    //sb.AppendFormat("window.parent.up_launchWM('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}');\n",
+                    //                strUserID, user, CurrentUserSession.Name, targetUser.Name,
+                    //                targetUser.Gender.ToString(), targetUser.Age, targetUser.City);
+                }
+                sb.Append("//-->\n");
+                sb.Append("</script>\n");
+
+                ClientScript.RegisterClientScriptBlock(typeof(wmLauncher_), "launchWM", sb.ToString());
+            }
+        }
+
+        #region Web Form Designer generated code
+
+        protected override void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+        }
+
+        #endregion
+    }
+}

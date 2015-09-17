@@ -1,0 +1,177 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AspNetDating.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AdminPermissions" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AdminReadOnly" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="PayflowTestServer" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PAYFLOW_HOST" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">pilot-payflowpro.verisign.com/transaction</Value>
+    </Setting>
+    <Setting Name="CERT_OVERRIDE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ON</Value>
+    </Setting>
+    <Setting Name="PayflowPartner" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PayPal</Value>
+    </Setting>
+    <Setting Name="PayflowUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+    <Setting Name="PayflowVendor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+    <Setting Name="PayflowPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+    <Setting Name="PayflowCurrency" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">USD</Value>
+    </Setting>
+    <Setting Name="AuthorizeNetLogin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cnpdev4444</Value>
+    </Setting>
+    <Setting Name="AuthorizeNetTranKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">623P88zxd6Pj3Pz6</Value>
+    </Setting>
+    <Setting Name="AuthorizeNetTest" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SmsCheckUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.yoursmsgateway.com/?code={0}</Value>
+    </Setting>
+    <Setting Name="ForceCountry" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ForceRegion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ForceCity" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SecretGadgetKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TheSecretKeyGoesHere!</Value>
+    </Setting>
+    <Setting Name="ExecuteTimers" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ImagesHomeURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PayPalSandBox" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AutoAddWWW" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="StorePhotosAsFiles" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CheckAlternativePhotoStorage" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MySpace_Key" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">lovehitch.com/da6</Value>
+    </Setting>
+    <Setting Name="MySpace_Secret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">447034021d28403eaeec9b9509d8fb7b</Value>
+    </Setting>
+    <Setting Name="UserImagesDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AlertPayCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vt1AaxMdZFo5wkFd</Value>
+    </Setting>
+    <Setting Name="DaoPayApplicationCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">54268</Value>
+    </Setting>
+    <Setting Name="CCBillSecretKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EB382EC2B72B11DEA966865E55D89593</Value>
+    </Setting>
+    <Setting Name="DaoPayApplicationCode1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">54268</Value>
+    </Setting>
+    <Setting Name="AuthSecretKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ImagesCacheDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ImagesCacheURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SiteName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">LoveHitch</Value>
+    </Setting>
+    <Setting Name="CompanyName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ConnIntro</Value>
+    </Setting>
+    <Setting Name="EmailBodyEncoding" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UTF-8</Value>
+    </Setting>
+    <Setting Name="EmailSubjectEncoding" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UTF-8</Value>
+    </Setting>
+    <Setting Name="DefaultCountry" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ישראל</Value>
+    </Setting>
+    <Setting Name="BannedCountries" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;SN&lt;/string&gt;
+  &lt;string&gt;NG&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="DaoPayGatewayIPs" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;195.58.177.2&lt;/string&gt;
+  &lt;string&gt;195.58.177.3&lt;/string&gt;
+  &lt;string&gt;195.58.177.4&lt;/string&gt;
+  &lt;string&gt;195.58.177.5&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="DaoPayGatewayIPs1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          &lt;ArrayOfString xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema"&gt;
+          &lt;string&gt;195.58.177.2&lt;/string&gt;
+          &lt;string&gt;195.58.177.3&lt;/string&gt;
+          &lt;string&gt;195.58.177.4&lt;/string&gt;
+          &lt;string&gt;195.58.177.5&lt;/string&gt;
+          &lt;/ArrayOfString&gt;
+        </Value>
+    </Setting>
+    <Setting Name="HomeURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://localhost/aspnetdating7</Value>
+    </Setting>
+    <Setting Name="PayPalEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">eric@smartcore.co.il</Value>
+    </Setting>
+    <Setting Name="AlertPayEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">eric@smartcore.co.il</Value>
+    </Setting>
+    <Setting Name="PaymentProcessors" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;PayPal&lt;/string&gt;
+  &lt;string&gt;Coupon&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="Facebook_APP_ID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">160629763494</Value>
+    </Setting>
+    <Setting Name="Facebook_API_Key" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">160629763494</Value>
+    </Setting>
+    <Setting Name="Facebook_Secret_Key" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">06a106d8edea8873478bbb5e2686e112</Value>
+    </Setting>
+    <Setting Name="FacebookHome" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://apps.facebook.com/LoveHitch/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

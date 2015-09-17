@@ -1,0 +1,9 @@
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\bin\Debug\ezFixUp.Data.Contracts.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\bin\Debug\ezFixUp.Data.Contracts.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\bin\Debug\ezFixUp.Model.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\bin\Debug\ezFixUp.Model.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\obj\Debug\ezFixUp.Data.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\obj\Debug\ezFixUp.Data.Contracts.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\obj\Debug\ezFixUp.Data.Contracts.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\bin\Debug\EntityFramework.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data.Contracts\bin\Debug\EntityFramework.xml

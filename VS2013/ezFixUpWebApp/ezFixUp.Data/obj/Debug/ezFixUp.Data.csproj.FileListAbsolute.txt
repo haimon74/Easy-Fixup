@@ -1,0 +1,15 @@
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\obj\Debug\ezFixUp.Data.csprojResolveAssemblyReference.cache
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\ezFixUp.Data.dll.config
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\ezFixUp.Data.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\ezFixUp.Data.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\EntityFramework.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\ezFixUp.Data.Contracts.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\ezFixUp.Model.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\NLipsum.Core.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\ezFixUp.Data.Contracts.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\ezFixUp.Model.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\EntityFramework.xml
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\obj\Debug\ezFixUp.Data.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\obj\Debug\ezFixUp.Data.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Data\bin\Debug\System.Data.SqlServerCe.Entity.dll

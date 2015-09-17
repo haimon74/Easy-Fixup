@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Client Flow Example</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        function displayUser(user) {
+            var userName = document.getElementById('userName');
+            var greetingText = document.createTextNode('Greetings, ' + user.name + '.');
+            userName.appendChild(greetingText);
+        }
+
+        var appID = "139801212735949";
+        if (window.location.hash.length == 0) {
+            var path = 'http://www.facebook.com/dialog/oauth?';
+            var queryParams = ['client_id=' + appID,
+                               'redirect_uri=' + window.location,
+                               'response_type=token'];
+            var query = queryParams.join('&');
+            var url = path + query;
+            window.open(url);
+        } else {
+            var accessToken = window.location.hash.substring(1);
+            var path = "http://graph.facebook.com/me?";
+            var queryParams = [accessToken, 'callback=displayUser'];
+            var query = queryParams.join('&');
+            var url = path + query;
+
+            // use jsonp to call the graph
+            var script = document.createElement('script');
+            script.src = url;
+            document.body.appendChild(script);
+        }
+    </script>
+
+    <p id="userName">
+    </p>
+</body>
+</html>

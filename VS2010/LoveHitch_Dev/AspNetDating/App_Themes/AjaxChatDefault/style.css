@@ -1,0 +1,840 @@
+﻿html, body
+{
+	margin: 0px 0 0 0;
+	padding: 0;
+	height: 100%; /* 100 % height */
+	background-color: #f7f7e8;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+body{
+	overflow:hidden
+}
+html > body #wrap
+{
+	height: 100%;
+}
+/* 100 % height */
+#header
+{
+    position:absolute; 
+	width: 100%;
+	height: 61px;
+	padding: 0px 0 0 0px;
+	background: #f7f7e8 url(header_back.jpg) repeat bottom ;
+}
+#header img{
+	margin:0 0 0 10px;
+}
+html > body #header
+{
+	
+}
+
+#header {top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop : document.body.scrollTop);} 
+
+#footer {top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop +(documentElement.clientHeight-this.clientHeight) : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+} 
+.trial{
+	text-align:center;
+	line-height:40px;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+#header_right{
+	position:absolute;
+	top:0px;
+	right:1px;
+	background: url(header_right.jpg) no-repeat top right;
+	width:184px;
+	height:61px;
+	
+}
+
+html > body #content-wrap
+{
+	height: 100%;
+	padding: 0px 0px;
+	overflow: hidden;
+}
+
+
+#content{
+height:100%;
+margin-right:240px;
+overflow: hidden;
+}
+
+
+#right
+{
+	position: absolute;
+	width: 161px;
+	top: 62px;
+	right: 1px;
+	bottom: 140px;
+	border: 0px #e5e5e5 solid !important;
+	padding:0px 0; 
+/*	height:expression(document.documentElement.clientHeight - 138 + "px");*/
+	background:url(right_top.jpg) repeat-x top right;
+}
+
+#users
+{
+	height: 100%;
+	padding: 0px 0px;
+	width:160px;
+	margin:0 0 0 0px;
+	background: url(right_btm.jpg) repeat-x bottom right;
+}
+
+#usersright
+{	position:absolute;
+	width: 158px;
+	top:30px;
+	overflow: auto;
+	overflow-x: hidden;
+	padding: 0px 0 0 0px;
+	margin-left:2px;
+/*	height:expression(document.documentElement.clientHeight - 220 + "px");*/
+}
+
+.righthead
+{	position:absolute;
+	top: 46px;
+	font-size: 11px;
+	padding-left:30px;
+	font-weight:bold;
+	color: #909945;
+	height: 23px;
+	margin: 0 0 0px 0;
+	overflow: hidden;
+/*	background:url(right-top.gif) no-repeat top right;*/
+}
+#usersonline
+{
+	margin-top: 0px;
+	margin-left: 4px;
+	height: 24px;
+	line-height: 18px;
+	border-bottom: 0px #606060 solid;
+	width: 120px;
+	padding: 0 0 0 26px;
+	/*background: url(usersonline.jpg) left top no-repeat;*/
+	font-size:11px;
+	color:#eb6e1c;
+	font-weight:bold;
+}
+.usersonline_right{
+	display:none;	
+}
+.usersonline_left{
+	display:none;
+}
+
+#select_chatroom
+{
+	position: absolute;
+	bottom: 16px;
+	right: 20px;
+	height: 30px;
+	width: 110px;
+	vertical-align: bottom !important;
+}
+#select_chatroom input, #select_chatroom select
+{
+	width: 110px;
+	font-size:11px;
+	line-height:20px;
+}
+
+
+#footer
+{
+	width: 100%;
+	height: 70px;
+	position:absolute; 
+	z-index:10; 
+	background: url(footer_back.jpg) repeat-x bottom;
+
+}
+html > body #footer
+{
+	position: fixed;
+	bottom: 0;
+	height: 70px;
+	padding: 0px 0px 0 0px;
+	margin-left:0px;
+	z-index: 10; /* Prevent certain problems with form controls */
+	}
+
+
+#footer_fonts
+{
+	width: 100%;
+	height: 24px;
+	margin: 0px 0 0 10px;
+	padding:0px 0 0 0;
+	line-height: 24px;
+	clear:both;
+	position:relative;
+	top:8px;
+	overflow:hidden;
+}
+#footer_fonts select{
+	font-size:11px;
+	line-height:20px;
+}
+
+#sendmsg_txt input
+{
+	width:100%;
+	height: 20px;
+	padding: 0 0px 0 0;
+	margin: 0px 0px 0 0;
+	border: 1px #dbd9d9 solid;
+	background-color: #fff;
+}
+
+#sendmsg_btn input
+{
+	width: 76px;
+	height: 27px;
+	background: url(button.jpg) no-repeat top left;
+	border:0;
+}
+#sendtxt_td{
+}
+#sendmsg_btn{
+	padding:10px 0 0 0px;	
+}
+#sendmsg_txt{
+	overflow:hidden;
+	padding:10px 0 0 10px;
+}
+
+
+
+/* USERS AND SERVER MESSAGES*/
+#left{
+	position: absolute;
+	top: 62px;
+	left:1px;
+	right:163px;
+	bottom: 80px;
+	padding:0px 0 0 0px;
+	/*height:expression(document.documentElement.clientHeight - 152 + "px");
+	width:expression(document.documentElement.clientWidth - 163 + "px");*/
+	background:url(left_top.jpg) repeat-x top;
+	border-right:1px solid #eeeac8;
+	border-bottom: 14px #e86d1b solid !important;
+}
+
+.tabs{
+	height:20px;
+}
+.tabs .txt{
+	float:left;
+	line-height:19px;
+}
+
+.tab_light{
+	float:left;
+	background:#f7f7e8 url(tab_active.jpg) no-repeat right top;
+	height:20px;
+	padding:0px 8px;
+	line-height:19px;
+	color:#e66d1b;
+	cursor: pointer;
+}
+.tab_on{
+	float:left;
+	background:#f7f7e8 url(tab_active.jpg) no-repeat right top;
+	height:20px;
+	padding:0px 8px;
+	line-height:19px;
+	color:#e66d1b;
+	cursor: pointer;
+}
+.tab_on .close{
+	background:url(close.jpg) no-repeat bottom right;
+	height:19px;
+	width:23px;	
+	float:left;
+}
+.tab_off{
+	float:left;
+	height:19px;
+	background:#f7f7e8 url(tab_inactive.jpg) no-repeat right top;
+	border-bottom:1px solid #e2debf;
+	padding:0px 8px;
+	line-height:19px;
+	color:#c3bd8c;
+	cursor: pointer;
+}
+
+.tab_off .close{
+	display:none;
+	width:0;
+	height:0;
+	background:transparent;	
+}
+.clear{
+	clear:both;
+}
+#messages
+{
+	position:relative;
+	/*position:absolute;*/
+	overflow: auto;
+	overflow-x: hidden;
+	padding: 2px 0px 20px 0px;
+/*	height:expression(document.documentElement.clientHeight - 194 + "px");*/
+	border-bottom: 0px #e5e5e5 solid !important;
+}
+
+
+* html #messages
+{
+	width: 100%;
+	/*height:expression(document.documentElement.clientHeight - 194 + "px")*/
+}
+
+.useravatar
+{
+	float: left;
+	width: 34px;
+	height:34px;
+	text-align:center;
+}
+.useravatar img{
+	margin:0 auto;
+	padding:6px 0 0 0;
+}
+
+.srv_msg1
+{
+    clear: both;
+	color: #009933;
+	margin: 0 0 4px 6px;
+}
+.srv_msg2
+{
+	clear: both;
+	color: #990000;
+	margin: 0 0 4px 6px;
+}
+.user_id1
+{
+	padding: 0px 0 0px 6px;
+	height: 34px;
+	line-height: 34px;
+	color: #000099;
+	font-weight: bold;
+	float: left;
+}
+#usersright div.user_id1{
+	width:100px !important;
+	overflow:hidden;
+}
+.user_id1 a
+{
+	color: #000099;
+	font-weight: bold;
+	text-decoration: none;
+}
+.user_id2
+{
+	padding: 0px 0 0px 6px;
+	height: 34px;
+	line-height: 34px;
+	color: #990000;
+	font-weight: bold;
+	float: left;
+}
+div.user_msg{
+	line-height:34px;
+}
+.user_msg
+{
+	float: left;
+	padding: 0px 20px 0 8px;
+	line-height:34px;	
+}
+.user_msg span{
+	line-height:34px;	
+}
+.user_msg img{
+	vertical-align:middle;
+	padding:9px 5px 10px 5px;
+}
+
+.msgwrap
+{
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+	clear: both;
+	margin-bottom: 4px;
+	z-index:999;
+	position:relative;
+	clear:both;
+}
+
+.private div.user_id1{
+	color:#666;	
+	font-weight:bold;
+}
+.private div.user_msg{
+	color:#666;	
+	font-style:italic;
+}
+
+.file div.user_id1{
+	color:#666;	
+	font-weight:bold;
+}
+.file div.user_msg{
+	color:#666;	
+	font-weight:bold;
+}
+.img_wrap{
+	clear:both;
+	padding:0 0 0 20px;	
+}
+.img_wrap img{
+	border:1px solid grey
+}
+
+.contextitem
+{
+    cursor:pointer;
+}
+
+.dragHandle {
+	width:100%;
+	text-align:center;
+	vertical-align: middle;
+	cursor:move;
+	font-weight:bold;
+	background:#e86d1b;
+	height:16px;
+	line-height:16px;
+	color:#fff;
+}
+
+#divBroadcastVideoObject
+{
+    width: 215px;
+    height: 162px;
+	background-color:#FFF;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#divReceiveVideoObject
+{
+    width: 320px;
+    height: 240px;
+	background-color:#FFF;
+	text-align: center;
+	vertical-align: middle;	
+}
+/*LOGIN BOX*/
+table#passwordBox{
+	margin:0px;
+	padding:0px 0 0 0;
+	border: 1px solid #e86d1b;
+	background:url(right_top.jpg);
+}
+
+table#loginBox{
+	margin:0px;
+	padding:0px 0 0 0;
+	border: 1px solid #e86d1b;
+	background:url(right_top.jpg);
+}
+
+table#loading{
+	margin:0px;
+	padding:0px 0 0 0;
+	border: 1px solid #e86d1b;
+	background:url(right_top.jpg);
+}
+.AvatarsTable{
+	margin:0 auto;
+}
+.AvatarsTable td{
+	padding:4px;
+}
+.avatar_selected{
+	background:#fff;
+	border:1px solid #e86d1b;
+}
+.avatar_unselected{
+	background:transparent;
+	border:1px solid #f0ebcd;	
+}
+.loginbox-head{
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	font-weight:bold;
+	padding:0;
+	font-size:11px;
+	font-family:Verdana;
+	color: #fff;
+	border-bottom: #e86d1b 1px solid;
+	background: #e86d1b;
+}
+.loginbox-content{
+	padding:6px;
+}
+.loginbox-label{
+	width:80px;
+	line-height:28px;
+	height:28px;
+	font-size:11px;
+	font-family:Verdana;
+	padding:0 0 0 6px;
+}
+.loginbox-txt{
+	font-size:11px;
+	height:28px;
+	font-family:Verdana;
+	padding:0 6px 0 0;
+}
+.loginbox-txt input{
+	width:140px;
+	margin:0 auto;
+}
+
+.add-buttons{
+	padding: 0px 0 4px 0;
+	text-align: center;
+}
+/* End LOGIN BOX */
+
+/* Video send-recieve */
+.SendVideoTop{
+	border-top:1px solid #ddd;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+.SendVideoBtm{
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+	width:160px;
+	height:120px;
+}
+.RcvVideoTop{
+	border-top:1px solid #ddd;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+.RcvVideoBtm{
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+	width:320px;
+	height:240px;
+}
+.dragtext{
+	float:left;
+	text-align:left;
+	padding:0 0 0 4px;
+}
+.videoclose{
+	float:right;
+	text-align:right;
+	padding:0 4px 0 4px;
+	font-size:14px;
+	line-height:16px;
+	cursor:pointer;
+}
+.sendfile{
+	background:#fff
+}
+.sendfile_wrap{
+	margin:auto;
+	width:400px;
+	background: #f7f7e8 url(header_back.jpg) repeat-x top ;
+}
+.sendfile_head{
+	height:36px;
+	padding:4px 0 0 20px;
+	line-height:20px;
+}
+.sendfile_head h1{
+	font-size:12px;
+	padding:0;
+	margin:0;
+}
+.sendfile_content{
+	height:80px;
+	padding:40px 0 0 20px ;
+	width:360px;
+	color:#e86d1b;
+	line-height:20px;
+}
+.sendfilebtn{
+	text-align:center;
+	width:100%;
+	background:#e86d1b;
+	padding:6px 0 6px 0;
+}
+.separator{
+	line-height:10px;
+	height:10px;
+	font-size:10px;
+	clear:both;
+}
+#webcamdetector{
+	position:absolute;
+	top:1px;
+	left:1px;
+}
+
+/* Ajax Messanger Header */
+#am_header {
+	top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop : document.body.scrollTop);
+} 
+#am_header
+{
+    position:absolute; 
+	width: 100%;
+	height: 44px;
+	padding: 0px 0 0 0px;
+	background: #f7f7e8 url(am_left_headerbgr.jpg) repeat bottom ;
+	border-bottom:1px solid #c6c6c6;
+}
+.am_logo{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:999;
+}
+.am_header_right{
+	position:absolute;
+	top:0;
+	right:0;
+	background:url(am_left_header.jpg) no-repeat top right;
+	height:44px;
+	width:206px;
+}
+
+/* Ajax Messanger Content */
+html > body #am_content-wrap_left
+{
+	padding: 0px 0 0 0px;
+	overflow: hidden;
+}
+#am_content-wrap_left{
+	position:absolute;
+	top:46px;
+	left:0;
+	/*height:expression(document.documentElement.clientHeight - 114 + "px");
+	/*width:expression(document.documentElement.clientWidth - 156 + "px");*/
+	/*width:expression(document.documentElement.clientWidth - 217 + "px");*/
+	border-right:1px solid #c6c6c6;
+	border-bottom:1px solid #c6c6c6;	
+}
+html > body #am_content-wrap_right
+{
+	padding: 0px 0px;
+	overflow: hidden;
+}
+#am_content-wrap_right{
+	/*height:expression(document.documentElement.clientHeight - 209 + "px");*/
+	/*width:154px;*/
+	width:215px;
+	position:absolute;
+	right:0;
+	top:46px;
+	background:#eeeeee;
+}
+
+/* Ajax Messanger Footer */
+#am_footer_left {
+	top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop +(documentElement.clientHeight-this.clientHeight) : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+} 
+#am_footer_left
+{
+	/*width:expression(document.documentElement.clientWidth - 156 + "px");*/
+	width:expression(document.documentElement.clientWidth - 217 + "px");
+	height: 67px;
+	position:absolute; 
+	left:0;
+	z-index:10; 
+	background:#e6e6e6;
+	border-right:1px solid #c6c6c6;
+}
+html > body #am_footer_left
+{
+	position:fixed;
+	bottom: 0;
+	height: 67px;
+	padding: 0px 0px 0 0px;
+	margin-left:0px;
+	z-index: 10; /* Prevent certain problems with form controls */
+}
+#am_footer_right {
+	top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop +(documentElement.clientHeight-this.clientHeight) : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+} 
+#am_footer_right
+{
+	/*width:154px;*/
+	width:215px;
+	height:162px;
+	position:absolute; 
+	right:0;
+	z-index:10; 
+	background:#eeeeee;
+}
+html > body #am_footer_right
+{
+	position:fixed;
+	bottom: 0;
+	padding: 0px 0px 0 0px;
+	margin-left:0px;
+	z-index: 10; /* Prevent certain problems with form controls */
+}
+
+/* Video */
+
+.video
+{
+    /*
+	width:154px;
+	height:115px;
+    */
+    width: 215px;
+    height: 162px;
+	background:#b3b3b3;
+	clear:both;
+	margin:0 0 0px 0;
+	text-align: center;
+	vertical-align: middle;
+}
+.am_userinfo{
+	width:400px;
+	margin:0 0 0 10px
+}
+.label{
+	font-weight:bold;
+	line-height:16px;
+	width:66px;
+}
+.trays{
+	width:100%;
+	background:#e5e5e5;
+	height:20px;
+	line-height:20px;
+	margin:0 0 1px 0;
+}
+.am_content_text{
+	width:100%;
+	border-top:1px solid #e5e5e5;
+	overflow:auto;
+	height:100%;
+}
+
+/* Ajax Messamger Right Header */
+#am_right_wrap{
+	background: url(am_right_header_bgr.jpg) repeat-x top ;
+}
+#am_right_header{
+	top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop : document.body.scrollTop);
+} 
+#am_right_header
+{
+    position:absolute; 
+	width: 100%;
+	height: 91px;
+	padding: 0px 0 0 0px;
+	background:url(am_right_header.jpg) no-repeat top right;
+	border-bottom:1px solid #fff;
+}
+
+.am_right_user{
+	position:absolute;
+	top:0;
+	left:0;
+	height:91px;
+}
+.am_right_user_left{
+	float:left;
+}
+.am_right_user_right{
+	float:left;
+	padding:0 0 0 10px;
+}
+.am_right_user_name{
+	clear:both;
+	height:50px;
+	line-height:50px;
+	font-size:14px;
+	font-weight:bold;
+	color:#333;
+}
+.am_right_user_status{
+	clear:both;
+	height:40px;
+}
+
+/* Ajax Messamger Right Content */
+html > body #am_right_content
+{
+	padding: 0px 0px;
+	overflow: hidden;
+}
+#am_right_content{
+/*	height:expression(document.documentElement.clientHeight - 126 + "px");*/
+	width:100%;
+	position:absolute;
+	right:0;
+	top:92px;
+	background:#f5f5f5 url(am_right_logo.jpg) no-repeat center;
+}
+.am_right_uotxt{
+	clear:both;
+	height:20px;
+	background:#e5e5e5;
+	border-bottom:1px solid #fff;
+	line-height:20px;
+	color:#333;
+	font-size:11px;
+	padding:0 6px 0 0px;
+	text-align:right
+}
+.am_right_usersonline{
+	clear:both;
+	border-top:1px solid #e4d4d4;
+	height:100%;
+	padding:0 0 0 4px;
+}
+/* Ajax Messamger Right Footer */
+#am_right_footer {top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop +(documentElement.clientHeight-this.clientHeight) : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+} 
+#am_right_footer
+{
+	width: 100%;
+	height: 44px;
+	position:absolute; 
+	z-index:10; 
+	background: url(am_right_footer.jpg) repeat-x bottom;
+
+}
+html > body #am_right_footer
+{
+	position: fixed;
+	bottom: 0;
+	height: 44px;
+	padding: 0px 0px 0 0px;
+	margin-left:0px;
+	z-index: 10; /* Prevent certain problems with form controls */
+
+}

@@ -1,0 +1,171 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Codebehind="AffiliateBanners.aspx.cs"
+    Inherits="AspNetDating.Admin.AffiliateBanners" %>
+
+<%@ Import Namespace="AspNetDating.Classes" %>
+<%@ Register TagPrefix="uc1" TagName="AdminHeader" Src="AdminHeader.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="AdminMenu" Src="AdminMenu.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="MessageBox" Src="MessageBox.ascx" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        <%= Lang.TransA("Affiliate Banners")%>
+    </title>
+    <link rel="stylesheet" type="text/css" href="images/style.css" media="all" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <uc1:AdminHeader ID="AdminHeader1" runat="server"></uc1:AdminHeader>
+        <div id="layout">
+            <div id="crupms">
+                <img src="images/i_browsephotos.jpg">
+                <div id="crumpstxt">
+                    <%= Lang.TransA("Affiliate Banners")%>
+                </div>
+            </div>
+            <div id="sidebar">
+                <uc1:AdminMenu ID="AdminMenu1" runat="server"></uc1:AdminMenu>
+            </div>
+            <div id="main">
+                <div id="content-head">
+                    <div class="ch-head">
+                        <%= Lang.TransA("Affiliate Banners")%>
+                    </div>
+                    <div class="ch-description">
+                        <%= Lang.TransA("Use this section to browse, edit or delete affiliate banners of your site...")%>
+                    </div>
+                </div>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                <uc1:MessageBox ID="MessageBox" runat="server"></uc1:MessageBox>
+                <div class="separator10">
+                </div>
+                <asp:MultiView ID="mvAffiliateBanners" runat="server">
+                    <asp:View ID="viewAffiliateBanners" runat="server">
+                        <asp:DataGrid Width="100%" CssClass="btable1" ID="dgGroups" GridLines="None" runat="server"
+                            AllowPaging="False" AutoGenerateColumns="False" AllowSorting="True" CellPadding="0"
+                            CellSpacing="0" BorderWidth="0" OnItemCommand="dgGroups_ItemCommand" OnItemDataBound="dgGroups_ItemDataBound">
+                            <AlternatingItemStyle CssClass="btable2"></AlternatingItemStyle>
+                            <Columns>
+                                <asp:TemplateColumn>
+                                    <HeaderStyle CssClass="table_header2" HorizontalAlign="Center">
+                                    </HeaderStyle>
+                                    <ItemStyle CssClass="table_cell3" Wrap="False"></ItemStyle>
+                                    <ItemTemplate>
+                                        <img src='<%= Config.Urls.Home%>/AffiliateBannerImage.ashx?id=<%# Eval("ID") %>' border="0" />
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>
+                                <asp:TemplateColumn>
+                                    <HeaderStyle CssClass="table_header2" HorizontalAlign="Center">
+                                    </HeaderStyle>
+                                    <ItemStyle CssClass="table_cell3" Wrap="False"></ItemStyle>
+                                    <ItemTemplate>
+                                        <%# Eval("Name")%>
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>
+                                <asp:TemplateColumn>
+                                    <HeaderStyle CssClass="table_header2"></HeaderStyle>
+                                    <ItemStyle CssClass="table_cell3" Wrap="False" Width="12%"></ItemStyle>
+                                    <ItemTemplate>
+                                        <nobr>
+                                            <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("ID") %>' CssClass="gridlink">
+                                                <img src="images/edit_icon.jpg" border="0">
+                                                <%= Lang.TransA("Edit")%></asp:LinkButton>
+                                                &nbsp;
+                                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CommandArgument='<%# Eval("ID") %>' CssClass="gridlink">
+                                                <img src="images/edit_icon.jpg" border="0">
+                                                <%= Lang.TransA("Delete")%></asp:LinkButton>
+                                        </nobr>
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>
+                            </Columns>
+                        </asp:DataGrid>
+                        <div class="add-buttons">
+                        <asp:Button ID="btnAddAffiliateBanner" runat="server" OnClick="btnAddAffiliateBanner_Click" />
+                        </div>
+                        <div class="separator06"></div>
+                    </asp:View>
+                    <asp:View ID="viewEditAffiliateBanners" runat="server">
+                    <table  cellpadding="0" cellspacing="0" id="stable">
+                    	<tr>
+                    		<td colspan="2" class="table_header"><%= Lang.TransA("Edit Banner")%></td>
+                    	</tr>
+                        <tr>
+                        	<td colspan="2" valign="middle" align="center" class="table_cell">
+		                        <img src='<%= Config.Urls.Home%>/AffiliateBannerImage.ashx?id=<%= EditedAffiliateBannerID %>' border="0" />
+                        	</td>
+                        </tr>
+                    	<tr>
+                    		<td class="table_cell"><%= Lang.TransA("Affiliate banner")%>:
+                    		</td>
+                    		<td class="table_cell"><asp:FileUpload ID="fuNewBannerImage" runat="server" />
+                    		</td>
+                    	</tr>
+                    	<tr>
+                    		<td class="table_cell"><%= Lang.TransA("Name")%>:
+                    		</td>
+                    		<td class="table_cell"><asp:TextBox ID="txtNewName" runat="server"></asp:TextBox>
+                    		</td>
+                    	</tr>
+                    	<tr>
+                    		<td class="table_cell"><%= Lang.TransA("Deleted")%>:
+                    		</td>
+                    		<td class="table_cell"><asp:DropDownList ID="ddDeleted" runat="server"></asp:DropDownList>
+                    		</td>
+                    	</tr> 
+                    	<tr>
+                    		<td colspan="2" class="table_cell">
+                    			<div class="add-buttons">
+                			        <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" />
+			                        <asp:Button ID="btnCancelUpdate" runat="server" OnClick="btnCancelUpdate_Click"/>
+                    			</div>
+                    		</td>
+                    	</tr>                  	
+                    </table>
+                    <div class="separator06"></div>
+                    </asp:View>
+                    <asp:View ID="viewUploadAffiliateBanner" runat="server">
+
+							<table cellpadding="0" cellspacing="0" class="filter" style="width: 400px;">
+							<tr>
+								<td colspan="2" class="table_header">
+								<%= Lang.TransA("Affiliate Banner")%></td>
+							</tr>
+							<tr>
+								<td class="table_cell">
+								<%= Lang.TransA("Affiliate banner")%>: </td>
+								<td class="table_cell">
+								<asp:FileUpload ID="fuAffiliateBannerImage" runat="server" />
+								</td>
+							</tr>
+							<tr>
+								<td class="table_cell">
+								<%= Lang.TransA("Name")%>:
+								</td>
+								<td class="table_cell">
+								<asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="table_cell">
+									<div class="add-buttons">
+										<asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" />
+										<asp:Button ID="btnCancelUpload" runat="server" OnClick="btnCancelUpload_Click" />
+									</div>
+								</td>
+							</tr>
+						</table>
+						<div class="separator06"></div>
+					</asp:View>
+                </asp:MultiView>
+               </ContentTemplate>
+               <Triggers>
+                <asp:PostBackTrigger ControlID="btnUpload" />
+                <asp:PostBackTrigger ControlID="btnUpdate" />
+               </Triggers>
+              </asp:UpdatePanel>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

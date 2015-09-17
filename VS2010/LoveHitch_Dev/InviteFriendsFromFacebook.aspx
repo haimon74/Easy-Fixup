@@ -1,0 +1,53 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InviteFriendsFromFacebook.aspx.cs" Inherits="AspNetDating.InviteFriendsFromFacebook" %>
+<%@ Import Namespace="AspNetDating.Classes"%>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContent" runat="server">
+<div id="divFacebook" runat="server" >
+    <div id="divFacebookButton" runat="server" style="text-align: center;">
+        <f:view contentType="text/html">
+            <fb:login-button onlogin="window.location='InviteFriendsFromFacebook.aspx'"></fb:login-button>
+        </f:view>
+        <script type="text/javascript">
+            FB.init("<%= FacebookHelper.ApiKey %>", "Facebook/xd_receiver.htm");
+        </script>    	
+    </div>
+    <div id="divFacebookFriends" style="width: 90%;" runat="server">
+        <fb:serverfbml>
+            <script type="text/fbml">
+              <fb:fbml>
+                  <fb:request-form
+                            action='<%= Config.Urls.Home + "/FacebookInviteFriendsHandler.aspx"%>'
+                            method="POST"
+                            invite="true"
+                            type='<%= "LoveHitch".Translate() %>'
+                            content="<%= "This is an invitation from http://www.LoveHitch.com".Translate() %>
+                         <% = Server.HtmlEncode("<fb:req-choice url=\"" +Config.Urls.Home + "/default.aspx" + "\" label=\"Confirm\" />")  %> " >
+                            <fb:multi-friend-selector
+                            rows="15"
+                            cols="4"
+                            bypass="cancel"
+                            showborder="true"
+                            actiontext="<%= "Invite your friends to use LoveHitch.".Translate() %>">
+                </fb:request-form>
+              </fb:fbml>
+            </script>
+        </fb:serverfbml>
+        <script type="text/javascript">
+            FB_RequireFeatures(["XFBML"], function() {
+                FB.init("<%= FacebookHelper.ApiKey %>", "Facebook/xd_receiver.htm");
+            });
+        </script>
+        <div id="divPublishOnFriendsWall" runat="server" visible="false">
+            <p>
+                <%= "Select your facebook friends that you want to invite".Translate() %>:
+            </p>
+            <asp:CheckBoxList ID="cblFriends" runat="server" AutoPostBack="false" EnableViewState="true"
+                 RepeatColumns="3" RepeatDirection="Horizontal" CellSpacing="5" CellPadding="2"></asp:CheckBoxList>        
+            <asp:Button ID="btnInvite" runat="server" CssClass="SendBtn" OnClick="btnInviteClick" />
+        </div>
+    </div>    
+    <div id="divFacebookFriendsPlaceholder"></div>
+    <script type="text/javascript">
+        $get("divFacebookFriendsPlaceholder").appendChild($get('divFacebookFriends'));
+    </script>    
+</div>
+</asp:Content>

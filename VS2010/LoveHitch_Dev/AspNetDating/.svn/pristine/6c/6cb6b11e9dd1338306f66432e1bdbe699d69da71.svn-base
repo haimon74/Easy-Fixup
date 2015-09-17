@@ -1,0 +1,77 @@
+﻿//@import "common.css";
+
+@primaryColour: #f00;
+@base: black;
+
+h1, h2, h3, h4, h5, h6 { color: @primaryColour; }
+
+.box-shadow(@style, @c) {
+  box-shadow:         @style @c;
+  -webkit-box-shadow: @style @c;
+  -moz-box-shadow:    @style @c;
+}
+.box-shadow-opacity(@style, @alpha: 50%)  {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+.box {  @base: #f938ab;
+  color: saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0 0 5px, 30%) }
+}
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+.c-rgba(@r: 255, @g: 255, @b: 255, @a: .22)
+{
+    color: rgba(@r, @g, @b, @a);
+}
+.bg-rgba(@r: 255, @g: 255, @b: 255, @a: .22)
+{
+    background-color: rgba(@r, @g, @b, @a);
+}
+.text-shadow (@h: 1px, @v: 1px, @radius: 1px, @color: #fff)
+{
+    text-shadow: @h @v @radius @color;
+}
+.multi-columns(@number: 3, @gap: 5px)
+{
+    -moz-column-count: @number;
+    -moz-column-gap: @gap;
+    -webkit-column-count: @number;
+    -webkit-column-gap: @gap;
+    column-count: @number;
+    column-gap: @gap;
+}
+.transition(@type: all, @duration: 500ms, @function: linear)
+{
+    -webkit-transition: @type @duration @function;
+    -moz-transition: @type @duration @function;
+    -ms-transition: @type @duration @function;
+    -o-transition: @type @duration @function;
+    transition: @type @duration @function;
+}
+.transform(@scale: 1.1, @rotate: 1deg, @translate: 1px, @skew: 1deg)
+{
+    -moz-transform: scale(@scale) rotate(@rotate) translate(@translate, @translate) skew(@skew, @skew);
+    -webkit-transform: scale(@scale) rotate(@rotate) translate(@translate, @translate) skew(@skew, @skew);
+    -o-transform: scale(@scale) rotate(@rotate) translate(@translate, @translate) skew(@skew, @skew);
+    -ms-transform: scale(@scale) rotate(@rotate) translate(@translate, @translate) skew(@skew, @skew);
+    transform: scale(@scale) rotate(@rotate) translate(@translate, @translate) skew(@skew, @skew);
+}
+.gradiant(@clr1: #1e5799, @clr2: #1e5799,@clr3: #1e5799, @clr4: #1e5799)
+{
+    background: @clr1; /* Old browsers */
+    background: -moz-linear-gradient(top, @clr1 0%, @clr2 50%, @clr3 51%, @clr4 100%); // FF3.6+ 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@clr1), color-stop(50%,@clr2), color-stop(51%,@clr3), color-stop(100%,@clr4)); // Chrome,Safari4+ 
+    background: -webkit-linear-gradient(top, @clr1 0%,@clr2 50%,@clr3 51%,@clr4 100%); // Chrome10+,Safari5.1+ 
+    background: -o-linear-gradient(top, @clr1 0%,@clr2 50%,@clr3 51%,@clr4 100%); // Opera 11.10+ 
+    background: -ms-linear-gradient(top, #1e5799 0%,@clr2 50%,@clr3 51%,@clr4 100%); // IE10+ 
+    background: linear-gradient(top, @clr1 0%,@clr2 50%,@clr3 51%,@clr4 100%); // W3C 
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( startColorstr=@clr1, endColorstr=@clr4,GradientType=0 )"; // IE6-9
+}
+
+.SideMenu #fmt ul li,#fmt ul li.selected, #fmt ul li a.active, #fmt ul li a:hover,
+.StandardBoxTop, .WideBoxTop, .UsersBoxContent {.rounded-corners(5px)}

@@ -1,0 +1,87 @@
+.showuser, .showuserphotos, .showuserblog, .showusererror, .reportuserabuse, .showuserevents{
+	background:#c10035 url(BodyBgr.jpg) no-repeat top left fixed !important; /* EDITABLE(Page background) */
+}
+.skincolor, .skincolorlabel{
+color:#000 !important; /* EDITABLE(Text color) */
+}
+.skinlinkcolor {
+color:#c30136 !important; /* EDITABLE(Link color) */
+}
+.skinactionlinkcolor{
+color:#c30136 !important; /* EDITABLE(Left Menu Link color) */
+}
+.skinnavlinkcolor{
+color:#fff !important;/* EDITABLE(Header and Footer Link color) */
+}
+.SkinSubheaderLinkColor{
+color:#fff !important;/* EDITABLE(Subheader Link color) */
+}
+.skinfooterlinkcolor, .skinheaderlinkcolor{}
+.SkinInfoText{
+color:#555 !important; /* EDITABLE(Info Text color) */
+}
+.SkinHeaderLineColor{
+color:#fff !important; /* EDITABLE(HeaderLine color) */
+}
+.FooterColor{
+color:#000 !important; /* EDITABLE(Footer color) */
+}
+.SubheaderColor{
+color:#ddd !important; /* EDITABLE(Subheader color) */
+}
+
+
+#layout{
+	background:url(HeaderBgr.png) no-repeat top !important;
+}
+/* Left Content */
+.SideMenuBox{
+	background:url(LeftBgr.png) no-repeat top left !important;
+	border-bottom:1px solid #fff !important;
+}
+.SideMenuBoxTop {
+	background:url(LeftBgr.png) no-repeat top left !important;	
+}
+.SideMenuBoxHeader {
+	color: #530012 !important;	
+	background:url(LeftSeparator.png) no-repeat bottom !important;	
+}
+.SideMenuBoxContent{
+	background:transparent !important
+}
+/* End Left Content */
+
+/* Right Content */
+.StandardBox, .StandardBoxX{
+	border-bottom:1px solid #fff !important;
+	background: url(RightBgr.png) no-repeat top !important;
+}
+.StandardBoxTop {
+	text-align:left !important;
+	background: url(RightBgr.png) no-repeat top !important;
+}
+.StandardBoxHeader {
+	color: #530012 !important;
+	background:url(RightSeparator.png) no-repeat bottom !important;	
+}
+.SectionHeading{
+	background:url(RightSeparator.png) no-repeat bottom !important;
+}
+.line{
+	background:url(RightSeparator.png) no-repeat !important;
+}
+/* End Right Content */
+.SideMenuLink{
+	background:url(LeftSeparator.png) no-repeat bottom !important;
+}
+.photoframe{
+	border:1px solid #fff !important;
+	padding:1px !important;
+}
+.viewphotos img{
+	border:1px solid #fff !important;	
+	padding:1px !important;
+}
+.modes{
+	background:url(RightSeparator.png) no-repeat bottom !important;
+}

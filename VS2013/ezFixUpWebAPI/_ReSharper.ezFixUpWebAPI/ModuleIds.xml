@@ -1,0 +1,7 @@
+<Modules>
+  <Module PersistentId="C6C0F5BD-1EBF-4904-B520-2E16C08EE329" ModuleId="ezFixUpWebAPI" />
+  <Module PersistentId="78E166CA-CBD0-4E1A-AA4E-B30BD771B56C" ModuleId="ezFixUp.Data.Contracts" />
+  <Module PersistentId="CB35B0DE-AA2A-4609-8A5C-9FF6E623E5B2" ModuleId="ezFixUp.Data" />
+  <Module PersistentId="CE836909-ED1A-4032-9A55-3616D4926D5B" ModuleId="ezFixUp.Model" />
+  <Module PersistentId="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.Web" />
+</Modules>

@@ -1,0 +1,1 @@
+var webcamdetected=false;function webcamdetect_DoFSCommand(d,c){var b=$get("nowebcam"),a=$get("webcampresent");if(d=="webcam_detected")if(c=="true"){webcamdetected=true;if(a!=null){a.style.display="";b.style.display="none"}}else if(c=="false"){webcamdetected=false;if(a!=null){a.style.display="none";b.style.display=""}}};

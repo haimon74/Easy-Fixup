@@ -1,0 +1,108 @@
+form
+{
+	display: inline;
+}
+body
+{
+	width: 130px;
+	height: 162px;
+	padding: 0;
+	margin: 0;
+	font-family: verdana;
+}
+.sitename
+{
+	color: #89b4ef;
+	text-align: center;
+	font-size: 10px;
+	line-height: 20px;
+}
+.TableWrap
+{
+	margin: 4px auto;
+	width: 120px;
+}
+.TableWrap2
+{
+	margin: 2px auto;
+	width: 120px;
+}
+.TableWrap2 td
+{
+	line-height: 16px;
+}
+.photoframe
+{
+	width: 50px;
+	height: 50px;
+}
+.photoframe img
+{
+	padding: 1px;
+	border: 1px solid #929292;
+}
+.userlink
+{
+	text-align: center;
+	font-weight: bold;
+}
+.userlink a
+{
+	color: #fff;
+	font-size: 10px;
+	text-decoration: underline;
+}
+.rating
+{
+	color: #89b4ef;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 0 0 0px 4px;
+	line-height: 18px;
+}
+.ratingimg
+{
+	vertical-align: middle;
+	padding: 0 2px 0 0;
+}
+.ratingnotes
+{
+	color: #fff;
+	clear: both;
+	text-align: center;
+	font-size: 9px;
+	margin: 0 0 4px 0;
+}
+.ureadmails
+{
+	line-height: 18px;
+	margin: 0px 0 0 4px;
+	text-align: center;
+	padding: 0px 0 0 0px;
+}
+.ureadmails a
+{
+	color: #fff;
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 10px;
+}
+.infolabels
+{
+	color: #fff;
+	text-align: left;
+	font-size: 9px;
+	line-height: 14px;
+}
+.infovalues
+{
+	color: #89b4ef;
+	text-align: left;
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 14px;
+}
+.infolinks
+{
+	width: 16px;
+}

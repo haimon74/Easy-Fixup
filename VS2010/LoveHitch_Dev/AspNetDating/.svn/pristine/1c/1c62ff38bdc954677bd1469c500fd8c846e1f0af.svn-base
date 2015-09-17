@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="system.web">
+      <section name="sanitizer" requirePermission="false" type="AjaxControlToolkit.Sanitizer.ProviderSanitizerSection, AjaxControlToolkit" />
+    </sectionGroup>
+    <section name="dotless" type="dotless.Core.configuration.DotlessConfigurationSectionHandler,dotless.Core" />
+    <section name="oauth.net.consumer" type="Castle.Windsor.Configuration.AppDomain.CastleSectionHandler, Castle.Windsor" />
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="AspNetDating.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+    <sectionGroup name="urlRewriting">
+      <section name="rewriteRules" type="AspNetDating.Classes.UrlRewrite, AspNetDating" />
+    </sectionGroup>
+    <section name="facebookSettings" type="Facebook.FacebookConfigurationSection" />
+    <section name="canvasSettings" type="Facebook.Web.CanvasConfigurationSettings" />
+    <!--<sectionGroup name="caching" type="System.Web.Configuration.SystemWebCachingSectionGroup,System.Web,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a">
+      <section name="cache" type="System.Web.Configuration.CacheSection,System.Web,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a"/>
+      <section name="outputCache" type="System.Web.Configuration.OutputCacheSection,System.Web,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a"/>
+      <section name="outputCacheSettings" type="System.Web.Configuration.OutputCacheSettingsSection,System.Web,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a"/>
+      <section name="sqlCacheDependency" type="System.Web.Configuration.SqlCacheDependencySection,System.Web,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a"/>
+    </sectionGroup>-->
+    <sectionGroup name="system.web.extensions" type="System.Web.Configuration.SystemWebExtensionsSectionGroup, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35">
+      <sectionGroup name="scripting" type="System.Web.Configuration.ScriptingSectionGroup, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35">
+        <section name="scriptResourceHandler" type="System.Web.Configuration.ScriptingScriptResourceHandlerSection, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" allowDefinition="MachineToApplication" />
+        <sectionGroup name="webServices" type="System.Web.Configuration.ScriptingWebServicesSectionGroup, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35">
+          <section name="jsonSerialization" type="System.Web.Configuration.ScriptingJsonSerializationSection, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" allowDefinition="Everywhere" />
+          <section name="profileService" type="System.Web.Configuration.ScriptingProfileServiceSection, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" allowDefinition="MachineToApplication" />
+          <section name="authenticationService" type="System.Web.Configuration.ScriptingAuthenticationServiceSection, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" allowDefinition="MachineToApplication" />
+          <section name="roleService" type="System.Web.Configuration.ScriptingRoleServiceSection, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" allowDefinition="MachineToApplication" />
+        </sectionGroup>
+      </sectionGroup>
+    </sectionGroup>
+    <sectionGroup name="elmah">
+      <section name="security" requirePermission="false" type="Elmah.SecuritySectionHandler, Elmah" />
+      <section name="errorLog" requirePermission="false" type="Elmah.ErrorLogSectionHandler, Elmah" />
+      <section name="errorMail" requirePermission="false" type="Elmah.ErrorMailSectionHandler, Elmah" />
+      <section name="errorFilter" requirePermission="false" type="Elmah.ErrorFilterSectionHandler, Elmah" />
+    </sectionGroup>
+  </configSections>
+  <dotless minifyCss="false" cache="false" />
+  <!--<caching>
+    <cache>
+      <outputCache enableOutputCache="false" enableFragmentCache="false" sendCacheControlHeader="false" omitVaryStar="false"/>
+    </cache>
+  </caching>-->
+  <facebookSettings appSecret="06a106d8edea8873478bbb5e2686e112" appId="160629763494" cookieSupport="true" />
+  <!--<canvasSettings canvasPageUrl="http://apps.facebook.com/lovehitch_local/" authorizeCancelUrl="http://apps.facebook.com/lovehitch_local/cancel"/>-->
+  <!--<facebookSettings appSecret="880d7ba96e17bd1b22ee68cf3f4ad83e" appId="139801212735949" cookieSupport="true"/>-->
+  <canvasSettings canvasPageUrl="http://apps.facebook.com/lovehitch_local/" authorizeCancelUrl="http://apps.facebook.com/lovehitch_local/cancel" />
+  <oauth.net.consumer>
+    <!-- Components -->
+    <components>
+      <!-- Signing provider for HMAC-SHA1 -->
+      <component id="signing.provider:HMAC-SHA1" service="OAuth.Net.Common.ISigningProvider, OAuth.Net.Common" type="OAuth.Net.Components.HmacSha1SigningProvider, OAuth.Net.Components" lifestyle="thread" />
+      <!-- Nonce provider -->
+      <component id="nonce.provider" service="OAuth.Net.Common.INonceProvider, OAuth.Net.Common" type="OAuth.Net.Components.GuidNonceProvider, OAuth.Net.Components" />
+    </components>
+  </oauth.net.consumer>
+  <location path="ScriptResource.axd">
+    <system.web>
+      <!-- Configure the polling service used for SQL cache dependencies -->
+      <!--<caching>
+        <sqlCacheDependency enabled="true" pollTime="60000" >
+          <databases>
+            <add name="LoveHitch20111011" connectionStringName="aspnetdating" pollTime="9000000"/>
+          </databases>
+        </sqlCacheDependency>
+      </caching>-->
+      <!--<httpRuntime sendCacheControlHeader="false"/>-->
+      <authorization>
+        <allow users="*" />
+      </authorization>
+    </system.web>
+  </location>
+  <!--<location path="elmah.axd">
+    <system.web>
+      <authorization>
+        <allow roles="Admin" />
+        <deny users="*" />
+      </authorization>
+    </system.web>
+  </location>-->
+  <appSettings>
+    <!--<add key="facebook_image_size" value="large"/>-->
+    <add key="facebook_image_size" value="normal" />
+    <add key="ENABLE_CHANGE_MY_GENDER_IN_SEARCH" value="true" />
+    <!--<add key="ENABLE_CHANGE_MY_GENDER_IN_SEARCH" value="false"/>-->
+    <add key="IsTraceEnabled" value="false" />
+    <add key="PayflowTestServer" value="true" />
+    <add key="PAYFLOW_HOST" value="pilot-payflowpro.verisign.com/transaction" />
+    <add key="CERT_OVERRIDE" value="ON" />
+    <add key="PayflowPartner" value="PayPal" />
+    <add key="PayflowUser" value="estreamtest" />
+    <add key="PayflowVendor" value="estreamtest" />
+    <add key="PayflowPassword" value="321pass" />
+    <add key="PayflowCurrency" value="USD" />
+    <add key="ChartImageHandler" value="storage=inprocess;timeout=20;" />
+    <!-- CCBill Settings -->
+    <add key="CCBillDataLinkUrl" value="https://datalink.ccbill.com/data/main.cgi?startTime={0}&amp;endTime={1}&amp;transactionTypes=NEW,REBILL,REFUND,EXPIRE,CHARGEBACK,VOID&amp;clientAccnum=12345&amp;username=testuser&amp;password=testpass&amp;testMode=1" />
+    <add key="CCBillAccountNumber" value="123456" />
+    <add key="CCBillSubaccount" value="0000" />
+    <add key="CCBillFormname" value="144cc" />
+    <add key="CCBillAllowedTypes" value="0000026004:840" />
+    <add key="CCBillSubscriptionType" value="0000026004:840" />
+    <add key="CCBillAllowedTypesCredits" value="0000000010:840" />
+    <add key="CCBillSubscriptionTypeCredits" value="0000000010:840" />
+    <add key="CCBillTimeOffset" value="-10" />
+    <add key="FacebookPermissions" value="offline_access,publish_stream,email,user_birthday,friends_birthday,user_location,user_hometown,user_photos,user_relationships, friends_relationships, friends_photos, user_status, friends_hometown" />
+    <add key="jQuery.Theme" value="hot-sneaks" />
+    <add key="jQuery.ThemeFolder" value="~/css/" />
+  </appSettings>
+  <connectionStrings>
+    <!-- add name="aspnetdating" connectionString="Server=localhost\sqe;Database=lhdb;User Id=lhdba;Password=lovaLoaver21!" providerName="System.Data.SqlClient"/-->
+    <!--<add name="aspnetdating" connectionString="Server=(local)\ldb;Database=lovehitch;User Id=lovehitch;Password=kuKaramba1" providerName="System.Data.SqlClient"/>-->
+    <!--<add name="aspnetdating" connectionString="Server=.\MSSQLSERVER;Database=lhdb20121019;User Id=Haim;Password=alladin" providerName="System.Data.SqlClient"/>-->
+    <!--<add name="aspnetdating" connectionString="Server=.\;Database=lhdb20121019;Integrated Security=true;" providerName="System.Data.SqlClient" />-->
+    <add name="aspnetdating" connectionString="Server=localhost\SQLEXPRESS;Database=lhdb;Integrated Security=true;" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <system.web>
+    <sanitizer defaultProvider="HtmlAgilityPackSanitizerProvider">
+      <providers>
+        <add name="HtmlAgilityPackSanitizerProvider" type="AjaxControlToolkit.Sanitizer.HtmlAgilityPackSanitizerProvider" />
+      </providers>
+    </sanitizer>
+    <xhtmlConformance mode="Transitional" />
+    <!-- 
+            Set compilation debug="true" to insert debugging 
+            symbols into the compiled page. Because this 
+            affects performance, set this value to true only 
+            during development.
+        -->
+    <!--<compilation debug="true" strict="false">-->
+    <compilation debug="true">
+      <assemblies>
+        <add assembly="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add assembly="System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.DirectoryServices, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      </assemblies>
+    </compilation>
+    <authentication mode="None" />
+    <!--Use default error page redirect at published server-->
+    <!--<customErrors mode="On" defaultRedirect="Error.aspx"/>-->
+    <customErrors mode="Off" defaultRedirect="Error.aspx" />
+    <!--Use session state in sql server when using a web farm !-->
+    <!--<sessionState mode="SQLServer" sqlConnectionString="data source=.\SQLEXPRESS;Initial Catalog=LoveHitch20111011;Integrated Security=true;" cookieless="false" timeout="20" allowCustomSqlDatabase="true" />-->
+    <!--<sessionState mode="InProc" stateConnectionString="tcpip=localhost:42424" cookieless="false" timeout="200" />-->
+    <sessionState
+       mode="StateServer" cookieless="false"
+       stateConnectionString="tcpip=127.0.0.1:42424"
+       stateNetworkTimeout="200">
+    </sessionState>
+    <globalization fileEncoding="utf-8" requestEncoding="utf-8" responseEncoding="utf-8" culture="he-IL" uiCulture="he-IL" />
+    <!--<globalization requestEncoding="windows-1255" responseEncoding="windows-1255" fileEncoding="windows-1255" culture="he-IL" uiCulture="he-IL" />-->
+    <trace enabled="true" pageOutput="true" localOnly="true" traceMode="SortByTime" />
+    <!--<trace enabled="false" pageOutput="true" requestLimit="200" traceMode="SortByTime"/>-->
+    <pages theme="Default" enableEventValidation="false" validateRequest="false" buffer="true">
+      <controls>
+        <add tagPrefix="cc1" namespace="jQueryDotNetLib.Controls" assembly="jQueryDotNetLib" />
+        <add tagPrefix="cc2" namespace="jQueryDotNetLib.Extenders" assembly="jQueryDotNetLib" />
+        <add tagPrefix="cc3" namespace="jQueryDotNetLib.Extras.Extenders" assembly="jQueryDotNet.Extras" />
+        <add tagPrefix="asp" namespace="System.Web.UI.DataVisualization.Charting" assembly="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add namespace="AjaxControlToolkit" assembly="AjaxControlToolkit" tagPrefix="ajaxToolkit" />
+        <add namespace="ScriptReferenceProfiler" assembly="ScriptReferenceProfiler" tagPrefix="ms" />
+        <add tagPrefix="asp" namespace="System.Web.UI" assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add tagPrefix="asp" namespace="System.Web.UI.WebControls" assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      </controls>
+    </pages>
+    <httpHandlers>
+      <!--<add type="dotless.Core.LessCssHttpHandler,dotless.Core" validate="false" path="*.less" verb="*" />-->
+      <add path="ChartImg.axd" verb="GET,HEAD,POST" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler, System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" validate="false" />
+      <remove verb="*" path="*.asmx" />
+      <add verb="*" path="*.asmx" validate="false" type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add verb="*" path="*_AppService.axd" validate="false" type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add verb="GET,HEAD" path="ScriptResource.axd" validate="false" type="System.Web.Handlers.ScriptResourceHandler, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add verb="GET,HEAD" path="*.png,*.jpg,*.jpeg,*.gif" type="AspNetDating.Handlers.StaticFileCacheHandler, AspNetDating"/>
+    </httpHandlers>
+    <httpModules>
+      <remove name="FormsAuthentication" />
+      <add name="ScriptModule" type="System.Web.Handlers.ScriptModule, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" />
+    </httpModules>
+    <!--Recommendations to put in machine.config (@C:\Windows\Microsoft.NET\Framework\v2.0.50727\CONFIG\machine.config)
+    If you are making one Web service call to a single IP address from each ASPX page, Microsoft recommends that you use the following configuration settings:
+    Set the values of the maxWorkerThreads parameter and the maxIoThreads parameter to 100.
+    Set the value of the maxconnection parameter to 12*N (where N is the number of CPUs that you have).
+    Set the values of the minFreeThreads parameter to 88*N and the minLocalRequestFreeThreads parameter to76*N.
+    Set the value of minWorkerThreads to 50. Remember, minWorkerThreads is not in the configuration file by default. You must add it.-->
+    <!--<processModel maxWorkerThreads="100" maxIoThreads="100" minWorkerThreads="50"  autoConfig="false" enable="true" memoryLimit="60"/>-->
+    <httpRuntime minFreeThreads="88" minLocalRequestFreeThreads="76" executionTimeout="240" maxRequestLength="1024000" enableKernelOutputCache="true" />
+    <!--<httpRuntime executionTimeout="240" maxRequestLength="102400"/> old config-->
+    <!--use cpu mask in web garden-->
+    <!--<processModel webGarden="true" cpuMask="0xffffffff" />-->
+    <webParts>
+      <personalization defaultProvider="CustomPersonalizationProvider">
+        <providers>
+          <clear />
+          <add name="CustomPersonalizationProvider" type="AspNetDating.Classes.CustomPersonalizationProvider, AspNetDating" />
+        </providers>
+      </personalization>
+    </webParts>
+    <trust level="Full" />
+  </system.web>
+  <system.net>
+    <connectionManagement>
+      <add address="*" maxconnection="12" />
+    </connectionManagement>
+    <mailSettings>
+      <smtp from="noreply@lovehitch.com">
+        <!--<network host="localhost" password="smtp2go" port="2525" userName="haim.azar@gmail.com" />-->
+        <network defaultCredentials="true" host="localhost" port="2525" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+  <!-- 
+        The system.webServer section is required for running ASP.NET AJAX under Internet
+        Information Services 7.0.  It is not necessary for previous version of IIS.
+    -->
+  <system.webServer>
+    <httpCompression>
+      <scheme name="gzip" dll="%Windir%\system32\inetsrv\gzip.dll" />
+      <dynamicTypes>
+        <add mimeType="text/*" enabled="true" />
+        <add mimeType="message/*" enabled="true" />
+        <add mimeType="application/javascript" enabled="true" />
+        <add mimeType="application/x-javascript" enabled="true" />
+        <add mimeType="*/*" enabled="false" />
+      </dynamicTypes>
+      <staticTypes>
+        <add mimeType="text/*" enabled="true" />
+        <add mimeType="message/*" enabled="true" />
+        <add mimeType="application/javascript" enabled="true" />
+        <add mimeType="application/x-javascript" enabled="true" />
+        <add mimeType="*/*" enabled="false" />
+      </staticTypes>
+    </httpCompression>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+    <httpProtocol allowKeepAlive="true" />
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules runAllManagedModulesForAllRequests="true">
+      <remove name="ScriptModule" />
+      <!--<modules>-->
+      <add name="ScriptModule" preCondition="managedHandler" type="System.Web.Handlers.ScriptModule, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" preCondition="managedHandler" />
+      <add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" preCondition="managedHandler" />
+    </modules>
+    <handlers>
+      <remove name="WebServiceHandlerFactory-Integrated" />
+      <remove name="ScriptHandlerFactory" />
+      <remove name="ScriptHandlerFactoryAppServices" />
+      <remove name="ScriptResource" />
+      <remove name="ChartImageHandler" />
+      <add name="ChartImageHandler" preCondition="integratedMode" verb="GET,HEAD,POST" path="ChartImg.axd" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler, System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      <add name="jQueryAjax" verb="*" path="jQueryAjax.ashx" type="jQueryDotNetLib.Ajax.jQueryAjax, jQueryDotNetLib" />
+      <add name="ScriptHandlerFactory" verb="*" path="*.asmx" preCondition="integratedMode" type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add name="ScriptHandlerFactoryAppServices" verb="*" path="*_AppService.axd" preCondition="integratedMode" type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add name="ScriptResource" verb="GET,HEAD" path="ScriptResource.axd" preCondition="integratedMode" type="System.Web.Handlers.ScriptResourceHandler, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <add name="StaticFileCacheHandler" verb="GET,HEAD" path="*.png,*.jpg,*.jpeg,*.gif" type="AspNetDating.Handlers.StaticFileCacheHandler, AspNetDating"/>
+      <!--<add name="LessCssHttpHandler" type="dotless.Core.LessCssHttpHandler,dotless.Core" path="*.less" verb="*" />-->
+    </handlers>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="104857600" />
+      </requestFiltering>
+    </security>
+    <staticContent>
+      <mimeMap fileExtension=".less" mimeType="text/less" />
+    </staticContent>
+    <caching>
+      <profiles>
+        <remove extension=".gif" />
+        <remove extension=".jpg" />
+        <remove extension=".png" />
+        <remove extension=".css" />
+        <remove extension=".less" />
+        <remove extension=".ashx" />
+        <remove extension=".js" />
+        <remove extension=".axd" />
+        <add extension=".axd" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+        <add extension=".js" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+        <add extension=".ashx" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+        <add extension=".css" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+        <add extension=".less" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+        <add extension=".png" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+        <add extension=".jpg" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+        <add extension=".gif" policy="DisableCache" kernelCachePolicy="DontCache" duration="00:00:30" />
+      </profiles>
+    </caching>
+    <!--<staticContent>
+      <clientCache cacheControlMaxAge="14.00:00:00" cacheControlMode="UseMaxAge"/>
+      <clientCache httpExpires="Sun, 29 Mar 2020 00:00:00 GMT" cacheControlMode="UseExpires" cacheControlMaxAge="14.00:00:00" />
+    </staticContent>-->
+  </system.webServer>
+  <applicationSettings>
+    <AspNetDating.Properties.Settings>
+      <setting name="AdminPermissions" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="AdminReadOnly" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="PayflowTestServer" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="PAYFLOW_HOST" serializeAs="String">
+        <value>pilot-payflowpro.verisign.com/transaction</value>
+      </setting>
+      <setting name="CERT_OVERRIDE" serializeAs="String">
+        <value>ON</value>
+      </setting>
+      <setting name="PayflowPartner" serializeAs="String">
+        <value>PayPal</value>
+      </setting>
+      <setting name="PayflowUser" serializeAs="String">
+        <value>test</value>
+      </setting>
+      <setting name="PayflowVendor" serializeAs="String">
+        <value>test</value>
+      </setting>
+      <setting name="PayflowPassword" serializeAs="String">
+        <value>test</value>
+      </setting>
+      <setting name="PayflowCurrency" serializeAs="String">
+        <value>USD</value>
+      </setting>
+      <setting name="AuthorizeNetLogin" serializeAs="String">
+        <value>cnpdev4444</value>
+      </setting>
+      <setting name="AuthorizeNetTranKey" serializeAs="String">
+        <value>623P88zxd6Pj3Pz6</value>
+      </setting>
+      <setting name="AuthorizeNetTest" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="SmsCheckUrl" serializeAs="String">
+        <value>http://www.yoursmsgateway.com/?code={0}</value>
+      </setting>
+      <setting name="EmailBodyEncoding" serializeAs="String">
+        <!--<value>ISO-8859-8</value>
+    <value>windows-1255</value>-->
+        <value>UTF-8</value>
+      </setting>
+      <setting name="EmailSubjectEncoding" serializeAs="String">
+        <!--<value>ISO-8859-8</value>
+     <value>windows-1255</value>-->
+        <value>UTF-8</value>
+      </setting>
+      <setting name="DefaultCountry" serializeAs="String">
+        <value>ישראל</value>
+      </setting>
+      <setting name="ForceCountry" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="ForceRegion" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="ForceCity" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="SecretGadgetKey" serializeAs="String">
+        <value>TheSecretKeyGoesHere!</value>
+      </setting>
+      <setting name="BannedCountries" serializeAs="Xml">
+        <value>
+          <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <string>SN</string>
+            <string>NG</string>
+          </ArrayOfString>
+        </value>
+      </setting>
+      <setting name="ExecuteTimers" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="ImagesHomeURL" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="PayPalSandBox" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="AutoAddWWW" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="StorePhotosAsFiles" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="CheckAlternativePhotoStorage" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="MySpace_Key" serializeAs="String">
+        <value>http://www.aspnetdating.com/da6</value>
+      </setting>
+      <setting name="MySpace_Secret" serializeAs="String">
+        <value>447034021d28403eaeec9b9509d8fb7b</value>
+      </setting>
+      <setting name="UserImagesDirectory" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="AlertPayCode" serializeAs="String">
+        <value>vt1AaxMdZFo5wkFd</value>
+      </setting>
+      <setting name="DaoPayGatewayIPs" serializeAs="Xml">
+        <value>
+          <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <string>195.58.177.2</string>
+            <string>195.58.177.3</string>
+            <string>195.58.177.4</string>
+            <string>195.58.177.5</string>
+          </ArrayOfString>
+        </value>
+      </setting>
+      <setting name="DaoPayApplicationCode" serializeAs="String">
+        <value>54268</value>
+      </setting>
+      <setting name="CCBillSecretKey" serializeAs="String">
+        <value>EB382EC2B72B11DEA966865E55D89593</value>
+      </setting>
+      <setting name="DaoPayGatewayIPs1" serializeAs="String">
+        <value>
+          &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+          &lt;string&gt;195.58.177.2&lt;/string&gt;
+          &lt;string&gt;195.58.177.3&lt;/string&gt;
+          &lt;string&gt;195.58.177.4&lt;/string&gt;
+          &lt;string&gt;195.58.177.5&lt;/string&gt;
+          &lt;/ArrayOfString&gt;
+        </value>
+      </setting>
+      <setting name="DaoPayApplicationCode1" serializeAs="String">
+        <value>54268</value>
+      </setting>
+      <setting name="AuthSecretKey" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="ImagesCacheDirectory" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="ImagesCacheURL" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="HomeURL" serializeAs="String">
+        <value>http://localhost/aspnetdating7</value>
+      </setting>
+      <setting name="SiteName" serializeAs="String">
+        <value>LoveHitch</value>
+      </setting>
+      <setting name="CompanyName" serializeAs="String">
+        <value>ConnIntro</value>
+      </setting>
+      <setting name="PayPalEmail" serializeAs="String">
+        <value>eric@smartcore.co.il</value>
+      </setting>
+      <setting name="AlertPayEmail" serializeAs="String">
+        <value>eric@smartcore.co.il</value>
+      </setting>
+      <setting name="PaymentProcessors" serializeAs="Xml">
+        <value>
+          <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <string>PayPal</string>
+            <string>Coupon</string>
+          </ArrayOfString>
+        </value>
+      </setting>
+      <setting name="Facebook_APP_ID" serializeAs="String">
+        <!--<value>139801212735949</value>-->
+        <value>160629763494</value>
+      </setting>
+      <setting name="Facebook_API_Key" serializeAs="String">
+        <!--<value>139801212735949</value>-->
+        <value>160629763494</value>
+      </setting>
+      <setting name="Facebook_Secret_Key" serializeAs="String">
+        <!--<value>880d7ba96e17bd1b22ee68cf3f4ad83e</value>-->
+        <value>06a106d8edea8873478bbb5e2686e112</value>
+      </setting>
+    </AspNetDating.Properties.Settings>
+  </applicationSettings>
+  <system.web.extensions>
+    <scripting>
+      <webServices>
+        <jsonSerialization maxJsonLength="1000000" />
+      </webServices>
+      <scriptResourceHandler enableCompression="true" enableCaching="true" />
+    </scripting>
+  </system.web.extensions>
+  <urlRewriting>
+    <rewriteRules>
+      <rule>
+        <url>EnterMatchmakerMode.aspx</url>
+        <rewrite>Home.aspx?set=true</rewrite>
+      </rule>
+      <rule>
+        <url>ExitMatchmakerMode.aspx</url>
+        <rewrite>Home_mm.aspx?set=true</rewrite>
+      </rule>
+      <rule>
+        <url>showuser_uid_(.*)_bpid_(\d*)\.aspx</url>
+        <rewrite>showuser.aspx?uid=$1&amp;bpid=$2</rewrite>
+      </rule>
+      <rule>
+        <url>showuser_uid_(.*)\.aspx</url>
+        <rewrite>showuser.aspx?uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showuserphotos_uid_(.*)\.aspx</url>
+        <rewrite>showuserphotos.aspx?uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showuserblog_uid_(.*)_bpid_(\d*)\.aspx</url>
+        <rewrite>showuserblog.aspx?uid=$1&amp;bpid=$2</rewrite>
+      </rule>
+      <rule>
+        <url>showuserblog_uid_(.*)\.aspx</url>
+        <rewrite>showuserblog.aspx?uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showuserevents_uid_(.*)\.aspx</url>
+        <rewrite>showuserevents.aspx?uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>contentpage_id_([^_]*)\.aspx</url>
+        <rewrite>contentpage.aspx?id=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showgroup_id_(\d*)\.aspx</url>
+        <rewrite>showgroup.aspx?id=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showgroup_id_(\d*)_show_(.*)\.aspx</url>
+        <rewrite>showgroup.aspx?id=$1&amp;show=$2</rewrite>
+      </rule>
+      <rule>
+        <url>showgrouptopics_gid_(\d*)\.aspx</url>
+        <rewrite>showgrouptopics.aspx?gid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showgrouptopics_gid_(\d*)_tid_(.*)\.aspx</url>
+        <rewrite>showgrouptopics.aspx?gid=$1&amp;tid=$2</rewrite>
+      </rule>
+      <rule>
+        <url>showgroupphotos_gid_(\d*)\.aspx</url>
+        <rewrite>showgroupphotos.aspx?gid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showgroupevents_gid_(\d*)\.aspx</url>
+        <rewrite>showgroupevents.aspx?gid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>showgroupevents_gid_(\d*)_eid_(.*)\.aspx</url>
+        <rewrite>showgroupevents.aspx?gid=$1&amp;eid=$2</rewrite>
+      </rule>
+      <rule>
+        <url>SendWink_to_(.*)\.aspx</url>
+        <rewrite>SendMessage.aspx?src=profile&amp;type=wink&amp;to_user=$1</rewrite>
+      </rule>
+      <rule>
+        <url>SendGift_to_(.*)\.aspx</url>
+        <rewrite>SendMessage.aspx?src=profile&amp;type=gift&amp;to_user=$1</rewrite>
+      </rule>
+      <rule>
+        <url>Ask_(.*)_about_(.*)\.aspx</url>
+        <rewrite>SendMessage.aspx?src=profile&amp;type=ask&amp;to_user=$1&amp;about=$2</rewrite>
+      </rule>
+      <rule>
+        <url>Answer_(.*)_about_(.*)\.aspx</url>
+        <rewrite>SendMessage.aspx?src=profile&amp;type=answer&amp;to_user=$1&amp;about=$2</rewrite>
+      </rule>
+      <rule>
+        <url>Request_(.*)_Match_With_(.*)\.aspx</url>
+        <rewrite>SendMessage.aspx?src=profile&amp;type=request&amp;to_user=$1&amp;about=$2</rewrite>
+      </rule>
+      <rule>
+        <url>Matchmaking_(.*)_With_(.*)\.aspx</url>
+        <rewrite>SendMessage.aspx?src=profile&amp;type=matchmaking&amp;to_user=$1&amp;with_user=$2</rewrite>
+      </rule>
+      <rule>
+        <url>SendMessage_to_(.*)\.aspx</url>
+        <rewrite>SendMessage.aspx?src=profile&amp;type=msg&amp;to_user=$1</rewrite>
+      </rule>
+      <rule>
+        <url>MatchWith_(.*)\.ashx</url>
+        <rewrite>MatchWith.ashx?with_user=$1</rewrite>
+      </rule>
+      <rule>
+        <url>FriendsList.aspx</url>
+        <rewrite>Friends3.aspx?loc=friends</rewrite>
+      </rule>
+      <rule>
+        <url>FriendsRequests.aspx</url>
+        <rewrite>Friends3.aspx?loc=requests</rewrite>
+      </rule>
+      <rule>
+        <url>SingleMaleFriendsList.aspx</url>
+        <rewrite>Friends3.aspx?loc=singlemales</rewrite>
+      </rule>
+      <rule>
+        <url>SingleFemaleFriendsList.aspx</url>
+        <rewrite>Friends3.aspx?loc=singlefemales</rewrite>
+      </rule>
+      <rule>
+        <url>FavoritesList.aspx</url>
+        <rewrite>Friends3.aspx?loc=favorites</rewrite>
+      </rule>
+      <rule>
+        <url>BlockedUsersList.aspx</url>
+        <rewrite>Friends3.aspx?loc=blocked</rewrite>
+      </rule>
+      <rule>
+        <url>SearchList.aspx</url>
+        <rewrite>Search3.aspx</rewrite>
+      </rule>
+      <rule>
+        <url>ViewedMyProfileList.aspx</url>
+        <rewrite>Search3.aspx?loc=viewers</rewrite>
+      </rule>
+      <rule>
+        <url>OnlineUsersList.aspx</url>
+        <rewrite>Search3.aspx?loc=online</rewrite>
+      </rule>
+      <rule>
+        <url>NewUsersList.aspx</url>
+        <rewrite>Search3.aspx?loc=new</rewrite>
+      </rule>
+      <rule>
+        <url>SessionSearchList.aspx</url>
+        <rewrite>Search3.aspx?loc=session</rewrite>
+      </rule>
+      <rule>
+        <url>DetailedSearch.aspx</url>
+        <rewrite>Search3.aspx?loc=detailed</rewrite>
+      </rule>
+      <rule>
+        <url>FriendRequest_from_(.*)\.aspx</url>
+        <rewrite>AddRemoveFriend.aspx?cmd=add&amp;src=profile&amp;uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>ApproveFriendRequest_from_(.*)\.aspx</url>
+        <rewrite>AddRemoveFriend.aspx?cmd=add&amp;src=profile&amp;uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>DenyFriendRequest_from_(.*)\.aspx</url>
+        <rewrite>AddRemoveFriend.aspx?cmd=remove&amp;src=profile&amp;uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>RemoveFromFriendsList_(.*)\.aspx</url>
+        <rewrite>AddRemoveFriend.aspx?cmd=remove&amp;src=profile&amp;uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>AddToFavorites_(.*)\.aspx</url>
+        <rewrite>AddRemoveFavorite.aspx?cmd=add&amp;src=profile&amp;uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>RemoveFromFavorites_(.*)\.aspx</url>
+        <rewrite>AddRemoveFavorite.aspx?cmd=remove&amp;src=profile&amp;uid=$1</rewrite>
+      </rule>
+      <rule>
+        <url>ProfileBilling.aspx</url>
+        <rewrite>ManageProfile.aspx?sel=payment</rewrite>
+      </rule>
+    </rewriteRules>
+  </urlRewriting>
+  <system.codedom>
+    <compilers>
+      <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CSharp.CSharpCodeProvider, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" warningLevel="4">
+        <providerOption name="CompilerVersion" value="v3.5" />
+        <providerOption name="WarnAsError" value="false" />
+      </compiler>
+    </compilers>
+  </system.codedom>
+  <runtime>
+    <assemblyBinding appliesTo="v2.0.50727" xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Extensions" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-3.5.0.0" newVersion="3.5.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Extensions.Design" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="3.5.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <elmah>
+    <!--
+        See http://code.google.com/p/elmah/wiki/SecuringErrorLogPages for 
+        more information on remote access and securing ELMAH.
+    -->
+    <security allowRemoteAccess="true" />
+    <errorMail from="admin@LoveHitch.com" to="haim.azar@gmail.com" subject="LoveHitch Server Runtime Error" async="true" />    
+  </elmah>
+  <location path="elmah.axd" inheritInChildApplications="false">
+    <system.web>
+      <httpHandlers>
+        <add verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" />
+      </httpHandlers>
+      <!-- 
+        See http://code.google.com/p/elmah/wiki/SecuringErrorLogPages for 
+        more information on using ASP.NET authorization securing ELMAH.
+
+      <authorization>
+        <allow roles="admin" />
+        <deny users="*" />  
+      </authorization>
+      -->
+    </system.web>
+    <system.webServer>
+      <handlers>
+        <add name="ELMAH" verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" preCondition="integratedMode" />
+      </handlers>
+    </system.webServer>
+  </location>
+</configuration>

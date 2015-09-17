@@ -1,0 +1,1413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="LoveHitch20111011" EntityNamespace="AspNetDating.Model" ContextNamespace="AspNetDating.Model" Class="AspNetDatingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=dbLoveHitch2012Jan10th;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="aspnetdating" Provider="System.Data.SqlClient" />
+  <Table Name="AbuseReports">
+    <Type Name="AbuseReport">
+      <Column Name="ar_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ar_reportedby" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ar_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ar_report" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ar_reporteduser" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ar_targetid" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ar_reviewed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ar_datereported" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Votes">
+    <Type Name="Vote">
+      <Column Name="v_fromusername" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="v_tousername" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="v_score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="v_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="AdComments">
+    <Type Name="AdComment">
+      <Column Name="ac_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ac_comment" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ac_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Ad_AdComment" Member="Ad" ThisKey="a_id" OtherKey="a_id" Type="Ad" IsForeignKey="true" />
+      <Association Name="User_AdComment" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Admins">
+    <Type Name="Admin">
+      <Column Name="a_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_password" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_lastlogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_privileges" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_lastsessionid" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="AdPhotos">
+    <Type Name="AdPhoto">
+      <Column Name="ap_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ap_description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ap_image" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Ad_AdPhoto" Member="Ad" ThisKey="a_id" OtherKey="a_id" Type="Ad" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Ads">
+    <Type Name="Ad">
+      <Column Name="a_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ac_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_postedby" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_expirationdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_location" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_subject" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Ad_AdComment" Member="AdComments" ThisKey="a_id" OtherKey="a_id" Type="AdComment" />
+      <Association Name="Ad_AdPhoto" Member="AdPhotos" ThisKey="a_id" OtherKey="a_id" Type="AdPhoto" />
+      <Association Name="AdsCategory_Ad" Member="AdsCategory" ThisKey="ac_id" OtherKey="ac_id" Type="AdsCategory" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_Ad" Member="User" ThisKey="a_postedby" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="AdsCategories">
+    <Type Name="AdsCategory">
+      <Column Name="ac_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ac_parentid" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ac_title" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="AdsCategory_Ad" Member="Ads" ThisKey="ac_id" OtherKey="ac_id" Type="Ad" />
+      <Association Name="AdsCategory_AdsCategory" Member="AdsCategories" ThisKey="ac_id" OtherKey="ac_parentid" Type="AdsCategory" />
+      <Association Name="AdsCategory_AdsCategory" Member="AdsCategory1" ThisKey="ac_parentid" OtherKey="ac_id" Type="AdsCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="AffiliateBanners">
+    <Type Name="AffiliateBanner">
+      <Column Name="ab_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ab_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ab_image" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ab_deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="AffiliateCommissions">
+    <Type Name="AffiliateCommission">
+      <Column Name="ac_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ph_id" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ac_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ac_notes" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ac_amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Affiliate_AffiliateCommission" Member="Affiliate" ThisKey="a_id" OtherKey="a_id" Type="Affiliate" IsForeignKey="true" />
+      <Association Name="PaymentHistory_AffiliateCommission" Member="PaymentHistory" ThisKey="ph_id" OtherKey="ph_id" Type="PaymentHistory" IsForeignKey="true" />
+      <Association Name="User_AffiliateCommission" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Affiliates">
+    <Type Name="Affiliate">
+      <Column Name="a_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_password" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_siteurl" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_payment_details" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_percentage" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="a_fixed_amount" Type="System.Decimal" DbType="Money" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="a_recurrent" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_balance" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_request_payment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Affiliate_AffiliateCommission" Member="AffiliateCommissions" ThisKey="a_id" OtherKey="a_id" Type="AffiliateCommission" />
+      <Association Name="Affiliate_AffiliatesHistory" Member="AffiliatesHistories" ThisKey="a_id" OtherKey="a_id" Type="AffiliatesHistory" />
+    </Type>
+  </Table>
+  <Table Name="AffiliatesHistory" Member="AffiliatesHistories">
+    <Type Name="AffiliatesHistory">
+      <Column Name="ah_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="a_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ah_amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ah_date_paid" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ah_notes" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ah_private_notes" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Affiliate_AffiliatesHistory" Member="Affiliate" ThisKey="a_id" OtherKey="a_id" Type="Affiliate" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="archive_Messages">
+    <Type Name="archive_Message">
+      <Column Name="m_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_from_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_from_folder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_to_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_to_folder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_body" Type="System.String" DbType="NVarChar(3500) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_replied_to" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_is_read" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_pending_approval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_new" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="archive_Photos">
+    <Type Name="archive_Photo">
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_description" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_primary" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_explicit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_private" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="archive_ProfileAnswers">
+    <Type Name="archive_ProfileAnswer">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_value" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="AudioAccess" Member="AudioAccesses">
+    <Type Name="AudioAccess">
+      <Column Name="aa_audioowner" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="aa_audioviewer" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="aa_dateaccessgranted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_AudioAccess" Member="User" ThisKey="aa_audioowner" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_AudioAccess1" Member="User1" ThisKey="aa_audioviewer" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="AudioUploads">
+    <Type Name="AudioUpload">
+      <Column Name="au_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="au_title" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="au_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="au_private" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_AudioUpload" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="BannerCodes">
+    <Type Name="BannerCode">
+      <Column Name="bc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bc_position" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bc_priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bc_target" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="bc_code" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="BillingPlans">
+    <Type Name="BillingPlan">
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_title" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_billing_cycle" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_billing_cycle_unit" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_options" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="BillingPlan_Subscription" Member="Subscriptions" ThisKey="p_id" OtherKey="p_id" Type="Subscription" />
+    </Type>
+  </Table>
+  <Table Name="BlockedUsers">
+    <Type Name="BlockedUser">
+      <Column Name="bu_userblocker" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bu_blockeduser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bu_blockdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_BlockedUser" Member="User" ThisKey="bu_userblocker" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_BlockedUser1" Member="User1" ThisKey="bu_blockeduser" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="BlogPostComments">
+    <Type Name="BlogPostComment">
+      <Column Name="bpc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bpc_text" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bpc_dateposted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bpc_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="BlogPost_BlogPostComment" Member="BlogPost" ThisKey="bp_id" OtherKey="bp_id" Type="BlogPost" IsForeignKey="true" />
+      <Association Name="User_BlogPostComment" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="BlogPosts">
+    <Type Name="BlogPost">
+      <Column Name="bp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="b_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bp_title" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bp_content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bp_dateposted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bp_reads" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="bp_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="BlogPost_BlogPostComment" Member="BlogPostComments" ThisKey="bp_id" OtherKey="bp_id" Type="BlogPostComment" />
+      <Association Name="Blog_BlogPost" Member="Blog" ThisKey="b_id" OtherKey="b_id" Type="Blog" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Blogs">
+    <Type Name="Blog">
+      <Column Name="b_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="b_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="b_description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="b_datecreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="b_settings" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Blog_BlogPost" Member="BlogPosts" ThisKey="b_id" OtherKey="b_id" Type="BlogPost" />
+      <Association Name="User_Blog" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Categories">
+    <Type Name="Category">
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_userscancreategroups" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Category_GroupsCategory" Member="GroupsCategories" ThisKey="c_id" OtherKey="c_id" Type="GroupsCategory" />
+    </Type>
+  </Table>
+  <Table Name="ChatBans">
+    <Type Name="ChatBan">
+      <Column Name="cb_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cr_id" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cu_id" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cb_ip" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cb_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cb_dateexpires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="ChatMessages">
+    <Type Name="ChatMessage">
+      <Column Name="cm_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cm_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cr_id" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cu_id_sender" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cm_senderdisplayname" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cu_id_target" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cm_text" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cm_texthtml" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="ChatUsers">
+    <Type Name="ChatUser">
+      <Column Name="cu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cu_username" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cu_displayname" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cu_begintime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cu_activetime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cu_ip" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Comments">
+    <Type Name="Comment">
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_from_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_to_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_comment_text" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_date_posted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_Comment" Member="User" ThisKey="c_from_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Comment1" Member="User1" ThisKey="c_to_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CommunityPhotoApproval" Member="CommunityPhotoApprovals">
+    <Type Name="CommunityPhotoApproval">
+      <Column Name="cpa_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cpa_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cpa_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Photo_CommunityPhotoApproval" Member="Photo" ThisKey="p_id" OtherKey="p_id" Type="Photo" IsForeignKey="true" />
+      <Association Name="User_CommunityPhotoApproval" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CommunityProfileApproval" Member="CommunityProfileApprovals">
+    <Type Name="CommunityProfileApproval">
+      <Column Name="cpa_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cpa_approvedby" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cpa_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cpa_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_CommunityProfileApproval" Member="User" ThisKey="cpa_approvedby" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_CommunityProfileApproval1" Member="User1" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ContentPage" Member="ContentPages">
+    <Type Name="ContentPage">
+      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_title" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_header_position" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cp_footer_position" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_visiblefor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_url" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="cp_metadescription" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_metakeyword" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_urlrewrite" Type="System.String" DbType="VarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Language_ContentPage" Member="Language" ThisKey="l_id" OtherKey="l_id" Type="Language" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ContentViews">
+    <Type Name="ContentView">
+      <Column Name="cv_key" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cv_content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="CreditsHistory" Member="CreditsHistories">
+    <Type Name="CreditsHistory">
+      <Column Name="ch_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ch_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ch_service" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ch_amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_CreditsHistory" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CreditsPackages">
+    <Type Name="CreditsPackage">
+      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cp_price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Discounts">
+    <Type Name="Discount">
+      <Column Name="d_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="d_amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="d_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="d_field" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="d_match" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Ecards">
+    <Type Name="Ecard">
+      <Column Name="ec_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ect_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_from_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_to_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_message" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_deleted_by_fromuser" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_deleted_by_touser" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_is_opened" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="EcardType_Ecard" Member="EcardType" ThisKey="ect_id" OtherKey="ect_id" Type="EcardType" IsForeignKey="true" />
+      <Association Name="User_Ecard" Member="User" ThisKey="ec_from_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Ecard1" Member="User1" ThisKey="ec_to_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="EcardTypes">
+    <Type Name="EcardType">
+      <Column Name="ect_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ect_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ect_content" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ect_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ect_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="EcardType_Ecard" Member="Ecards" ThisKey="ect_id" OtherKey="ect_id" Type="Ecard" />
+    </Type>
+  </Table>
+  <Table Name="EmailQueue" Member="EmailQueues">
+    <Type Name="EmailQueue">
+      <Column Name="eq_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="eq_from" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="eq_to" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="eq_fromname" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="eq_toname" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="eq_cc" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="eq_bcc" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="eq_subject" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="eq_body" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="eq_tries" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="eq_last_try" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="eq_last_error" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="eq_next_try" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="EmailTemplates">
+    <Type Name="EmailTemplate">
+      <Column Name="et_name" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="et_subject" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="et_body" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="EstablishedCommunications">
+    <Type Name="EstablishedCommunication">
+      <Column Name="ec_from_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_to_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_EstablishedCommunication" Member="User" ThisKey="ec_from_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_EstablishedCommunication1" Member="User1" ThisKey="ec_to_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="EventComments">
+    <Type Name="EventComment">
+      <Column Name="ec_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ec_comment" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Event_EventComment" Member="Event" ThisKey="e_id" OtherKey="e_id" Type="Event" IsForeignKey="true" />
+      <Association Name="User_EventComment" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Events">
+    <Type Name="Event">
+      <Column Name="e_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="e_fromusername" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="e_fromgroup" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="e_type" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="e_details" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="e_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Event_EventComment" Member="EventComments" ThisKey="e_id" OtherKey="e_id" Type="EventComment" />
+      <Association Name="Group_Event" Member="Group" ThisKey="e_fromgroup" OtherKey="g_id" Type="Group" IsForeignKey="true" />
+      <Association Name="User_Event" Member="User" ThisKey="e_fromusername" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Favourites">
+    <Type Name="Favourite">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="f_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="f_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_Favourite" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Favourite1" Member="User1" ThisKey="f_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Friends">
+    <Type Name="Friend">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="f_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="f_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="f_accepted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Member="f_is_facebook_friend" Type="System.Boolean" CanBeNull="true" />
+      <Column Member="fb_mutualy_friends" Type="System.String" CanBeNull="true" />
+      <Association Name="User_Friend" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Friend1" Member="User1" ThisKey="f_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupBans">
+    <Type Name="GroupBan">
+      <Column Name="gb_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gb_expires" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gb_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Group_GroupBan" Member="Group" ThisKey="g_id" OtherKey="g_id" Type="Group" IsForeignKey="true" />
+      <Association Name="User_GroupBan" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupEvents">
+    <Type Name="GroupEvent">
+      <Column Name="ge_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ge_title" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ge_description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ge_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ge_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ge_location" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GroupEvent_GroupEventsAttender" Member="GroupEventsAttenders" ThisKey="ge_id" OtherKey="ge_id" Type="GroupEventsAttender" />
+      <Association Name="GroupEvent_GroupEventsComment" Member="GroupEventsComments" ThisKey="ge_id" OtherKey="ge_id" Type="GroupEventsComment" />
+      <Association Name="Group_GroupEvent" Member="Group" ThisKey="g_id" OtherKey="g_id" Type="Group" IsForeignKey="true" />
+      <Association Name="User_GroupEvent" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupEventsAttenders">
+    <Type Name="GroupEventsAttender">
+      <Column Name="ge_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GroupEvent_GroupEventsAttender" Member="GroupEvent" ThisKey="ge_id" OtherKey="ge_id" Type="GroupEvent" IsForeignKey="true" />
+      <Association Name="User_GroupEventsAttender" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupEventsComments">
+    <Type Name="GroupEventsComment">
+      <Column Name="gec_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ge_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gec_comment" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gec_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GroupEvent_GroupEventsComment" Member="GroupEvent" ThisKey="ge_id" OtherKey="ge_id" Type="GroupEvent" IsForeignKey="true" />
+      <Association Name="User_GroupEventsComment" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupMembers">
+    <Type Name="GroupMember">
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gm_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gm_joindate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gm_invitedby" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="gm_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gm_joinanswer" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gm_warned" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gm_warn_reason" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="gm_warn_expirationdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Group_GroupMember" Member="Group" ThisKey="g_id" OtherKey="g_id" Type="Group" IsForeignKey="true" />
+      <Association Name="User_GroupMember" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupPhotos">
+    <Type Name="GroupPhoto">
+      <Column Name="gp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gp_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gp_description" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gp_image" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gp_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Group_GroupPhoto" Member="Group" ThisKey="g_id" OtherKey="g_id" Type="Group" IsForeignKey="true" />
+      <Association Name="User_GroupPhoto" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupPollsAnswers">
+    <Type Name="GroupPollsAnswer">
+      <Column Name="gt_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gpc_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GroupPollsChoice_GroupPollsAnswer" Member="GroupPollsChoice" ThisKey="gpc_id" OtherKey="gpc_id" Type="GroupPollsChoice" IsForeignKey="true" />
+      <Association Name="GroupTopic_GroupPollsAnswer" Member="GroupTopic" ThisKey="gt_id" OtherKey="gt_id" Type="GroupTopic" IsForeignKey="true" />
+      <Association Name="User_GroupPollsAnswer" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupPollsChoices">
+    <Type Name="GroupPollsChoice">
+      <Column Name="gpc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gpc_answer" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GroupPollsChoice_GroupPollsAnswer" Member="GroupPollsAnswers" ThisKey="gpc_id" OtherKey="gpc_id" Type="GroupPollsAnswer" />
+      <Association Name="GroupTopic_GroupPollsChoice" Member="GroupTopic" ThisKey="gt_id" OtherKey="gt_id" Type="GroupTopic" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupPosts">
+    <Type Name="GroupPost">
+      <Column Name="gp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gp_dateposted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gp_dateedited" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="gp_editnotes" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="gp_post" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GroupTopic_GroupPost" Member="GroupTopic" ThisKey="gt_id" OtherKey="gt_id" Type="GroupTopic" IsForeignKey="true" />
+      <Association Name="User_GroupPost" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Groups">
+    <Type Name="Group">
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_description" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_icon" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="g_datecreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_accesslevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_owner" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_activemembers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_jointerms" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_joinquestion" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_permissions" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_minage" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="g_autojoin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_autojoincountry" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="g_autojoinregion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="g_autojoincity" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Group_Event" Member="Events" ThisKey="g_id" OtherKey="e_fromgroup" Type="Event" />
+      <Association Name="Group_GroupBan" Member="GroupBans" ThisKey="g_id" OtherKey="g_id" Type="GroupBan" />
+      <Association Name="Group_GroupEvent" Member="GroupEvents" ThisKey="g_id" OtherKey="g_id" Type="GroupEvent" />
+      <Association Name="Group_GroupMember" Member="GroupMembers" ThisKey="g_id" OtherKey="g_id" Type="GroupMember" />
+      <Association Name="Group_GroupPhoto" Member="GroupPhotos" ThisKey="g_id" OtherKey="g_id" Type="GroupPhoto" />
+      <Association Name="Group_GroupsCategory" Member="GroupsCategories" ThisKey="g_id" OtherKey="g_id" Type="GroupsCategory" />
+      <Association Name="Group_GroupTopic" Member="GroupTopics" ThisKey="g_id" OtherKey="g_id" Type="GroupTopic" />
+      <Association Name="Group_GroupTopicSubscription" Member="GroupTopicSubscriptions" ThisKey="g_id" OtherKey="g_id" Type="GroupTopicSubscription" />
+    </Type>
+  </Table>
+  <Table Name="GroupsCategories">
+    <Type Name="GroupsCategory">
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Category_GroupsCategory" Member="Category" ThisKey="c_id" OtherKey="c_id" Type="Category" IsForeignKey="true" />
+      <Association Name="Group_GroupsCategory" Member="Group" ThisKey="g_id" OtherKey="g_id" Type="Group" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupTopics">
+    <Type Name="GroupTopic">
+      <Column Name="gt_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_datecreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_dateupdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_posts" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_locked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_stickyuntil" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="gt_poll" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_views" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GroupTopic_GroupPollsAnswer" Member="GroupPollsAnswers" ThisKey="gt_id" OtherKey="gt_id" Type="GroupPollsAnswer" />
+      <Association Name="GroupTopic_GroupPollsChoice" Member="GroupPollsChoices" ThisKey="gt_id" OtherKey="gt_id" Type="GroupPollsChoice" />
+      <Association Name="GroupTopic_GroupPost" Member="GroupPosts" ThisKey="gt_id" OtherKey="gt_id" Type="GroupPost" />
+      <Association Name="GroupTopic_GroupTopicSubscription" Member="GroupTopicSubscriptions" ThisKey="gt_id" OtherKey="gt_id" Type="GroupTopicSubscription" />
+      <Association Name="Group_GroupTopic" Member="Group" ThisKey="g_id" OtherKey="g_id" Type="Group" IsForeignKey="true" />
+      <Association Name="User_GroupTopic" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="GroupTopicSubscriptions">
+    <Type Name="GroupTopicSubscription">
+      <Column Name="gts_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gt_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="g_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="gts_dateupdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Group_GroupTopicSubscription" Member="Group" ThisKey="g_id" OtherKey="g_id" Type="Group" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="GroupTopic_GroupTopicSubscription" Member="GroupTopic" ThisKey="gt_id" OtherKey="gt_id" Type="GroupTopic" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_GroupTopicSubscription" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="HourlyStats">
+    <Type Name="HourlyStat">
+      <Column Name="hs_time" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="hs_usersonline" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="hs_newusers" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="hs_sentmessages" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Interests">
+    <Type Name="Interest">
+      <Column Name="i_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="i_from_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="i_to_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="i_date_posted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="i_deleted_by_fromuser" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="i_deleted_by_touser" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_Interest" Member="User" ThisKey="i_from_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Interest1" Member="User1" ThisKey="i_to_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="IPLogs">
+    <Type Name="IPLog">
+      <Column Name="ipl_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ipl_ip" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ipl_action" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ipl_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Languages">
+    <Type Name="Language">
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_language" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_predefined" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_browser_languages" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="l_ipcountries" Type="System.String" DbType="VarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="l_theme" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Language_ContentPage" Member="ContentPages" ThisKey="l_id" OtherKey="l_id" Type="ContentPage" />
+      <Association Name="Language_New" Member="News" ThisKey="l_id" OtherKey="l_id" Type="New" />
+      <Association Name="Language_Translation" Member="Translations" ThisKey="l_id" OtherKey="l_id" Type="Translation" />
+    </Type>
+  </Table>
+  <Table Name="Messages">
+    <Type Name="Message">
+      <Column Name="m_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_from_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_from_folder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_to_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_to_folder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_body" Type="System.String" DbType="NVarChar(3500) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_replied_to" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_is_read" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_pending_approval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_new" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="m_subject" Type="System.String" CanBeNull="true" />
+      <Column Name="m_type_id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="m_about_username" Type="System.String" DbType="VarChar(20) NULL" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_Message" Member="User" ThisKey="m_from_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Message1" Member="User1" ThisKey="m_to_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="MessagesHistoryCache" Member="MessagesHistoryCaches">
+    <Type Name="MessagesHistoryCache">
+      <Column Name="mhc_fromusername" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="mhc_tousername" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="MessagesSandbox" Member="MessagesSandboxes">
+    <Type Name="MessagesSandbox">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ms_message" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ms_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ms_datetime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_MessagesSandbox" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="News">
+    <Type Name="New">
+      <Column Name="n_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="n_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="n_text" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="n_title" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Language_New" Member="Language" ThisKey="l_id" OtherKey="l_id" Type="Language" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PaymentHistory" Member="PaymentHistories">
+    <Type Name="PaymentHistory">
+      <Column Name="ph_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ph_paymentprocessor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ph_amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ph_description" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ph_notes" Type="System.String" DbType="NVarChar(2000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ph_status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ph_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="PaymentHistory_AffiliateCommission" Member="AffiliateCommissions" ThisKey="ph_id" OtherKey="ph_id" Type="AffiliateCommission" />
+      <Association Name="User_PaymentHistory" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PendingGuids">
+    <Type Name="PendingGuid">
+      <Column Name="pg_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pg_guid" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="PhotoAccess" Member="PhotoAccesses">
+    <Type Name="PhotoAccess">
+      <Column Name="pa_photoowner" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_photoviewer" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_dateaccessgranted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_PhotoAccess" Member="User" ThisKey="pa_photoowner" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_PhotoAccess1" Member="User1" ThisKey="pa_photoviewer" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PhotoAlbums">
+    <Type Name="PhotoAlbum">
+      <Column Name="pa_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_access" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_cover_photoid" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_PhotoAlbum" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PhotoComments">
+    <Type Name="PhotoComment">
+      <Column Name="pc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_comment" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Photo_PhotoComment" Member="Photo" ThisKey="p_id" OtherKey="p_id" Type="Photo" IsForeignKey="true" />
+      <Association Name="User_PhotoComment" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PhotoContestEntries">
+    <Type Name="PhotoContestEntry">
+      <Column Name="pce_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="PhotoContestEntry_PhotoContestRank" Member="PhotoContestRanks" ThisKey="pce_id" OtherKey="pce_id" Type="PhotoContestRank" />
+      <Association Name="PhotoContestEntry_PhotoContestVote" Member="PhotoContestVotes" ThisKey="pce_id" OtherKey="pce_id_nonpicked" Type="PhotoContestVote" />
+      <Association Name="PhotoContestEntry_PhotoContestVote1" Member="PhotoContestVotes1" ThisKey="pce_id" OtherKey="pce_id_picked" Type="PhotoContestVote" />
+      <Association Name="PhotoContest_PhotoContestEntry" Member="PhotoContest" ThisKey="pc_id" OtherKey="pc_id" Type="PhotoContest" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PhotoContestRanks">
+    <Type Name="PhotoContestRank">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pce_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pcr_value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="PhotoContestEntry_PhotoContestRank" Member="PhotoContestEntry" ThisKey="pce_id" OtherKey="pce_id" Type="PhotoContestEntry" IsForeignKey="true" />
+      <Association Name="PhotoContest_PhotoContestRank" Member="PhotoContest" ThisKey="pc_id" OtherKey="pc_id" Type="PhotoContest" IsForeignKey="true" />
+      <Association Name="User_PhotoContestRank" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PhotoContests">
+    <Type Name="PhotoContest">
+      <Column Name="pc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_gender" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pc_description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_terms" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_minage" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pc_maxage" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pc_datecreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_dateends" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="PhotoContest_PhotoContestEntry" Member="PhotoContestEntries" ThisKey="pc_id" OtherKey="pc_id" Type="PhotoContestEntry" />
+      <Association Name="PhotoContest_PhotoContestRank" Member="PhotoContestRanks" ThisKey="pc_id" OtherKey="pc_id" Type="PhotoContestRank" />
+    </Type>
+  </Table>
+  <Table Name="PhotoContestVotes">
+    <Type Name="PhotoContestVote">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pce_id_picked" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pce_id_nonpicked" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="PhotoContestEntry_PhotoContestVote" Member="PhotoContestEntry" ThisKey="pce_id_nonpicked" OtherKey="pce_id" Type="PhotoContestEntry" IsForeignKey="true" />
+      <Association Name="PhotoContestEntry_PhotoContestVote1" Member="PhotoContestEntry1" ThisKey="pce_id_picked" OtherKey="pce_id" Type="PhotoContestEntry" IsForeignKey="true" />
+      <Association Name="User_PhotoContestVote" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PhotoNotes">
+    <Type Name="PhotoNote">
+      <Column Name="pn_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pn_notes" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pn_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pn_x" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pn_y" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pn_width" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pn_height" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Photo_PhotoNote" Member="Photo" ThisKey="p_id" OtherKey="p_id" Type="Photo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="User_PhotoNote" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PhotoRatings">
+    <Type Name="PhotoRating">
+      <Column Name="pr_fromusername" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pr_rating" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pr_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Photo_PhotoRating" Member="Photo" ThisKey="p_id" OtherKey="p_id" Type="Photo" IsForeignKey="true" />
+      <Association Name="User_PhotoRating" Member="User" ThisKey="pr_fromusername" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Photos">
+    <Type Name="Photo">
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_id" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_name" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_description" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_primary" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_explicit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_private" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_approvedby" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_approvedtimestamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_facecrop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_manual_approval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_salute" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Photo_CommunityPhotoApproval" Member="CommunityPhotoApprovals" ThisKey="p_id" OtherKey="p_id" Type="CommunityPhotoApproval" />
+      <Association Name="Photo_PhotoComment" Member="PhotoComments" ThisKey="p_id" OtherKey="p_id" Type="PhotoComment" />
+      <Association Name="Photo_PhotoNote" Member="PhotoNotes" ThisKey="p_id" OtherKey="p_id" Type="PhotoNote" />
+      <Association Name="Photo_PhotoRating" Member="PhotoRatings" ThisKey="p_id" OtherKey="p_id" Type="PhotoRating" />
+    </Type>
+  </Table>
+  <Table Name="PollAnswers">
+    <Type Name="PollAnswer">
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="PollChoice_PollAnswer" Member="PollChoice" ThisKey="pc_id" OtherKey="pc_id" Type="PollChoice" IsForeignKey="true" />
+      <Association Name="User_PollAnswer" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PollChoices">
+    <Type Name="PollChoice">
+      <Column Name="pc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_answer" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="PollChoice_PollAnswer" Member="PollAnswers" ThisKey="pc_id" OtherKey="pc_id" Type="PollAnswer" />
+      <Association Name="Poll_PollChoice" Member="Poll" ThisKey="p_id" OtherKey="p_id" Type="Poll" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Polls">
+    <Type Name="Poll">
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_title" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_startdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_enddate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_showresultsuntil" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Poll_PollChoice" Member="PollChoices" ThisKey="p_id" OtherKey="p_id" Type="PollChoice" />
+    </Type>
+  </Table>
+  <Table Name="ProfileAnswers">
+    <Type Name="ProfileAnswer">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_value" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pa_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="ProfileQuestion_ProfileAnswer" Member="ProfileQuestion" ThisKey="pq_id" OtherKey="pq_id" Type="ProfileQuestion" IsForeignKey="true" />
+      <Association Name="User_ProfileAnswer" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ProfileChoices">
+    <Type Name="ProfileChoice">
+      <Column Name="pc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pc_value" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="ProfileQuestion_ProfileChoice" Member="ProfileQuestion" ThisKey="pq_id" OtherKey="pq_id" Type="ProfileQuestion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ProfileQuestions">
+    <Type Name="ProfileQuestion">
+      <Column Name="pq_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pt_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_altname" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_description" Type="System.String" DbType="NVarChar(4000) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_hint" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_edit_style" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_show_style" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_search_style" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_required" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_requires_approval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_visible_male" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_visible_female" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_visible_couple" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_match_field" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pq_viewpaidonly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_editpaidonly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pq_parent_question_id" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="pq_parent_question_choices" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="ProfileQuestion_ProfileAnswer" Member="ProfileAnswers" ThisKey="pq_id" OtherKey="pq_id" Type="ProfileAnswer" />
+      <Association Name="ProfileQuestion_ProfileChoice" Member="ProfileChoices" ThisKey="pq_id" OtherKey="pq_id" Type="ProfileChoice" />
+      <Association Name="ProfileTopic_ProfileQuestion" Member="ProfileTopic" ThisKey="pt_id" OtherKey="pt_id" Type="ProfileTopic" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ProfileTopics">
+    <Type Name="ProfileTopic">
+      <Column Name="pt_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pt_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pt_priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pt_editcolumns" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pt_viewcolumns" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="ProfileTopic_ProfileQuestion" Member="ProfileQuestions" ThisKey="pt_id" OtherKey="pt_id" Type="ProfileQuestion" />
+    </Type>
+  </Table>
+  <Table Name="ProfileViews">
+    <Type Name="ProfileView">
+      <Column Name="pv_viewer" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pv_viewed" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="pv_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_ProfileView" Member="User" ThisKey="pv_viewer" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_ProfileView1" Member="User1" ThisKey="pv_viewed" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Ratings">
+    <Type Name="Rating">
+      <Column Name="r_fromusername" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="r_tousername" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="r_rating" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="r_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="r_ip" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_Rating" Member="User" ThisKey="r_fromusername" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Rating1" Member="User1" ThisKey="r_tousername" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Relationships">
+    <Type Name="Relationship">
+      <Column Name="r_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="r_username" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="r_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="r_pendingtype" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="r_accepted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="r_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_Relationship" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_Relationship1" Member="User1" ThisKey="r_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="SavedSearches">
+    <Type Name="SavedSearch">
+      <Column Name="ss_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_gender" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_country" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_state" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_zip" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_city" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_agefrom" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_ageto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_photoreq" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_choiceids" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_emailmatches" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ss_nextemaildate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ss_emailfrequency" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_SavedSearch" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Settings">
+    <Type Name="Setting">
+      <Column Name="s_key" Type="System.String" DbType="VarChar(80) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_value" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Subscriptions">
+    <Type Name="Subscription">
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_order_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_renew_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_confirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_cancelled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_cancellation_requested" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_paymentprocessor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="s_custom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="BillingPlan_Subscription" Member="BillingPlan" ThisKey="p_id" OtherKey="p_id" Type="BillingPlan" IsForeignKey="true" />
+      <Association Name="User_Subscription" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Templates">
+    <Type Name="Template">
+      <Column Name="t_key" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="t_value" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="t_description" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Translations">
+    <Type Name="Translation">
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="t_key" Type="System.String" DbType="NVarChar(400) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="t_adminpanel" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="t_value" Type="System.String" DbType="NVarChar(400) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Language_Translation" Member="Language" ThisKey="l_id" OtherKey="l_id" Type="Language" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="UnlockedSections">
+    <Type Name="UnlockedSection">
+      <Column Name="us_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="us_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="us_targetusername" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="us_targetid" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="us_unlockeduntil" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_UnlockedSection" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_UnlockedSection1" Member="User1" ThisKey="us_targetusername" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="UserLevels">
+    <Type Name="UserLevel">
+      <Column Name="ul_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ul_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ul_minscore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ul_restrictions" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Users">
+    <Type Name="User">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_password" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_gender" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_birthdate2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_usersince" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_smsconfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_prevlogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_lastlogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_logincount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_lastonline" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_profileviews" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_profilevisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_receiveemails" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_country" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_state" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_zip_code" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_paid_member" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_signup_ip" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_interested_in" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_lastsessionid" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_message_verifications_left" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_verifiedbyadmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_incoming_messages_restrictions" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_billingdetails" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_invited_by" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="a_id" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_options" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_deletereason" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_longitude" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_latitude" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_tokenuniqueid" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_personalizationinfo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_moderationscore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_spamsuspected" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_face_control_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_profile_skin" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_status_text" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_featuredmember" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_myspaceid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_facebookid" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="u_eventssettings" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_AdComment" Member="AdComments" ThisKey="u_username" OtherKey="u_username" Type="AdComment" />
+      <Association Name="User_Ad" Member="Ads" ThisKey="u_username" OtherKey="a_postedby" Type="Ad" />
+      <Association Name="User_AffiliateCommission" Member="AffiliateCommissions" ThisKey="u_username" OtherKey="u_username" Type="AffiliateCommission" />
+      <Association Name="User_AudioAccess" Member="AudioAccesses" ThisKey="u_username" OtherKey="aa_audioowner" Type="AudioAccess" />
+      <Association Name="User_AudioAccess1" Member="AudioAccesses1" ThisKey="u_username" OtherKey="aa_audioviewer" Type="AudioAccess" />
+      <Association Name="User_AudioUpload" Member="AudioUploads" ThisKey="u_username" OtherKey="u_username" Type="AudioUpload" />
+      <Association Name="User_BlockedUser" Member="BlockedUsers" ThisKey="u_username" OtherKey="bu_userblocker" Type="BlockedUser" />
+      <Association Name="User_BlockedUser1" Member="BlockedUsers1" ThisKey="u_username" OtherKey="bu_blockeduser" Type="BlockedUser" />
+      <Association Name="User_BlogPostComment" Member="BlogPostComments" ThisKey="u_username" OtherKey="u_username" Type="BlogPostComment" />
+      <Association Name="User_Blog" Member="Blogs" ThisKey="u_username" OtherKey="u_username" Type="Blog" />
+      <Association Name="User_Comment" Member="Comments" ThisKey="u_username" OtherKey="c_from_username" Type="Comment" />
+      <Association Name="User_Comment1" Member="Comments1" ThisKey="u_username" OtherKey="c_to_username" Type="Comment" />
+      <Association Name="User_CommunityPhotoApproval" Member="CommunityPhotoApprovals" ThisKey="u_username" OtherKey="u_username" Type="CommunityPhotoApproval" />
+      <Association Name="User_CommunityProfileApproval" Member="CommunityProfileApprovals" ThisKey="u_username" OtherKey="cpa_approvedby" Type="CommunityProfileApproval" />
+      <Association Name="User_CommunityProfileApproval1" Member="CommunityProfileApprovals1" ThisKey="u_username" OtherKey="u_username" Type="CommunityProfileApproval" />
+      <Association Name="User_CreditsHistory" Member="CreditsHistories" ThisKey="u_username" OtherKey="u_username" Type="CreditsHistory" />
+      <Association Name="User_Ecard" Member="Ecards" ThisKey="u_username" OtherKey="ec_from_username" Type="Ecard" />
+      <Association Name="User_Ecard1" Member="Ecards1" ThisKey="u_username" OtherKey="ec_to_username" Type="Ecard" />
+      <Association Name="User_EstablishedCommunication" Member="EstablishedCommunications" ThisKey="u_username" OtherKey="ec_from_username" Type="EstablishedCommunication" />
+      <Association Name="User_EstablishedCommunication1" Member="EstablishedCommunications1" ThisKey="u_username" OtherKey="ec_to_username" Type="EstablishedCommunication" />
+      <Association Name="User_EventComment" Member="EventComments" ThisKey="u_username" OtherKey="u_username" Type="EventComment" />
+      <Association Name="User_Event" Member="Events" ThisKey="u_username" OtherKey="e_fromusername" Type="Event" />
+      <Association Name="User_Favourite" Member="Favourites" ThisKey="u_username" OtherKey="u_username" Type="Favourite" />
+      <Association Name="User_Favourite1" Member="Favourites1" ThisKey="u_username" OtherKey="f_username" Type="Favourite" />
+      <Association Name="User_Friend" Member="Friends" ThisKey="u_username" OtherKey="u_username" Type="Friend" />
+      <Association Name="User_Friend1" Member="Friends1" ThisKey="u_username" OtherKey="f_username" Type="Friend" />
+      <Association Name="User_GroupBan" Member="GroupBans" ThisKey="u_username" OtherKey="u_username" Type="GroupBan" />
+      <Association Name="User_GroupEvent" Member="GroupEvents" ThisKey="u_username" OtherKey="u_username" Type="GroupEvent" />
+      <Association Name="User_GroupEventsAttender" Member="GroupEventsAttenders" ThisKey="u_username" OtherKey="u_username" Type="GroupEventsAttender" />
+      <Association Name="User_GroupEventsComment" Member="GroupEventsComments" ThisKey="u_username" OtherKey="u_username" Type="GroupEventsComment" />
+      <Association Name="User_GroupMember" Member="GroupMembers" ThisKey="u_username" OtherKey="u_username" Type="GroupMember" />
+      <Association Name="User_GroupPhoto" Member="GroupPhotos" ThisKey="u_username" OtherKey="u_username" Type="GroupPhoto" />
+      <Association Name="User_GroupPollsAnswer" Member="GroupPollsAnswers" ThisKey="u_username" OtherKey="u_username" Type="GroupPollsAnswer" />
+      <Association Name="User_GroupPost" Member="GroupPosts" ThisKey="u_username" OtherKey="u_username" Type="GroupPost" />
+      <Association Name="User_GroupTopic" Member="GroupTopics" ThisKey="u_username" OtherKey="u_username" Type="GroupTopic" />
+      <Association Name="User_GroupTopicSubscription" Member="GroupTopicSubscriptions" ThisKey="u_username" OtherKey="u_username" Type="GroupTopicSubscription" />
+      <Association Name="User_Interest" Member="Interests" ThisKey="u_username" OtherKey="i_from_username" Type="Interest" />
+      <Association Name="User_Interest1" Member="Interests1" ThisKey="u_username" OtherKey="i_to_username" Type="Interest" />
+      <Association Name="User_Message" Member="Messages" ThisKey="u_username" OtherKey="m_from_username" Type="Message" />
+      <Association Name="User_Message1" Member="Messages1" ThisKey="u_username" OtherKey="m_to_username" Type="Message" />
+      <Association Name="User_MessagesSandbox" Member="MessagesSandboxes" ThisKey="u_username" OtherKey="u_username" Type="MessagesSandbox" />
+      <Association Name="User_PaymentHistory" Member="PaymentHistories" ThisKey="u_username" OtherKey="u_username" Type="PaymentHistory" />
+      <Association Name="User_PhotoAccess" Member="PhotoAccesses" ThisKey="u_username" OtherKey="pa_photoowner" Type="PhotoAccess" />
+      <Association Name="User_PhotoAccess1" Member="PhotoAccesses1" ThisKey="u_username" OtherKey="pa_photoviewer" Type="PhotoAccess" />
+      <Association Name="User_PhotoAlbum" Member="PhotoAlbums" ThisKey="u_username" OtherKey="u_username" Type="PhotoAlbum" />
+      <Association Name="User_PhotoComment" Member="PhotoComments" ThisKey="u_username" OtherKey="u_username" Type="PhotoComment" />
+      <Association Name="User_PhotoContestRank" Member="PhotoContestRanks" ThisKey="u_username" OtherKey="u_username" Type="PhotoContestRank" />
+      <Association Name="User_PhotoContestVote" Member="PhotoContestVotes" ThisKey="u_username" OtherKey="u_username" Type="PhotoContestVote" />
+      <Association Name="User_PhotoNote" Member="PhotoNotes" ThisKey="u_username" OtherKey="u_username" Type="PhotoNote" />
+      <Association Name="User_PhotoRating" Member="PhotoRatings" ThisKey="u_username" OtherKey="pr_fromusername" Type="PhotoRating" />
+      <Association Name="User_PollAnswer" Member="PollAnswers" ThisKey="u_username" OtherKey="u_username" Type="PollAnswer" />
+      <Association Name="User_ProfileAnswer" Member="ProfileAnswers" ThisKey="u_username" OtherKey="u_username" Type="ProfileAnswer" />
+      <Association Name="User_ProfileView" Member="ProfileViews" ThisKey="u_username" OtherKey="pv_viewer" Type="ProfileView" />
+      <Association Name="User_ProfileView1" Member="ProfileViews1" ThisKey="u_username" OtherKey="pv_viewed" Type="ProfileView" />
+      <Association Name="User_Rating" Member="Ratings" ThisKey="u_username" OtherKey="r_fromusername" Type="Rating" />
+      <Association Name="User_Rating1" Member="Ratings1" ThisKey="u_username" OtherKey="r_tousername" Type="Rating" />
+      <Association Name="User_Relationship" Member="Relationships" ThisKey="u_username" OtherKey="u_username" Type="Relationship" />
+      <Association Name="User_Relationship1" Member="Relationships1" ThisKey="u_username" OtherKey="r_username" Type="Relationship" />
+      <Association Name="User_SavedSearch" Member="SavedSearches" ThisKey="u_username" OtherKey="u_username" Type="SavedSearch" />
+      <Association Name="User_Subscription" Member="Subscriptions" ThisKey="u_username" OtherKey="u_username" Type="Subscription" />
+      <Association Name="User_UnlockedSection" Member="UnlockedSections" ThisKey="u_username" OtherKey="u_username" Type="UnlockedSection" />
+      <Association Name="User_UnlockedSection1" Member="UnlockedSections1" ThisKey="u_username" OtherKey="us_targetusername" Type="UnlockedSection" />
+      <Association Name="User_UserScoresLog" Member="UserScoresLogs" ThisKey="u_username" OtherKey="u_username" Type="UserScoresLog" />
+      <Association Name="User_VerifiedUser" Member="VerifiedUsers" ThisKey="u_username" OtherKey="vu_verifiedby" Type="VerifiedUser" />
+      <Association Name="User_VerifiedUser1" Member="VerifiedUsers1" ThisKey="u_username" OtherKey="vu_verifieduser" Type="VerifiedUser" />
+      <Association Name="User_VideoAccess" Member="VideoAccesses" ThisKey="u_username" OtherKey="va_videoowner" Type="VideoAccess" />
+      <Association Name="User_VideoAccess1" Member="VideoAccesses1" ThisKey="u_username" OtherKey="va_videoviewer" Type="VideoAccess" />
+      <Association Name="User_VideoEmbed" Member="VideoEmbeds" ThisKey="u_username" OtherKey="u_username" Type="VideoEmbed" />
+      <Association Name="User_VideoProfile" Member="VideoProfiles" ThisKey="u_username" OtherKey="u_username" Type="VideoProfile" />
+      <Association Name="User_TwitterCredential" Member="TwitterCredential" ThisKey="u_username" OtherKey="u_username" Type="TwitterCredential" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="UserScoresLog" Member="UserScoresLogs">
+    <Type Name="UserScoresLog">
+      <Column Name="usl_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="usl_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="usl_score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="usl_notes" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_UserScoresLog" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="VerifiedUsers">
+    <Type Name="VerifiedUser">
+      <Column Name="vu_verifiedby" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="vu_verifieduser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="vu_timestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_VerifiedUser" Member="User" ThisKey="vu_verifiedby" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_VerifiedUser1" Member="User1" ThisKey="vu_verifieduser" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="VideoAccess" Member="VideoAccesses">
+    <Type Name="VideoAccess">
+      <Column Name="va_videoviewer" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="va_videoowner" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="va_dateaccessgranted" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_VideoAccess" Member="User" ThisKey="va_videoowner" OtherKey="u_username" Type="User" IsForeignKey="true" />
+      <Association Name="User_VideoAccess1" Member="User1" ThisKey="va_videoviewer" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="VideoEmbeds">
+    <Type Name="VideoEmbed">
+      <Column Name="ve_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ve_thumburl" Type="System.String" DbType="VarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ve_videourl" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ve_title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ve_sourcetype" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_VideoEmbed" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="VideoProfiles">
+    <Type Name="VideoProfile">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="vp_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="vp_private" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_VideoProfile" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="VideoUploads">
+    <Type Name="VideoUpload">
+      <Column Name="vu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="vu_processed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="vu_approved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="vu_private" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="TwitterCredentials">
+    <Type Name="TwitterCredential">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="tc_username" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="tc_password" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_TwitterCredential" Member="User" ThisKey="u_username" OtherKey="u_username" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_FemaleInterestedInFemaleSingles" Member="View_FemaleInterestedInFemaleSingles">
+    <Type Name="View_FemaleInterestedInFemaleSingle">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="u_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="u_gender" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_usersince" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_state" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_lastonline" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_interested_in" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="u_score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_status_text" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="u_facebookid" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="u_country" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="u_profileviews" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_myspaceid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="u_paid_member" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="u_email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="p_primary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_private" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_explicit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_name" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="u_signup_ip" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_FemaleInterestedInMaleSingles" Member="View_FemaleInterestedInMaleSingles">
+    <Type Name="View_FemaleInterestedInMaleSingle">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="u_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="u_gender" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_usersince" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_state" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_lastonline" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_interested_in" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="u_score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_status_text" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="u_facebookid" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="u_country" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="u_profileviews" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_myspaceid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="u_paid_member" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="u_email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="p_primary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_private" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_explicit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_name" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="u_signup_ip" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_MaleInterestedInFemaleSingles" Member="View_MaleInterestedInFemaleSingles">
+    <Type Name="View_MaleInterestedInFemaleSingle">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="u_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="u_gender" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_usersince" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_state" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_lastonline" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_interested_in" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="u_score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_status_text" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="u_facebookid" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="u_country" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="u_profileviews" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_myspaceid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="u_paid_member" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="u_email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="p_primary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_private" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_explicit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_name" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="u_signup_ip" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_MaleInterestedInMaleSingles" Member="View_MaleInterestedInMaleSingles">
+    <Type Name="View_MaleInterestedInMaleSingle">
+      <Column Name="u_username" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="u_name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="u_gender" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_birthdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_usersince" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_state" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_city" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="u_lastonline" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="u_interested_in" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="u_score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_credits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_status_text" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="u_facebookid" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="u_country" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="u_profileviews" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_myspaceid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="u_paid_member" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="u_email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="p_primary" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_private" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_explicit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="p_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="p_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="p_name" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="u_signup_ip" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="EventsCleanup">
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="SaveEvent">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Type" Parameter="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FromUsername" Parameter="fromUsername" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FromGroup" Parameter="fromGroup" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DetailsXML" Parameter="detailsXML" Type="System.String" DbType="NVarChar(4000)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="SaveEventResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

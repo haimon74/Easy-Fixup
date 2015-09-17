@@ -1,0 +1,63 @@
+﻿<%@ Import Namespace="AspNetDating.Classes" %>
+<%@ Control Language="c#" AutoEventWireup="True" CodeBehind="HeaderLogin.ascx.cs"
+    Inherits="AspNetDating.Components.HeaderLogin" TargetSchema="http://schemas.microsoft.com/intellisense/ie5" %>
+<%@ Register TagPrefix="components" Namespace="AspNetDating.Components" Assembly="AspNetDating" %>
+<%@ Register TagPrefix="uc1" TagName="FlexButton" Src="~/Components/FlexButton.ascx" %>
+<%--<%@OutputCache Duration="60" Shared="true" VaryByParam="*" VaryByCustom="browser"%>--%>
+<script type="text/javascript">
+    function postbackOnEnterKeyDown() {
+        if (event.which || event.keyCode) {
+            if ((event.which == 13) || (event.keyCode == 13)) {
+                cancelEvent(event);
+                var fireOnThis = document.getElementById("<%= fbLogin.ClientID%>");
+                var evObj = document.createEvent('MouseEvents');
+                //debugger;
+                //evObj.initMouseEvent('click', true, true, window, 1, 12, 345, 7, 220, false, false, true, false, 0, null);
+                evObj.initEvent('click', true, true);
+                fireOnThis.dispatchEvent(evObj);
+            }
+        }
+    }
+</script>
+    <asp:Panel ID="pnlLogin" runat="server" DefaultButton="fbLogin">
+        <table cellpadding="1" cellspacing="1">
+            <tr>
+                <td>
+                    <%= Lang.Trans("Username") %>
+                    </td>
+                    <td>
+                    <asp:TextBox ID="txtUsername" TabIndex="1" onkeydown="postbackOnEnterKeyDown();"
+                        runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <%= Lang.Trans("Password") %>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtPassword" TabIndex="2" onkeydown="postbackOnEnterKeyDown();"
+                        runat="server" TextMode="Password"></asp:TextBox>
+                </td>
+                <td>
+                    <uc1:FlexButton ID="fbLogin" runat="server" TabIndex="5" CssClass="medium zurbtn blue" RenderAs="LinkButton"
+                        OnClick="fbLogin_Click" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="LoginModes">
+                        <asp:CheckBox ID="cbStealthMode" TabIndex="3" CssClass="StealthMode" runat="server">
+                        </asp:CheckBox>
+                        <asp:CheckBox ID="cbRememberMe" TabIndex="4" runat="server" />
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    <uc1:FlexButton ID="fbForgotPassword" runat="server" TabIndex="6" SkinID="ForgotPassword"
+                                    CssClass="PassLink" OnClick="fbForgotPassword_Click" />
+                </td>
+                <td>
+                    <uc1:FlexButton ID="fbRegister" runat="server" RenderAs="LinkButton" TabIndex="7" Width="100" Height="20" OnClick="fbRegister_Click" />
+                </td>
+            </tr>
+        </table>
+    </asp:Panel>

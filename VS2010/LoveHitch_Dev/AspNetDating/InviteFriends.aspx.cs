@@ -1,0 +1,263 @@
+/* ASPnetDating 
+ * Copyright (C) 2003-2010 eStream 
+ * lovehitch.com
+
+ *  
+ * IMPORTANT: This is a commercial software product. By using this product  
+ * you agree to be bound by the terms of the ASPnetDating license agreement.  
+ * It can be found at lovehitch.com/agreement.htm
+
+ *  
+ * This notice may not be removed from the source code. 
+ */
+using System;
+using System.Data;
+using System.Net;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using AspNetDating.Classes;
+using AspNetDating.Classes.ContactsExtractor;
+using System.Web;
+using AjaxControlToolkit;
+using System.Collections.Generic;
+
+
+namespace AspNetDating
+{
+    /// <summary>
+    /// Summary description for InviteFriends.
+    /// </summary>
+    public partial class InviteFriends : PageBase
+    {
+        private TextBox ckeditor = null;
+        private HtmlEditor htmlEditor = null;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //Scripts.InitilizeHtmlEditor(this, phEditor, ref htmlEditor, ref ckeditor, "500px", "180px");
+
+            if (!IsPostBack)
+            {
+                LoadStrings();
+            }
+
+            divFacebook.Visible = Config.Misc.EnableFacebookIntegration;
+
+            if (!Config.Misc.EnableFacebookIntegration)
+            {
+                Response.End();
+                return;
+            }
+        }
+        private EmailTemplates.IEmailInviteFriendTemplate InviteFriendTemplateFactory()
+        {
+            EmailTemplates.IEmailInviteFriendTemplate inviteFriendTemplate = null;
+
+            if (CurrentUserSession.InterestedIn == Classes.User.eGender.Matchmaker)
+                inviteFriendTemplate = new EmailTemplates.InviteFriendByMatchmaker(LanguageId);
+            else if (CurrentUserSession.Gender == Classes.User.eGender.Male)
+                inviteFriendTemplate = new EmailTemplates.InviteFriendByMale(LanguageId);
+            else if (CurrentUserSession.Gender == Classes.User.eGender.Female)
+                inviteFriendTemplate = new EmailTemplates.InviteFriendByFemale(LanguageId);
+
+            return inviteFriendTemplate;
+        }
+
+        private void LoadStrings()
+        {
+            WideBoxStart1.Title = Lang.Trans("Invite Friends");
+            btnImport.Text = "Import Contacts".Translate();
+            btnSubmit.Text = "Submit Invitation".Translate();
+
+            EmailTemplates.IEmailInviteFriendTemplate inviteFriendTemplate = InviteFriendTemplateFactory();
+            
+            string value = inviteFriendTemplate.GetFormattedBody(CurrentUserSession.Name);
+            //value = value.Replace("%%USERNAME%%", CurrentUserSession.Username);
+            //if (ckeditor != null) ckeditor.Text = value;
+            //if (htmlEditor != null) htmlEditor.Content = value;
+            //advancedHtmlEditor.Text = HttpUtility.HtmlDecode(value);
+            //advancedHtmlEditor.Text = value.Replace('\"', '\'').Replace("&lt;", "<").Replace("&gt;", ">");
+            advancedHtmlEditor.Text = value.Replace("<br />", "<div><br></div>").Replace("\n", "<div><br></div>");
+            txtEditMessage.Text = value;
+            dgContacts.Columns[1].HeaderText = "Name".Translate();
+            dgContacts.Columns[2].HeaderText = "Email".Translate();
+        }
+        protected void ajaxUpload1_OnUploadComplete(object sender, AjaxFileUploadEventArgs e)
+        { }
+        #region Web Form Designer generated code
+
+        protected override void OnInit(EventArgs e)
+        {
+            //
+            // CODEGEN: This call is required by the ASP.NET Web Form Designer.
+            //
+            InitializeComponent();
+            base.OnInit(e);
+        }
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnSubmit.Click += new EventHandler(btnSubmit_Click);
+        }
+
+        #endregion
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            var inviteFriendTemplate = InviteFriendTemplateFactory();
+            int failCounter = 0;
+            int sentCounter = 0;
+
+            try
+            {
+                var emails = txtFriendsEmail.Value.Trim().Split(new[] { ";", ",", " " }, StringSplitOptions.RemoveEmptyEntries);
+                var emailsList = new List<string>();
+
+                foreach (var email in emails)
+                {
+                    if (Classes.User.IsEmailValid(email.Trim()))
+                        emailsList.Add(email);
+
+                    if (emailsList.Count > 20) break;
+                }
+                
+                //Classes.User.ValidateEmail(txtFriendsEmail.Value.Trim());
+                try
+                {
+                    foreach (var email in emailsList)
+                    {
+                        string body = advancedHtmlEditor.Text;
+                        Email.Send(Config.Misc.SiteTitle, Config.Misc.SiteEmail, email.Split('@')[0], email,
+                                   inviteFriendTemplate.GetFormattedSubject(CurrentUserSession.Name), body,
+                                   false);
+                        sentCounter++;
+                    }
+                    StatusPageMessage = Lang.Trans("The invitation email has been sent to your friend.");                    
+                }
+                catch (Exception ex)
+                {
+                    Log(ex);
+                    return;
+                }
+            }
+            catch (ArgumentNullException nullX)
+            {
+            }
+            //invalid email
+            catch
+            {
+                lblError.Text = Lang.Trans("Invalid email!");
+                lblError.Visible = true;
+                return;
+            }
+
+            HtmlInputCheckBox cbCheck;
+            foreach (DataGridItem item in dgContacts.Items)
+            {
+                cbCheck = (HtmlInputCheckBox)item.FindControl("cbSelect");
+                if (cbCheck != null && cbCheck.Checked)
+                {
+                    string content = htmlEditor != null ? htmlEditor.Content : ckeditor.Text;
+                    try
+                    {
+                        Email.Send(Config.Misc.SiteTitle, Config.Misc.SiteEmail, ((Label)item.FindControl("lblName")).Text,
+                                           ((Label)item.FindControl("lblEmail")).Text,
+                                           inviteFriendTemplate.GetFormattedSubject(CurrentUserSession.Name), content,
+                                           false);
+                        sentCounter++;
+                    }
+                    catch
+                    {
+                        failCounter++;
+                    }
+                }
+            }
+            if (sentCounter > 0)
+                StatusPageMessage = Lang.Trans("The invitation email has been sent to your friends.\r\n");
+            if (failCounter > 0)
+                StatusPageMessage += String.Format(
+                    Lang.Trans("The invitation email failed to be sent to {0} of your friends.\r\n")
+                    , failCounter);
+            Response.Redirect("ShowStatus.aspx");
+        }
+        protected void btnImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Classes.User.ValidateEmail(txtEmail.Value + "@" + ddEmailProvider.SelectedValue);
+            }
+            //invalid email
+            catch
+            {
+                lblImportError.Text = Lang.Trans("Invalid email!");
+                lblImportError.Visible = true;
+                return;
+            }
+
+            try
+            {
+                IMailContactExtract extractor;
+                switch (ddEmailProvider.SelectedValue)
+                {
+                    case "gmail.com":
+                        extractor = new GmailExtract();
+                        break;
+                    case "yahoo.com":
+                        extractor = new YahooExtract();
+                        break;
+                    case "live.com":
+                    case "hotmail.com":
+                        extractor = new LiveExtract();
+                        break;
+                    default:
+                        lblImportError.Text = Lang.Trans("The mail service is not supported!");
+                        lblImportError.Visible = true;
+                        return;
+                }
+
+                MailContactList contactList;
+                bool success =
+                    extractor.Extract(
+                        new NetworkCredential(txtEmail.Value + "@" + ddEmailProvider.SelectedValue, txtPassword.Value),
+                        out contactList);
+                if (!success)
+                {
+                    lblImportError.Text = "The site was unable to obtain the address book!".Translate();
+                    lblImportError.Visible = true;
+                    return;
+                }
+
+                DataTable dtContacts = new DataTable();
+                dtContacts.Columns.Add("Name");
+                dtContacts.Columns.Add("Email");
+
+                foreach (var contact in contactList)
+                {
+                    if (string.IsNullOrEmpty(contact.Email) || !contact.Email.Contains("@")) continue;
+                    if (string.IsNullOrEmpty(contact.Name))
+                        contact.Name = contact.Email.Remove(contact.Email.IndexOf("@"));
+                    dtContacts.Rows.Add(new object[]
+                                            {
+                                                contact.Name,
+                                                contact.Email
+                                            });
+                }
+
+                dgContacts.DataSource = dtContacts;
+                dgContacts.DataBind();
+                dgContacts.Visible = dtContacts.Rows.Count > 0;
+            }
+            catch (Exception ex)
+            {
+                Log(ex);
+                return;
+            }
+
+            mvImportFriends.SetActiveView(viewMessage);
+        }
+    }
+}

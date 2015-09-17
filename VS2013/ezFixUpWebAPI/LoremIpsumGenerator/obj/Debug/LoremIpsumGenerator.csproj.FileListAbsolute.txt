@@ -1,0 +1,6 @@
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\LoremIpsumGenerator\bin\Debug\LoremIpsumGenerator.dll
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\LoremIpsumGenerator\bin\Debug\LoremIpsumGenerator.pdb
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\LoremIpsumGenerator\bin\Debug\NLipsum.Core.dll
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\LoremIpsumGenerator\obj\Debug\LoremIpsumGenerator.csprojResolveAssemblyReference.cache
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\LoremIpsumGenerator\obj\Debug\LoremIpsumGenerator.dll
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\LoremIpsumGenerator\obj\Debug\LoremIpsumGenerator.pdb

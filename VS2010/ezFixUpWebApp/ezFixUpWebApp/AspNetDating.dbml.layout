@@ -1,0 +1,1441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18, 173.375" name="AspNetDating">
+  <DataContextMoniker Name="/AspNetDatingDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d851012c-f96a-4f1c-b059-d01ab8c82e3c" absoluteBounds="6.75, 0.75, 2, 2.0822371419270831">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AbuseReport" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e20e215-dec5-4fea-8d00-a6c56c47196f" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae8dcfb0-880c-440d-baeb-5a5786a67b59" absoluteBounds="6.75, 4.75, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Vote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1193ff4-221b-4bdc-990f-5e2cbb10e49a" absoluteBounds="6.765, 5.21, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="103aa426-e284-4f43-9ae5-4ad3dac09084" absoluteBounds="6.5, 68.375, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AdComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a78d5166-ce3c-41c1-90ba-1e2103d78ad4" absoluteBounds="6.515, 68.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c821413b-9426-4ebc-9c5d-c39b6b05e6d9" absoluteBounds="6.75, 7.75, 2, 1.5891951497395844">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Admin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9df7368-d115-4315-8fa4-44a4cb1e0d02" absoluteBounds="6.765, 8.21, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="162773d7-9a33-458e-88d5-ce9790c93729" absoluteBounds="15.25, 74.5, 2, 1.4248478190104095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AdPhoto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9309505e-f169-455e-a0ec-7841acf01858" absoluteBounds="15.265, 74.96, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="df166ead-fb94-493f-a694-297ec7270ba0" absoluteBounds="12.5, 74, 2, 2.2465844726562381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Ad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ec7e8ab-3f91-4c4f-8790-8ed6d2c86d76" absoluteBounds="12.515, 74.46, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="845213f2-2593-48a4-b7d5-21c39ebe2cbe" absoluteBounds="9.75, 85.625, 2, 1.2605004882812381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AdsCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0096b294-01cf-4ede-b563-aa1300f9349c" absoluteBounds="9.765, 86.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9e9c033-cd83-4c23-b6fa-ad764217b570" absoluteBounds="9.75, 0.75, 2, 1.424847819010417">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AffiliateBanner" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85663259-ffb1-4a84-95bc-c66249f05643" absoluteBounds="9.765, 1.21, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f58516b2-1a3a-4f33-afb6-c55427e332b0" absoluteBounds="6.25, 105.5, 2, 1.9178898111979095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AffiliateCommission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a3b7326-812c-4ffa-8536-20435a998be2" absoluteBounds="6.265, 105.96, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="609263a7-e21b-4005-9153-5773d8f1b00b" absoluteBounds="3.5, 125.75, 2, 3.0683211263020667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Affiliate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="760ba677-8def-4e74-bf02-29cc644e97c7" absoluteBounds="3.515, 126.21, 1.9700000000000002, 2.508321126302083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a66f54d5-5c6f-4ad9-bca2-46508b392401" absoluteBounds="6.25, 126.5, 2, 1.7535424804687239">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AffiliatesHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d675cf41-d221-42ba-a4d7-8956c80ca3b9" absoluteBounds="6.265, 126.96, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1ac122d-57a1-4967-9d8c-9e6fb7b3b50b" absoluteBounds="0.75, 9.75, 2, 2.5752791341145826">
+      <DataClassMoniker Name="/AspNetDatingDataContext/archive_Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c24d0c59-1aa0-4e30-ab9c-728a3e937329" absoluteBounds="0.765, 10.21, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="93384509-55cf-4455-9ff0-1ce9dcaef8d9" absoluteBounds="9.75, 3.75, 2, 2.2465844726562496">
+      <DataClassMoniker Name="/AspNetDatingDataContext/archive_Photo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d3295618-4b57-415a-b5ca-547d7a7e8c40" absoluteBounds="9.765, 4.21, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc85a450-b068-428a-a934-50f9c31f1d3e" absoluteBounds="9.75, 7.75, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/AspNetDatingDataContext/archive_ProfileAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a1a86a4-c4da-4956-906e-15e045bcb72e" absoluteBounds="9.765, 8.21, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0bf2ea1b-5cd9-4913-8a32-d83a609eedff" absoluteBounds="3.5, 40.625, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AudioAccess" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e35b9738-37b7-4667-a664-576a168620b7" absoluteBounds="3.515, 41.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7b892c07-f0c2-4996-bfe8-be12ed292e78" absoluteBounds="3.5, 80.5, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/AudioUpload" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33382c13-4ba0-40fe-9adc-d30e06e4a900" absoluteBounds="3.515, 80.96, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4df8132e-d63b-4965-82b7-7900ce75d90b" absoluteBounds="3.75, 10.75, 2, 1.5891951497395844">
+      <DataClassMoniker Name="/AspNetDatingDataContext/BannerCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c180904b-1911-44f9-a8cb-5c33ac9141a7" absoluteBounds="3.765, 11.21, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57a38cf0-f71c-4f1b-a6ac-a672d07d0bf1" absoluteBounds="9.75, 92.125, 2, 1.9178898111979095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/BillingPlan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a7f8b7b8-e0ba-408a-ae8b-0d2855b717e9" absoluteBounds="9.765, 92.585, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3235ae90-2b33-4de1-82f5-6cd840a608af" absoluteBounds="3.5, 42.75, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/BlockedUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c64c076-573e-4dc5-bb47-9f9a65cb90d8" absoluteBounds="3.515, 43.21, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69cfc1b2-3c5c-45b6-8f46-41dcde21c279" absoluteBounds="9, 89.25, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/BlogPostComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01b587ca-4bf5-4abf-8ba4-41c00ebbf0e2" absoluteBounds="9.015, 89.71, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6ee6b6c3-5e7b-4878-9c78-a32ebda830a1" absoluteBounds="6.25, 108.375, 2, 1.9178898111979095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/BlogPost" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5422748e-1336-4a64-9db3-1f0a12d10cab" absoluteBounds="6.265, 108.835, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb3b1925-e677-4c99-b582-96aeb66f9359" absoluteBounds="3.5, 108.5, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Blog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d82f4987-3d20-43de-b97f-4ffc739e17d4" absoluteBounds="3.515, 108.96, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa13eda0-e259-4bf9-a076-a9f1b5531df1" absoluteBounds="9.75, 57.5, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19d01b0b-0a93-4a53-980e-4efe2e9911a6" absoluteBounds="9.765, 57.96, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b8ad6568-e547-4f3d-a954-0cc8eef5caa5" absoluteBounds="6.75, 10.75, 2, 1.7535424804687505">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ChatBan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f10843a7-ac3a-4e52-ab06-935bea11dc3e" absoluteBounds="6.765, 11.21, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70a935ff-1a73-4ba0-b35a-608246a502a0" absoluteBounds="9.75, 10.75, 2, 2.0822371419270844">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ChatMessage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="54546aea-b969-40a5-94d3-4be801911b1b" absoluteBounds="9.765, 11.21, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8cbd9da-80a5-471e-83fe-c646f9ae1dd4" absoluteBounds="12.75, 0.75, 2, 1.75354248046875">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ChatUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4878048d-61cd-43c3-a546-7c77cfbfcdab" absoluteBounds="12.765, 1.21, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a893d2ab-32db-452e-a40c-4385048d4354" absoluteBounds="3.5, 111.25, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Comment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="736aab60-4969-44b5-b151-296bc696933d" absoluteBounds="3.515, 111.71, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e7c08d6-6b73-40e3-ab91-7e863cc47715" absoluteBounds="6.5, 80.375, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/CommunityPhotoApproval" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90a3bd91-a219-4b7f-86ae-311b31c0a008" absoluteBounds="6.515, 80.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03c2b92e-fcec-48c8-995a-65f7868ced4e" absoluteBounds="3.5, 85.5, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/CommunityProfileApproval" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46bb1634-5e16-40b5-a3a9-6255fa6fb2a8" absoluteBounds="3.515, 85.96, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6f97fbfc-7555-4298-a4f1-3b25d02d7c92" absoluteBounds="3.5, 6.125, 2, 2.5752791341145826">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ContentPage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f64b16db-522c-456c-895c-e73e879875fa" absoluteBounds="3.515, 6.585, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="449841ac-57b5-48d6-bca9-06dc47e3d20a" absoluteBounds="12.75, 3.75, 2, 1.2605004882812496">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ContentView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7351b3f4-dd47-4a80-84aa-79fecf17b38c" absoluteBounds="12.765, 4.21, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1161c0ef-4090-45c3-aa6f-48e9ff51318c" absoluteBounds="3.5, 88, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/CreditsHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02a6ac4d-5af8-4824-9355-c0577b33c0e7" absoluteBounds="3.515, 88.46, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d024a5a8-b67d-4737-a7e2-1d5889cca93f" absoluteBounds="12.75, 6.75, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/AspNetDatingDataContext/CreditsPackage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5921b92-e18b-4c13-9160-8a59ee2105b3" absoluteBounds="12.765, 7.21, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0595641c-9996-485b-9add-16a6840f2f63" absoluteBounds="12.75, 9.75, 2, 1.5891951497395844">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Discount" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cafa98f0-4a88-4fc2-a8df-e1f336bef5ca" absoluteBounds="12.765, 10.21, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e52335a6-21c9-42a1-9af2-caaa54db2866" absoluteBounds="12.5, 70, 2, 2.2465844726562381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Ecard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cad09e20-7b42-4ee0-9326-1d9a43e80b60" absoluteBounds="12.515, 70.46, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3a4e502-4a35-43e8-9a50-5902e79f2a3c" absoluteBounds="9.75, 60.375, 2, 1.589195149739588">
+      <DataClassMoniker Name="/AspNetDatingDataContext/EcardType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a5932cb8-2778-4bbf-90a9-dc41d5670319" absoluteBounds="9.765, 60.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e3854755-b96c-4121-92b7-4e031e0e3063" absoluteBounds="12.75, 12.75, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/AspNetDatingDataContext/EmailQueue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3956b518-31fa-4fb8-a461-2fa22b2781af" absoluteBounds="12.765, 13.21, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="df3833c7-9563-445a-9433-3a02618e7219" absoluteBounds="0.75, 13.75, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/AspNetDatingDataContext/EmailTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86130c7c-0ce8-4c64-b28b-b66df8a261f3" absoluteBounds="0.765, 14.21, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4671b7f-188c-40d9-89b0-cb64364aebc4" absoluteBounds="3.5, 44.875, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/EstablishedCommunication" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35a2c372-9a77-4a6d-874b-49d8cc481f4e" absoluteBounds="3.515, 45.335, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f7862162-f669-4699-82ff-06824aa413c5" absoluteBounds="9.5, 74.375, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/EventComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f45cff5-1911-4d48-a7ef-33b6a76c5175" absoluteBounds="9.515, 74.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f4e87f9-e8b7-4823-ac65-4f9e817e90d8" absoluteBounds="9.5, 68.25, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7b9bee67-7154-40d2-81e2-850e08acb7e0" absoluteBounds="9.515, 68.71, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abfbdf40-fea5-42bd-943f-7ad20d846359" absoluteBounds="3.5, 47, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Favourite" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44c300c7-b54d-4af4-a705-5e65be040ded" absoluteBounds="3.515, 47.46, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="86c3b9d4-069b-4cb6-b8dd-7335fc6b45a5" absoluteBounds="3.5, 66.25, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Friend" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88ad1126-601d-4c88-bc57-8ce570c72bcc" absoluteBounds="3.515, 66.71, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80b9c68e-55ba-4613-a755-9a9126e38f15" absoluteBounds="9.5, 71.375, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupBan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7fed3574-da19-4a7b-bf13-e940e1340e94" absoluteBounds="9.515, 71.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f668f5ce-41a9-4e4a-bc8a-2e01531974be" absoluteBounds="6.5, 83.125, 2, 2.0822371419270667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupEvent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcdd684a-d2d1-4910-b661-47885ffc1ce2" absoluteBounds="6.515, 83.585, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="228d58bd-ab33-44dd-856f-5e8a8ade77f5" absoluteBounds="9.25, 83.125, 2, 1.0961531575520667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupEventsAttender" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1340071-64ea-49e7-84de-012852d643de" absoluteBounds="9.265, 83.585, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4c19241b-29b7-480e-8a23-f9ede8aa7a39" absoluteBounds="15.25, 77.875, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupEventsComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0a180ef-d774-4c52-9346-2b0acff5891d" absoluteBounds="15.265, 78.335, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="88591f54-0427-4872-a091-8055e07decdc" absoluteBounds="12.5, 65.875, 2, 2.4109318033854095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupMember" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91e56105-ecd9-400f-b9bb-7e65bab7555f" absoluteBounds="12.515, 66.335, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a64c9f2-00f4-46de-83f0-353027477a03" absoluteBounds="9.5, 80.125, 2, 1.9178898111979095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupPhoto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2f743508-b53e-47f8-a921-9d9c61960901" absoluteBounds="9.515, 80.585, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7bad2cdb-0f8f-4a3f-80c9-082b7304c2ae" absoluteBounds="3.5, 74.625, 2, 1.2605004882812381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupPollsAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="893eda4a-d4fe-4125-bb92-2f34a11be693" absoluteBounds="3.515, 75.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="023fe4f5-d83b-4050-a03c-fd327e92ca7b" absoluteBounds="12.25, 63.625, 2, 1.2605004882812381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupPollsChoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0df13b42-d519-4b77-9eaf-036fb1bf70b1" absoluteBounds="12.265, 64.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e911dd46-a2fd-4390-be78-c18cd51577c3" absoluteBounds="6.5, 65.125, 2, 1.9178898111979095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupPost" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afa5f9ec-347f-43b9-932b-6854e99def5c" absoluteBounds="6.515, 65.585, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="20ebdf53-f005-4415-92b6-931baae12417" absoluteBounds="6.75, 60.25, 2, 3.561363118489588">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="062eb595-7d9b-480f-943e-ad80e3dd8b22" absoluteBounds="6.765, 60.71, 1.9700000000000002, 3.001363118489583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a08b42a6-d3c4-4e3b-bf94-8f071542c8e3" absoluteBounds="12.5, 60.625, 2, 1.096153157552088">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupsCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24883bc0-2ab8-4945-b975-f2b73455243d" absoluteBounds="12.515, 61.085, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="869c5bed-0114-49fa-ba3f-b7c61f0f7125" absoluteBounds="9.5, 63.75, 2, 2.5752791341145667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupTopic" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3ed2a08-8aca-4e7c-beb5-f37750602b3d" absoluteBounds="9.515, 64.21, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1768eb3a-31e3-4b21-a5ce-8ce204467004" absoluteBounds="15.25, 70.25, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/GroupTopicSubscription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84bcd007-9b11-45c1-b5b3-bdf642e94139" absoluteBounds="15.265, 70.71, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ebb6c5e-7bd3-45a4-a7d2-74c98a03c242" absoluteBounds="3.75, 13.75, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/AspNetDatingDataContext/HourlyStat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5eeef067-5d2b-41e4-9ce7-05f87786d6ff" absoluteBounds="3.765, 14.21, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8020a127-dc8f-410b-b184-fefec71f530f" absoluteBounds="3.5, 116.75, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Interest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="183c22ca-41b0-43f3-a413-28935ca1dee5" absoluteBounds="3.515, 117.21, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="47cff4a6-fb71-434c-8d14-aff2ac0fbd4d" absoluteBounds="6.75, 14.75, 2, 1.5891951497395844">
+      <DataClassMoniker Name="/AspNetDatingDataContext/IPLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97d233c0-8000-470c-bcce-1d94a3cec0df" absoluteBounds="6.765, 15.21, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="18545fe5-93f4-4c87-b55d-3f970e8b5d24" absoluteBounds="0.75, 3.875, 2, 2.0822371419270826">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Language" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7609a59d-e6c5-423d-849e-8f9fc6ab5631" absoluteBounds="0.765, 4.335, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e85cf70-fd68-437d-922a-20aaeb5b23e9" absoluteBounds="3.5, 166.25, 2, 3.0683211263020951">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5eb4bf17-0e9f-488a-946a-3f202b9830f4" absoluteBounds="3.515, 166.71, 1.9700000000000002, 2.508321126302083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="24a3a723-3aed-49d3-b156-a3de2b2575a8" absoluteBounds="15.75, 0.75, 2, 1.0961531575520833">
+      <DataClassMoniker Name="/AspNetDatingDataContext/MessagesHistoryCache" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6268c8a4-4584-4236-95a6-f6355cd63888" absoluteBounds="15.765, 1.21, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d7b82c91-5711-4289-a450-8450fb248890" absoluteBounds="3.5, 68.625, 2, 1.4248478190104095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/MessagesSandbox" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df8081d0-10ad-411b-93eb-43fa317c40ca" absoluteBounds="3.515, 69.085, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="309e1185-3338-46d0-8293-3867d888d87b" absoluteBounds="3.5, 3.5, 2, 1.5891951497395827">
+      <DataClassMoniker Name="/AspNetDatingDataContext/New" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d2d4e84-00fc-4238-a24b-4ba7e6c11e13" absoluteBounds="3.515, 3.96, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5bce56d-b46f-4ee5-a9b4-54a427b9045e" absoluteBounds="3.5, 142.625, 2, 2.0822371419270951">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PaymentHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8e760e7-a449-44b5-98d6-fcdd06d66e6d" absoluteBounds="3.515, 143.085, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f36b74b6-508c-44a0-9656-f88892b2acc4" absoluteBounds="15.75, 2.75, 2, 1.0961531575520831">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PendingGuid" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0b84259-6ef5-47e2-b655-0b2b185836f3" absoluteBounds="15.765, 3.21, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="71febc1f-1c10-4676-963c-e5e677237323" absoluteBounds="3.5, 51.375, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoAccess" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d8836f0-7996-4ad5-a7ca-9ab502a869f7" absoluteBounds="3.515, 51.835, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2899a8c3-b68b-4b5e-8305-8e72dbd3acf9" absoluteBounds="3.5, 95.625, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoAlbum" />
+      <nestedChildShapes>
+        <elementListCompartment Id="325f1086-2fe7-4c19-9fb3-bd36fdcb4334" absoluteBounds="3.515, 96.085, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="18639436-a586-4b67-bd57-2d15b45bd59a" absoluteBounds="9.5, 77.375, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4dfa455-d2ee-4db2-b90b-9048744d3e60" absoluteBounds="9.515, 77.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5292c7fc-2a76-4b0c-9b21-41e86d309f12" absoluteBounds="0.75, 66.5, 2, 1.4248478190104095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoContestEntry" />
+      <nestedChildShapes>
+        <elementListCompartment Id="120a621e-d1ee-4ffa-8564-ec438c36d1ed" absoluteBounds="0.765, 66.96, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa0a7463-c2c0-4915-9540-0f9a2344f497" absoluteBounds="6.5, 74.5, 2, 1.4248478190104095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoContestRank" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa05add3-f795-4c64-81f2-bef3fdea5329" absoluteBounds="6.515, 74.96, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3721bcc-81b6-423d-9d5c-c4e4d677f8cf" absoluteBounds="1.5, 54, 2, 2.2465844726562523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoContest" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff7ed4f6-1fe9-4aac-a2a3-391aeb35ed7d" absoluteBounds="1.5150000000000001, 54.46, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4fce931-1c5e-4bae-be2b-2141ff320513" absoluteBounds="3.5, 71.625, 2, 1.2605004882812381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoContestVote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a421789-0704-42b9-b45e-84b6bad21ecb" absoluteBounds="3.515, 72.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1793dbdb-f040-471a-9300-113b1f4eb2d4" absoluteBounds="12.5, 78, 2, 2.2465844726562381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoNote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59bdd700-4042-4c77-af17-68651e16b428" absoluteBounds="12.515, 78.46, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8cc3e63a-5827-4a3a-b233-f05a15c863bc" absoluteBounds="6.5, 71.5, 2, 1.4248478190104095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PhotoRating" />
+      <nestedChildShapes>
+        <elementListCompartment Id="160a2521-11da-498a-81b3-c78723033490" absoluteBounds="6.515, 71.96, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3861b581-0fe1-47df-ae7b-779f2130ce32" absoluteBounds="3.75, 35.375, 2, 3.2326684570312523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Photo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a68dec90-88f5-4495-9ab8-b9dd8274cc9f" absoluteBounds="3.765, 35.835, 1.9700000000000002, 2.67266845703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6c29a2f-12a4-4302-bcbb-cd95284b0b9f" absoluteBounds="3.5, 77.625, 2, 1.2605004882812381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PollAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62e62d6d-f02d-4575-a4de-0a8f29fae3be" absoluteBounds="3.515, 78.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="36e9204f-23a9-4ff4-98bf-363dbdfe1543" absoluteBounds="0.75, 81.625, 2, 1.2605004882812381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/PollChoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf18c5fe-a89f-4582-8484-3748548383e5" absoluteBounds="0.765, 82.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1d832015-cbcf-49f1-866a-42bc777a7200" absoluteBounds="1.5, 91.375, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Poll" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0eef7dd-3548-4e76-a7d1-c68f9e70b624" absoluteBounds="1.5150000000000001, 91.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8beb2a5a-f3de-4d44-b0c0-01655974f445" absoluteBounds="6.5, 77.5, 2, 1.4248478190104095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ProfileAnswer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="696df1b5-9add-4848-a477-7a60f27ebbc9" absoluteBounds="6.515, 77.96, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7109f821-1b14-4668-8185-6283b449fb8a" absoluteBounds="6.5, 31.625, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ProfileChoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0da5e3a-b628-4844-ae76-8e31cbc65d23" absoluteBounds="6.515, 32.085, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6488099-07d9-4df5-9db3-39d508e05b51" absoluteBounds="3.75, 29.875, 2, 4.054405110677088">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ProfileQuestion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd20f48c-3d6d-4db9-b930-65808e1c0cfb" absoluteBounds="3.765, 30.335, 1.9700000000000002, 3.494405110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="84d2de4a-cb43-4ef3-8e40-3aab5f61b008" absoluteBounds="1, 31.375, 2, 1.589195149739588">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ProfileTopic" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85c0012c-88a4-4ccc-9954-9f1da83eec8b" absoluteBounds="1.0150000000000001, 31.835, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9470786a-43cd-4a18-a55c-8086e4d4a177" absoluteBounds="3.5, 57.75, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/ProfileView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00fbeca1-b47d-4ebc-b426-fe31896cc05b" absoluteBounds="3.515, 58.21, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d61bb53a-379f-4e75-8c16-139bcc9c4c3d" absoluteBounds="3.5, 100.625, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Rating" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56b0b8aa-b02c-4451-81e7-3788d6dccdf6" absoluteBounds="3.515, 101.085, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7471dbb7-df0d-4e62-badd-dfa6cd625f29" absoluteBounds="3.5, 133.5, 2, 1.9178898111979095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Relationship" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26061f25-aa33-4c82-86bd-def18c0fee4f" absoluteBounds="3.515, 133.96, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf1fea3e-af77-40c4-bdd0-b87002aacb0e" absoluteBounds="3.5, 169.875, 2, 3.2326684570312523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/SavedSearch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="673a5238-8297-4316-ab22-25d9a30c9a0a" absoluteBounds="3.515, 170.335, 1.9700000000000002, 2.67266845703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9263a850-ad9b-49b9-9c35-8294a752d10e" absoluteBounds="15.75, 4.75, 2, 1.0961531575520827">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Setting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5523c78a-cd11-4fec-931d-bb06cd1dbf0c" absoluteBounds="15.765, 5.21, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8dc1983f-f75e-47b7-add6-10a30e5bff39" absoluteBounds="12.5, 81.875, 2, 2.4109318033854095">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Subscription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3edebcda-f8ed-4eba-a55e-90b859af3045" absoluteBounds="12.515, 82.335, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="46919249-935d-48cb-9183-46df2a63f12e" absoluteBounds="15.75, 6.75, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Template" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2459344a-5a08-4b8b-9456-b208198cf07f" absoluteBounds="15.765, 7.21, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="58db7dfb-90cd-4163-bbd6-aaa3f2cb6d79" absoluteBounds="3.5, 1.25, 2, 1.424847819010417">
+      <DataClassMoniker Name="/AspNetDatingDataContext/Translation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa63a4c0-61b4-4526-9e10-a1d3a9379635" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8148b5fa-81e1-4efc-8f60-dffb3f2ec1ef" absoluteBounds="3.5, 119.375, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/UnlockedSection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="341eaea2-d9d6-443e-9dfb-6b594eaaeead" absoluteBounds="3.515, 119.835, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7b962418-b3e2-4e13-b77f-126edb217c4c" absoluteBounds="15.75, 9.75, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/AspNetDatingDataContext/UserLevel" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5426af28-a0c6-4759-bcaa-3f349d140f3c" absoluteBounds="15.765, 10.21, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" absoluteBounds="0.75, 70, 2, 8.9848250325520667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8af49f05-a255-4c55-841a-20cc6a0e13ea" absoluteBounds="0.765, 70.46, 1.9700000000000002, 8.4248250325520821" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b8fce32-a061-4131-801d-8dd917161b61" absoluteBounds="3.5, 103.125, 2, 1.5891951497395667">
+      <DataClassMoniker Name="/AspNetDatingDataContext/UserScoresLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fa0acdc-78a4-46b0-a2ec-a9a24b68deff" absoluteBounds="3.515, 103.585, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3424767e-7283-4785-9164-4cd54c141a9f" absoluteBounds="3.5, 59.875, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/VerifiedUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2951938-f1f9-45d6-88f8-1d793c048f28" absoluteBounds="3.515, 60.335, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f3824d9-3419-47ae-87ca-217ca99261a9" absoluteBounds="3.5, 62, 2, 1.2605004882812523">
+      <DataClassMoniker Name="/AspNetDatingDataContext/VideoAccess" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb3a6db7-8243-4a7b-8c84-9a6d75029427" absoluteBounds="3.515, 62.46, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc68e7c8-9941-4d4e-a39a-8868f34a857b" absoluteBounds="3.5, 122.125, 2, 1.7535424804687381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/VideoEmbed" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97506b8c-edaa-4e99-a77a-6882b6fb502d" absoluteBounds="3.515, 122.585, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aee8f7ee-6ef2-4de5-92da-045e0fe38461" absoluteBounds="3.5, 64.125, 2, 1.2605004882812381">
+      <DataClassMoniker Name="/AspNetDatingDataContext/VideoProfile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e44b8d89-e8fa-4617-8195-17902c4da391" absoluteBounds="3.515, 64.585, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef454fbd-b094-412e-b98a-f713d7f748a8" absoluteBounds="15.75, 12.75, 2, 1.5891951497395844">
+      <DataClassMoniker Name="/AspNetDatingDataContext/VideoUpload" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc0fcc13-f7c2-43d7-803b-081ce85426a5" absoluteBounds="15.765, 13.21, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.5015374615385 : 74); (12.125 : 73.6234625384615); (12.125 : 70.5208968098958); (12.0833333333333 : 70.5208968098958 : JumpStart); (11.9166666666667 : 70.5208968098958 : JumpEnd); (11.8925430535356 : 70.5208968098958 : JumpStart); (11.5729166666667 : 70.5208968098958 : JumpEnd); (9.20833333333333 : 70.5208968098958 : JumpStart); (9.04166666666667 : 70.5208968098958 : JumpEnd); (8.875 : 70.5208968098958); (8.77767681509888 : 70.4235736249947 : JumpStart); (8.62857693490112 : 70.2744737447969 : JumpEnd); (8.5 : 70.1458968098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Ad/Ad_AdComment" />
+      <nodes>
+        <classShapeMoniker Id="df166ead-fb94-493f-a694-297ec7270ba0" />
+        <classShapeMoniker Id="103aa426-e284-4f43-9ae5-4ad3dac09084" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 75.2892976888021); (15.25 : 75.2892976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Ad/Ad_AdPhoto" />
+      <nodes>
+        <classShapeMoniker Id="df166ead-fb94-493f-a694-297ec7270ba0" />
+        <classShapeMoniker Id="162773d7-9a33-458e-88d5-ce9790c93729" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.65625 : 85.625); (11.65625 : 76.3742496744792); (11.9166666666667 : 76.3742496744792 : JumpStart); (12.0833333333333 : 76.3742496744792 : JumpEnd); (12.5 : 76.3742496744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/AdsCategory/AdsCategory_Ad" />
+      <nodes>
+        <classShapeMoniker Id="845213f2-2593-48a4-b7d5-21c39ebe2cbe" />
+        <classShapeMoniker Id="df166ead-fb94-493f-a694-297ec7270ba0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.4493170560397 : 87.0112939453125); (10.4493170560397 : 87.2612939453125); (11.065001179387 : 87.2612939453125); (11.065001179387 : 87.0112939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/AdsCategory/AdsCategory_AdsCategory" />
+      <nodes>
+        <classShapeMoniker Id="845213f2-2593-48a4-b7d5-21c39ebe2cbe" />
+        <classShapeMoniker Id="845213f2-2593-48a4-b7d5-21c39ebe2cbe" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 125.751537461538); (5.875 : 125.376537461538); (5.875 : 106.458944905599); (6.25 : 106.458944905599)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Affiliate/Affiliate_AffiliateCommission" />
+      <nodes>
+        <classShapeMoniker Id="609263a7-e21b-4005-9153-5773d8f1b00b" />
+        <classShapeMoniker Id="f58516b2-1a3a-4f33-afb6-c55427e332b0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 127.481599121094); (6.25 : 127.481599121094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Affiliate/Affiliate_AffiliatesHistory" />
+      <nodes>
+        <classShapeMoniker Id="609263a7-e21b-4005-9153-5773d8f1b00b" />
+        <classShapeMoniker Id="a66f54d5-5c6f-4ad9-bca2-46508b392401" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 109.45274983724); (9.34375 : 109.45274983724); (9.34375 : 91.2131982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/BlogPost/BlogPost_BlogPostComment" />
+      <nodes>
+        <classShapeMoniker Id="6ee6b6c3-5e7b-4878-9c78-a32ebda830a1" />
+        <classShapeMoniker Id="69cfc1b2-3c5c-45b6-8f46-41dcde21c279" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 109.481599121094); (5.79166666666667 : 109.481599121094 : JumpStart); (5.95833333333333 : 109.481599121094 : JumpEnd); (5.97916666666667 : 109.481599121094 : JumpStart); (6.14583333333333 : 109.481599121094 : JumpEnd); (6.25 : 109.481599121094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Blog/Blog_BlogPost" />
+      <nodes>
+        <classShapeMoniker Id="eb3b1925-e677-4c99-b582-96aeb66f9359" />
+        <classShapeMoniker Id="6ee6b6c3-5e7b-4878-9c78-a32ebda830a1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.65625 : 62.1458968098958); (11.65625 : 70.9166984049479); (11.7916666666667 : 70.9166984049479 : JumpStart); (12.2083333333333 : 70.9166984049479 : JumpEnd); (12.5 : 70.9166984049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/EcardType/EcardType_Ecard" />
+      <nodes>
+        <classShapeMoniker Id="c3a4e502-4a35-43e8-9a50-5902e79f2a3c" />
+        <classShapeMoniker Id="e52335a6-21c9-42a1-9af2-caaa54db2866" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 70.2116870896935); (11.5973244349011 : 70.3090115245946 : JumpStart); (11.7151755650989 : 70.4268626547924 : JumpEnd); (11.875 : 70.5866870896935); (11.875 : 74.0013612283153); (11.5 : 74.3763612283153)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Event/Event_EventComment" />
+      <nodes>
+        <classShapeMoniker Id="4f4e87f9-e8b7-4823-ac65-4f9e817e90d8" />
+        <classShapeMoniker Id="f7862162-f669-4699-82ff-06824aa413c5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 83.7219962565104); (9.25 : 83.7219962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/GroupEvent/GroupEvent_GroupEventsAttender" />
+      <nodes>
+        <classShapeMoniker Id="f668f5ce-41a9-4e4a-bc8a-2e01531974be" />
+        <classShapeMoniker Id="228d58bd-ab33-44dd-856f-5e8a8ade77f5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 85.0713525390625); (11.5729166666667 : 85.0713525390625 : JumpStart); (11.7395833333333 : 85.0713525390625 : JumpEnd); (13.4166666666667 : 85.0713525390625 : JumpStart); (13.5833333333333 : 85.0713525390625 : JumpEnd); (16.25 : 85.0713525390625); (16.25 : 79.6458968098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/GroupEvent/GroupEvent_GroupEventsComment" />
+      <nodes>
+        <classShapeMoniker Id="f668f5ce-41a9-4e4a-bc8a-2e01531974be" />
+        <classShapeMoniker Id="4c19241b-29b7-480e-8a23-f9ede8aa7a39" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.25 : 64.8855004882812); (13.25 : 65.625); (12 : 65.625); (12 : 76.6458968098958); (11.7395833333333 : 76.6458968098958 : JumpStart); (11.5729166666667 : 76.6458968098958 : JumpEnd); (9.20833333333333 : 76.6458968098958 : JumpStart); (8.97916666666667 : 76.6458968098958 : JumpEnd); (8.80208458333333 : 76.6458968098958 : JumpStart); (8.63541791666667 : 76.6458968098958 : JumpEnd); (6.45833333333333 : 76.6458968098958 : JumpStart); (6.22916666666667 : 76.6458968098958 : JumpEnd); (5.875 : 76.6458968098958); (5.875 : 75.2552502441406); (5.77083583333333 : 75.2552502441406 : JumpStart); (5.54166416666667 : 75.2552502441406 : JumpEnd); (5.5 : 75.2552502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/GroupPollsChoice/GroupPollsChoice_GroupPollsAnswer" />
+      <nodes>
+        <classShapeMoniker Id="023fe4f5-d83b-4050-a03c-fd327e92ca7b" />
+        <classShapeMoniker Id="7bad2cdb-0f8f-4a3f-80c9-082b7304c2ae" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.65625 : 64.3285139973958); (8.65625 : 68.28125); (9.04166666666667 : 68.28125 : JumpStart); (9.20833333333333 : 68.28125 : JumpEnd); (9.5 : 68.28125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_Event" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="4f4e87f9-e8b7-4823-ac65-4f9e817e90d8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.6875025 : 64.3285139973958); (8.6875025 : 71.40625); (9.04166666666667 : 71.40625 : JumpStart); (9.20833333333333 : 71.40625 : JumpEnd); (9.5 : 71.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_GroupBan" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="80b9c68e-55ba-4613-a755-9a9126e38f15" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 64.3285139973958); (9.125 : 64.7035139973958); (9.125 : 82.75); (8.87653746153846 : 82.75); (8.5 : 83.1265374615385)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_GroupEvent" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="f668f5ce-41a9-4e4a-bc8a-2e01531974be" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.6249975 : 63.8113631184896); (8.6249975 : 67.1938895670573); (8.63541791666667 : 67.1938895670573 : JumpStart); (8.80208458333333 : 67.1938895670573 : JumpEnd); (8.91666666666667 : 67.1938895670573 : JumpStart); (9.20833333333333 : 67.1938895670573 : JumpEnd); (10.4166666666667 : 67.1938895670573 : JumpStart); (10.5833333333333 : 67.1938895670573 : JumpEnd); (11.5729166666667 : 67.1938895670573 : JumpStart); (11.7395833333333 : 67.1938895670573 : JumpEnd); (11.9166666666667 : 67.1938895670573 : JumpStart); (12.0833333333333 : 67.1938895670573 : JumpEnd); (12.5 : 67.1938895670573)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_GroupMember" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="88591f54-0427-4872-a091-8055e07decdc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.71875125 : 64.3285139973958); (8.71875125 : 80.21875); (8.97916666666667 : 80.21875 : JumpStart); (9.20833333333333 : 80.21875 : JumpEnd); (9.26041666666667 : 80.21875 : JumpStart); (9.42708333333333 : 80.21875 : JumpEnd); (9.5 : 80.21875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_GroupPhoto" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="1a64c9f2-00f4-46de-83f0-353027477a03" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 58.2892976888021); (13.5 : 58.2892976888021); (13.5 : 60.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Category/Category_GroupsCategory" />
+      <nodes>
+        <classShapeMoniker Id="aa13eda0-e259-4bf9-a076-a9f1b5531df1" />
+        <classShapeMoniker Id="a08b42a6-d3c4-4e3b-bf94-8f071542c8e3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 62.8854484049479); (14.40625 : 62.8854484049479); (14.40625 : 61.8189925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_GroupsCategory" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="a08b42a6-d3c4-4e3b-bf94-8f071542c8e3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 66.3252791341146); (10.5 : 68); (9.33333333333333 : 68 : JumpStart); (9.04166666666667 : 68 : JumpEnd); (8.80208458333333 : 68 : JumpStart); (8.57291666666667 : 68 : JumpEnd); (6.39583333333333 : 68 : JumpStart); (6.04166666666667 : 68 : JumpEnd); (6 : 68); (6 : 75.2552502441406); (5.77083583333333 : 75.2552502441406 : JumpStart); (5.54166416666667 : 75.2552502441406 : JumpEnd); (5.5 : 75.2552502441406)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/GroupTopic/GroupTopic_GroupPollsAnswer" />
+      <nodes>
+        <classShapeMoniker Id="869c5bed-0114-49fa-ba3f-b7c61f0f7125" />
+        <classShapeMoniker Id="7bad2cdb-0f8f-4a3f-80c9-082b7304c2ae" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 64.3806469726563); (12.25 : 64.3806469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/GroupTopic/GroupTopic_GroupPollsChoice" />
+      <nodes>
+        <classShapeMoniker Id="869c5bed-0114-49fa-ba3f-b7c61f0f7125" />
+        <classShapeMoniker Id="023fe4f5-d83b-4050-a03c-fd327e92ca7b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.5 : 65.8998527018229); (9.20833333333333 : 65.8998527018229 : JumpStart); (8.91666666666667 : 65.8998527018229 : JumpEnd); (8.80208458333333 : 65.8998527018229 : JumpStart); (8.54166416666667 : 65.8998527018229 : JumpEnd); (8.5 : 65.8998527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/GroupTopic/GroupTopic_GroupPost" />
+      <nodes>
+        <classShapeMoniker Id="869c5bed-0114-49fa-ba3f-b7c61f0f7125" />
+        <classShapeMoniker Id="e911dd46-a2fd-4390-be78-c18cd51577c3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 63.8113631184896); (9.5 : 64.0080044986979)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_GroupTopic" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="869c5bed-0114-49fa-ba3f-b7c61f0f7125" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 63.255226702474); (16.25 : 63.255226702474); (16.25 : 70.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Group/Group_GroupTopicSubscription" />
+      <nodes>
+        <classShapeMoniker Id="20ebdf53-f005-4415-92b6-931baae12417" />
+        <classShapeMoniker Id="1768eb3a-31e3-4b21-a5ce-8ce204467004" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 65.3493969726563); (11.5729166666667 : 65.3493969726563 : JumpStart); (11.7395833333333 : 65.3493969726563 : JumpEnd); (13.1666666666667 : 65.3493969726563 : JumpStart); (13.3333333333333 : 65.3493969726563 : JumpEnd); (15.7187475 : 65.3493969726563); (15.7187475 : 70.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/GroupTopic/GroupTopic_GroupTopicSubscription" />
+      <nodes>
+        <classShapeMoniker Id="869c5bed-0114-49fa-ba3f-b7c61f0f7125" />
+        <classShapeMoniker Id="1768eb3a-31e3-4b21-a5ce-8ce204467004" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 5.95723714192708); (1.75 : 7.41263956705729); (3.5 : 7.41263956705729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Language/Language_ContentPage" />
+      <nodes>
+        <classShapeMoniker Id="18545fe5-93f4-4c87-b55d-3f970e8b5d24" />
+        <classShapeMoniker Id="6f97fbfc-7555-4298-a4f1-3b25d02d7c92" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.48209757486979); (3.5 : 4.48209757486979)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Language/Language_New" />
+      <nodes>
+        <classShapeMoniker Id="18545fe5-93f4-4c87-b55d-3f970e8b5d24" />
+        <classShapeMoniker Id="309e1185-3338-46d0-8293-3867d888d87b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 142.688075923077); (6.0625 : 142.125575923077); (6.0625 : 106.969669358398); (6.25 : 106.969669358398)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/PaymentHistory/PaymentHistory_AffiliateCommission" />
+      <nodes>
+        <classShapeMoniker Id="f5bce56d-b46f-4ee5-a9b4-54a427b9045e" />
+        <classShapeMoniker Id="f58516b2-1a3a-4f33-afb6-c55427e332b0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 67.8897736419271); (2.75357443490112 : 67.8933480768282 : JumpStart); (3.26986306509888 : 68.409636707026 : JumpEnd); (3.28125 : 68.4210236419271); (3.28125 : 74.125); (5.54166416666667 : 74.125 : JumpStart); (5.77083583333333 : 74.125 : JumpEnd); (5.91666666666667 : 74.125 : JumpStart); (6.08333333333333 : 74.125 : JumpEnd); (6.15020784602865 : 74.125); (6.15982443490112 : 74.1346165888725 : JumpStart); (6.43392556509888 : 74.4087177190702 : JumpEnd); (6.52520784602864 : 74.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/PhotoContestEntry/PhotoContestEntry_PhotoContestRank" />
+      <nodes>
+        <classShapeMoniker Id="5292c7fc-2a76-4b0c-9b21-41e86d309f12" />
+        <classShapeMoniker Id="aa0a7463-c2c0-4915-9540-0f9a2344f497" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 56.5401025390625); (2.125 : 66.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/PhotoContest/PhotoContest_PhotoContestEntry" />
+      <nodes>
+        <classShapeMoniker Id="a3721bcc-81b6-423d-9d5c-c4e4d677f8cf" />
+        <classShapeMoniker Id="5292c7fc-2a76-4b0c-9b21-41e86d309f12" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 56.2450450111178); (3.50357443490112 : 56.2486194460189 : JumpStart); (3.74642556509888 : 56.4914705762167 : JumpEnd); (3.87653946153846 : 56.6215844726563); (3.97916666666667 : 56.6215844726563 : JumpStart); (4.14583333333333 : 56.6215844726563 : JumpEnd); (5.54166416666667 : 56.6215844726563 : JumpStart); (5.80208458333333 : 56.6215844726563 : JumpEnd); (6.125 : 56.6215844726563); (6.125 : 74.1480167724609); (6.15982443490112 : 74.1828412073621 : JumpStart); (6.43392556509888 : 74.4569423375598 : JumpEnd); (6.5 : 74.5230167724609)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/PhotoContest/PhotoContest_PhotoContestRank" />
+      <nodes>
+        <classShapeMoniker Id="a3721bcc-81b6-423d-9d5c-c4e4d677f8cf" />
+        <classShapeMoniker Id="aa0a7463-c2c0-4915-9540-0f9a2344f497" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.71492682291667 : 67.9248478190104); (2.75357443490112 : 67.9634954309949 : JumpStart); (3.09017556509888 : 68.3000965611926 : JumpEnd); (3.1875 : 68.3974209960937); (3.1875 : 72.2552502441406); (3.19791666666667 : 72.2552502441406 : JumpStart); (3.36458333333333 : 72.2552502441406 : JumpEnd); (3.5 : 72.2552502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/PhotoContestEntry/PhotoContestEntry_PhotoContestVote" />
+      <nodes>
+        <classShapeMoniker Id="5292c7fc-2a76-4b0c-9b21-41e86d309f12" />
+        <classShapeMoniker Id="a4fce931-1c5e-4bae-be2b-2141ff320513" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 67.9248478190104); (2.75357443490112 : 67.9284222539115 : JumpStart); (3.23080056509888 : 68.4056483841093 : JumpEnd); (3.25 : 68.4248478190104); (3.25 : 72.2552502441406); (3.5 : 72.2552502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/PhotoContestEntry/PhotoContestEntry_PhotoContestVote1" />
+      <nodes>
+        <classShapeMoniker Id="5292c7fc-2a76-4b0c-9b21-41e86d309f12" />
+        <classShapeMoniker Id="a4fce931-1c5e-4bae-be2b-2141ff320513" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 38.6076684570313); (5.65625 : 80.40625); (6.29166666666667 : 80.40625 : JumpStart); (6.45833333333333 : 80.40625 : JumpEnd); (6.5 : 80.40625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Photo/Photo_CommunityPhotoApproval" />
+      <nodes>
+        <classShapeMoniker Id="3861b581-0fe1-47df-ae7b-779f2130ce32" />
+        <classShapeMoniker Id="8e7c08d6-6b73-40e3-ab91-7e863cc47715" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.6875025 : 38.6076684570313); (5.6875025 : 77.40625); (6.22916666666667 : 77.40625 : JumpStart); (6.45833333333333 : 77.40625 : JumpEnd); (8.63541791666667 : 77.40625 : JumpStart); (8.80208458333333 : 77.40625 : JumpEnd); (8.97916666666667 : 77.40625 : JumpStart); (9.20833333333333 : 77.40625 : JumpEnd); (9.26041666666667 : 77.40625 : JumpStart); (9.42708333333333 : 77.40625 : JumpEnd); (9.5 : 77.40625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Photo/Photo_PhotoComment" />
+      <nodes>
+        <classShapeMoniker Id="3861b581-0fe1-47df-ae7b-779f2130ce32" />
+        <classShapeMoniker Id="18639436-a586-4b67-bd57-2d15b45bd59a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.6249975 : 38.6076684570313); (5.6249975 : 79.78125); (6.16356360926768 : 79.78125 : JumpStart); (6.45833333333333 : 79.78125 : JumpEnd); (8.63541791666667 : 79.78125 : JumpStart); (8.80208458333333 : 79.78125 : JumpEnd); (8.97916666666667 : 79.78125 : JumpStart); (9.42708333333333 : 79.78125 : JumpEnd); (11.5729166666667 : 79.78125 : JumpStart); (11.7395833333333 : 79.78125 : JumpEnd); (12.5 : 79.78125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Photo/Photo_PhotoNote" />
+      <nodes>
+        <classShapeMoniker Id="3861b581-0fe1-47df-ae7b-779f2130ce32" />
+        <classShapeMoniker Id="1793dbdb-f040-471a-9300-113b1f4eb2d4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.71875125 : 38.6076684570313); (5.71875125 : 71.53125); (5.91666666666667 : 71.53125 : JumpStart); (6.45833333333333 : 71.53125 : JumpEnd); (6.5 : 71.53125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Photo/Photo_PhotoRating" />
+      <nodes>
+        <classShapeMoniker Id="3861b581-0fe1-47df-ae7b-779f2130ce32" />
+        <classShapeMoniker Id="8cc3e63a-5827-4a3a-b233-f05a15c863bc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 81.625); (2.75357443490112 : 81.6214255650989 : JumpStart); (3.07455056509888 : 81.3004494349011 : JumpEnd); (3.125 : 81.25); (3.125 : 78.3181469726563); (3.5 : 78.3181469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/PollChoice/PollChoice_PollAnswer" />
+      <nodes>
+        <classShapeMoniker Id="36e9204f-23a9-4ff4-98bf-363dbdfe1543" />
+        <classShapeMoniker Id="e6c29a2f-12a4-4302-bcbb-cd95284b0b9f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 91.375); (2.125 : 83.0112939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Poll/Poll_PollChoice" />
+      <nodes>
+        <classShapeMoniker Id="1d832015-cbcf-49f1-866a-42bc777a7200" />
+        <classShapeMoniker Id="36e9204f-23a9-4ff4-98bf-363dbdfe1543" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 34.4673403711939); (6.15982443490112 : 34.877164806095 : JumpStart); (6.27767556509888 : 34.9950159362928 : JumpEnd); (6.3125 : 35.0298403711939); (6.3125 : 78.2892976888021); (6.5 : 78.2892976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/ProfileQuestion/ProfileQuestion_ProfileAnswer" />
+      <nodes>
+        <classShapeMoniker Id="e6488099-07d9-4df5-9db3-39d508e05b51" />
+        <classShapeMoniker Id="8beb2a5a-f3de-4d44-b0c0-01655974f445" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 32.3181469726563); (6.13541666666667 : 32.3181469726563 : JumpStart); (6.30208333333333 : 32.3181469726563 : JumpEnd); (6.5 : 32.3181469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/ProfileQuestion/ProfileQuestion_ProfileChoice" />
+      <nodes>
+        <classShapeMoniker Id="e6488099-07d9-4df5-9db3-39d508e05b51" />
+        <classShapeMoniker Id="7109f821-1b14-4668-8185-6283b449fb8a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 32.2604484049479); (3.75 : 32.2604484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/ProfileTopic/ProfileTopic_ProfileQuestion" />
+      <nodes>
+        <classShapeMoniker Id="84d2de4a-cb43-4ef3-8e40-3aab5f61b008" />
+        <classShapeMoniker Id="e6488099-07d9-4df5-9db3-39d508e05b51" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 93.2027498372396); (13.5 : 93.2027498372396); (13.5 : 84.6074039713542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/BillingPlan/BillingPlan_Subscription" />
+      <nodes>
+        <classShapeMoniker Id="57a38cf0-f71c-4f1b-a6ac-a672d07d0bf1" />
+        <classShapeMoniker Id="8dc1983f-f75e-47b7-add6-10a30e5bff39" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 3.875); (1.75 : 1.96242390950521); (3.5 : 1.96242390950521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/Language/Language_Translation" />
+      <nodes>
+        <classShapeMoniker Id="18545fe5-93f4-4c87-b55d-3f970e8b5d24" />
+        <classShapeMoniker Id="58db7dfb-90cd-4163-bbd6-aaa3f2cb6d79" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.77075225 : 70); (1.77075225 : 68.46875); (1.83994635416667 : 68.46875 : JumpStart); (2.31166789583333 : 68.46875 : JumpEnd); (2.40543916666667 : 68.46875 : JumpStart); (2.8013111025641 : 68.46875 : JumpEnd); (2.88541666666667 : 68.46875 : JumpStart); (3.05208333333333 : 68.46875 : JumpEnd); (3.05729166666667 : 68.46875 : JumpStart); (3.58333333333333 : 68.46875 : JumpEnd); (5.54166416666667 : 68.46875 : JumpStart); (5.80208458333333 : 68.46875 : JumpEnd); (5.91666666666667 : 68.46875 : JumpStart); (6.39583333333333 : 68.46875 : JumpEnd); (6.5 : 68.46875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_AdComment" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="103aa426-e284-4f43-9ae5-4ad3dac09084" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 74.28125); (2.97916666666667 : 74.28125 : JumpStart); (3.14583333333333 : 74.28125 : JumpEnd); (5.54166416666667 : 74.28125 : JumpStart); (5.77083583333333 : 74.28125 : JumpEnd); (5.91666666666667 : 74.28125 : JumpStart); (6.08333333333333 : 74.28125 : JumpEnd); (6.13541666666667 : 74.28125 : JumpStart); (6.45833333333333 : 74.28125 : JumpEnd); (8.63541791666667 : 74.28125 : JumpStart); (8.80208458333333 : 74.28125 : JumpEnd); (8.97916666666667 : 74.28125 : JumpStart); (9.20833333333333 : 74.28125 : JumpEnd); (11.511777894982 : 74.28125 : JumpStart); (11.6784445616486 : 74.28125 : JumpEnd); (11.9166666666667 : 74.28125 : JumpStart); (12.0833333333333 : 74.28125 : JumpEnd); (12.5 : 74.28125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Ad" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="df166ead-fb94-493f-a694-297ec7270ba0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.8517976888021); (2.85416666666667 : 70.8517976888021 : JumpStart); (3.36458333333333 : 70.8517976888021 : JumpEnd); (5.54166416666667 : 70.8517976888021 : JumpStart); (5.80208458333333 : 70.8517976888021 : JumpEnd); (5.91666666666667 : 70.8517976888021 : JumpStart); (6.30208333333333 : 70.8517976888021 : JumpEnd); (6.375 : 70.8517976888021); (6.375 : 105.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_AffiliateCommission" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="f58516b2-1a3a-4f33-afb6-c55427e332b0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.075807125 : 70); (2.075807125 : 68.1748478190104); (2.63464443589743 : 68.1748478190104 : JumpStart); (2.95833333333333 : 68.1748478190104 : JumpEnd); (3 : 68.1748478190104); (3 : 56.4965844726563); (3.47916666666667 : 56.4965844726563 : JumpStart); (3.70833333333333 : 56.4965844726563 : JumpEnd); (3.75 : 56.4965844726563); (3.75 : 52.8855004882813); (3.70833333333333 : 52.8855004882813 : JumpStart); (3.29166666666667 : 52.8855004882813 : JumpEnd); (3.25 : 52.8855004882813); (3.25 : 41.2552502441406); (3.5 : 41.2552502441406)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_AudioAccess" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="0bf2ea1b-5cd9-4913-8a32-d83a609eedff" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.465697375 : 70); (1.465697375 : 68.2998478190104); (1.99247379166667 : 68.2998478190104 : JumpStart); (2.31166789583333 : 68.2998478190104 : JumpEnd); (2.40543916666667 : 68.2998478190104 : JumpStart); (2.57210583333333 : 68.2998478190104 : JumpEnd); (2.63464443589743 : 68.2998478190104 : JumpStart); (2.8013111025641 : 68.2998478190104 : JumpEnd); (2.875 : 68.2998478190104); (2.875 : 56.3715844726563); (3.47916666666667 : 56.3715844726563 : JumpStart); (3.95833333333333 : 56.3715844726563 : JumpEnd); (4 : 56.3715844726563); (4 : 53.1355004882813); (3.95833333333333 : 53.1355004882813 : JumpStart); (3.47916666666667 : 53.1355004882813 : JumpEnd); (3 : 53.1355004882813); (3 : 41.6016273662109); (3.16666666666667 : 41.6016273662109 : JumpStart); (3.33333333333333 : 41.6016273662109 : JumpEnd); (3.5 : 41.6016273662109)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_AudioAccess1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="0bf2ea1b-5cd9-4913-8a32-d83a609eedff" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.25153846153846 : 78.9848250325521); (2.34185407774783 : 79.9439551930609 : JumpStart); (2.71226812679624 : 80.2698014719152 : JumpEnd); (2.84368064896059 : 80.3854025984171 : JumpStart); (2.96881935103941 : 80.495484763275 : JumpEnd); (3.578125 : 81.0314794937901); (3.578125 : 80.4048887716847); (3.5013612283153 : 80.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_AudioUpload" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="7b892c07-f0c2-4996-bfe8-be12ed292e78" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.92406925 : 70); (0.92406925 : 68.0498478190104); (2.72916666666667 : 68.0498478190104 : JumpStart); (3.11458333333333 : 68.0498478190104 : JumpEnd); (3.125 : 68.0498478190104); (3.125 : 56.7465844726563); (3.54166666666667 : 56.7465844726563 : JumpStart); (3.70833333333333 : 56.7465844726563 : JumpEnd); (3.875 : 56.7465844726563); (3.875 : 53.0105004882813); (3.83333333333333 : 53.0105004882813 : JumpStart); (3.47916666666667 : 53.0105004882813 : JumpEnd); (3.375 : 53.0105004882813); (3.375 : 43.3802502441406); (3.5 : 43.3802502441406)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_BlockedUser" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="3235ae90-2b33-4de1-82f5-6cd840a608af" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.596683 : 70); (2.596683 : 68.2373478190104); (2.63464443589743 : 68.2373478190104 : JumpStart); (3.05208333333333 : 68.2373478190104 : JumpEnd); (3.0625 : 68.2373478190104); (3.0625 : 56.8715844726563); (3.10416666666667 : 56.8715844726563 : JumpStart); (3.27083333333333 : 56.8715844726563 : JumpEnd); (3.625 : 56.8715844726563); (3.625 : 52.7605004882813); (3.52083333333333 : 52.7605004882813 : JumpStart); (3.16666666666667 : 52.7605004882813 : JumpEnd); (3.125 : 52.7605004882813); (3.125 : 43.7266273662109); (3.16666666666667 : 43.7266273662109 : JumpStart); (3.45833333333333 : 43.7266273662109 : JumpEnd); (3.5 : 43.7266273662109)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_BlockedUser1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="3235ae90-2b33-4de1-82f5-6cd840a608af" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 73.6666984049479); (2.97916666666667 : 73.6666984049479 : JumpStart); (3.14583333333333 : 73.6666984049479 : JumpEnd); (3.19791666666667 : 73.6666984049479 : JumpStart); (3.36458333333333 : 73.6666984049479 : JumpEnd); (5.54166416666667 : 73.6666984049479 : JumpStart); (5.77083583333333 : 73.6666984049479 : JumpEnd); (5.91666666666667 : 73.6666984049479 : JumpStart); (6.45833333333333 : 73.6666984049479 : JumpEnd); (8.63541791666667 : 73.6666984049479 : JumpStart); (8.80208458333333 : 73.6666984049479 : JumpEnd); (9.0625 : 73.6666984049479); (9.0625 : 89.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_BlogPostComment" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="69cfc1b2-3c5c-45b6-8f46-41dcde21c279" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.17804669393921 : 78.9848250325521); (1.17804669393921 : 81.0625); (1.58526405454509 : 81.0625 : JumpStart); (1.75193072121175 : 81.0625 : JumpEnd); (2.0758147484843 : 81.0625 : JumpStart); (2.24248141515096 : 81.0625 : JumpEnd); (2.3210900954539 : 81.0625 : JumpStart); (2.48775676212056 : 81.0625 : JumpEnd); (2.5663654424235 : 81.0625 : JumpStart); (3.02083333333333 : 81.0625 : JumpEnd); (3.09375 : 81.0625); (3.09375 : 90.5); (3.10416666666667 : 90.5 : JumpStart); (3.44270833333333 : 90.5 : JumpEnd); (3.47916666666667 : 90.5 : JumpStart); (3.64583333333333 : 90.5 : JumpEnd); (3.76041666666667 : 90.5 : JumpStart); (3.92708333333333 : 90.5 : JumpEnd); (4.19791666666667 : 90.5 : JumpStart); (4.36458333333333 : 90.5 : JumpEnd); (4.5 : 90.5); (4.5 : 94.75); (4.05208333333333 : 94.75 : JumpStart); (3.54166666666667 : 94.75 : JumpEnd); (3.23958333333333 : 94.75 : JumpStart); (2.97916666666667 : 94.75 : JumpEnd); (2.83333333333333 : 94.75 : JumpStart); (2.57291666666667 : 94.75 : JumpEnd); (2.0625 : 94.75); (2.0625 : 109.481599121094); (2.10416666666667 : 109.481599121094 : JumpStart); (2.39583333333333 : 109.481599121094 : JumpEnd); (2.57291666666667 : 109.481599121094 : JumpStart); (3.14583333333333 : 109.481599121094 : JumpEnd); (3.5 : 109.481599121094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Blog" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="eb3b1925-e677-4c99-b582-96aeb66f9359" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 81.5625); (2.72916666666667 : 81.5625 : JumpStart); (3.09895833333333 : 81.5625 : JumpEnd); (3.25 : 81.5625); (3.25 : 91.3125); (3.47916666666667 : 91.3125 : JumpStart); (3.83333333333333 : 91.3125 : JumpEnd); (3.875 : 91.3125); (3.875 : 95.5625); (3.23958333333333 : 95.5625 : JumpStart); (2.91666666666667 : 95.5625 : JumpEnd); (2.90625 : 95.5625); (2.90625 : 112.231599121094); (2.91666666666667 : 112.231599121094 : JumpStart); (3.14583333333333 : 112.231599121094 : JumpEnd); (3.5 : 112.231599121094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Comment" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="a893d2ab-32db-452e-a40c-4385048d4354" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 81.125); (2.82291666666667 : 81.125 : JumpStart); (3.02083333333333 : 81.125 : JumpEnd); (3.1875 : 81.125); (3.1875 : 90.875); (3.625 : 90.875); (3.625 : 95.4375); (3.14583333333333 : 95.4375 : JumpStart); (2.97916666666667 : 95.4375 : JumpEnd); (2.89583333333333 : 95.4375 : JumpStart); (2.72916666666667 : 95.4375 : JumpEnd); (2.3125 : 95.4375); (2.3125 : 111.709547560547); (2.72916666666667 : 111.709547560547 : JumpStart); (2.89583333333333 : 111.709547560547 : JumpEnd); (2.97916666666667 : 111.709547560547 : JumpStart); (3.14583333333333 : 111.709547560547 : JumpEnd); (3.5 : 111.709547560547)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Comment1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="a893d2ab-32db-452e-a40c-4385048d4354" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.35923076923077 : 78.9848250325521); (2.36616079601176 : 78.9982331190007 : JumpStart); (2.4426860615627 : 79.1462927742418 : JumpEnd); (2.48879846949656 : 79.2355102003021 : JumpStart); (2.5653237350475 : 79.3835698555432 : JumpEnd); (2.61143614298136 : 79.4727872816035 : JumpStart); (2.6879614085323 : 79.6208469368447 : JumpEnd); (3.08673736722453 : 80.392391217513 : JumpStart); (3.16326263277547 : 80.5404508727541 : JumpEnd); (3.1875 : 80.5873448784055); (3.1875 : 79.5); (3.43229166666667 : 79.5 : JumpStart); (3.59895833333333 : 79.5 : JumpEnd); (5.54166416666667 : 79.5 : JumpStart); (5.73958333333333 : 79.5 : JumpEnd); (6.1263612283153 : 79.5); (6.34217339178507 : 80.0035617147628 : JumpStart); (6.40782660821493 : 80.1567525530991 : JumpEnd); (6.5013612283153 : 80.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_CommunityPhotoApproval" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8e7c08d6-6b73-40e3-ab91-7e863cc47715" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.91615384615385 : 78.9848250325521); (2.34968653282426 : 79.4825021465965 : JumpStart); (2.4591603247502 : 79.6081734108503 : JumpEnd); (2.47232420630906 : 79.6232849878669 : JumpStart); (2.581797998235 : 79.7489562521206 : JumpEnd); (2.59496187979386 : 79.7640678291372 : JumpStart); (2.7044356717198 : 79.889739093391 : JumpEnd); (3.703125 : 81.0361920322516); (3.703125 : 86.3854484049479); (3.5 : 86.3854484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_CommunityProfileApproval" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="03c2b92e-fcec-48c8-995a-65f7868ced4e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.69461538461538 : 78.9848250325521); (2.10349970801801 : 79.4405981962275 : JumpStart); (2.21479645561725 : 79.564657906656 : JumpEnd); (2.34877505498761 : 79.7140005118987 : JumpStart); (2.46007180258685 : 79.8380602223272 : JumpEnd); (2.47141272847241 : 79.8507016697342 : JumpStart); (2.58270947607165 : 79.9747613801628 : JumpEnd); (2.59405040195721 : 79.9874028275698 : JumpStart); (2.70534714955645 : 80.1114625379983 : JumpEnd); (2.85060162620038 : 80.2733740825816 : JumpStart); (2.96189837379962 : 80.3974337930102 : JumpEnd); (3.06935162620038 : 80.5172092551417 : JumpStart); (3.18064837379962 : 80.6412689655703 : JumpEnd); (3.25685162620038 : 80.7262108316218 : JumpStart); (3.41502337379962 : 80.9025209361704 : JumpEnd); (3.625 : 81.1365766476362); (3.5 : 86.3854484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_CommunityProfileApproval1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="03c2b92e-fcec-48c8-995a-65f7868ced4e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.58384615384615 : 78.9848250325521); (2.46592673300965 : 79.8019238120868 : JumpStart); (2.58819547153441 : 79.9151851618816 : JumpEnd); (3.65625 : 80.904557416867); (3.65625 : 88.8854484049479); (3.5 : 88.8854484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_CreditsHistory" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="1161c0ef-4090-45c3-aa6f-48e9ff51318c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 71.161474202474); (2.97916666666667 : 71.161474202474 : JumpStart); (3.36458333333333 : 71.161474202474 : JumpEnd); (5.54166416666667 : 71.161474202474 : JumpStart); (5.80208458333333 : 71.161474202474 : JumpEnd); (5.91666666666667 : 71.161474202474 : JumpStart); (6.45833333333333 : 71.161474202474 : JumpEnd); (8.60416916666667 : 71.161474202474 : JumpStart); (8.80208458333333 : 71.161474202474 : JumpEnd); (9.04166666666667 : 71.161474202474 : JumpStart); (9.37116876412263 : 71.161474202474 : JumpEnd); (11.7916666666667 : 71.161474202474 : JumpStart); (12.2083333333333 : 71.161474202474 : JumpEnd); (12.5 : 71.161474202474)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Ecard" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="e52335a6-21c9-42a1-9af2-caaa54db2866" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.3357975260417); (2.85416666666667 : 70.3357975260417 : JumpStart); (3.36458333333333 : 70.3357975260417 : JumpEnd); (5.54166416666667 : 70.3357975260417 : JumpStart); (5.80208458333333 : 70.3357975260417 : JumpEnd); (5.91666666666667 : 70.3357975260417 : JumpStart); (6.39583333333333 : 70.3357975260417 : JumpEnd); (8.60416916666667 : 70.3357975260417 : JumpStart); (8.80208458333333 : 70.3357975260417 : JumpEnd); (9.04166666666667 : 70.3357975260417 : JumpStart); (9.20833333333333 : 70.3357975260417 : JumpEnd); (11.5407771030149 : 70.3357975260417 : JumpStart); (11.7395833333333 : 70.3357975260417 : JumpEnd); (11.9166666666667 : 70.3357975260417 : JumpStart); (12.0833333333333 : 70.3357975260417 : JumpEnd); (12.1666666666667 : 70.3357975260417 : JumpStart); (12.3333333333333 : 70.3357975260417 : JumpEnd); (12.5 : 70.3357975260417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Ecard1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="e52335a6-21c9-42a1-9af2-caaa54db2866" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2283345625 : 70); (2.2283345625 : 68.1123478190104); (2.72916666666667 : 68.1123478190104 : JumpStart); (2.89583333333333 : 68.1123478190104 : JumpEnd); (2.9375 : 68.1123478190104); (2.9375 : 56.5590844726563); (2.94791666666667 : 56.5590844726563 : JumpStart); (3.11458333333333 : 56.5590844726563 : JumpEnd); (3.47916666666667 : 56.5590844726563 : JumpStart); (3.95833333333333 : 56.5590844726563 : JumpEnd); (4.125 : 56.5590844726563); (4.125 : 53.2605004882813); (4.08333333333333 : 53.2605004882813 : JumpStart); (3.47916666666667 : 53.2605004882813 : JumpEnd); (2.875 : 53.2605004882813); (2.875 : 45.5052502441406); (2.91666666666667 : 45.5052502441406 : JumpStart); (3.45833333333333 : 45.5052502441406 : JumpEnd); (3.5 : 45.5052502441406)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_EstablishedCommunication" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="b4671b7f-188c-40d9-89b0-cb64364aebc4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.9232796875 : 70); (1.9232796875 : 68.3623478190104); (1.99247379166667 : 68.3623478190104 : JumpStart); (2.31166789583333 : 68.3623478190104 : JumpEnd); (2.40543916666667 : 68.3623478190104 : JumpStart); (2.8013111025641 : 68.3623478190104 : JumpEnd); (2.8125 : 68.3623478190104); (2.8125 : 56.4340844726563); (2.94791666666667 : 56.4340844726563 : JumpStart); (3.11458333333333 : 56.4340844726563 : JumpEnd); (3.47916666666667 : 56.4340844726563 : JumpStart); (3.77237279487179 : 56.4340844726563 : JumpEnd); (3.8125 : 56.4340844726563); (3.8125 : 52.9480004882813); (3.77083333333333 : 52.9480004882813 : JumpStart); (3.35416666666667 : 52.9480004882813 : JumpEnd); (3.3125 : 52.9480004882813); (3.3125 : 45.8516273662109); (3.5 : 45.8516273662109)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_EstablishedCommunication1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="b4671b7f-188c-40d9-89b0-cb64364aebc4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 74.40625); (2.97916666666667 : 74.40625 : JumpStart); (3.14583333333333 : 74.40625 : JumpEnd); (5.54166416666667 : 74.40625 : JumpStart); (5.77083583333333 : 74.40625 : JumpEnd); (5.91666666666667 : 74.40625 : JumpStart); (6.08333333333333 : 74.40625 : JumpEnd); (6.13541666666667 : 74.40625 : JumpStart); (6.51479117936198 : 74.40625 : JumpEnd); (8.63541791666667 : 74.40625 : JumpStart); (8.80208458333333 : 74.40625 : JumpEnd); (8.97916666666667 : 74.40625 : JumpStart); (9.20833333333333 : 74.40625 : JumpEnd); (9.5 : 74.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_EventComment" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="f7862162-f669-4699-82ff-06824aa413c5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.6182248125 : 70); (1.6182248125 : 68.265625); (1.99247379166667 : 68.265625 : JumpStart); (2.31166789583333 : 68.265625 : JumpEnd); (2.40543916666667 : 68.265625 : JumpStart); (2.57210583333333 : 68.265625 : JumpEnd); (2.63464443589743 : 68.265625 : JumpStart); (3.58333333333333 : 68.265625 : JumpEnd); (5.54166416666667 : 68.265625 : JumpStart); (5.80208458333333 : 68.265625 : JumpEnd); (5.91666666666667 : 68.265625 : JumpStart); (6.39583333333333 : 68.265625 : JumpEnd); (8.60416916666667 : 68.265625 : JumpStart); (8.80208458333333 : 68.265625 : JumpEnd); (9.04166666666667 : 68.265625 : JumpStart); (9.20833333333333 : 68.265625 : JumpEnd); (9.5 : 68.265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Event" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="4f4e87f9-e8b7-4823-ac65-4f9e817e90d8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.3131699375 : 70); (1.3131699375 : 67.9873478190104); (2.69409348958334 : 67.9873478190104 : JumpStart); (3.17708333333333 : 67.9873478190104 : JumpEnd); (3.1875 : 67.9873478190104); (3.1875 : 56.6840844726563); (3.47916666666667 : 56.6840844726563 : JumpStart); (3.64583333333333 : 56.6840844726563 : JumpEnd); (3.6875 : 56.6840844726563); (3.6875 : 52.8230004882813); (3.64583333333333 : 52.8230004882813 : JumpStart); (3.22916666666667 : 52.8230004882813 : JumpEnd); (3.1875 : 52.8230004882813); (3.1875 : 47.6302502441406); (3.22916666666667 : 47.6302502441406 : JumpStart); (3.45833333333333 : 47.6302502441406 : JumpEnd); (3.5 : 47.6302502441406)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Favourite" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="abfbdf40-fea5-42bd-943f-7ad20d846359" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.042355875 : 70); (1.042355875 : 68.5498478190104); (1.22983660416667 : 68.5498478190104 : JumpStart); (1.70155814583333 : 68.5498478190104 : JumpEnd); (1.83994635416667 : 68.5498478190104 : JumpStart); (2.31166789583333 : 68.5498478190104 : JumpEnd); (2.40543916666667 : 68.5498478190104 : JumpStart); (2.8013111025641 : 68.5498478190104 : JumpEnd); (3.03125 : 68.5498478190104); (3.03125 : 56.3090844726563); (3.47916666666667 : 56.3090844726563 : JumpStart); (3.89583333333333 : 56.3090844726563 : JumpEnd); (3.9375 : 56.3090844726563); (3.9375 : 53.0730004882813); (3.89583333333333 : 53.0730004882813 : JumpStart); (3.47916666666667 : 53.0730004882813 : JumpEnd); (3.4375 : 53.0730004882813); (3.4375 : 47.9766273662109); (3.5 : 47.9766273662109)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Favourite1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="abfbdf40-fea5-42bd-943f-7ad20d846359" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.0692297692308); (3.12857443490112 : 69.6906553343296 : JumpStart); (3.34017556509888 : 69.4790542041319 : JumpEnd); (3.5 : 69.3192297692308); (3.5 : 67.5472251969401)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Friend" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="86c3b9d4-069b-4cb6-b8dd-7335fc6b45a5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.0507682307692); (3.12857443490112 : 69.6721937958681 : JumpStart); (3.34017556509888 : 69.4605926656704 : JumpEnd); (3.4375 : 69.3632682307692); (3.4375 : 67.1186744095052); (3.5 : 67.1186744095052)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Friend1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="86c3b9d4-069b-4cb6-b8dd-7335fc6b45a5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.0415374615385); (2.9375 : 69.8540374615385); (2.9375 : 71); (2.97916666666667 : 71 : JumpStart); (3.36458333333333 : 71 : JumpEnd); (5.54166416666667 : 71 : JumpStart); (5.80208458333333 : 71 : JumpEnd); (5.91666666666667 : 71 : JumpStart); (6.45833333333333 : 71 : JumpEnd); (8.60416916666667 : 71 : JumpStart); (8.80208458333333 : 71 : JumpEnd); (9.1263612283153 : 71); (9.5013612283153 : 71.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupBan" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="80b9c68e-55ba-4613-a755-9a9126e38f15" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.36230769230769 : 78.9848250325521); (1.610497255476 : 79.2400179737576 : JumpStart); (1.72669752028084 : 79.3594971612216 : JumpEnd); (2.10104794941521 : 79.744410957889 : JumpStart); (2.21724821422005 : 79.863890145353 : JumpEnd); (2.34632329638481 : 79.9966074499547 : JumpStart); (2.46252356118965 : 80.1160866374187 : JumpEnd); (2.46896096986961 : 80.1227056959875 : JumpStart); (2.58516123467445 : 80.2421848834515 : JumpEnd); (2.59159864335441 : 80.2488039420204 : JumpStart); (2.70779890815925 : 80.3682831294844 : JumpEnd); (2.84814986759758 : 80.5125944924718 : JumpStart); (3.18310013240242 : 80.8569963365378 : JumpEnd); (3.203125 : 80.8775862630208); (3.203125 : 84.2989005533854); (3.22916666666667 : 84.2989005533854 : JumpStart); (3.78645833333333 : 84.2989005533854 : JumpEnd); (6.29166666666667 : 84.2989005533854 : JumpStart); (6.45833333333333 : 84.2989005533854 : JumpEnd); (6.5 : 84.2989005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupEvent" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="f668f5ce-41a9-4e4a-bc8a-2e01531974be" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 76.9791984049479); (2.97916666666667 : 76.9791984049479 : JumpStart); (3.14583333333333 : 76.9791984049479 : JumpEnd); (5.54166416666667 : 76.9791984049479 : JumpStart); (5.77083583333333 : 76.9791984049479 : JumpEnd); (6.22916666666667 : 76.9791984049479 : JumpStart); (6.45833333333333 : 76.9791984049479 : JumpEnd); (8.63541791666667 : 76.9791984049479 : JumpStart); (8.80208458333333 : 76.9791984049479 : JumpEnd); (8.97916666666667 : 76.9791984049479 : JumpStart); (9.20833333333333 : 76.9791984049479 : JumpEnd); (9.34375 : 76.9791984049479); (9.34375 : 83.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupEventsAttender" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="228d58bd-ab33-44dd-856f-5e8a8ade77f5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 75.692724202474); (2.97916666666667 : 75.692724202474 : JumpStart); (3.14583333333333 : 75.692724202474 : JumpEnd); (3.25 : 75.692724202474); (3.25 : 76.7901025390625); (5.54166416666667 : 76.7901025390625 : JumpStart); (5.77083583333333 : 76.7901025390625 : JumpEnd); (6.22916666666667 : 76.7901025390625 : JumpStart); (6.45833333333333 : 76.7901025390625 : JumpEnd); (8.63541791666667 : 76.7901025390625 : JumpStart); (8.80208458333333 : 76.7901025390625 : JumpEnd); (8.97916666666667 : 76.7901025390625 : JumpStart); (9.20833333333333 : 76.7901025390625 : JumpEnd); (11.5729166666667 : 76.7901025390625 : JumpStart); (11.7395833333333 : 76.7901025390625 : JumpEnd); (16.25 : 76.7901025390625); (16.25 : 77.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupEventsComment" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="4c19241b-29b7-480e-8a23-f9ede8aa7a39" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.805782625 : 70); (0.805782625 : 68.2060978190104); (0.840735916666666 : 68.2060978190104 : JumpStart); (1.00740258333333 : 68.2060978190104 : JumpEnd); (1.22983660416667 : 68.2060978190104 : JumpStart); (1.39650327083333 : 68.2060978190104 : JumpEnd); (2.14500122916667 : 68.2060978190104 : JumpStart); (2.31166789583333 : 68.2060978190104 : JumpEnd); (2.63464443589743 : 68.2060978190104 : JumpStart); (3.58333333333333 : 68.2060978190104 : JumpEnd); (5.54166416666667 : 68.2060978190104 : JumpStart); (5.80208458333333 : 68.2060978190104 : JumpEnd); (5.91666666666667 : 68.2060978190104 : JumpStart); (6.39583333333333 : 68.2060978190104 : JumpEnd); (8.60416916666667 : 68.2060978190104 : JumpStart); (8.80208458333333 : 68.2060978190104 : JumpEnd); (9.04166666666667 : 68.2060978190104 : JumpStart); (9.20833333333333 : 68.2060978190104 : JumpEnd); (9.25 : 68.2060978190104); (9.25 : 67.1938895670573); (10.4166666666667 : 67.1938895670573 : JumpStart); (10.5833333333333 : 67.1938895670573 : JumpEnd); (11.5729166666667 : 67.1938895670573 : JumpStart); (11.7395833333333 : 67.1938895670573 : JumpEnd); (11.9166666666667 : 67.1938895670573 : JumpStart); (12.0833333333333 : 67.1938895670573 : JumpEnd); (12.5 : 67.1938895670573)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupMember" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="88591f54-0427-4872-a091-8055e07decdc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.24846153846154 : 78.9848250325521); (2.35300290542917 : 79.1181479494966 : JumpStart); (2.45584395214529 : 79.2493024266909 : JumpEnd); (2.47564057891397 : 79.2745493131916 : JumpStart); (2.70111929911489 : 79.562105154081 : JumpEnd); (3.07357947664194 : 80.0371082916326 : JumpStart); (3.23892052335806 : 80.2479698029966 : JumpEnd); (3.26107947664194 : 80.2762293941416 : JumpStart); (3.45767052335806 : 80.5269444225904 : JumpEnd); (3.515625 : 80.6008544937901); (3.515625 : 79.25); (5.54166416666667 : 79.25 : JumpStart); (5.73958333333333 : 79.25 : JumpEnd); (6.29166666666667 : 79.25 : JumpStart); (6.45833333333333 : 79.25 : JumpEnd); (8.63541791666667 : 79.25 : JumpStart); (8.80208458333333 : 79.25 : JumpEnd); (8.87653746153846 : 79.25); (9.01406348385674 : 79.4425364312456 : JumpStart); (9.17343651614326 : 79.6656586764467 : JumpEnd); (9.29531348385674 : 79.8362864312456 : JumpStart); (9.39218651614326 : 79.9719086764467 : JumpEnd); (9.50153746153846 : 80.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupPhoto" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="1a64c9f2-00f4-46de-83f0-353027477a03" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 75.096362101237); (2.97916666666667 : 75.096362101237 : JumpStart); (3.14583333333333 : 75.096362101237 : JumpEnd); (3.5 : 75.096362101237)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupPollsAnswer" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="7bad2cdb-0f8f-4a3f-80c9-082b7304c2ae" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.4887725 : 70); (2.4887725 : 68.1435978190104); (2.72916666666667 : 68.1435978190104 : JumpStart); (3.58333333333333 : 68.1435978190104 : JumpEnd); (5.54166416666667 : 68.1435978190104 : JumpStart); (5.80208458333333 : 68.1435978190104 : JumpEnd); (5.875 : 68.1435978190104); (5.875 : 66.083944905599); (6.04166666666667 : 66.083944905599 : JumpStart); (6.39583333333333 : 66.083944905599 : JumpEnd); (6.5 : 66.083944905599)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupPost" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="e911dd46-a2fd-4390-be78-c18cd51577c3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.71797776923077 : 70); (2.71797776923077 : 68.0810978190104); (2.72916666666667 : 68.0810978190104 : JumpStart); (3.58333333333333 : 68.0810978190104 : JumpEnd); (5.54166416666667 : 68.0810978190104 : JumpStart); (5.80208458333333 : 68.0810978190104 : JumpEnd); (6.04166666666667 : 68.0810978190104 : JumpStart); (6.39583333333333 : 68.0810978190104 : JumpEnd); (8.57291666666667 : 68.0810978190104 : JumpStart); (8.80208458333333 : 68.0810978190104 : JumpEnd); (9 : 68.0810978190104); (9 : 65.0376395670573); (9.04166666666667 : 65.0376395670573 : JumpStart); (9.20833333333333 : 65.0376395670573 : JumpEnd); (9.5 : 65.0376395670573)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupTopic" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="869c5bed-0114-49fa-ba3f-b7c61f0f7125" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.1606425 : 70); (1.1606425 : 69.75); (1.22983660416667 : 69.75 : JumpStart); (2.8013111025641 : 69.75 : JumpEnd); (3 : 69.75); (3 : 70.6875); (3.01041666666667 : 70.6875 : JumpStart); (3.36458333333333 : 70.6875 : JumpEnd); (5.54166416666667 : 70.6875 : JumpStart); (5.80208458333333 : 70.6875 : JumpEnd); (5.91666666666667 : 70.6875 : JumpStart); (6.39583333333333 : 70.6875 : JumpEnd); (8.60416916666667 : 70.6875 : JumpStart); (8.80208458333333 : 70.6875 : JumpEnd); (9.04166666666667 : 70.6875 : JumpStart); (9.20833333333333 : 70.6875 : JumpEnd); (11.5729166666667 : 70.6875 : JumpStart); (11.7395833333333 : 70.6875 : JumpEnd); (11.7916666666667 : 70.6875 : JumpStart); (12.2083333333333 : 70.6875 : JumpEnd); (12.25 : 70.6875); (12.25 : 69.75); (14.875 : 69.75); (14.875 : 71.1354484049479); (15.25 : 71.1354484049479)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_GroupTopicSubscription" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="1768eb3a-31e3-4b21-a5ce-8ce204467004" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.42332204090881 : 78.9848250325521); (1.42332204090881 : 80.375); (1.58526405454509 : 80.375 : JumpStart); (1.75193072121175 : 80.375 : JumpEnd); (2.0758147484843 : 80.375 : JumpStart); (2.24248141515096 : 80.375 : JumpEnd); (2.3210900954539 : 80.375 : JumpStart); (2.73303210909016 : 80.375 : JumpEnd); (2.74852189716966 : 80.375 : JumpStart); (3.39583333333333 : 80.375 : JumpEnd); (3.40625 : 80.375); (3.40625 : 90.625); (3.47916666666667 : 90.625 : JumpStart); (3.64583333333333 : 90.625 : JumpEnd); (3.76041666666667 : 90.625 : JumpStart); (3.92708333333333 : 90.625 : JumpEnd); (4.19791666666667 : 90.625 : JumpStart); (4.36458333333333 : 90.625 : JumpEnd); (4.375 : 90.625); (4.375 : 94.875); (4.11458333333333 : 94.875 : JumpStart); (3.54166666666667 : 94.875 : JumpEnd); (3.23958333333333 : 94.875 : JumpStart); (2.97916666666667 : 94.875 : JumpEnd); (2.83333333333333 : 94.875 : JumpStart); (2.57291666666667 : 94.875 : JumpEnd); (2.14583333333333 : 94.875 : JumpStart); (1.97916666666667 : 94.875 : JumpEnd); (1.75 : 94.875); (1.75 : 117.731599121094); (2.10416666666667 : 117.731599121094 : JumpStart); (2.27083333333333 : 117.731599121094 : JumpEnd); (2.47916666666667 : 117.731599121094 : JumpStart); (2.89583333333333 : 117.731599121094 : JumpEnd); (2.91666666666667 : 117.731599121094 : JumpStart); (3.14583333333333 : 117.731599121094 : JumpEnd); (3.16666666666667 : 117.731599121094 : JumpStart); (3.33333333333333 : 117.731599121094 : JumpEnd); (3.5 : 117.731599121094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Interest" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8020a127-dc8f-410b-b184-fefec71f530f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 80.875); (2.5663654424235 : 80.875 : JumpStart); (2.73303210909016 : 80.875 : JumpEnd); (2.8125 : 80.875); (2.8125 : 90.8125); (2.85416666666667 : 90.8125 : JumpStart); (3.05208333333333 : 90.8125 : JumpEnd); (3.47916666666667 : 90.8125 : JumpStart); (3.64583333333333 : 90.8125 : JumpEnd); (3.8125 : 90.8125); (3.8125 : 95.625); (3.4375 : 95.625); (3.4375 : 117.209547560547); (3.5 : 117.209547560547)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Interest1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8020a127-dc8f-410b-b184-fefec71f530f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.64969877575683 : 78.9848250325521); (2.64969877575683 : 81.375); (2.96875 : 81.375); (2.96875 : 91.125); (3.47916666666667 : 91.125 : JumpStart); (3.70833333333333 : 91.125 : JumpEnd); (3.75 : 91.125); (3.75 : 95.25); (3.70833333333333 : 95.25 : JumpStart); (3.54166666666667 : 95.25 : JumpEnd); (3 : 95.25); (3 : 168.23511009434); (3.5 : 168.23511009434)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Message" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="3e85cf70-fd68-437d-922a-20aaeb5b23e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.15914808181763 : 78.9848250325521); (2.15914808181763 : 81); (2.3210900954539 : 81 : JumpStart); (2.48775676212056 : 81 : JumpEnd); (2.5663654424235 : 81 : JumpStart); (2.98958333333333 : 81 : JumpEnd); (3.0625 : 81); (3.0625 : 90.75); (3.10416666666667 : 90.75 : JumpStart); (3.33333333333333 : 90.75 : JumpEnd); (3.47916666666667 : 90.75 : JumpStart); (3.64583333333333 : 90.75 : JumpEnd); (3.875 : 90.75); (3.875 : 95.375); (3.25 : 95.375); (3.25 : 167.21130304717); (3.5 : 167.21130304717)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Message1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="3e85cf70-fd68-437d-922a-20aaeb5b23e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.380862 : 70); (2.380862 : 69.2267976888021); (2.40543916666667 : 69.2267976888021 : JumpStart); (2.8013111025641 : 69.2267976888021 : JumpEnd); (3.05729166666667 : 69.2267976888021 : JumpStart); (3.42708333333333 : 69.2267976888021 : JumpEnd); (3.5 : 69.2267976888021)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_MessagesSandbox" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="d7b82c91-5711-4289-a450-8450fb248890" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 80.1875); (2.4437277689387 : 80.1875 : JumpStart); (2.61039443560536 : 80.1875 : JumpEnd); (2.90625 : 80.1875); (2.90625 : 89.8125); (3.5625 : 89.8125); (3.5625 : 93.8125); (3.0625 : 93.8125); (3.0625 : 143.798900553385); (3.5 : 143.798900553385)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PaymentHistory" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="f5bce56d-b46f-4ee5-a9b4-54a427b9045e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.3496095 : 70); (2.3496095 : 68.6123478190104); (2.40543916666667 : 68.6123478190104 : JumpStart); (2.8013111025641 : 68.6123478190104 : JumpEnd); (2.96875 : 68.6123478190104); (2.96875 : 56.8090844726563); (3.10416666666667 : 56.8090844726563 : JumpStart); (3.27083333333333 : 56.8090844726563 : JumpEnd); (3.5625 : 56.8090844726563); (3.5625 : 52.6980004882813); (3.52083333333333 : 52.6980004882813 : JumpStart); (3.10416666666667 : 52.6980004882813 : JumpEnd); (3.0625 : 52.6980004882813); (3.0625 : 52.0052502441406); (3.10416666666667 : 52.0052502441406 : JumpStart); (3.45833333333333 : 52.0052502441406 : JumpEnd); (3.5 : 52.0052502441406)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoAccess" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="71febc1f-1c10-4676-963c-e5e677237323" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.1970820625 : 70); (2.1970820625 : 68.3310978190104); (2.40543916666667 : 68.3310978190104 : JumpStart); (2.8013111025641 : 68.3310978190104 : JumpEnd); (2.88541666666667 : 68.3310978190104 : JumpStart); (3.05208333333333 : 68.3310978190104 : JumpEnd); (3.09375 : 68.3310978190104); (3.09375 : 56.9340844726563); (3.10416666666667 : 56.9340844726563 : JumpStart); (3.27083333333333 : 56.9340844726563 : JumpEnd); (4.0625 : 56.9340844726563); (4.0625 : 53.1980004882813); (4.02083333333333 : 53.1980004882813 : JumpStart); (3.47916666666667 : 53.1980004882813 : JumpEnd); (2.9375 : 53.1980004882813); (2.9375 : 52.3516273662109); (2.97916666666667 : 52.3516273662109 : JumpStart); (3.45833333333333 : 52.3516273662109 : JumpEnd); (3.5 : 52.3516273662109)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoAccess1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="71febc1f-1c10-4676-963c-e5e677237323" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 80.8125); (2.4437277689387 : 80.8125 : JumpStart); (2.73303210909016 : 80.8125 : JumpEnd); (2.82291666666667 : 80.8125 : JumpStart); (3.22315826276287 : 80.8125 : JumpEnd); (3.34375 : 80.8125); (3.34375 : 90.375); (3.38541666666667 : 90.375 : JumpStart); (3.64583333333333 : 90.375 : JumpEnd); (3.76041666666667 : 90.375 : JumpStart); (3.92708333333333 : 90.375 : JumpEnd); (4.19791666666667 : 90.375 : JumpStart); (4.36458333333333 : 90.375 : JumpEnd); (4.625 : 90.375); (4.625 : 94.5625); (4.58333333333333 : 94.5625 : JumpStart); (3.44791666666667 : 94.5625 : JumpEnd); (3.23958333333333 : 94.5625 : JumpStart); (2.97916666666667 : 94.5625 : JumpEnd); (2.83333333333333 : 94.5625 : JumpStart); (2.66666666666667 : 94.5625 : JumpEnd); (2.4375 : 94.5625); (2.4375 : 96.5104484049479); (2.47916666666667 : 96.5104484049479 : JumpStart); (3.42708333333333 : 96.5104484049479 : JumpEnd); (3.5 : 96.5104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoAlbum" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="2899a8c3-b68b-4b5e-8305-8e72dbd3acf9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.0553836153846); (3.0625 : 69.7428836153846); (3.0625 : 77.125); (5.54166416666667 : 77.125 : JumpStart); (5.77083583333333 : 77.125 : JumpEnd); (6.22916666666667 : 77.125 : JumpStart); (6.45833333333333 : 77.125 : JumpEnd); (8.63541791666667 : 77.125 : JumpStart); (8.80208458333333 : 77.125 : JumpEnd); (8.97916666666667 : 77.125 : JumpStart); (9.20833333333333 : 77.125 : JumpEnd); (9.2513612283153 : 77.125); (9.28482443490112 : 77.1584632065858 : JumpStart); (9.40267556509888 : 77.2763143367836 : JumpEnd); (9.5013612283153 : 77.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoComment" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="18639436-a586-4b67-bd57-2d15b45bd59a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 74.53125); (2.97916666666667 : 74.53125 : JumpStart); (3.14583333333333 : 74.53125 : JumpEnd); (5.54166416666667 : 74.53125 : JumpStart); (5.77083583333333 : 74.53125 : JumpEnd); (5.91666666666667 : 74.53125 : JumpStart); (6.08333333333333 : 74.53125 : JumpEnd); (6.13541666666667 : 74.53125 : JumpStart); (6.45833333333333 : 74.53125 : JumpEnd); (6.5 : 74.53125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoContestRank" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="aa0a7463-c2c0-4915-9540-0f9a2344f497" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 71.9090734863281); (2.97916666666667 : 71.9090734863281 : JumpStart); (3.36458333333333 : 71.9090734863281 : JumpEnd); (3.5 : 71.9090734863281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoContestVote" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="a4fce931-1c5e-4bae-be2b-2141ff320513" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 78.9848250325521); (3.04170791205703 : 78.9940063033959 : JumpStart); (3.20829208794297 : 78.9992494057387 : JumpEnd); (5.54170541205703 : 79.0726917048119 : JumpStart); (5.73954208794297 : 79.0789184543414 : JumpEnd); (6.29170791205703 : 79.0962974275279 : JumpStart); (6.45829208794297 : 79.1015405298706 : JumpEnd); (8.63545916205702 : 79.1700651044658 : JumpStart); (8.80204333794298 : 79.1753082068085 : JumpEnd); (8.97920791205702 : 79.180884318637 : JumpStart); (9.20829208794298 : 79.1880945579823 : JumpEnd); (9.26045791205702 : 79.1897364351484 : JumpStart); (9.42704208794298 : 79.1949795374911 : JumpEnd); (11.572957912057 : 79.2625205042423 : JumpStart); (11.739542087943 : 79.267763606585 : JumpEnd); (12.5 : 79.2916984049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoNote" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="1793dbdb-f040-471a-9300-113b1f4eb2d4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.0692297692308); (3.09375 : 69.7254797692308); (3.09375 : 71.375); (3.10416666666667 : 71.375 : JumpStart); (3.36458333333333 : 71.375 : JumpEnd); (5.54166416666667 : 71.375 : JumpStart); (5.80208458333333 : 71.375 : JumpEnd); (5.91666666666667 : 71.375 : JumpStart); (6.30208333333333 : 71.375 : JumpEnd); (6.375 : 71.375); (6.5 : 71.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PhotoRating" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8cc3e63a-5827-4a3a-b233-f05a15c863bc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 77.9090734863281); (3.5 : 77.9090734863281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_PollAnswer" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="e6c29a2f-12a4-4302-bcbb-cd95284b0b9f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 77.53125); (5.54166416666667 : 77.53125 : JumpStart); (5.73958333333333 : 77.53125 : JumpEnd); (6.22916666666667 : 77.53125 : JumpStart); (6.45833333333333 : 77.53125 : JumpEnd); (6.5 : 77.53125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_ProfileAnswer" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8beb2a5a-f3de-4d44-b0c0-01655974f445" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.68846153846154 : 70); (3.12857443490112 : 69.5598871035604 : JumpStart); (3.34017556509888 : 69.3482859733627 : JumpEnd); (3.40625 : 69.2822115384615); (3.40625 : 58.3802502441406); (3.5 : 58.3802502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_ProfileView" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="9470786a-43cd-4a18-a55c-8086e4d4a177" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.67 : 70); (3.11294943490112 : 69.5570505650989 : JumpStart); (3.34017556509888 : 69.3298244349011 : JumpEnd); (3.34375 : 69.32625); (3.34375 : 58.3802502441406); (3.5 : 58.3802502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_ProfileView1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="9470786a-43cd-4a18-a55c-8086e4d4a177" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 80.75); (2.4437277689387 : 80.75 : JumpStart); (2.73303210909016 : 80.75 : JumpEnd); (2.82291666666667 : 80.75 : JumpStart); (3.09895833333333 : 80.75 : JumpEnd); (3.25 : 80.75); (3.25 : 89.9375); (3.47916666666667 : 89.9375 : JumpStart); (3.64583333333333 : 89.9375 : JumpEnd); (4.8125 : 89.9375); (4.8125 : 94.1875); (4.36458333333333 : 94.1875 : JumpStart); (4.19791666666667 : 94.1875 : JumpEnd); (4.05208333333333 : 94.1875 : JumpStart); (3.54166666666667 : 94.1875 : JumpEnd); (3.14583333333333 : 94.1875 : JumpStart); (2.97916666666667 : 94.1875 : JumpEnd); (2.75 : 94.1875); (2.75 : 101.510448404948); (2.82291666666667 : 101.510448404948 : JumpStart); (3.14583333333333 : 101.510448404948 : JumpEnd); (3.5 : 101.510448404948)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Rating" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="d61bb53a-379f-4e75-8c16-139bcc9c4c3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 79.96875); (2.4437277689387 : 79.96875 : JumpStart); (2.85659638258734 : 79.96875 : JumpEnd); (3.3125 : 79.96875); (3.3125 : 90.28125); (3.47916666666667 : 90.28125 : JumpStart); (3.64583333333333 : 90.28125 : JumpEnd); (4.28125 : 90.28125); (4.28125 : 94.34375); (4.05208333333333 : 94.34375 : JumpStart); (3.54166666666667 : 94.34375 : JumpEnd); (3.15625 : 94.34375); (3.15625 : 101.036472202474); (3.5 : 101.036472202474)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Rating1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="d61bb53a-379f-4e75-8c16-139bcc9c4c3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 81.28125); (2.5663654424235 : 81.28125 : JumpStart); (2.73303210909016 : 81.28125 : JumpEnd); (2.78125 : 81.28125); (2.78125 : 90.9375); (2.85416666666667 : 90.9375 : JumpStart); (3.09895833333333 : 90.9375 : JumpEnd); (3.16666666666667 : 90.9375 : JumpStart); (3.33333333333333 : 90.9375 : JumpEnd); (3.44791666666667 : 90.9375 : JumpStart); (3.64583333333333 : 90.9375 : JumpEnd); (3.72916666666667 : 90.9375 : JumpStart); (3.92708333333333 : 90.9375 : JumpEnd); (4.03125 : 90.9375); (4.03125 : 95.0625); (3.95833333333333 : 95.0625 : JumpStart); (3.54166666666667 : 95.0625 : JumpEnd); (3.23958333333333 : 95.0625 : JumpStart); (2.97916666666667 : 95.0625 : JumpEnd); (2.83333333333333 : 95.0625 : JumpStart); (2.57291666666667 : 95.0625 : JumpEnd); (2.5625 : 95.0625); (2.5625 : 134.57774983724); (2.72916666666667 : 134.57774983724 : JumpStart); (2.89583333333333 : 134.57774983724 : JumpEnd); (2.91666666666667 : 134.57774983724 : JumpStart); (3.14583333333333 : 134.57774983724 : JumpEnd); (3.5 : 134.57774983724)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Relationship" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="7471dbb7-df0d-4e62-badd-dfa6cd625f29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.15914808181763 : 78.9848250325521); (2.15914808181763 : 81.46875); (2.3210900954539 : 81.46875 : JumpStart); (2.48775676212056 : 81.46875 : JumpEnd); (2.84375 : 81.46875); (2.84375 : 90.15625); (2.85416666666667 : 90.15625 : JumpStart); (3.09895833333333 : 90.15625 : JumpEnd); (3.10416666666667 : 90.15625 : JumpStart); (3.39583333333333 : 90.15625 : JumpEnd); (3.47916666666667 : 90.15625 : JumpStart); (3.64583333333333 : 90.15625 : JumpEnd); (3.84375 : 90.15625); (3.84375 : 95.53125); (3.23958333333333 : 95.53125 : JumpStart); (2.91666666666667 : 95.53125 : JumpEnd); (2.89583333333333 : 95.53125 : JumpStart); (2.66666666666667 : 95.53125 : JumpEnd); (2.39583333333333 : 95.53125 : JumpStart); (2.22916666666667 : 95.53125 : JumpEnd); (2.1875 : 95.53125); (2.1875 : 134.00762291862); (2.72916666666667 : 134.00762291862 : JumpStart); (2.89583333333333 : 134.00762291862 : JumpEnd); (2.91666666666667 : 134.00762291862 : JumpStart); (3.14583333333333 : 134.00762291862 : JumpEnd); (3.5 : 134.00762291862)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Relationship1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="7471dbb7-df0d-4e62-badd-dfa6cd625f29" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.52706110227203 : 78.9848250325521); (2.52706110227203 : 80.9375); (2.9375 : 80.9375); (2.9375 : 91.1875); (3.6875 : 91.1875); (3.6875 : 95.3125); (2.8125 : 95.3125); (2.8125 : 171.491334228516); (3.5 : 171.491334228516)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_SavedSearch" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="bf1fea3e-af77-40c4-bdd0-b87002aacb0e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.66859738787842 : 78.9848250325521); (1.66859738787842 : 81.53125); (2.72916666666667 : 81.53125 : JumpStart); (3.09895833333333 : 81.53125 : JumpEnd); (3.125 : 81.53125); (3.125 : 82.875); (3.22916666666667 : 82.875 : JumpStart); (3.39583333333333 : 82.875 : JumpEnd); (3.57291666666667 : 82.875 : JumpStart); (3.78645833333333 : 82.875 : JumpEnd); (11.5729166666667 : 82.875 : JumpStart); (11.7395833333333 : 82.875 : JumpEnd); (12.125 : 82.875); (12.125 : 83.2412019856771); (12.5 : 83.2412019856771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_Subscription" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8dc1983f-f75e-47b7-add6-10a30e5bff39" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.91387273484802 : 78.9848250325521); (1.91387273484802 : 81.21875); (2.0758147484843 : 81.21875 : JumpStart); (2.24248141515096 : 81.21875 : JumpEnd); (2.3210900954539 : 81.21875 : JumpStart); (2.48775676212056 : 81.21875 : JumpEnd); (2.5663654424235 : 81.21875 : JumpStart); (3.44270833333333 : 81.21875 : JumpEnd); (3.46875 : 81.21875); (3.46875 : 91.03125); (3.47916666666667 : 91.03125 : JumpStart); (3.70833333333333 : 91.03125 : JumpEnd); (3.72916666666667 : 91.03125 : JumpStart); (4.11458333333333 : 91.03125 : JumpEnd); (4.15625 : 91.03125); (4.15625 : 95.15625); (4.05208333333333 : 95.15625 : JumpStart); (3.54166666666667 : 95.15625 : JumpEnd); (3.34375 : 95.15625); (3.34375 : 120.356599121094); (3.5 : 120.356599121094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_UnlockedSection" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8148b5fa-81e1-4efc-8f60-dffb3f2ec1ef" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 81.59375); (2.69791666666667 : 81.59375 : JumpStart); (3.39583333333333 : 81.59375 : JumpEnd); (3.40625 : 81.59375); (3.40625 : 91.25); (3.44791666666667 : 91.25 : JumpStart); (4.11458333333333 : 91.25 : JumpEnd); (4.21875 : 91.25); (4.21875 : 94.96875); (4.11458333333333 : 94.96875 : JumpStart); (3.54166666666667 : 94.96875 : JumpEnd); (3.23958333333333 : 94.96875 : JumpStart); (2.97916666666667 : 94.96875 : JumpEnd); (2.875 : 94.96875); (2.875 : 119.834547560547); (2.91666666666667 : 119.834547560547 : JumpStart); (3.14583333333333 : 119.834547560547 : JumpEnd); (3.16666666666667 : 119.834547560547 : JumpStart); (3.33333333333333 : 119.834547560547 : JumpEnd); (3.5 : 119.834547560547)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_UnlockedSection1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="8148b5fa-81e1-4efc-8f60-dffb3f2ec1ef" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.932771346969605 : 78.9848250325521); (0.932771346969605 : 80.53125); (2.3210900954539 : 80.53125 : JumpStart); (2.73303210909016 : 80.53125 : JumpEnd); (2.82291666666667 : 80.53125 : JumpStart); (2.98958333333333 : 80.53125 : JumpEnd); (3.015625 : 80.53125); (3.015625 : 91.34375); (3.47916666666667 : 91.34375 : JumpStart); (3.89583333333333 : 91.34375 : JumpEnd); (3.96875 : 91.34375); (3.96875 : 95.59375); (3.5 : 95.59375); (3.5 : 104.010448404948)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_UserScoresLog" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="2b8fce32-a061-4131-801d-8dd917161b61" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.72538461538461 : 70); (3.12857443490112 : 69.5968101804835 : JumpStart); (3.34017556509888 : 69.3852090502857 : JumpEnd); (3.453125 : 69.2722596153846); (3.453125 : 60.5052502441406); (3.5 : 60.5052502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_VerifiedUser" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="3424767e-7283-4785-9164-4cd54c141a9f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.70692307692308 : 70); (3.15625 : 69.5506730769231); (3.15625 : 60.5052502441406); (3.26041666666667 : 60.5052502441406 : JumpStart); (3.48958333333333 : 60.5052502441406 : JumpEnd); (3.5 : 60.5052502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_VerifiedUser1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="3424767e-7283-4785-9164-4cd54c141a9f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.0138451538462); (3.171875 : 69.5919701538462); (3.171875 : 62.6302502441406); (3.26041666666667 : 62.6302502441406 : JumpStart); (3.48958333333333 : 62.6302502441406 : JumpEnd); (3.5 : 62.6302502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_VideoAccess" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="9f3824d9-3419-47ae-87ca-217ca99261a9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.74384615384615 : 70); (3.140625 : 69.6032211538462); (3.140625 : 62.6302502441406); (3.26041666666667 : 62.6302502441406 : JumpStart); (3.48958333333333 : 62.6302502441406 : JumpEnd); (3.5 : 62.6302502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_VideoAccess1" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="9f3824d9-3419-47ae-87ca-217ca99261a9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.40442342878723 : 78.9848250325521); (2.40442342878723 : 80.65625); (2.4437277689387 : 80.65625 : JumpStart); (2.73303210909016 : 80.65625 : JumpEnd); (2.82291666666667 : 80.65625 : JumpStart); (3.23490665808976 : 80.65625 : JumpEnd); (3.359375 : 80.65625); (3.359375 : 90.71875); (3.53125 : 90.71875); (3.53125 : 94.65625); (3.23958333333333 : 94.65625 : JumpStart); (2.97916666666667 : 94.65625 : JumpEnd); (2.83333333333333 : 94.65625 : JumpStart); (2.66666666666667 : 94.65625 : JumpEnd); (2.65625 : 94.65625); (2.65625 : 123.106599121094); (2.72916666666667 : 123.106599121094 : JumpStart); (2.89583333333333 : 123.106599121094 : JumpEnd); (2.91666666666667 : 123.106599121094 : JumpStart); (3.14583333333333 : 123.106599121094 : JumpEnd); (3.5 : 123.106599121094)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_VideoEmbed" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="fc68e7c8-9941-4d4e-a39a-8868f34a857b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 70.039999); (3.2109375 : 69.5790615); (3.2109375 : 64.7552502441406); (3.26041666666667 : 64.7552502441406 : JumpStart); (3.48958333333333 : 64.7552502441406 : JumpEnd); (3.5 : 64.7552502441406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_VideoProfile" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="aee8f7ee-6ef2-4de5-92da-045e0fe38461" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="280c4740-bff2-4b47-8e3b-b0c628385046" absoluteBounds="6.125, 3.125, 2, 1.2605004882812496">
+      <DataClassMoniker Name="/AspNetDatingDataContext/TwitterCredential" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0cdda79-79a7-4c35-b12c-f643af37924c" absoluteBounds="6.14, 3.585, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 76.3166223144531); (2.97916666666667 : 76.3166223144531 : JumpStart); (3.14583333333333 : 76.3166223144531 : JumpEnd); (3.16666666666667 : 76.3166223144531 : JumpStart); (3.33333333333333 : 76.3166223144531 : JumpEnd); (5.54166416666667 : 76.3166223144531 : JumpStart); (5.77083583333333 : 76.3166223144531 : JumpEnd); (5.79166666666667 : 76.3166223144531 : JumpStart); (5.95833333333333 : 76.3166223144531 : JumpEnd); (6.21875 : 76.3166223144531); (6.21875 : 4.38550048828125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AspNetDatingDataContext/User/User_TwitterCredential" />
+      <nodes>
+        <classShapeMoniker Id="b2688809-d3e8-4032-85ef-3a55c8b9405d" />
+        <classShapeMoniker Id="280c4740-bff2-4b47-8e3b-b0c628385046" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="21d5b5bf-5b4a-4a00-89c9-1773d830327f" absoluteBounds="9.875, 113.375, 2.5, 5.0404890950520826">
+      <DataClassMoniker Name="/AspNetDatingDataContext/View_FemaleInterestedInFemaleSingle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f592d82b-b86f-4d96-9017-a493a8ff728d" absoluteBounds="9.89, 113.835, 2.4699999999999998, 4.480489095052083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f168ce6-015e-4d8e-ba0e-4b8cf8246b51" absoluteBounds="6.625, 113.375, 2.875, 5.0404890950520826">
+      <DataClassMoniker Name="/AspNetDatingDataContext/View_FemaleInterestedInMaleSingle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1979260-911d-4e70-9e15-fa1ed23548e1" absoluteBounds="6.64, 113.835, 2.8449999999999998, 4.480489095052083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7ff506f0-ae29-4d77-8c5d-9e33924e15d8" absoluteBounds="9.875, 118.875, 2.625, 5.0404890950520826">
+      <DataClassMoniker Name="/AspNetDatingDataContext/View_MaleInterestedInFemaleSingle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="38998b55-43b4-48de-b136-4b5312066064" absoluteBounds="9.89, 119.335, 2.5949999999999998, 4.480489095052083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9453a4ff-864e-450a-822e-5b81653f9d5b" absoluteBounds="6.625, 118.875, 2.875, 5.0404890950520826">
+      <DataClassMoniker Name="/AspNetDatingDataContext/View_MaleInterestedInMaleSingle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="232a0675-75c1-4b56-96d6-097cda50b508" absoluteBounds="6.64, 119.335, 2.8449999999999998, 4.480489095052083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

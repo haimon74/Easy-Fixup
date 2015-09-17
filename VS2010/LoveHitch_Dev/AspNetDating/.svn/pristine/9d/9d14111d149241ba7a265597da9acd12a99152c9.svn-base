@@ -1,0 +1,32 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" %>
+
+<%@ Register Assembly="System.Web.Silverlight" Namespace="System.Web.UI.SilverlightControls"
+    TagPrefix="asp" %>
+
+<script runat="server">
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+
+        Guid guid = Guid.NewGuid();
+        string cacheKey = "silverlightUpload_" + guid;
+        Cache.Insert(cacheKey, "Anita", null, Cache.NoAbsoluteExpiration, TimeSpan.FromHours(1));
+        Xaml1.InitParameters = guid.ToString();
+    }
+</script>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%;">
+<head runat="server">
+    <title>MultiFileUploader</title>
+</head>
+<body style="height:100%;margin:0;">
+    <form id="form1" runat="server" style="height:100%;">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div style="height:100%;">
+            <asp:Silverlight ID="Xaml1" runat="server" Source="~/ClientBin/MultiFileUploader.xap" MinimumVersion="2.0.31005.0" Width="100%" Height="100%" />
+        </div>
+    </form>
+</body>
+</html>

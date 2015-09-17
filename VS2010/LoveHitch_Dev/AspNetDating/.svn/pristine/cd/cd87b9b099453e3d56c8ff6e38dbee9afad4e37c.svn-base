@@ -1,0 +1,338 @@
+/* ASPnetDating 
+ * Copyright (C) 2003-2010 eStream 
+ * lovehitch.com
+
+ *  
+ * IMPORTANT: This is a commercial software product. By using this product  
+ * you agree to be bound by the terms of the ASPnetDating license agreement.  
+ * It can be found at lovehitch.com/agreement.htm
+
+ *  
+ * This notice may not be removed from the source code. 
+ */
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Caching;
+using Microsoft.ApplicationBlocks.Data;
+
+namespace AspNetDating.Classes {
+	
+    /// <summary>
+    /// A FAQ
+	/// </summary>
+	public class FAQ {
+		#region Properties
+
+		private int id;
+
+		/// <summary>
+		/// Gets or sets the id.
+		/// </summary>
+		/// <value>The id.</value>
+		public int Id {
+			get { return id; }
+			set { id = value; }
+		}
+
+		private int categoryId;
+
+		/// <summary>
+		/// Gets or sets the id.
+		/// </summary>
+		/// <value>The id.</value>
+        public int CategoryId
+        {
+            get { return categoryId; }
+            set { categoryId = value; }
+		}
+
+		private int order;
+
+		/// <summary>
+		/// Gets or sets the order.
+		/// </summary>
+		/// <value>The id.</value>
+        public int Order
+        {
+            get { return order; }
+            set { order = value; }
+		}
+
+		private string name;
+
+		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>The name.</value>
+		public string Name {
+			get { return name; }
+			set { name = value; }
+		}
+
+		private bool active;
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this FAQ is active.
+		/// </summary>
+		/// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+		public bool Active {
+			get { return active; }
+			set { active = value; }
+		}
+
+		private string question;
+
+        /// <summary>
+        /// Gets or sets the display question text.
+        /// </summary>
+        /// <value>The display question text.</value>
+        public string QuestionDisplay
+        {
+			set { question=value; }
+			get { return question; }
+		}
+
+		private string answer;
+
+        /// <summary>
+        /// Gets or sets the display answer text.
+        /// </summary>
+        /// <value>The display answer text.</value>
+        public string AnswerDisplay
+        {
+            set { answer = value; }
+            get { return answer; }
+		}
+
+		#endregion
+
+		/// <summary>
+		/// Initializes a new instance of the FAQ class.
+		/// </summary>
+        private FAQ()
+        {
+		}
+
+		/// <summary>
+		/// Creates the specified name.
+		/// </summary>
+		/// <param name="name">The name.</param>
+		/// <param name="active">if set to <c>true</c> [active].</param>
+		/// <returns></returns>
+        public static FAQ Create(string name,string question, string answer, bool active, int categoryId)
+        {
+            FAQ newQuestion = new FAQ();
+            newQuestion.id = -1;
+            newQuestion.categoryId = categoryId;
+            newQuestion.name = name;
+            newQuestion.QuestionDisplay = question;
+            newQuestion.AnswerDisplay = answer;
+            newQuestion.active = active;
+
+            return newQuestion;
+		}
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        public void Save()
+        {
+            using (SqlConnection conn = Config.DB.Open())
+            {
+                object result = SqlHelper.ExecuteScalar(conn, "SaveFAQ",
+                    (id > 0) ? (object)id : null, name, active, question, answer, categoryId);
+
+                if (id == -1)
+                {
+                    id = Convert.ToInt32(result);
+                }
+            }
+
+            string cacheKey = String.Format("FAQ_FetchAll_(0)", categoryId);
+            if (HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] != null)
+            {
+                HttpContext.Current.Cache.Remove(cacheKey);
+            }
+        }
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        public void SaveOrder()
+        {
+            if (id <= 0) return;
+
+            using (SqlConnection conn = Config.DB.Open())
+            {
+                object result = SqlHelper.ExecuteScalar(conn, "SaveOrderFAQ", (object) id,order);
+            }
+
+            string cacheKey = String.Format("FAQ_FetchAll_(0)", categoryId);
+            if (HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] != null)
+            {
+                HttpContext.Current.Cache.Remove(cacheKey);
+            }
+        }
+
+        /// <summary>
+		/// Deletes the specified id.
+		/// </summary>
+		/// <param name="id">The id.</param>
+		public static void Delete(int id)
+		{
+		    string cacheKey = String.Format("FAQ_FetchAll_{0}", Fetch(id).CategoryId);
+			
+			using(SqlConnection conn = Config.DB.Open()) {
+                SqlHelper.ExecuteNonQuery(conn, "DeleteFAQ", id);
+			}
+
+            if(HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] != null) {
+				HttpContext.Current.Cache.Remove(cacheKey);
+			}
+		}
+
+		/// <summary>
+		/// Fetches the specified id. Returns NULL if the specified language doesn't exists.
+		/// </summary>
+		/// <param name="id">The id.</param>
+		/// <returns></returns>
+        public static FAQ Fetch(int id)
+        {
+            FAQ[] questions = Fetch(id, null);
+
+			if(questions.Length > 0) {
+				return questions[0];
+			} else {
+				return null;
+			}
+		}
+
+		/// <summary>
+		/// Fetches all.
+		/// </summary>
+		/// <returns></returns>
+        public static FAQ[] FetchAll(int categoryId)
+        {
+            string cacheKey = String.Format("FAQ_FetchAll_{0}",categoryId);
+			if(HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] != null) {
+                //return HttpContext.Current.Cache[cacheKey] as FAQ[];
+			}
+
+			using(SqlConnection conn = Config.DB.Open()) {
+                SqlDataReader reader = SqlHelper.ExecuteReader(conn, "FetchFAQs", categoryId);
+
+                List<FAQ> lQuestions = new List<FAQ>();
+
+				while(reader.Read()) {
+                    FAQ aQuestion = new FAQ();
+					aQuestion.id = (int)reader["Id"];
+					aQuestion.name = (string)reader["Name"];
+					aQuestion.active = (bool)reader["Active"];
+					aQuestion.question = (string)reader["QuestionDisplay"];
+					aQuestion.answer = (string)reader["AnswerDisplay"];
+                    aQuestion.categoryId = (int)reader["CategoryId"];
+                    aQuestion.order = (int)reader["OrderId"];
+                    lQuestions.Add(aQuestion);
+				}
+
+                FAQ[] questions = lQuestions.ToArray();
+
+				if(HttpContext.Current != null) {
+                    //Global.AddCacheItem("FAQs", cacheKey, questions);
+					HttpContext.Current.Cache.Insert(cacheKey, questions, null, DateTime.Now.AddMinutes(30),
+							Cache.NoSlidingExpiration, CacheItemPriority.NotRemovable, null);
+				}
+				return questions;
+			}
+		}
+
+        private static FAQ[] Fetch(int id, string name)
+        {
+            List<FAQ> lFAQ = new List<FAQ>();
+
+			using(SqlConnection conn = Config.DB.Open()) {
+                SqlDataReader reader = SqlHelper.ExecuteReader(conn, "FetchFAQ", id, name);
+
+				while(reader.Read()) {
+                    FAQ aQuestion = new FAQ();
+					aQuestion.id = (int)reader["Id"];
+					aQuestion.name = (string)reader["Name"];
+					aQuestion.question = (string)reader["QuestionDisplay"];
+					aQuestion.answer = (string)reader["AnswerDisplay"];
+					aQuestion.active = (bool)reader["Active"];
+                    aQuestion.categoryId = (int)reader["CategoryId"];
+                    aQuestion.order = (int)reader["OrderId"];
+                    lFAQ.Add(aQuestion);
+				}
+			}
+            return lFAQ.ToArray();
+		}
+
+		/// <summary>
+		/// Changes the order.
+		/// </summary>
+		/// <param name="id">The id.</param>
+		/// <param name="direction">The direction.</param>
+		public static void ChangeOrder(int id, eDirections direction) {
+
+            string cacheKey = String.Format("FAQ_FetchAll_{0}", Fetch(id).CategoryId);
+            //string direction_ = "";
+            FAQ faq = Fetch(id);
+            FAQ[] faqs = FetchAll(faq.CategoryId);
+            switch (direction)
+            {
+				case eDirections.Down:
+                    //direction_ = "down";
+                    var above = faqs.ToList().Where(x => x.Order > faq.Order);
+                    if (above == null || above.Count() == 0) return;
+                    int nextOrder = above.Min(x => x.Order);
+                    int nextId = faqs.ToList().Where(x => x.Order == nextOrder).First().Id;
+                    FAQ nextFaq = Fetch(nextId);
+                    nextFaq.Order = faq.Order;
+                    nextFaq.SaveOrder();
+                    faq.Order = nextOrder;
+                    faq.SaveOrder();
+					break;
+				case eDirections.Up:
+                    //direction_ = "up";
+                    var below = faqs.ToList().Where(x => x.Order < faq.Order);
+                    if (below == null || below.Count() == 0) return;
+                    int prevOrder = below.Max(x => x.Order);
+                    int prevId = faqs.ToList().Where(x => x.Order == prevOrder).First().Id;
+                    FAQ prevFaq = Fetch(prevId);
+                    prevFaq.Order = faq.Order;
+                    prevFaq.SaveOrder();
+                    faq.Order = prevOrder;
+                    faq.SaveOrder();
+					break;
+			}
+            //using(SqlConnection conn = Config.DB.Open()) {
+            //    SqlHelper.ExecuteNonQuery(conn, "ChangeFAQOrder", id, Fetch(id).CategoryId, direction_);
+            //}
+            if(HttpContext.Current != null && HttpContext.Current.Cache[cacheKey] != null) {
+				HttpContext.Current.Cache.Remove(cacheKey);
+			}
+		}
+        public static DataTable FetchCategories()
+        {
+            DataTable dtCategories = new DataTable();
+            dtCategories.Columns.Add("Text");
+            dtCategories.Columns.Add("Value");
+            
+            using (SqlConnection conn = Config.DB.Open())
+            {
+                SqlDataReader reader = SqlHelper.ExecuteReader(conn, "FetchFaqCategories", null, null,1);
+                
+                while (reader.Read())
+                {
+                    dtCategories.Rows.Add((string)reader["Title"], (int)reader["ID"]);
+                }
+            }
+            return dtCategories;
+        }
+	}
+}

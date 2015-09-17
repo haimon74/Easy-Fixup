@@ -1,0 +1,8 @@
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\bin\Debug\ezFixUp.Model.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\bin\Debug\ezFixUp.Model.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\obj\Debug\ezFixUp.Model.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\obj\Debug\ezFixUp.Model.pdb
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\bin\Debug\ezFixUp.Model.dll.config
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\obj\Debug\ezFixUp.Model.csprojResolveAssemblyReference.cache
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\bin\Debug\EntityFramework.dll
+C:\Users\Haim\documents\visual studio 2010\Projects\ezFixUpWebApp\ezFixUp.Model\bin\Debug\EntityFramework.xml

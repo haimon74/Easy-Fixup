@@ -1,0 +1,30 @@
+
+#fmt {width:100%;background:PaleTurquoise/*#99CCFF*/; font-size:1.1em; height:auto;background:Transparent; 
+      font-family:Arial;position:relative;z-index:2;}
+#fmt ul {margin:0px; padding:0px; list-style:none;display:block;}
+#fmt ul li {position: relative;color:Black; width:100%; margin:0px; border-top: solid 1px teal; line-height:2em; height:2.2em; text-indent:1em;}
+#fmt ul li ul { display:none ;position:relative;z-index:2;}
+#fmt ul li a { font-family:Tahoma;text-decoration:none; line-height:2em;color:Teal; display:block; font-size:1em; height:2.2em;}
+#fmt ul li a span {display:block;  height:2.2em; line-height:2em;text-indent:1.5em;}
+
+#fmt ul li a:hover {background:teal; color:#e8fffa; }
+#fmt ul li a:hover span {background:teal; }
+
+#fmt ul li a.active ,#fmt ul li a.active span, #fmt ul li a.active:hover  
+{ background:DarkCyan !important; color:#FFFFFF !important; height:2.2em; line-height:2em; position:relative;z-index:2;}
+
+#fmt ul li.selected  { background: SkyBlue;color:teal; }
+#fmt ul li.selected a { /*color:#fff;*/text-indent:1em;color:teal;} 
+#fmt ul li.selected a:hover, #fmt ul li.selected a:hover span { background: SkyBlue;}
+
+#fmt ul li ul.fmtDrpDwn, #fmt ul li ul.fmtDrpDwn ul 
+{ position:absolute; left:100%; top:0; background: Lavender /*#99CCFF*/; z-index:999 !important; white-space:nowrap; 
+  width:110%;  -moz-box-shadow:2px 2px 5px #d1d1d1; -webkit-box-shadow:2px 2px 5px #d1d1d1; box-shadow:2px 2px 5px #d1d1d1; padding: 0 2px 0 2px; border:solid 1px teal;width:100%;display:block;}
+#fmt ul li ul.fmtDrpDwn ul {position:relative;z-index:auto;}
+#fmt ul li ul.fmtDrpDwn li, #fmt ul li ul.fmtDrpDwn ul li
+{ display:block; width:100%;height:2em; line-height:2em; border-top:solid 1px gray; font-size:1em; font-weight:normal;}
+#fmt ul li ul.fmtDrpDwn li a { display:block; width:100%;color:teal; font-size:0.9em; }
+#fmt ul li ul.fmtDrpDwn li a:hover  {background:SkyBlue/*#b658b3*/; color:teal;}
+#fmt ul li ul.fmtDrpDwn li.selected {background:SkyBlue/*#b658b3*/ ;-moz-box-shadow:none;  -webkit-box-shadow:none;box-shadow:none;}
+#fmt ul li ul.fmtDrpDwn li a span {text-indent:0.5em;}
+/*#fmt ul li ul.fmtDrpDwn ul { position:absolute; left:100%; top:0px; }*/

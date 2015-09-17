@@ -1,0 +1,167 @@
+<%@ Import Namespace="AspNetDating.Classes" %>
+
+<%@ Master Language="C#" 
+           AutoEventWireup="true" 
+           CodeBehind="ShowUser.master.cs" 
+           Inherits="AspNetDating.ShowUser"
+            MasterPageFile="Site.Master" %>
+
+<%@ Register TagPrefix="uc1" TagName="SideMenuStart" Src="Components/SideMenuStart.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="SmallBoxStart" Src="Components/SmallBoxStart.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="SmallBoxEnd" Src="Components/SmallBoxEnd.ascx" %>
+<%@ Register TagPrefix="components" Namespace="AspNetDating.Components" Assembly="AspNetDating" %>
+<%@ Register TagPrefix="mm" TagName="MatchToFriend" Src="Components/Matchmaker/MatchToFriend.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContent" runat="server">
+
+    <script type="text/javascript">
+        function contentPageLoad() {   //PageLoadedEventHandler
+            //if (jQuery == undefined) return;
+            jQuery(function() {
+                var options1 = {};
+                jQuery.getScript('scripts/jquery.popeye.js', function () {
+                    jQuery('#ppy1.ppy').popeye(options1);
+                });
+                jQuery('#fmt').addClass('js-isactive');
+                jQuery('#fmt li').hover(
+                    function () { jQuery(this).addClass('selected'); jQuery(this).find('ul.fmtDrpDwn:first').slideDown(200); },
+                    function () { jQuery(this).removeClass('selected'); jQuery(this).find('ul.fmtDrpDwn:first').fadeOut(800); }
+                );
+            });
+        }
+
+//        $(document).ready(function() {
+//            $('#fmt li').hover(function() {
+//                $(this).addClass('selected'); $(this).find('ul:first').slideDown();
+//            }, function() { $(this).removeClass('selected'); $(this).find('ul.fmtDrpDwn').hide() });
+//            $('.fmtDrpDwn li').hover(function() {
+//                $(this).find('ul:first').show('slide', { direction: 'left' }, 1000);
+//            }, function() { $(this).find('ul').hide() });
+//        });
+//        $(document).ready(function() {
+//            $("#fmt li").each(function() {
+//                if ($(this).hasClass('active')) {
+//                    $(this).removeClass('active');
+//                }
+//            });
+//            $("#fmt li").click(function() {
+//                $(this).addClass('active');
+//            });
+//        });
+    </script>
+
+    <div id="sidebar">
+        <mm:MatchToFriend ID="MatchToFriend1" runat="server" IsVisible="false" />
+        <asp:ContentPlaceHolder ID="cphLeftContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <uc1:SideMenuStart ID="SmallBoxStart2" runat="server"></uc1:SideMenuStart>
+        <div id="fmt">
+            <ul>
+                <li><a id="lnkViewProfile" enableviewstate="false" runat="server">
+                    <span><%= "View Profile".Translate() %></span></a></li>
+                <li id="divTranslate" visible="false" runat="server">
+                    <a href="#" id="btnTranslate">
+                    <span><%= "Translate Profile".Translate() %></span></a> </li>
+                <li><a id="lnkViewPhotos" enableviewstate="false" runat="server">
+                    <span><%= "View Photos".Translate() %></span></a></li>
+                <li id="pnlBlog" runat="server">
+                    <a id="lnkViewBlog" enableviewstate="false" runat="server">
+                        <span><%= "View Blog".Translate() %></span></a></li>
+                <li id="pnlViewEvents" runat="server">
+                    <a id="lnkViewEvents" enableviewstate="false" runat="server">
+                        <span><%= "View Events".Translate() %></span></a></li>
+                <li><a id="lnkSendMessage" enableviewstate="false" runat="server">
+                    <span><%= "Send Message".Translate() %></span></a></li>
+                <li id="pnlSendGift" runat="server">
+                  <a id="lnkSendGift" enableviewstate="false" runat="server">
+                    <span><%= "Send gift".Translate() %></span></a>
+                </li>
+                <li id="pnlSendWink" runat="server">
+                  <a id="lnkSendWink" enableviewstate="false" runat="server">
+                    <span><%= "Send wink".Translate() %></span></a>
+                </li>
+                <%--<li visible="false"><a id="lnkSendToFriend" enableviewstate="false" runat="server">
+                    <span><%= "Send profile to a friend".Translate() %></span></a></li>--%>
+                <li id="pnlAddToFavourites" runat="server">
+                    <a id="lnkAddToFavourites" enableviewstate="false" runat="server">
+                        <span><%= "Add to Favorites".Translate() %></span></a>
+                </li>
+                <li id="pnlRemoveFromFavourites" runat="server">
+                    <a id="lnkRemoveFromFavourites" enableviewstate="false" runat="server">
+                        <span><%= "Remove from Favorites".Translate() %></span></a></li>
+                <li id="pnlAddToFriends" runat="server">
+                    <a id="lnkAddToFriends" enableviewstate="false" runat="server">
+                        <span><%= "Add to Friends".Translate() %></span></a></li>
+                <li id="pnlRemoveFromFriends" runat="server">
+                    <a id="lnkRemoveFromFriends" enableviewstate="false" runat="server">
+                        <span><%= "Remove from Friends".Translate() %></span></a></li>
+                <%--<li id="pnlViewMutualFriends" runat="server"  Visible="false">
+                    <asp:LinkButton ID="lnkViewMutualFriends" runat="server" EnableViewState="false"
+                        OnClick="LnkViewMutualFriendsClick" /></li>--%>
+                <li id="pnlBlockUser" runat="server">
+                    <asp:LinkButton ID="lnkBlockUser" runat="server" EnableViewState="false" 
+                        OnClick="LnkBlockUserClick" />
+                </li>
+                <li id="pnlUnblockUser" runat="server">
+                    <asp:LinkButton ID="lnkUnblockUser" runat="server" EnableViewState="false" 
+                        OnClick="LnkUnblockUserClick" />
+                </li>
+                <li id="pnlGrantAccessToPrivatePhotos" runat="server">
+                    <asp:LinkButton ID="lnkGrantAccess" runat="server" EnableViewState="false" 
+                        OnClick="LnkGrantAccessClick" />
+                </li>
+                <li id="pnlDenyAccessToPrivatePhotos" runat="server">
+                    <asp:LinkButton ID="lnkDenyAccess" runat="server" EnableViewState="false" 
+                        OnClick="LnkDenyAccessClick" />
+                </li>
+                <li id="pnlGrantAccessToPrivateVideo" runat="server">
+                    <asp:LinkButton ID="lnkGrantVideoAccess" runat="server" EnableViewState="false" 
+                        OnClick="LnkGrantVideoAccessClick" />
+                </li>
+                <li id="pnlDenyAccessToPrivateVideo" runat="server">
+                    <asp:LinkButton ID="lnkDenyVideoAccess" runat="server" EnableViewState="false" 
+                        OnClick="LnkDenyVideoAccessClick" />
+                </li>
+                <li id="pnlGrantAccessToPrivateAudio" runat="server">
+                    <asp:LinkButton ID="lnkGrantAudioAccess" runat="server" EnableViewState="false" 
+                        OnClick="LnkGrantAudioAccessClick" />
+                </li>
+                <li id="pnlDenyAccessToPrivateAudio" runat="server">
+                    <asp:LinkButton ID="lnkDenyAudioAccess" runat="server" EnableViewState="false" 
+                        OnClick="LnkDenyAudioAccessClick" />
+                </li>
+                <li id="pnlCertifyUserIsGenuine" runat="server">
+                    <asp:LinkButton ID="lnkCertifyUserIsGenuine" runat="server" EnableViewState="false"
+                        OnClick="LnkCertifyUserIsGenuineClick" />
+                </li>
+                <li id="pnlRemoveVerifiedUserStatus" runat="server">
+                    <asp:LinkButton ID="lnkRemoveVerifiedUserStatus" runat="server" EnableViewState="false"
+                        OnClick="LnkRemoveVerifiedUserStatusClick" />
+                </li>
+                <li id="pnlInstantMessenger" runat="server"><a href="" 
+                    id="lnkInstantMessenger" runat="server">
+                    <span><%= "Start Messenger".Translate() %></span></a>
+                    <asp:LinkButton ID="lnkInstantMessengerPay" Visible="false" 
+                        runat="server" OnClick="LnkInstantMessengerPayClick">
+                        <span><%= "Start Messenger".Translate() %></span></asp:LinkButton>
+                </li>
+                <li id="pnlReportAbuseLink" visible="false" runat="server">
+                    <a id="lnkReportAbuse" runat="server" enableviewstate="false">
+                        <span><%= "Report Abuse".Translate() %></span></a></li>
+                <li id="divAddThis" visible="false" runat="server" class="BookmarkLink"></li>                
+            </ul>            
+        </div>
+        <uc1:SmallBoxEnd ID="SmallBoxEnd2" runat="server"></uc1:SmallBoxEnd>
+        <div style="height:550px;position:static;">
+            <components:BannerView ID="bvShowUserLeftBottom" runat="server" Key="ShowUserLeftBottom">
+            </components:BannerView>
+        </div>
+    </div>
+    <div id="main">
+        <asp:ContentPlaceHolder ID="cphInnerContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <div style="height:100px;position:static;">
+            <components:BannerView ID="bvShowUserRightBottom" runat="server" Key="ShowUserRightBottom">
+            </components:BannerView>
+        </div>
+    </div>
+</asp:Content>

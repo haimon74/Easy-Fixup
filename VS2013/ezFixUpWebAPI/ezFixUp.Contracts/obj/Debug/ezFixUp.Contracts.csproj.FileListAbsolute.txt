@@ -1,0 +1,1 @@
+c:\users\haim\documents\visual studio 2012\Projects\ezFixUpWebAPI\ezFixUp.Contracts\obj\Debug\ezFixUp.Contracts.csprojResolveAssemblyReference.cache

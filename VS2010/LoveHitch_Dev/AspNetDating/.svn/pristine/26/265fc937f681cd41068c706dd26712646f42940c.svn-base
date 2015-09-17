@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title></title>
+</head>
+<body onload="AlertPayForm.submit();">
+
+<form method="post" action="https://www.alertpay.com/PayProcess.aspx" name="AlertPayForm"> 
+<input type="hidden" name="ap_purchasetype" value="subscription"/>
+<input type="hidden" name="ap_merchant" value="{0}"/>
+<input type="hidden" name="ap_itemname" value="{1}"/>
+<input type="hidden" name="ap_currency" value="USD"/>
+<input type="hidden" name="ap_returnurl" value="{2}"/>
+<input type="hidden" name="ap_itemcode" value="{3}"/>
+<input type="hidden" name="ap_quantity" value="1"/>
+<input type="hidden" name="ap_description" value="{4}"/>
+<input type="hidden" name="ap_amount" value="{5}"/>
+<input type="hidden" name="apc_1" value="{6}"/>
+<input type="hidden" name="ap_timeunit" value="{7}"/>
+<input type="hidden" name="ap_periodlength" value="{8}"/>
+</form>
+
+</body>
+</html>

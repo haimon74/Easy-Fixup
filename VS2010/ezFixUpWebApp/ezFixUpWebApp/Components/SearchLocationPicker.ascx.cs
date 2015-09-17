@@ -1,0 +1,75 @@
+﻿using System;
+using System.Web.UI;
+using ezFixUp.Classes;
+
+namespace ezFixUp.Components
+{
+    public partial class SearchLocationPicker : UserControl
+    {
+        public string Country
+        {
+            get 
+            { 
+                string result = this.dropCountry.SelectedValue;
+                if (!Page.IsPostBack && this.dropCountry.SelectedValue.IsNullOrEmpty() &&
+                        CascadingDropDownCountry.SelectedValue != null &&
+                        CascadingDropDownCountry.SelectedValue.Trim(':') != "")
+                    result = CascadingDropDownCountry.SelectedValue;
+                return result;
+            }
+            set { CascadingDropDownCountry.SelectedValue = value; }
+        }
+        public string City
+        {
+            get 
+            {
+                string result = this.dropCity.SelectedValue ;
+                if (!Page.IsPostBack && string.IsNullOrEmpty(dropCity.SelectedValue) &&
+                        CascadingDropDownCity.SelectedValue != null &&
+                        CascadingDropDownCity.SelectedValue.Trim(':') != "")
+                    result = CascadingDropDownCity.SelectedValue; 
+                return result;
+            }
+            set { CascadingDropDownCity.SelectedValue = value; }
+        }
+        public string Region
+        {
+            get 
+            { 
+                string result = this.dropRegion.SelectedValue;
+                if (!Page.IsPostBack && dropRegion.SelectedValue.IsNullOrEmpty() &&
+                        CascadingDropDownState.SelectedValue != null &&
+                        CascadingDropDownState.SelectedValue.Trim(':') != "")
+                    result = CascadingDropDownState.SelectedValue;
+                return result;
+            }
+            set { CascadingDropDownState.SelectedValue = value; }
+        }
+        public string CountriesServiceMethod { set { this.CascadingDropDownCountry.ServiceMethod = value; } }
+        
+        
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            CascadingDropDownCity.LoadingText = "[Loading cities...]".Translate();
+        }
+
+        public void PopulateControls(User user)
+        {
+            if (!Config.Users.LocationPanelVisible) return;
+
+            if (dropCountry != null && user.Country.IsNotNullOrEmpty())
+            {
+                CascadingDropDownCountry.SelectedValue = user.Country;
+            }
+            if (dropRegion != null && user.State.IsNotNullOrEmpty())
+            {
+                CascadingDropDownState.SelectedValue = user.State;
+            }
+            if (dropCity != null && user.City.IsNotNullOrEmpty())
+            {
+                CascadingDropDownCity.SelectedValue = user.City;
+            }
+        }
+    }
+}

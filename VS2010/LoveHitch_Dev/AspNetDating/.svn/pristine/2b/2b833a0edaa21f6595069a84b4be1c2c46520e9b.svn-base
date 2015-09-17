@@ -1,0 +1,106 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.Services;
+using AspNetDating.Classes;
+
+namespace AspNetDating.Handlers
+{
+    /// <summary>
+    /// Summary description for $codebehindclassname$
+    /// </summary>
+    [WebService(Namespace = "https://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    public class MatchmakingRequest : LoveHitchBaseHandler
+    {
+        public override void ProcessRequest(HttpContext context)
+        {
+            base.ProcessRequest(context);
+            string reqUsername = context.Request.Params["mf"];
+            string withUsername = context.Request.Params["un"];
+            UserSession currentUser = PageBase.GetCurrentUserSession();
+
+            if (currentUser == null || reqUsername.IsNullOrEmpty() || withUsername.IsNullOrEmpty())
+                return;
+
+            var dic = (Dictionary<string, List<string>>)context.Session["MatchmakingRequestedDic"];
+            var reqList = dic.ContainsKey(withUsername) ? (List<string>)dic[withUsername] : null;
+            bool alreadyRequested = (reqList != null && reqList.Contains(reqUsername));
+
+            if (alreadyRequested) return;
+
+            if (reqList == null)
+            {
+                dic.Add(withUsername, new List<string>());
+            }
+            try
+            {
+                Message newMsg = new Message(currentUser.Username, reqUsername, withUsername);
+                newMsg.Subject = string.Format("Matchmaking Request from {0}".Translate(), 
+                    UserSession.GetViewedUserDisplayedNameByUsername(reqUsername, currentUser.Username));
+                newMsg.Body = string.Format(
+                    "Hi {0}, I would be happy if you can matchmaking me with {1}".Translate(),
+                    UserSession.GetViewedUserDisplayedNameByUsername(reqUsername, reqUsername), 
+                    UserSession.GetViewedUserDisplayedNameByUsername(reqUsername, withUsername));
+                newMsg.Send();
+                dic[withUsername].Add(reqUsername);
+                context.Response.Write("true");
+            }
+            catch
+            {
+                context.Response.Write("false");
+            }
+            context.Response.End();
+        }
+        /*
+    public class MatchmakingRequest : LoveHitchBaseAsyncHandler
+    {
+        private HttpContext _context;
+        public override void EndProcessRequest(IAsyncResult result)
+        {
+            var context = ItsAsynchOperation.Context;
+            base.EndProcessRequest(result);
+            string reqUsername = context.Request.Params["mf"];
+            string withUsername = context.Request.Params["un"];
+            UserSession currentUser = PageBase.GetCurrentUserSession();
+            
+            if (currentUser == null || reqUsername.IsNullOrEmpty() || withUsername.IsNullOrEmpty())
+                return;
+
+            var dic = (Dictionary<string, List<string>>)context.Session["MatchmakingRequestedDic"];
+            var reqList = (List<string>)dic[withUsername];
+            bool alreadyRequested = (reqList != null && reqList.Contains(reqUsername));
+            
+            if (alreadyRequested) return;
+
+            if (reqList == null)
+            {
+                dic.Add(withUsername, new List<string>());
+            }
+            try
+            {
+                Message newMsg = new Message(currentUser.Username, reqUsername);
+                newMsg.Subject = string.Format("Matchmaking Request from {0}".Translate(), currentUser.Username);
+                newMsg.Body = string.Format(
+                    "Hi {0}, I would be happy if you can matchmaking me with {1}".Translate(),
+                    reqUsername, withUsername);
+                newMsg.Send();
+                dic[withUsername].Add(reqUsername);
+                context.Response.Write("true");
+            }
+            catch
+            {
+                context.Response.Write("false");
+            }
+            context.Response.End();
+        }
+*/
+        public override bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+    }
+}
